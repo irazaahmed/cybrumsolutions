@@ -164,7 +164,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
 export const about = {
   heading: "About Cybrum Solutions",
   body: [
-    "Cybrum Solutions is an AI-native company founded and led by Ahmed Raza. We build intelligent automation, AI agents, chatbots, and web systems for businesses that want to move faster with less manual work.",
+    "Cybrum Solutions is an AI-native company founded and led by Ahmed Raza, an AI Solutions Expert. We build intelligent automation, AI agents, chatbots, and web systems for businesses that want to move faster with less manual work.",
     "One founder directing an agentic AI workforce, delivering team-level output with direct and accountable ownership from architecture to deployment.",
   ],
   nameStory: {

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
-import { site } from "@/lib/site";
+import { site, contact } from "@/lib/site";
 import "./globals.css";
+
+const baseUrl = `https://${site.domain}`;
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -16,36 +18,123 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`https://${site.domain}`),
+  metadataBase: new URL(baseUrl),
   title: {
     default: `${site.name}: AI Agents, Automation & Web Systems`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
   keywords: [
+    "Cybrum Solutions",
+    "Cybrum",
+    "Ahmed Raza",
+    "Ahmed Raza Cybrum Solutions",
+    "AI Solutions Expert",
     "AI automation",
     "AI agents",
+    "AI agent development",
     "AI chatbot development",
+    "custom AI assistants",
     "AI-native company",
     "business automation",
     "n8n automation",
+    "LangGraph",
+    "CrewAI",
     "Next.js development",
-    "Cybrum Solutions",
+    "AI company Pakistan",
   ],
-  authors: [{ name: site.founder }],
+  authors: [{ name: site.founder, url: contact.portfolio }],
   creator: site.founder,
+  publisher: site.name,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
+    url: baseUrl,
     title: `${site.name}: AI Agents, Automation & Web Systems`,
     description: site.description,
     siteName: site.name,
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.name}: AI agents, automation, chatbots and web systems`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name}: AI Agents, Automation & Web Systems`,
     description: site.description,
+    images: ["/og.png"],
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
+};
+
+/** Structured data so search engines understand the brand, site, and founder. */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${baseUrl}/#organization`,
+      name: site.name,
+      alternateName: "Cybrum",
+      url: baseUrl,
+      logo: `${baseUrl}/logo-dark-theme.png`,
+      image: `${baseUrl}/og.png`,
+      description: site.description,
+      email: contact.email,
+      foundingDate: "2025-12",
+      slogan: site.tagline,
+      founder: { "@id": `${baseUrl}/#ahmed-raza` },
+      sameAs: [contact.linkedinCompany],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: contact.whatsappNumber,
+        contactType: "sales",
+        areaServed: ["PK", "Worldwide"],
+        availableLanguage: ["English", "Urdu"],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${baseUrl}/#website`,
+      url: baseUrl,
+      name: site.name,
+      description: site.description,
+      inLanguage: "en",
+      publisher: { "@id": `${baseUrl}/#organization` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${baseUrl}/#ahmed-raza`,
+      name: site.founder,
+      jobTitle: "Founder & CEO, AI Solutions Expert",
+      description:
+        "AI Solutions Expert and founder of Cybrum Solutions, building intelligent automation, AI agents, and AI-native systems.",
+      worksFor: { "@id": `${baseUrl}/#organization` },
+      url: contact.portfolio,
+      sameAs: [contact.linkedinFounder, contact.github, contact.portfolio],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -69,6 +158,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
