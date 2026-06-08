@@ -1,50 +1,23 @@
 # Cybrum Solutions
 
-Cybrum Solutions is the official company website for Cybrum Solutions.  
-It is a modern Next.js site built to show the company, its services, and how to contact the founder.
+Cybrum Solutions aik modern company website hai jo **AI automation, custom chatbots, aur web development** services ko showcase karti hai.  
+Is project ka maqsad ek premium, professional, aur single-page experience dena hai jahan visitors ko company ka work, founder story, aur contact options easily milen.
 
-## What this site includes
+## Ye website kis baray me hai
 
-- A strong hero section
-- Services for AI automation, chatbots, and web development
-- Founder and company story
-- Work and capability highlights
-- Contact form and WhatsApp / LinkedIn links
+- **AI Automation & AI Agents** for real business workflows
+- **Custom Chatbots & Assistants** jo domain-specific tasks handle karen
+- **Web Development** for fast, modern, conversion-focused websites
+- Founder **Ahmed Raza** ka professional profile aur company positioning
+- Work highlights, services, and contact section for leads
 
-## Tech stack
+## Hosted link
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- Motion / animation support
+Live website: [www.cybrumsolutions.dev](https://www.cybrumsolutions.dev/)
 
-## Run locally
+## Short summary
 
-```bash
-npm install
-npm run dev
-```
-
-Then open:
-
-```bash
-http://localhost:3000
-```
-
-## Useful scripts
-
-```bash
-npm run dev
-npm run build
-npm run lint
-```
-
-## Project structure
-
-- `src/app/` - App router pages and API routes
-- `src/components/` - Reusable UI sections and layouts
-- `public/` - Images, logo files, and static assets
+Ye site Cybrum Solutions ki online presence hai. Isme business ko ek AI-native company ke taur par present kiya gaya hai jo end-to-end automation aur digital systems build karti hai.
 
 ## Contact
 
