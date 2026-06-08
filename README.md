@@ -1,23 +1,29 @@
 # Cybrum Solutions
 
-Cybrum Solutions aik modern company website hai jo **AI automation, custom chatbots, aur web development** services ko showcase karti hai.  
-Is project ka maqsad ek premium, professional, aur single-page experience dena hai jahan visitors ko company ka work, founder story, aur contact options easily milen.
+Cybrum Solutions is the official website for Cybrum Solutions, an AI-native company focused on building practical digital systems for modern businesses.
 
-## Ye website kis baray me hai
+This website presents the company as a premium, professional brand and gives visitors a clear view of what the business offers, who is behind it, and how to get in touch.
 
-- **AI Automation & AI Agents** for real business workflows
-- **Custom Chatbots & Assistants** jo domain-specific tasks handle karen
-- **Web Development** for fast, modern, conversion-focused websites
-- Founder **Ahmed Raza** ka professional profile aur company positioning
-- Work highlights, services, and contact section for leads
+## What this project is about
 
-## Hosted link
+- AI automation and AI agents for real business workflows
+- Custom chatbots and assistants built for specific business needs
+- Modern web development with fast, conversion-focused websites
+- A company story centered on end-to-end delivery and direct accountability
+- A simple path for potential clients to learn, trust, and contact the business
 
-Live website: [www.cybrumsolutions.dev](https://www.cybrumsolutions.dev/)
+## Hosted website
 
-## Short summary
+Live site: [https://www.cybrumsolutions.dev/](https://www.cybrumsolutions.dev/)
 
-Ye site Cybrum Solutions ki online presence hai. Isme business ko ek AI-native company ke taur par present kiya gaya hai jo end-to-end automation aur digital systems build karti hai.
+## What visitors can expect
+
+- A strong homepage hero section
+- Clear service sections
+- A “Why Cybrum” section that explains the value
+- Founder and company background
+- Work and capability highlights
+- Contact options for serious leads
 
 ## Contact
 
