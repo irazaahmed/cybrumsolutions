@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { navLinks, primaryCta, site } from "@/lib/site";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Logo } from "@/components/ui/Logo";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,14 +27,7 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         {/* Brand */}
         <a href="#top" className="flex items-center gap-2.5" aria-label={site.name}>
-          <Image
-            src="/CS Logo Without BG.png"
-            alt={`${site.name} logo`}
-            width={36}
-            height={36}
-            priority
-            className="h-9 w-9 object-contain"
-          />
+          <Logo priority className="h-9 w-9" />
           <span className="text-lg font-semibold tracking-tight font-heading">
             {site.shortName}
             <span className="text-accent"> Solutions</span>
@@ -54,40 +48,46 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop CTA */}
-        <a
-          href={primaryCta.href}
-          className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] md:inline-flex"
-        >
-          {primaryCta.label}
-        </a>
+        {/* Right controls */}
+        <div className="flex items-center gap-2.5">
+          {/* Theme switch (all sizes) */}
+          <ThemeToggle />
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          <span className="relative block h-4 w-5">
-            <span
-              className={`absolute left-0 block h-0.5 w-5 bg-current transition-all duration-300 ${
-                open ? "top-1.5 rotate-45" : "top-0"
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-1.5 block h-0.5 w-5 bg-current transition-all duration-300 ${
-                open ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`absolute left-0 block h-0.5 w-5 bg-current transition-all duration-300 ${
-                open ? "top-1.5 -rotate-45" : "top-3"
-              }`}
-            />
-          </span>
-        </button>
+          {/* Desktop CTA */}
+          <a
+            href={primaryCta.href}
+            className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] md:inline-flex"
+          >
+            {primaryCta.label}
+          </a>
+
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            <span className="relative block h-4 w-5">
+              <span
+                className={`absolute left-0 block h-0.5 w-5 bg-current transition-all duration-300 ${
+                  open ? "top-1.5 rotate-45" : "top-0"
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-1.5 block h-0.5 w-5 bg-current transition-all duration-300 ${
+                  open ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute left-0 block h-0.5 w-5 bg-current transition-all duration-300 ${
+                  open ? "top-1.5 -rotate-45" : "top-3"
+                }`}
+              />
+            </span>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}

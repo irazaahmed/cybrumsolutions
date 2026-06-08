@@ -24,9 +24,11 @@ export function About() {
                 height={560}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-5">
-                <p className="font-heading text-lg font-semibold">{site.founder}</p>
-                <p className="text-sm text-accent-bright">{site.founderRole}</p>
+              {/* Fixed dark caption gradient (theme-independent) so it reads as a
+                  premium overlay on the photo in both light and dark mode. */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-5">
+                <p className="font-heading text-lg font-semibold text-white">{site.founder}</p>
+                <p className="text-sm font-medium text-[#5eb0ff]">{site.founderRole}</p>
               </div>
             </div>
           </div>

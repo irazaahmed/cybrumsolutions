@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { MessageCircle, X, SendHorizontal, Sparkles, Loader2 } from "lucide-react";
-import { site } from "@/lib/site";
+import { Logo } from "@/components/ui/Logo";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -79,13 +78,7 @@ export function FloatingDock() {
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-border bg-surface/60 px-4 py-3">
               <span className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-accent/30 bg-accent/10">
-                <Image
-                  src="/CS Logo Without BG.png"
-                  alt={site.name}
-                  width={22}
-                  height={22}
-                  className="h-5 w-5 object-contain"
-                />
+                <Logo size={22} className="h-5 w-5" />
               </span>
               <div className="flex-1">
                 <p className="text-sm font-semibold leading-tight font-heading">

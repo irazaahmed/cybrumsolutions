@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { contact, navLinks, site } from "@/lib/site";
+import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,13 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div className="max-w-sm">
             <a href="#top" className="flex items-center gap-2.5" aria-label={site.name}>
-              <Image
-                src="/CS Logo Without BG.png"
-                alt={`${site.name} logo`}
-                width={36}
-                height={36}
-                className="h-9 w-9 object-contain"
-              />
+              <Logo className="h-9 w-9" />
               <span className="text-lg font-semibold tracking-tight font-heading">
                 {site.shortName}
                 <span className="text-accent"> Solutions</span>

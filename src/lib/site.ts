@@ -7,7 +7,7 @@ export const site = {
   name: "Cybrum Solutions",
   shortName: "Cybrum",
   tagline: "The core element of intelligent automation",
-  domain: "cybrumsolutions.com", // update when domain is finalized
+  domain: "www.cybrumsolutions.dev", // live production domain
   description:
     "Cybrum Solutions is an AI-native company building intelligent automation, AI agents, chatbots, and web systems that run real business workflows, built end to end.",
   founder: "Ahmed Raza",
