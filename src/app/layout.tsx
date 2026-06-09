@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
 import { site, contact } from "@/lib/site";
 import "./globals.css";
 
@@ -14,6 +14,13 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Nastaliq script for Urdu blog articles and PDFs (free, web-optimized).
+const nastaliq = Noto_Nastaliq_Urdu({
+  variable: "--font-nastaliq",
+  subsets: ["arabic"],
   display: "swap",
 });
 
@@ -146,7 +153,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${nastaliq.variable} h-full antialiased`}
     >
       <head>
         {/* Apply the saved theme before paint to avoid a flash. Supports

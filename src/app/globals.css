@@ -294,6 +294,55 @@ h1, h2, h3, h4 {
 }
 
 /* ------------------------------------------------------------------
+   Urdu (Nastaliq) typography + RTL
+   Applied on top of .prose-blog for the اردو translation. Uses the
+   Cybrum blue accent (never the personal copper theme).
+------------------------------------------------------------------- */
+.urdu-heading {
+  font-family: var(--font-nastaliq), "Jameel Noori Nastaleeq",
+    "Noto Nastaliq Urdu", serif;
+  line-height: 2;
+  text-align: right;
+}
+.prose-urdu {
+  font-family: var(--font-nastaliq), "Jameel Noori Nastaleeq",
+    "Noto Nastaliq Urdu", serif;
+  font-size: 1.5rem;
+  line-height: 2.5;
+  text-align: right;
+}
+.prose-urdu h2,
+.prose-urdu h3 {
+  font-family: var(--font-nastaliq), "Jameel Noori Nastaleeq",
+    "Noto Nastaliq Urdu", serif;
+  line-height: 2;
+}
+.prose-urdu h2 {
+  font-size: 2rem;
+}
+.prose-urdu h3 {
+  font-size: 1.7rem;
+}
+.prose-urdu ul,
+.prose-urdu ol {
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+.prose-urdu ul > li {
+  padding-right: 1.1rem;
+  padding-left: 0;
+}
+.prose-urdu ul > li::before {
+  right: 0;
+  left: auto;
+}
+.prose-urdu blockquote {
+  border-left: none;
+  border-right: 3px solid var(--color-accent);
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+/* ------------------------------------------------------------------
    PDF / print stylesheet
    The "Download PDF" button on a blog post calls window.print(). These
    rules transform the page into a premium branded document: a blue-on-dark
@@ -706,6 +755,22 @@ h1, h2, h3, h4 {
   #pdf-root .prose-blog blockquote,
   #pdf-root .prose-blog pre {
     break-inside: avoid;
+  }
+
+  /* Urdu article in the PDF: Nastaliq needs a little more room. */
+  #pdf-root .prose-urdu {
+    font-size: 14pt;
+    line-height: 2.1;
+  }
+  #pdf-root .prose-urdu h2 {
+    font-size: 17pt;
+  }
+  #pdf-root .prose-urdu h3 {
+    font-size: 15pt;
+  }
+  .pdf-cover .urdu-heading {
+    text-align: center;
+    line-height: 1.7;
   }
 }
 
