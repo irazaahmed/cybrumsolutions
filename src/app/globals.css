@@ -183,6 +183,411 @@ h1, h2, h3, h4 {
 }
 
 /* ------------------------------------------------------------------
+   Blog article typography (rendered Markdown)
+   Themed for both dark and light via the design tokens above.
+------------------------------------------------------------------- */
+.prose-blog {
+  color: var(--color-foreground);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.prose-blog > * + * {
+  margin-top: 1.25rem;
+}
+.prose-blog h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 5rem;
+}
+.prose-blog h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-blog p {
+  color: color-mix(in srgb, var(--color-foreground) 88%, var(--color-muted));
+}
+.prose-blog strong {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+.prose-blog a {
+  color: var(--color-accent-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  transition: color 0.2s ease;
+}
+.prose-blog a:hover {
+  color: var(--color-accent);
+}
+.prose-blog ul,
+.prose-blog ol {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.prose-blog ul {
+  list-style: none;
+}
+.prose-blog ul > li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+.prose-blog ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
+}
+.prose-blog ol {
+  list-style: decimal;
+}
+.prose-blog li {
+  color: color-mix(in srgb, var(--color-foreground) 88%, var(--color-muted));
+}
+.prose-blog blockquote {
+  border-left: 3px solid var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 7%, transparent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.85rem 1.25rem;
+  font-style: italic;
+  color: var(--color-foreground);
+}
+.prose-blog code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  color: var(--color-accent-bright);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.3rem;
+}
+.prose-blog pre {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+}
+.prose-blog pre code {
+  background: transparent;
+  color: var(--color-foreground);
+  padding: 0;
+}
+.prose-blog hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5rem 0;
+}
+
+/* ------------------------------------------------------------------
+   PDF / print stylesheet
+   The "Download PDF" button on a blog post calls window.print(). These
+   rules transform the page into a premium branded document: a blue-on-dark
+   (or blue-on-white in light theme) cover page, themed article typography,
+   and a running header/footer that reprints on every page.
+------------------------------------------------------------------- */
+
+/* Cover/branding blocks are print-only; hidden on screen. */
+.print-only {
+  display: none;
+}
+
+/* On screen the running-header table behaves like plain blocks (the article
+   reads normally); in print it becomes a real table whose thead/tfoot
+   reprint on every page. */
+.pdf-doc,
+.pdf-doc tbody,
+.pdf-doc tr,
+.pdf-doc td {
+  display: block;
+}
+.pdf-doc thead,
+.pdf-doc tfoot {
+  display: none;
+}
+
+@media print {
+  /* Zero page margin so the paper colour reaches every edge. The visual top/
+     bottom margins come from the repeating thead/tfoot padding instead. */
+  @page {
+    margin: 0;
+  }
+
+  /* PDF palette follows the active theme. Dark is the default; light applies
+     when <html data-theme="light"> (matching the on-screen theme system). */
+  html {
+    --pdf-bg: #0a0d14;
+    --pdf-text: #d7deea;
+    --pdf-strong: #ffffff;
+    --pdf-accent: #46a4ff;
+    --pdf-title: #5fb0ff;
+    --pdf-muted: #8b97ab;
+    --pdf-rule: rgba(30, 136, 232, 0.5);
+    --pdf-rule-soft: rgba(30, 136, 232, 0.3);
+    --pdf-code-bg: rgba(70, 164, 255, 0.12);
+    --pdf-watermark: rgba(70, 164, 255, 0.07);
+  }
+  html[data-theme="light"] {
+    --pdf-bg: #ffffff;
+    --pdf-text: #2c3852;
+    --pdf-strong: #0b1220;
+    --pdf-accent: #1565c0;
+    --pdf-title: #1773d6;
+    --pdf-muted: #5b6680;
+    --pdf-rule: rgba(21, 101, 192, 0.4);
+    --pdf-rule-soft: rgba(21, 101, 192, 0.28);
+    --pdf-code-bg: #eaf1fb;
+    --pdf-watermark: rgba(21, 101, 192, 0.06);
+  }
+
+  html,
+  body {
+    background: var(--pdf-bg) !important;
+    color: var(--pdf-text) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all on-screen chrome (nav, footer, buttons, ambient backdrop). */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Strip the on-screen <main> padding so there is no wasted space. */
+  #pdf-main {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  /* Horizontal gutters for all PDF content; paper stays edge-to-edge. */
+  #pdf-root {
+    padding: 0 15mm;
+    color: var(--pdf-text);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #pdf-root .print-only {
+    display: block;
+  }
+
+  /* --- Title page: fills the whole first page ----------------------- */
+  .pdf-cover {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 252mm;
+    padding: 16mm 0;
+    text-align: center;
+    break-after: page;
+    overflow: hidden;
+  }
+  .pdf-cover-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-heading);
+    font-size: 96pt;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--pdf-watermark);
+    z-index: 0;
+    white-space: nowrap;
+  }
+  .pdf-cover-top,
+  .pdf-cover-main,
+  .pdf-cover-foot {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+  .pdf-cover-brand {
+    font-family: var(--font-heading);
+    font-size: 14pt;
+    font-weight: 700;
+    letter-spacing: 0.36em;
+    color: var(--pdf-strong);
+  }
+  .pdf-cover-role {
+    margin-top: 2.5mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--pdf-accent);
+  }
+  .pdf-cover-kicker {
+    font-size: 9pt;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--pdf-accent);
+    margin-bottom: 7mm;
+  }
+  .pdf-cover-title {
+    max-width: 165mm;
+    margin: 0 auto;
+    font-family: var(--font-heading);
+    font-size: 32pt;
+    font-weight: 700;
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    color: var(--pdf-title);
+  }
+  .pdf-cover-rule {
+    width: 60mm;
+    height: 2px;
+    margin: 9mm auto;
+    background: linear-gradient(90deg, transparent, #1e88e8, transparent);
+  }
+  .pdf-cover-meta {
+    margin-top: 8mm;
+    font-size: 10pt;
+    letter-spacing: 0.05em;
+    color: var(--pdf-muted);
+  }
+  .pdf-cover-tags {
+    margin-top: 4mm;
+    font-size: 8.5pt;
+    letter-spacing: 0.1em;
+    color: var(--pdf-accent);
+  }
+  .pdf-cover-foot {
+    font-size: 9pt;
+    letter-spacing: 0.18em;
+    color: var(--pdf-muted);
+  }
+
+  /* --- Content pages: running header/footer via a repeating table --- */
+  .pdf-doc {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .pdf-doc thead {
+    display: table-header-group;
+  }
+  .pdf-doc tfoot {
+    display: table-footer-group;
+  }
+  .pdf-doc tbody {
+    display: table-row-group;
+  }
+  .pdf-doc tr {
+    display: table-row;
+  }
+  .pdf-doc td {
+    display: table-cell;
+  }
+  .pdf-rhead,
+  .pdf-rfoot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 8pt;
+    letter-spacing: 0.06em;
+  }
+  .pdf-rhead {
+    padding: 12mm 0 4mm;
+    margin-bottom: 8mm;
+    border-bottom: 1px solid var(--pdf-rule);
+  }
+  .pdf-rfoot {
+    padding: 4mm 0 12mm;
+    margin-top: 8mm;
+    border-top: 1px solid var(--pdf-rule);
+  }
+  .pdf-rhead-l,
+  .pdf-rfoot-l {
+    color: var(--pdf-accent);
+    font-weight: 600;
+  }
+  .pdf-rhead-r,
+  .pdf-rfoot-r {
+    color: var(--pdf-muted);
+  }
+
+  /* The on-screen article header is replaced by the cover page in the PDF,
+     so hide it to avoid showing the title twice. */
+  #pdf-root article > header {
+    display: none !important;
+  }
+
+  /* Body typography, themed via the --pdf-* palette. */
+  #pdf-root .prose-blog {
+    color: var(--pdf-text) !important;
+    font-size: 11pt;
+    line-height: 1.7;
+  }
+  #pdf-root .prose-blog h2 {
+    color: var(--pdf-accent) !important;
+    font-size: 15pt;
+    margin-top: 9mm;
+  }
+  #pdf-root .prose-blog h3 {
+    color: var(--pdf-strong) !important;
+    font-size: 12.5pt;
+    margin-top: 7mm;
+  }
+  #pdf-root .prose-blog p,
+  #pdf-root .prose-blog li {
+    color: var(--pdf-text) !important;
+  }
+  #pdf-root .prose-blog strong {
+    color: var(--pdf-strong) !important;
+  }
+  #pdf-root .prose-blog a {
+    color: var(--pdf-accent) !important;
+  }
+  #pdf-root .prose-blog ul > li::before {
+    background: var(--pdf-accent) !important;
+  }
+  #pdf-root .prose-blog blockquote {
+    color: var(--pdf-strong) !important;
+    border-color: #1e88e8 !important;
+    background: var(--pdf-code-bg) !important;
+  }
+  #pdf-root .prose-blog code,
+  #pdf-root .prose-blog pre {
+    background: var(--pdf-code-bg) !important;
+    border-color: var(--pdf-rule-soft) !important;
+    color: var(--pdf-text) !important;
+  }
+  #pdf-root .prose-blog hr {
+    border-color: var(--pdf-rule-soft) !important;
+  }
+
+  /* Avoid awkward page breaks. */
+  .pdf-cover {
+    break-inside: avoid;
+  }
+  #pdf-root .prose-blog h2,
+  #pdf-root .prose-blog h3 {
+    break-after: avoid;
+  }
+  #pdf-root .prose-blog li,
+  #pdf-root .prose-blog blockquote,
+  #pdf-root .prose-blog pre {
+    break-inside: avoid;
+  }
+}
+
+/* ------------------------------------------------------------------
    Keyframes
 ------------------------------------------------------------------- */
 @keyframes shimmer {

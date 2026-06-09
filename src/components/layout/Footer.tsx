@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { contact, navLinks, site } from "@/lib/site";
 import { Logo } from "@/components/ui/Logo";
 
@@ -10,13 +11,13 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="max-w-sm">
-            <a href="#top" className="flex items-center gap-2.5" aria-label={site.name}>
+            <Link href="/" className="flex items-center gap-2.5" aria-label={site.name}>
               <Logo className="h-9 w-9" />
               <span className="text-lg font-semibold tracking-tight font-heading">
                 {site.shortName}
                 <span className="text-accent"> Solutions</span>
               </span>
-            </a>
+            </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               An AI-native company building intelligent automation, AI agents, and
               web systems that run real business workflows.
@@ -31,12 +32,18 @@ export function Footer() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={`/${link.href}`}
                 className="text-sm text-muted transition-colors hover:text-foreground"
               >
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/blog"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* Connect */}
