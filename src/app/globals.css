@@ -327,6 +327,14 @@ h1, h2, h3, h4 {
     margin: 0;
   }
 
+  /* Force every background/colour to render in the PDF, even when the user's
+     print dialog has "Background graphics" off. Applied universally so the
+     dark theme actually prints dark (not a washed-out white page). */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   /* PDF palette follows the active theme. Dark is the default; light applies
      when <html data-theme="light"> (matching the on-screen theme system). */
   html {
@@ -341,7 +349,7 @@ h1, h2, h3, h4 {
     --pdf-code-bg: rgba(70, 164, 255, 0.12);
     --pdf-watermark: rgba(70, 164, 255, 0.07);
   }
-  html[data-theme="light"] {
+  html[data-print-theme="light"] {
     --pdf-bg: #ffffff;
     --pdf-text: #2c3852;
     --pdf-strong: #0b1220;
@@ -402,14 +410,39 @@ h1, h2, h3, h4 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(-30deg);
+    white-space: nowrap;
     font-family: var(--font-heading);
-    font-size: 96pt;
+    font-size: 56pt;
     font-weight: 700;
     line-height: 1;
     color: var(--pdf-watermark);
     z-index: 0;
-    white-space: nowrap;
+  }
+  .pdf-cover-logo {
+    position: absolute;
+    top: 14mm;
+    left: 0;
+    z-index: 2;
+    line-height: 0;
+  }
+  .pdf-cover-logo img {
+    height: 15mm;
+    width: auto;
+  }
+  /* Logo variant follows the LOCKED print theme, not the live data-theme
+     (which print emulation flips to light in system mode). */
+  .logo-dark-asset {
+    display: inline-block !important;
+  }
+  .logo-light-asset {
+    display: none !important;
+  }
+  html[data-print-theme="light"] .logo-dark-asset {
+    display: none !important;
+  }
+  html[data-print-theme="light"] .logo-light-asset {
+    display: inline-block !important;
   }
   .pdf-cover-top,
   .pdf-cover-main,
@@ -572,8 +605,97 @@ h1, h2, h3, h4 {
     border-color: var(--pdf-rule-soft) !important;
   }
 
+  /* --- Founder page: print-only clean final page (mirrors the cover) -- */
+  .pdf-author {
+    break-before: page;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 252mm;
+    padding: 16mm 0;
+    text-align: center;
+  }
+  .pdf-author-top,
+  .pdf-author-main,
+  .pdf-author-foot {
+    width: 100%;
+  }
+  .pdf-author-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pdf-author-kicker {
+    font-size: 9pt;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--pdf-accent);
+  }
+  .pdf-author-foot {
+    font-size: 9pt;
+    letter-spacing: 0.18em;
+    color: var(--pdf-muted);
+  }
+  .pdf-author-photo {
+    width: 44mm !important;
+    height: 44mm !important;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    border: 2px solid var(--pdf-accent);
+    box-shadow: 0 0 0 4px var(--pdf-code-bg);
+  }
+  .pdf-author-name {
+    margin-top: 9mm;
+    font-family: var(--font-heading);
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--pdf-strong);
+  }
+  .pdf-author-role {
+    margin-top: 2.5mm;
+    font-size: 9.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pdf-accent);
+  }
+  .pdf-author-bio {
+    max-width: 150mm;
+    margin: 9mm auto 0;
+    font-size: 10.5pt;
+    line-height: 1.75;
+    color: var(--pdf-text) !important;
+  }
+  .pdf-author-links {
+    width: 118mm;
+    margin: 12mm auto 0;
+    text-align: left;
+  }
+  .pdf-author-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6mm;
+    padding: 3.5mm 0;
+    border-bottom: 1px solid var(--pdf-rule-soft);
+    font-size: 10.5pt;
+  }
+  .pdf-author-link-label {
+    color: var(--pdf-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 8.5pt;
+  }
+  .pdf-author-link a {
+    color: var(--pdf-accent) !important;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
   /* Avoid awkward page breaks. */
-  .pdf-cover {
+  .pdf-cover,
+  .pdf-author {
     break-inside: avoid;
   }
   #pdf-root .prose-blog h2,

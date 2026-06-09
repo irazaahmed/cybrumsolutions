@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { site, contact } from "@/lib/site";
+import { Logo } from "@/components/ui/Logo";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { DownloadPdfButton } from "@/components/blog/DownloadPdfButton";
 import { Footer } from "@/components/layout/Footer";
@@ -101,7 +103,10 @@ export default async function BlogPostPage({ params }: Props) {
         <div id="pdf-root" className="mt-6">
           {/* Cover page: shown only in the printed PDF (hidden on screen) */}
           <div className="pdf-cover print-only" aria-hidden>
-            <div className="pdf-cover-watermark">Cybrum</div>
+            <div className="pdf-cover-logo">
+              <Logo size={56} priority />
+            </div>
+            <div className="pdf-cover-watermark">Cybrum Solutions</div>
             <div className="pdf-cover-top">
               <div className="pdf-cover-brand">CYBRUM SOLUTIONS</div>
               <div className="pdf-cover-role">AI-Native Company</div>
@@ -180,6 +185,47 @@ export default async function BlogPostPage({ params }: Props) {
               </tr>
             </tbody>
           </table>
+
+          {/* Founder page: print-only clean final page (its own header/footer,
+              outside the running-header table so no stray trailing page). */}
+          <section className="pdf-author print-only" aria-hidden>
+            <div className="pdf-author-top">
+              <div className="pdf-author-kicker">About the author</div>
+            </div>
+            <div className="pdf-author-main">
+              <Image
+                src="/ahmed.webp"
+                alt={site.founder}
+                width={180}
+                height={180}
+                priority
+                className="pdf-author-photo"
+              />
+              <div className="pdf-author-name">{site.founder}</div>
+              <div className="pdf-author-role">{site.founderRole}, Cybrum Solutions</div>
+              <p className="pdf-author-bio">
+                AI Solutions Expert and founder of Cybrum Solutions. Ahmed
+                orchestrates an agentic AI workforce to build intelligent
+                automation, AI agents, chatbots, and web systems end to end,
+                with one accountable builder.
+              </p>
+              <div className="pdf-author-links">
+                <div className="pdf-author-link">
+                  <span className="pdf-author-link-label">Portfolio</span>
+                  <a href={contact.portfolio}>irazaahmed.me</a>
+                </div>
+                <div className="pdf-author-link">
+                  <span className="pdf-author-link-label">WhatsApp</span>
+                  <a href={contact.whatsappLink}>{contact.whatsappNumber}</a>
+                </div>
+                <div className="pdf-author-link">
+                  <span className="pdf-author-link-label">LinkedIn</span>
+                  <a href={contact.linkedinFounder}>linkedin.com/in/irazaahmed</a>
+                </div>
+              </div>
+            </div>
+            <div className="pdf-author-foot">www.cybrumsolutions.dev</div>
+          </section>
         </div>
 
         <div className="no-print mt-14 border-t border-border pt-8">
