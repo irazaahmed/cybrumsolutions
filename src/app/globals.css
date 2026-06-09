@@ -670,6 +670,10 @@ h1, h2, h3, h4 {
   .pdf-author-foot {
     width: 100%;
   }
+  /* Breathing room between the "About the author" heading and the photo. */
+  .pdf-author-top {
+    margin-bottom: 16mm;
+  }
   .pdf-author-main {
     display: flex;
     flex-direction: column;
@@ -696,11 +700,13 @@ h1, h2, h3, h4 {
     box-shadow: 0 0 0 4px var(--pdf-code-bg);
   }
   .pdf-author-name {
+    display: inline-block;
     margin-top: 9mm;
     font-family: var(--font-heading);
     font-size: 22pt;
     font-weight: 700;
     color: var(--pdf-strong);
+    text-decoration: none;
   }
   .pdf-author-role {
     margin-top: 2.5mm;

@@ -52,7 +52,7 @@ const T: Record<
     article: "Article",
     aboutAuthor: "About the author",
     role: "Founder & CEO, Cybrum Solutions",
-    bio: "AI Solutions Expert and founder of Cybrum Solutions. Ahmed orchestrates an agentic AI workforce to build intelligent automation, AI agents, chatbots, and web systems end to end, with one accountable builder.",
+    bio: "AI Solutions Expert and founder of Cybrum Solutions. Ahmed Raza orchestrates an agentic AI workforce to build intelligent automation, AI agents, chatbots, and web systems end to end, with one accountable builder.",
     links: { portfolio: "Portfolio", whatsapp: "WhatsApp", linkedin: "LinkedIn" },
   },
   ro: {
@@ -62,7 +62,7 @@ const T: Record<
     article: "Article",
     aboutAuthor: "Musannif ke baare mein",
     role: "Founder & CEO, Cybrum Solutions",
-    bio: "AI Solutions Expert aur Cybrum Solutions ke founder. Ahmed aik agentic AI team ko orchestrate karte hain taake intelligent automation, AI agents, chatbots aur web systems shuru se aakhir tak, aik accountable builder ke saath banaye jaa sakein.",
+    bio: "AI Solutions Expert aur Cybrum Solutions ke founder. Ahmed Raza aik agentic AI team ko orchestrate karte hain taake intelligent automation, AI agents, chatbots aur web systems shuru se aakhir tak, aik accountable builder ke saath banaye jaa sakein.",
     links: { portfolio: "Portfolio", whatsapp: "WhatsApp", linkedin: "LinkedIn" },
   },
   ur: {
@@ -72,7 +72,7 @@ const T: Record<
     article: "مضمون",
     aboutAuthor: "مصنف کے بارے میں",
     role: "بانی و سی ای او، سائبرم سلوشنز",
-    bio: "اے آئی سلوشنز ایکسپرٹ اور سائبرم سلوشنز کے بانی۔ احمد ایک ایجنٹک اے آئی ٹیم کو منظم کرتے ہیں تاکہ ذہین آٹومیشن، اے آئی ایجنٹس، چیٹ بوٹس اور ویب سسٹمز کو شروع سے آخر تک ایک ذمہ دار بلڈر کے ساتھ تیار کیا جا سکے۔",
+    bio: "اے آئی سلوشنز ایکسپرٹ اور سائبرم سلوشنز کے بانی۔ احمد رضا ایک ایجنٹک اے آئی ٹیم کو منظم کرتے ہیں تاکہ ذہین آٹومیشن، اے آئی ایجنٹس، چیٹ بوٹس اور ویب سسٹمز کو شروع سے آخر تک ایک ذمہ دار بلڈر کے ساتھ تیار کیا جا سکے۔",
     links: { portfolio: "پورٹ فولیو", whatsapp: "واٹس ایپ", linkedin: "لنکڈاِن" },
   },
 };
@@ -299,7 +299,9 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
                 priority
                 className="pdf-author-photo"
               />
-              <div className="pdf-author-name">{site.founder}</div>
+              <a href={contact.linkedinFounder} className="pdf-author-name">
+                {site.founder}
+              </a>
               <div className={`pdf-author-role ${isUrdu ? "urdu-heading" : ""}`}>{t.role}</div>
               <p className={`pdf-author-bio ${isUrdu ? "urdu-heading" : ""}`} dir={isUrdu ? "rtl" : "ltr"}>
                 {t.bio}
