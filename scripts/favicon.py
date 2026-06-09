@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw
 
 SIZE = 512               # square, high-res; browsers/Google rescale down
 BG = (10, 13, 20, 255)   # #0a0d14 brand deep charcoal
-PAD_RATIO = 0.20         # padding around the logo
+PAD_RATIO = 0.06         # small padding so the logo reads near edge-to-edge
 RADIUS = int(SIZE * 0.22)
 
 root = Path(__file__).resolve().parents[1]
@@ -27,8 +27,11 @@ ImageDraw.Draw(mask).rounded_rectangle([0, 0, SIZE - 1, SIZE - 1], radius=RADIUS
 fill = Image.new("RGBA", (SIZE, SIZE), BG)
 bg.paste(fill, (0, 0), mask)
 
-# Logo, scaled to fit inside the padding, centered
+# Logo, cropped to its visible bounds then scaled near edge-to-edge, centered
 logo = Image.open(logo_path).convert("RGBA")
+bbox = logo.getbbox()  # trim transparent margins so the mark fills the icon
+if bbox:
+    logo = logo.crop(bbox)
 inner = int(SIZE * (1 - 2 * PAD_RATIO))
 lw, lh = logo.size
 scale = min(inner / lw, inner / lh)
