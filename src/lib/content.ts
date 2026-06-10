@@ -196,7 +196,7 @@ export const about = {
       "That suffix turns a word into a single, foundational element. Cybrum names exactly that: the core building block of the intelligent digital world.",
       "For your business, Cybrum Solutions is that element. The substance that turns scattered tools, tasks, and processes into one intelligent system that runs on its own.",
     ],
-    closing: "Cybrum Solutions: the core element of intelligent automation.",
+    closing: "Cybrum Solutions: one element, every solution.",
   },
 } as const;
 

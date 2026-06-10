@@ -228,7 +228,7 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
                 <td>
                   <div className="pdf-rfoot">
                     <span className="pdf-rfoot-l">www.cybrumsolutions.dev</span>
-                    <span className="pdf-rfoot-r">The core element of intelligent automation</span>
+                    <span className="pdf-rfoot-r">One element. Every solution.</span>
                   </div>
                 </td>
               </tr>
