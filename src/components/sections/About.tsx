@@ -19,7 +19,7 @@ export function About() {
             <div className="relative overflow-hidden rounded-3xl border border-border">
               <Image
                 src="/ahmed.png"
-                alt={`${site.founder}, ${site.founderRole} of ${site.name}`}
+                alt={`${site.founder}, AI Solutions Expert and ${site.founderRole} of ${site.name}`}
                 width={480}
                 height={560}
                 className="h-full w-full object-cover"

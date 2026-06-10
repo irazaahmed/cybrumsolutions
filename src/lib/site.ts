@@ -9,7 +9,7 @@ export const site = {
   tagline: "One element. Every solution.",
   domain: "www.cybrumsolutions.dev", // live production domain
   description:
-    "Cybrum Solutions is an AI-native company building intelligent automation, AI agents, chatbots, and web systems that run real business workflows, built end to end.",
+    "Cybrum Solutions is an AI-native company in Pakistan building AI agents, automation, chatbots, and web systems for clients worldwide, built end to end.",
   founder: "Ahmed Raza",
   founderRole: "Founder & CEO",
 } as const;

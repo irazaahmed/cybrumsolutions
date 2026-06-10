@@ -86,6 +86,15 @@ export function Hero() {
               {secondaryCta.label}
             </Button>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.34 }}
+            className="mt-6 text-sm text-muted/80"
+          >
+            Serving businesses in Pakistan and worldwide.
+          </motion.p>
         </div>
 
         {/* AI core visual */}

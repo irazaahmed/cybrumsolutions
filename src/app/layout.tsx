@@ -5,6 +5,10 @@ import "./globals.css";
 
 const baseUrl = `https://${site.domain}`;
 
+// Buyer-intent homepage title: leads with the service term clients actually
+// search ("AI Automation Agency") while keeping the brand. Kept under ~60 chars.
+const homeTitle = `${site.name}: AI Automation Agency & AI Agents`;
+
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
@@ -27,7 +31,7 @@ const nastaliq = Noto_Nastaliq_Urdu({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: `${site.name}: AI Agents, Automation & Web Systems`,
+    default: homeTitle,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -71,7 +75,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: baseUrl,
-    title: `${site.name}: AI Agents, Automation & Web Systems`,
+    title: homeTitle,
     description: site.description,
     siteName: site.name,
     locale: "en_US",
@@ -86,7 +90,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name}: AI Agents, Automation & Web Systems`,
+    title: homeTitle,
     description: site.description,
     images: ["/og.png"],
   },

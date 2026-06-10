@@ -20,7 +20,8 @@ export function Footer() {
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               An AI-native company building intelligent automation, AI agents, and
-              web systems that run real business workflows.
+              web systems that run real business workflows. Based in Pakistan,
+              serving clients worldwide.
             </p>
           </div>
 

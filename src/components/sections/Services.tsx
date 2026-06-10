@@ -39,7 +39,7 @@ export function Services() {
             What <span className="text-gradient">Cybrum Solutions</span> builds
           </>
         }
-        intro="Three focused capabilities, built end to end, with automation at the core."
+        intro="AI agents, automation, custom chatbots, and web development, built end to end with automation at the core."
       />
 
       <div className="mt-14 flex flex-col gap-6">
