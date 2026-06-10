@@ -57,7 +57,8 @@ CAPTURING LEADS (important)
 - You can submit a lead directly to the Cybrum Solutions team using the capture_lead tool. This is how a serious visitor books their free AI audit without leaving the chat.
 - When a visitor shows real interest (wants an audit, a quote, to start a project, or to be contacted), offer to take their details right here so the team can reach out.
 - Collect, conversationally and a few at a time (do not interrogate): their name, a way to reach them (email or WhatsApp number), their business or industry, and a short description of what they need. Budget is optional.
-- Call capture_lead as soon as you have at least a name, one contact method (email or phone), and what they need. Do not call it earlier, and never invent details the visitor did not give.
+- CRITICAL: Only call capture_lead once the visitor has actually given you their REAL name and a REAL email address or phone/WhatsApp number in the conversation. Pass exactly what they typed. NEVER use placeholders like "user's name" or "user's phone number", and never guess or invent a name, email, or number. If you do not have a real contact method yet, do not call the tool, just politely ask for it first.
+- A lead with no real email or phone is useless to the team because they cannot reply, so the tool will reject it. If it returns missing_contact or missing_fields, ask the visitor for the missing real detail and try again.
 - After the tool succeeds, warmly confirm that the team has their request and will reach out, and mention they can also message WhatsApp ${contact.whatsappNumber} for anything urgent.
 - If the tool reports it is not configured or fails, apologize briefly and give them the WhatsApp number and the contact form as a fallback.
 
@@ -118,6 +119,28 @@ type ToolArgs = {
   budget?: string;
 };
 
+/** A plausible email address (not a placeholder). */
+function isRealEmail(value?: string): boolean {
+  return !!value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+/** A phone/WhatsApp number must carry enough actual digits to be reachable. */
+function isRealPhone(value?: string): boolean {
+  if (!value) return false;
+  return (value.match(/\d/g)?.length ?? 0) >= 7;
+}
+
+/** Catch the model filling fields with template text like "user's name",
+ *  "your email", "<name>", or "N/A" instead of what the visitor actually said. */
+function looksLikePlaceholder(value?: string): boolean {
+  if (!value) return false;
+  return (
+    /\b(user'?s?|your|insert|example|placeholder|sample|n\/?a|tbd|unknown|xxx+)\b/i.test(
+      value,
+    ) || /[<\[{].*[>\]}]/.test(value)
+  );
+}
+
 /** Run the capture_lead tool: email the lead to the team. Returns a small JSON
  *  string the model reads to decide how to reply. */
 async function runCaptureLead(args: ToolArgs): Promise<string> {
@@ -126,18 +149,32 @@ async function runCaptureLead(args: ToolArgs): Promise<string> {
   const email = args.email?.trim();
   const phone = args.phone?.trim();
 
-  if (!name || !need || (!email && !phone)) {
+  // The visitor must have given a real name and a real description, not template text.
+  if (!name || !need || looksLikePlaceholder(name) || looksLikePlaceholder(need)) {
     return JSON.stringify({
       ok: false,
       error: "missing_fields",
-      message: "Need at least a name, what they need, and an email or phone.",
+      message:
+        "Need the visitor's real name and a short description of what they need. Do not use placeholders, ask them.",
+    });
+  }
+
+  // A lead is only useful with a contact method the team can actually reply to.
+  const validEmail = isRealEmail(email) && !looksLikePlaceholder(email);
+  const validPhone = isRealPhone(phone) && !looksLikePlaceholder(phone);
+  if (!validEmail && !validPhone) {
+    return JSON.stringify({
+      ok: false,
+      error: "missing_contact",
+      message:
+        "Before submitting, you must collect a real email address or a real phone/WhatsApp number from the visitor. Politely ask for it and never make one up.",
     });
   }
 
   const result = await sendLeadEmail({
     name,
-    email,
-    phone,
+    email: validEmail ? email : undefined,
+    phone: validPhone ? phone : undefined,
     businessType: args.business_type?.trim() || undefined,
     need,
     budget: args.budget?.trim() || undefined,
