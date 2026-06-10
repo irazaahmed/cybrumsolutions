@@ -14,6 +14,27 @@ export const trustStrip = {
   tools: ["Claude API", "LangGraph", "CrewAI", "n8n", "Next.js", "Python"],
 } as const;
 
+export type Stat = { value: string; label: string };
+
+/**
+ * Credibility strip shown in About. Every number here is real and defensible,
+ * not marketing inflation. Reinforces the "one accountable partner" positioning.
+ */
+export const stats: Stat[] = [
+  {
+    value: "33",
+    label: "Languages coordinated in a single AI-managed translation system",
+  },
+  {
+    value: "8+ yrs",
+    label: "Domain expertise bridging deep research and AI engineering",
+  },
+  {
+    value: "1",
+    label: "Accountable partner from architecture to deployment, no vendor juggling",
+  },
+];
+
 export type Service = {
   id: string;
   title: string;
@@ -116,7 +137,7 @@ export type Project = {
 export const work: { heading: string; intro: string; projects: Project[] } = {
   heading: "What I've Built",
   intro:
-    "A selection of systems built across AI agents, automation, and web. Practical execution, not theory.",
+    "Real systems shipped across AI agents, automation, and web, not slide decks. Each one was built end to end and deployed to run.",
   projects: [
     {
       title: "SMIT Virtual Assistant",
@@ -138,7 +159,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
       title: "Physical AI & Humanoid Robotics",
       category: "AI / ML",
       description:
-        "Exploration of intelligent control and decision-making in robotic systems.",
+        "Intelligent control and real-time decision-making applied to robotic systems, where AI reasoning meets the physical world.",
       stack: ["Python", "AI/ML", "Robotics"],
       link: "https://github.com/irazaahmed/physical-ai-humanoid-robotics",
     },
@@ -188,6 +209,6 @@ export const contentHub = {
 
 export const contactSection = {
   heading: "Let's build something that actually works.",
-  sub: "If you have a workflow that should be automated, or an AI system you want built properly, let's talk.",
-  formNote: "Tell us what you need. Serious inquiries get a free AI audit.",
+  sub: "Tell us about the workflow you want automated or the AI system you want built. You get a free audit with a clear, honest answer on what is worth building and how.",
+  formNote: "Tell us what you need. Serious inquiries get a free AI audit, usually a reply within 24 hours.",
 } as const;

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Card } from "@/components/ui/Card";
-import { about } from "@/lib/content";
+import { about, stats } from "@/lib/content";
 import { site, contact } from "@/lib/site";
 
 export function About() {
@@ -59,6 +59,23 @@ export function About() {
           </a>
         </Reveal>
       </div>
+
+      {/* Credibility strip: real, defensible numbers */}
+      <Reveal delay={0.05}>
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-2xl border border-border bg-surface/40 p-6 text-center sm:text-left"
+            >
+              <p className="font-heading text-4xl font-semibold tracking-tight text-gradient sm:text-5xl">
+                {stat.value}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-muted">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
 
       {/* Name story */}
       <Reveal delay={0.05}>
