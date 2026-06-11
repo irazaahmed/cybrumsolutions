@@ -75,26 +75,23 @@ export function Hero() {
             {hero.sub}
           </motion.p>
 
+          {/* CTAs with the region line centered under the button group */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.28 }}
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
+            className="mt-9 flex w-fit flex-col items-center gap-3"
           >
-            <Button href={primaryCta.href}>{primaryCta.label}</Button>
-            <Button href={secondaryCta.href} variant="secondary">
-              {secondaryCta.label}
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button href={primaryCta.href}>{primaryCta.label}</Button>
+              <Button href={secondaryCta.href} variant="secondary">
+                {secondaryCta.label}
+              </Button>
+            </div>
+            <p className="mt-3 text-center text-sm text-muted/80">
+              Serving businesses in Pakistan and worldwide.
+            </p>
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.34 }}
-            className="mt-6 text-sm text-muted/80"
-          >
-            Serving businesses in Pakistan and worldwide.
-          </motion.p>
         </div>
 
         {/* AI core visual */}
