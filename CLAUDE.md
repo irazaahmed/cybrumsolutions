@@ -62,7 +62,7 @@ Ahmed is a **solo founder, but NEVER framed as "just one guy."** Frame him as an
 
 *(Treat the hexes as a starting point; sample exact values from the logo PNGs during build and lock them as Tailwind `@theme` tokens.)*
 
-**Logo assets:** `public/CS Logo With BG.png`, `public/CS Logo Without BG.png` (use the no-background version in the navbar over the dark theme). The mark is an intricate geometric "C + S" — it can blur at small sizes, so pair logo + "Cybrum" wordmark in the navbar and plan a simplified favicon.
+**Logo assets:** source masters live in `assets/brand/` (`CS Logo With BG.png`, `CS Logo Without BG.png`, original `ahmed.png`); they are multi-MB and intentionally kept OUT of `public/`. The site serves the optimized variants: `public/logo-dark-theme.png`, `public/logo-light-theme.png`, `public/ahmed.webp`. The mark is an intricate geometric "C + S" — it can blur at small sizes, so pair logo + "Cybrum" wordmark in the navbar and plan a simplified favicon.
 
 ---
 

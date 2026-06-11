@@ -8,8 +8,10 @@ import { Services } from "@/components/sections/Services";
 import { WhyCybrum } from "@/components/sections/WhyCybrum";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Work } from "@/components/sections/Work";
+import { Proof } from "@/components/sections/Proof";
 import { About } from "@/components/sections/About";
 import { ContentHub } from "@/components/sections/ContentHub";
+import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 // import { Products } from "@/components/sections/Products"; // activate when a product is ready
 
@@ -32,8 +34,10 @@ export default function Home() {
         <WhyCybrum />
         <HowItWorks />
         <Work />
+        <Proof />
         <About />
         <ContentHub />
+        <Faq />
         {/* <Products /> */}
         <Contact />
       </main>

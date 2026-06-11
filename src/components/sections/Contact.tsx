@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { MessageCircle } from "lucide-react";
+import { Check, MessageCircle } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { contactSection } from "@/lib/content";
@@ -17,12 +17,21 @@ const businessTypes = [
   "Other",
 ];
 
+const budgetRanges = [
+  "Under $500",
+  "$500 to $2,000",
+  "$2,000 to $10,000",
+  "Over $10,000",
+  "Not sure yet",
+];
+
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [form, setForm] = useState({
     name: "",
     email: "",
     businessType: businessTypes[0],
+    budget: budgetRanges[budgetRanges.length - 1],
     message: "",
   });
 
@@ -34,7 +43,9 @@ export function Contact() {
   const whatsappHref = () => {
     const text = `Hi Cybrum Solutions! I'm ${form.name || "[name]"} (${
       form.businessType
-    }).%0A%0A${form.message || "I'd like to discuss an AI / automation project."}`;
+    }, budget: ${form.budget}).%0A%0A${
+      form.message || "I'd like to discuss an AI / automation project."
+    }`;
     return `${contact.whatsappLink}?text=${text}`;
   };
 
@@ -49,7 +60,13 @@ export function Contact() {
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
-      setForm({ name: "", email: "", businessType: businessTypes[0], message: "" });
+      setForm({
+        name: "",
+        email: "",
+        businessType: businessTypes[0],
+        budget: budgetRanges[budgetRanges.length - 1],
+        message: "",
+      });
     } catch {
       setStatus("error");
     }
@@ -72,6 +89,22 @@ export function Contact() {
           <p className="mt-4 max-w-md text-base leading-relaxed text-muted sm:text-lg">
             {contactSection.sub}
           </p>
+
+          <div className="mt-7 max-w-md rounded-2xl border border-accent/25 bg-accent/5 p-5">
+            <p className="text-sm font-semibold text-foreground">
+              {contactSection.auditHeading}
+            </p>
+            <ul className="mt-3 flex flex-col gap-2.5">
+              {contactSection.auditIncludes.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent-bright">
+                    <Check size={12} strokeWidth={2.5} />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="mt-8 flex flex-col gap-3">
             <a
@@ -146,17 +179,40 @@ export function Contact() {
                   />
                 </div>
 
-                <select
-                  value={form.businessType}
-                  onChange={update("businessType")}
-                  className={inputClass}
-                >
-                  {businessTypes.map((t) => (
-                    <option key={t} value={t} className="bg-surface">
-                      {t}
-                    </option>
-                  ))}
-                </select>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="flex flex-col gap-1.5">
+                    <span className="text-xs font-medium uppercase tracking-wider text-muted">
+                      Business type
+                    </span>
+                    <select
+                      value={form.businessType}
+                      onChange={update("businessType")}
+                      className={inputClass}
+                    >
+                      {businessTypes.map((t) => (
+                        <option key={t} value={t} className="bg-surface">
+                          {t}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="flex flex-col gap-1.5">
+                    <span className="text-xs font-medium uppercase tracking-wider text-muted">
+                      Rough budget
+                    </span>
+                    <select
+                      value={form.budget}
+                      onChange={update("budget")}
+                      className={inputClass}
+                    >
+                      {budgetRanges.map((b) => (
+                        <option key={b} value={b} className="bg-surface">
+                          {b}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
 
                 <textarea
                   required

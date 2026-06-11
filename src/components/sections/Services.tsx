@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Workflow, MessageSquareText, Code2, ArrowRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Section } from "@/components/ui/Section";
@@ -62,13 +63,22 @@ export function Services() {
                 <p className="text-base leading-relaxed text-muted md:text-lg">
                   {primary.description}
                 </p>
-                <a
-                  href={primaryCta.href}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent-bright transition-colors hover:text-foreground"
-                >
-                  Start with a free audit
-                  <ArrowRight size={15} />
-                </a>
+                <div className="mt-4 flex flex-wrap items-center gap-5">
+                  <a
+                    href={primaryCta.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-bright transition-colors hover:text-foreground"
+                  >
+                    Start with a free audit
+                    <ArrowRight size={15} />
+                  </a>
+                  <Link
+                    href={primary.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent-bright"
+                  >
+                    Learn more
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
               </div>
             </GlowCard>
           </Reveal>
@@ -83,9 +93,16 @@ export function Services() {
                 <h3 className="mt-5 text-xl font-semibold tracking-tight sm:text-2xl">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted sm:text-base">
                   {service.description}
                 </p>
+                <Link
+                  href={service.href}
+                  className="mt-4 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-accent-bright transition-colors hover:text-foreground"
+                >
+                  Learn more
+                  <ArrowRight size={15} />
+                </Link>
               </GlowCard>
             </Reveal>
           ))}

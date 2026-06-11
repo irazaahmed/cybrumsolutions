@@ -61,8 +61,9 @@ export default function BlogIndexPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent-bright shadow-[0_0_8px_var(--color-accent)]" />
             Insights
           </span>
-          <h1 className="mt-5 font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
-            Insights
+          <h1 className="mt-5 max-w-3xl font-heading text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl">
+            AI Agents, Automation &amp;{" "}
+            <span className="text-gradient">Chatbot Insights</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             Practical breakdowns of how AI agents, automation, and real systems are built.

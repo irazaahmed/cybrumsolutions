@@ -4,6 +4,7 @@ type ContactPayload = {
   name?: string;
   email?: string;
   businessType?: string;
+  budget?: string;
   message?: string;
 };
 
@@ -18,6 +19,7 @@ export async function POST(request: Request) {
   const name = body.name?.trim();
   const email = body.email?.trim();
   const businessType = body.businessType?.trim() || undefined;
+  const budget = body.budget?.trim() || undefined;
   const message = body.message?.trim();
 
   // Basic validation
@@ -29,6 +31,7 @@ export async function POST(request: Request) {
     name,
     email,
     businessType,
+    budget,
     need: message,
     source: "Contact form",
   });

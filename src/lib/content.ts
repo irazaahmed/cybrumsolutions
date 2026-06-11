@@ -39,6 +39,8 @@ export type Service = {
   id: string;
   title: string;
   description: string;
+  /** Dedicated landing page under /services. */
+  href: string;
   primary?: boolean;
 };
 
@@ -50,6 +52,7 @@ export const services: { heading: string; items: Service[] } = {
       title: "Automation & AI Agents",
       description:
         "Multi-agent systems and automated pipelines that handle real tasks end to end. Repetitive work, decisions, and processes turned into systems that run on their own. This is what we do best.",
+      href: "/services/ai-automation",
       primary: true,
     },
     {
@@ -57,12 +60,14 @@ export const services: { heading: string; items: Service[] } = {
       title: "Custom Chatbots & Assistants",
       description:
         "Domain-specific assistants with memory, tools, and real knowledge, built for your business, not generic wrappers.",
+      href: "/services/ai-chatbots",
     },
     {
       id: "web",
       title: "Web Development",
       description:
         "Fast, modern websites and web apps built on Next.js. Clean, conversion-focused, and ready to scale.",
+      href: "/services/web-development",
     },
   ],
 };
@@ -122,12 +127,16 @@ export const process: { heading: string; steps: ProcessStep[] } = {
   ],
 };
 
+/** Which stylized preview the project card renders (see ProjectVisual). */
+export type ProjectVisualKind = "chat" | "pipeline" | "graph" | "store" | "dashboard";
+
 export type Project = {
   title: string;
   category: string;
   description: string;
   stack: string[];
   link?: string;
+  visual: ProjectVisualKind;
 };
 
 /**
@@ -146,6 +155,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "Conversational AI assistant handling student queries through intent-based flows and LLM reasoning.",
       stack: ["Dialogflow", "Flowise AI", "Node.js"],
       link: "https://github.com/irazaahmed/AI-Hackathon",
+      visual: "chat",
     },
     {
       title: "Quran Translation Management System",
@@ -154,6 +164,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "End-to-end management platform coordinating Quranic content translation across 33 languages.",
       stack: ["Next.js", "Supabase", "Vercel"],
       link: "https://github.com/irazaahmed/quranic-translation-management-system",
+      visual: "pipeline",
     },
     {
       title: "Physical AI & Humanoid Robotics",
@@ -162,6 +173,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "Intelligent control and real-time decision-making applied to robotic systems, where AI reasoning meets the physical world.",
       stack: ["Python", "AI/ML", "Robotics"],
       link: "https://github.com/irazaahmed/physical-ai-humanoid-robotics",
+      visual: "graph",
     },
     {
       title: "Nike E-Commerce Platform",
@@ -170,6 +182,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "Full storefront with product management, cart, and checkout flow.",
       stack: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind"],
       link: "https://github.com/irazaahmed/NextJSQ2-hackathon",
+      visual: "store",
     },
     {
       title: "Saylani Impact Portal",
@@ -178,6 +191,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "Dashboard platform tracking and visualizing social impact metrics.",
       stack: ["Next.js", "TypeScript", "Tailwind"],
       link: "https://github.com/irazaahmed/saylami-impact-portal",
+      visual: "dashboard",
     },
   ],
 };
@@ -211,4 +225,79 @@ export const contactSection = {
   heading: "Let's build something that actually works.",
   sub: "Tell us about the workflow you want automated or the AI system you want built. You get a free audit with a clear, honest answer on what is worth building and how.",
   formNote: "Tell us what you need. Serious inquiries get a free AI audit, usually a reply within 24 hours.",
+  auditHeading: "Your free AI audit includes:",
+  auditIncludes: [
+    "A map of your current workflow: what takes time, what repeats, what breaks",
+    "A shortlist of automation and AI agent opportunities, ranked by impact",
+    "An honest build-or-not recommendation with rough cost and timeline",
+  ],
 } as const;
+
+export type FaqItem = { question: string; answer: string };
+
+/**
+ * Homepage FAQ. Doubles as FAQPage structured data, so keep answers
+ * plain-text, honest, and keyword-rich without stuffing.
+ */
+export const faq: { heading: string; intro: string; items: FaqItem[] } = {
+  heading: "Frequently Asked Questions",
+  intro:
+    "Straight answers about AI automation, agents, chatbots, cost, and timelines.",
+  items: [
+    {
+      question: "What is the difference between an AI agent and a chatbot?",
+      answer:
+        "A chatbot answers questions in a conversation. An AI agent goes further: it reasons about a goal, uses tools, and completes real tasks like updating systems, sending emails, or processing orders. Most businesses that ask for a chatbot actually need an agent that does the work, not just talks about it.",
+    },
+    {
+      question: "How much does AI automation or an AI agent cost?",
+      answer:
+        "It depends on scope. A single automated workflow is usually a few hundred dollars. Custom chatbots and assistants typically run into the low thousands. Multi-agent systems that handle complete business processes are quoted per project. The free AI audit gives you an exact scope and price before any commitment.",
+    },
+    {
+      question: "How long does it take to build and deploy?",
+      answer:
+        "A focused automation workflow usually ships in 1 to 2 weeks. A custom chatbot or assistant takes 2 to 4 weeks. Larger multi-agent systems run 4 to 8 weeks depending on integrations. You see working progress during the build, not just at the end.",
+    },
+    {
+      question: "Which tools and platforms does Cybrum Solutions build with?",
+      answer:
+        "Claude API, LangGraph, CrewAI, and n8n for agents and automation, plus Next.js and Python for web systems and backends. Every build uses the stack that fits your workflow, and you own all of the code and infrastructure.",
+    },
+    {
+      question: "What is included in the free AI audit?",
+      answer:
+        "A map of your current workflow, a shortlist of automation and AI opportunities ranked by impact, and an honest recommendation on what is worth building with rough cost and timeline. If automation is not the right answer for your case, the audit says so.",
+    },
+    {
+      question: "Do you work with international clients?",
+      answer:
+        "Yes. Cybrum Solutions is based in Pakistan and serves clients worldwide. Everything is delivered remotely with direct communication over WhatsApp, LinkedIn, or email, and systems are deployed into your own environment and accounts.",
+    },
+  ],
+};
+
+/**
+ * Honest trust signals shown before Contact. No invented clients or numbers;
+ * each point is defensible and reinforces the one-accountable-builder model.
+ */
+export const proof: { heading: string; items: Differentiator[] } = {
+  heading: "What working with us looks like",
+  items: [
+    {
+      title: "Direct line to the builder",
+      description:
+        "You talk to the person building your system. No account managers, no handoffs, no lost context.",
+    },
+    {
+      title: "Proven in production",
+      description:
+        "The systems behind this site run real work, including a translation management platform coordinating 33 languages in daily use.",
+    },
+    {
+      title: "You own everything",
+      description:
+        "Code, infrastructure, accounts, and documentation are handed over fully. No lock-in, no dependency on us to keep running.",
+    },
+  ],
+};

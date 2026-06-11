@@ -99,18 +99,21 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   const post = getPostBySlug(slug, lang);
   if (!post) return { title: "Post not found" };
 
-  // hreflang alternates so Google serves the right language version.
+  // hreflang alternates so Google serves the right language version. Only
+  // standard tags (en, ur): Roman Urdu has no valid BCP 47 tag Google accepts,
+  // so the ro variant canonicalizes to the English page instead.
   const languages: Record<string, string> = {};
   for (const l of getAvailableLangs(slug)) {
-    const tag = l === "ur" ? "ur" : l === "ro" ? "en-x-roman-ur" : "en";
-    languages[tag] = `${baseUrl}${pathFor(slug, l)}`;
+    if (l === "ro") continue;
+    languages[l] = `${baseUrl}${pathFor(slug, l)}`;
   }
+  const canonicalLang: Lang = post.lang === "ro" ? "en" : post.lang;
 
   return {
     title: post.title,
     description: post.excerpt,
     keywords: post.tags,
-    alternates: { canonical: pathFor(slug, post.lang), languages },
+    alternates: { canonical: pathFor(slug, canonicalLang), languages },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -119,13 +122,12 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
       publishedTime: post.date,
       authors: [site.founder],
       locale: ogLocale(post.lang),
-      images: ["/og.png"],
+      // images come from the file-based opengraph-image.tsx next to this route
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: ["/og.png"],
     },
   };
 }

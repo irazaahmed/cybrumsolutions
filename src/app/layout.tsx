@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site, contact } from "@/lib/site";
 import "./globals.css";
 
@@ -117,6 +119,36 @@ const jsonLd = {
       slogan: site.tagline,
       founder: { "@id": `${baseUrl}/#ahmed-raza` },
       sameAs: [contact.linkedinCompany],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "AI Services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Automation & AI Agents",
+              url: `${baseUrl}/services/ai-automation`,
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Custom Chatbots & Assistants",
+              url: `${baseUrl}/services/ai-chatbots`,
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Web Development",
+              url: `${baseUrl}/services/web-development`,
+            },
+          },
+        ],
+      },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: contact.whatsappNumber,
@@ -174,6 +206,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

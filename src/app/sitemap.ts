@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { getAllPosts, getAvailableLangs } from "@/lib/blog";
+import { servicePages } from "@/lib/services";
 
 const baseUrl = `https://${site.domain}`;
 
@@ -24,13 +25,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const postEntries: MetadataRoute.Sitemap = posts.flatMap((post) => {
     const lastModified = post.date ? new Date(post.date) : new Date();
-    return getAvailableLangs(post.slug).map((lang) => ({
-      url: urlFor(post.slug, lang),
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: lang === "en" ? 0.7 : 0.6,
-    }));
+    // Roman Urdu variants canonicalize to English, so they stay out of the
+    // sitemap; only canonical language versions (en, ur) are listed.
+    return getAvailableLangs(post.slug)
+      .filter((lang) => lang !== "ro")
+      .map((lang) => ({
+        url: urlFor(post.slug, lang),
+        lastModified,
+        changeFrequency: "monthly" as const,
+        priority: lang === "en" ? 0.7 : 0.6,
+      }));
   });
+
+  const serviceEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    ...servicePages.map((s) => ({
+      url: `${baseUrl}/services/${s.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+  ];
 
   return [
     {
@@ -39,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    ...serviceEntries,
     {
       url: `${baseUrl}/blog`,
       lastModified: latest,

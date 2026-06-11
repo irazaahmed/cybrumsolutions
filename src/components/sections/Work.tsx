@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GlowCard } from "@/components/ui/GlowCard";
 import { Reveal } from "@/components/ui/Reveal";
+import { ProjectVisual } from "@/components/visuals/ProjectVisual";
 import { work } from "@/lib/content";
 
 export function Work() {
@@ -27,6 +28,10 @@ export function Work() {
                 aria-hidden
                 className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
+              {/* stylized preview, bleeding to the card edges */}
+              <div className="-mx-6 -mt-6 mb-5 sm:-mx-8 sm:-mt-8">
+                <ProjectVisual kind={project.visual} />
+              </div>
               <div className="flex items-center justify-between gap-3">
                 <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-bright">
                   {project.category}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { contact, navLinks, site } from "@/lib/site";
+import { servicePages } from "@/lib/services";
 import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
@@ -24,6 +25,22 @@ export function Footer() {
               serving clients worldwide.
             </p>
           </div>
+
+          {/* Services */}
+          <nav className="flex flex-col gap-3">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Services
+            </span>
+            {servicePages.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="text-sm text-muted transition-colors hover:text-foreground"
+              >
+                {s.name}
+              </Link>
+            ))}
+          </nav>
 
           {/* Nav */}
           <nav className="flex flex-col gap-3">
