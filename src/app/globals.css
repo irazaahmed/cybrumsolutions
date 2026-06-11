@@ -39,6 +39,8 @@
 ------------------------------------------------------------------- */
 :root {
   color-scheme: dark;
+  /* lets height: auto transition (smooth FAQ accordions in supporting browsers) */
+  interpolate-size: allow-keywords;
 }
 
 [data-theme="light"] {
@@ -180,6 +182,100 @@ h1, h2, h3, h4 {
     linear-gradient(to right, color-mix(in srgb, var(--color-accent) 8%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 8%, transparent) 1px, transparent 1px);
   background-size: 56px 56px;
+}
+
+/* Primary-button sheen: a light streak sweeps across on hover */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%
+  );
+  transform: translateX(-150%);
+  transition: transform 0.7s var(--ease-out-soft);
+  pointer-events: none;
+}
+.btn-sheen:hover::after {
+  transform: translateX(150%);
+}
+
+/* Smooth open/close for native <details> accordions (progressive enhancement) */
+details.faq-item::details-content {
+  height: 0;
+  overflow: clip;
+  opacity: 0;
+  transition:
+    height 0.35s var(--ease-out-soft),
+    opacity 0.3s ease,
+    content-visibility 0.35s allow-discrete;
+}
+details.faq-item[open]::details-content {
+  height: auto;
+  opacity: 1;
+}
+
+/* Animated section divider: the gradient slowly pans through the line */
+.divider-animated {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-accent) 45%, transparent) 35%,
+    color-mix(in srgb, var(--color-accent-bright) 70%, transparent) 50%,
+    color-mix(in srgb, var(--color-accent) 45%, transparent) 65%,
+    transparent
+  );
+  background-size: 220% 100%;
+  animation: divider-pan 7s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------
+   Project-visual micro animations (Work cards)
+------------------------------------------------------------------- */
+
+/* typing indicator dots */
+.pv-dot {
+  animation: dot-blink 1.2s ease-in-out infinite;
+}
+
+/* horizontal progress bars sweep to full width in a loop */
+.pv-fill {
+  transform-origin: left;
+  animation: bar-fill 2.6s var(--ease-out-soft) infinite;
+}
+
+/* vertical chart bars grow from the baseline in a loop */
+.pv-grow {
+  transform-origin: bottom;
+  animation: bar-grow 2.8s var(--ease-out-soft) infinite;
+}
+
+/* node-graph connection lines: marching dashes */
+.pv-dash {
+  stroke-dasharray: 5 5;
+  animation: dash-march 1.6s linear infinite;
+}
+
+/* soft repeated pulse (graph core, checkout pill) */
+.pv-pulse {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+/* gentle vertical bob for floating icons */
+.animate-float-y {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+/* scroll hint: small dot dropping inside a mouse outline */
+.scroll-hint-dot {
+  animation: scroll-hint 2s ease-in-out infinite;
 }
 
 /* ------------------------------------------------------------------
@@ -839,6 +935,88 @@ h1, h2, h3, h4 {
   70%, 100% {
     opacity: 0;
     transform: scale(1.8);
+  }
+}
+
+@keyframes divider-pan {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes dot-blink {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes bar-fill {
+  0% {
+    transform: scaleX(0.15);
+    opacity: 0.6;
+  }
+  55%, 100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bar-grow {
+  0% {
+    transform: scaleY(0.3);
+    opacity: 0.6;
+  }
+  55%, 100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dash-march {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes float-y {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes scroll-hint {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }
 

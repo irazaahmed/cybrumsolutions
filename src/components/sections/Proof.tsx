@@ -24,7 +24,10 @@ export function Proof() {
                 const Icon = icons[i];
                 return (
                   <div key={item.title} className="flex items-start gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent-bright">
+                    <span
+                      className="animate-float-y flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent-bright"
+                      style={{ animationDelay: `${i * 0.6}s` }}
+                    >
                       <Icon size={20} strokeWidth={1.6} />
                     </span>
                     <div>

@@ -28,7 +28,7 @@ export function ContentHub() {
       <Reveal className="mt-12 flex flex-wrap items-center justify-center gap-4">
         <Link
           href="/blog"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)] hover:-translate-y-0.5"
+          className="btn-sheen inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)] hover:-translate-y-0.5"
         >
           Read all insights
           <ArrowRight size={16} />

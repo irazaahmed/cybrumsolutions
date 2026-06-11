@@ -9,7 +9,7 @@ const sizes = "h-12 px-6 text-sm sm:text-base";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-accent text-white hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)] hover:-translate-y-0.5",
+    "btn-sheen bg-accent text-white hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)] hover:-translate-y-0.5",
   secondary:
     "border border-border bg-surface/60 text-foreground hover:border-accent hover:bg-surface hover:-translate-y-0.5",
   ghost: "text-muted hover:text-foreground",

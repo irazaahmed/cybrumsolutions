@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Card } from "@/components/ui/Card";
+import { CountUp } from "@/components/ui/CountUp";
 import { about, stats } from "@/lib/content";
 import { site, contact } from "@/lib/site";
 
@@ -16,13 +17,13 @@ export function About() {
               aria-hidden
               className="absolute -inset-4 rounded-3xl bg-accent/15 blur-2xl"
             />
-            <div className="relative overflow-hidden rounded-3xl border border-border">
+            <div className="group relative overflow-hidden rounded-3xl border border-border transition-colors duration-500 hover:border-accent/50">
               <Image
                 src="/ahmed.webp"
                 alt={`${site.founder}, AI Solutions Expert and ${site.founderRole} of ${site.name}`}
                 width={480}
                 height={560}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.04]"
               />
               {/* Fixed dark caption gradient (theme-independent) so it reads as a
                   premium overlay on the photo in both light and dark mode. */}
@@ -66,10 +67,10 @@ export function About() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="rounded-2xl border border-border bg-surface/40 p-6 text-center sm:text-left"
+              className="rounded-2xl border border-border bg-surface/40 p-6 text-center transition-colors duration-300 hover:border-accent/40 sm:text-left"
             >
               <p className="font-heading text-4xl font-semibold tracking-tight text-gradient sm:text-5xl">
-                {stat.value}
+                <CountUp value={stat.value} />
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted">{stat.label}</p>
             </div>

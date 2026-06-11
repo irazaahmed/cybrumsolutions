@@ -8,8 +8,9 @@ type GlowCardProps = {
 };
 
 /**
- * Card with a cursor-following radial spotlight and an accent border that lifts
- * on hover. The spotlight position is written to CSS vars on pointer move.
+ * Card with a cursor-following radial spotlight, a 3D tilt that follows the
+ * pointer (mouse only, capped at a few degrees), and an accent border on
+ * hover. Spotlight + tilt are written to CSS vars on pointer move.
  */
 export function GlowCard({ children, className = "" }: GlowCardProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,15 +19,37 @@ export function GlowCard({ children, className = "" }: GlowCardProps) {
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    el.style.setProperty("--mx", `${x}px`);
+    el.style.setProperty("--my", `${y}px`);
+
+    if (e.pointerType === "mouse") {
+      const px = x / rect.width - 0.5;
+      const py = y / rect.height - 0.5;
+      el.style.setProperty("--rx", `${(py * -4).toFixed(2)}deg`);
+      el.style.setProperty("--ry", `${(px * 5).toFixed(2)}deg`);
+    }
+  }
+
+  function onLeave() {
+    const el = ref.current;
+    if (!el) return;
+    el.style.setProperty("--rx", "0deg");
+    el.style.setProperty("--ry", "0deg");
   }
 
   return (
     <div
       ref={ref}
       onPointerMove={onMove}
-      className={`group relative h-full overflow-hidden rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 sm:p-8 ${className}`}
+      onPointerLeave={onLeave}
+      style={{
+        transform:
+          "perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))",
+        transformStyle: "preserve-3d",
+      }}
+      className={`group relative h-full overflow-hidden rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-[border-color,box-shadow,transform] duration-300 ease-out will-change-transform hover:border-accent/60 hover:shadow-[0_18px_50px_-20px_var(--color-accent)] sm:p-8 ${className}`}
     >
       {/* spotlight */}
       <div

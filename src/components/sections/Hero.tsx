@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "motion/react";
+import { Fragment, useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Button } from "@/components/ui/Button";
+import { Magnetic } from "@/components/ui/Magnetic";
 import { RotatingWords } from "@/components/ui/RotatingWords";
 import { NeuralBackground } from "@/components/visuals/NeuralBackground";
 import { Aurora } from "@/components/visuals/Aurora";
@@ -12,9 +14,48 @@ import { primaryCta, secondaryCta } from "@/lib/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+/* Headline split into chunks so each word rises in on its own beat.
+   The shimmer phrase animates as one unit to keep its gradient intact. */
+const headlineLead = ["AI", "agents", "and", "automation", "that"];
+const headlineTail = ["not", "just", "the", "demo."];
+
+function Word({
+  children,
+  index,
+  className = "",
+}: {
+  children: React.ReactNode;
+  index: number;
+  className?: string;
+}) {
+  return (
+    <motion.span
+      initial={{ opacity: 0, y: 26, filter: "blur(6px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 0.55, ease, delay: 0.1 + index * 0.055 }}
+      className={`inline-block ${className}`}
+    >
+      {children}
+    </motion.span>
+  );
+}
+
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  /* gentle parallax: copy and visual drift apart + fade as the hero scrolls away */
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const visualY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const visualScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+  const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative flex min-h-screen flex-col overflow-hidden bg-grid-lines px-5 pt-28 pb-10 sm:px-8"
     >
@@ -28,7 +69,10 @@ export function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-7xl flex-1 items-center gap-12 py-10 lg:grid-cols-[1.1fr_0.9fr]">
         {/* Copy */}
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+        <motion.div
+          style={{ y: copyY, opacity: fade }}
+          className="flex flex-col items-center text-center lg:items-start lg:text-left"
+        >
           <motion.span
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,21 +86,28 @@ export function Hero() {
             {hero.eyebrow}
           </motion.span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.08 }}
-            className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl"
-          >
-            AI agents and automation that{" "}
-            <span className="text-shimmer">do the work</span>, not just the demo.
-          </motion.h1>
+          <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
+            {headlineLead.map((word, i) => (
+              <Fragment key={word + i}>
+                <Word index={i}>{word}</Word>{" "}
+              </Fragment>
+            ))}
+            <Word index={headlineLead.length}>
+              <span className="text-shimmer">do the work</span>,
+            </Word>{" "}
+            {headlineTail.map((word, i) => (
+              <Fragment key={word + i}>
+                <Word index={headlineLead.length + 1 + i}>{word}</Word>
+                {i < headlineTail.length - 1 ? " " : ""}
+              </Fragment>
+            ))}
+          </h1>
 
           {/* Rotating capability line */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.14 }}
+            transition={{ duration: 0.7, ease, delay: 0.55 }}
             className="mt-5 flex items-center gap-2 font-heading text-lg font-medium text-muted sm:text-xl"
           >
             <span>We build</span>
@@ -69,7 +120,7 @@ export function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.2 }}
+            transition={{ duration: 0.7, ease, delay: 0.62 }}
             className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
           >
             {hero.sub}
@@ -79,20 +130,26 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.28 }}
+            transition={{ duration: 0.7, ease, delay: 0.7 }}
             className="mt-9 flex w-fit flex-col items-center gap-3"
           >
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button href={primaryCta.href}>{primaryCta.label}</Button>
-              <Button href={secondaryCta.href} variant="secondary">
-                {secondaryCta.label}
-              </Button>
+              <Magnetic>
+                <Button href={primaryCta.href} className="btn-sheen">
+                  {primaryCta.label}
+                </Button>
+              </Magnetic>
+              <Magnetic>
+                <Button href={secondaryCta.href} variant="secondary">
+                  {secondaryCta.label}
+                </Button>
+              </Magnetic>
             </div>
             <p className="mt-3 text-center text-sm text-muted/80">
               Serving businesses in Pakistan and worldwide.
             </p>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* AI core visual */}
         <motion.div
@@ -101,9 +158,24 @@ export function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.2 }}
           className="mx-auto w-full max-w-[15rem] sm:max-w-sm lg:max-w-md"
         >
-          <AgentHub />
+          <motion.div style={{ y: visualY, scale: visualScale, opacity: fade }}>
+            <AgentHub />
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease, delay: 1.1 }}
+        className="relative mx-auto mb-6 hidden lg:block"
+        aria-hidden
+      >
+        <span className="flex h-9 w-5 items-start justify-center rounded-full border border-border/80 p-1.5">
+          <span className="scroll-hint-dot block h-1.5 w-1 rounded-full bg-accent-bright" />
+        </span>
+      </motion.div>
 
       {/* Tech marquee in normal flow at the bottom */}
       <motion.div

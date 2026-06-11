@@ -32,7 +32,7 @@ export function WhyCybrum() {
                     <span className="absolute inset-0 rounded-2xl bg-accent/10 blur-md" />
                     <Icon size={20} strokeWidth={1.6} className="relative" />
                   </span>
-                  <span className="font-heading text-4xl font-semibold text-accent/15">
+                  <span className="font-heading text-4xl font-semibold text-accent/15 transition-colors duration-300 group-hover:text-accent/45">
                     0{i + 1}
                   </span>
                 </div>

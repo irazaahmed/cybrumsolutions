@@ -34,7 +34,7 @@ export function Faq() {
       <div className="mx-auto mt-14 flex max-w-3xl flex-col gap-4">
         {faq.items.map((item, i) => (
           <Reveal key={item.question} delay={i * 0.05}>
-            <details className="group rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-colors open:border-accent/50 hover:border-accent/40">
+            <details className="faq-item group rounded-2xl border border-border bg-card/60 backdrop-blur-sm transition-colors open:border-accent/50 hover:border-accent/40">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 [&::-webkit-details-marker]:hidden">
                 <h3 className="text-base font-semibold tracking-tight sm:text-lg">
                   {item.question}

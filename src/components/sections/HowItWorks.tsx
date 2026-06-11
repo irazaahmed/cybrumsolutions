@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { ProcessBeam } from "@/components/visuals/ProcessBeam";
 import { process } from "@/lib/content";
 
 const icons: LucideIcon[] = [Search, DraftingCompass, Rocket, RefreshCw];
@@ -22,12 +23,12 @@ export function HowItWorks() {
       />
 
       <div className="relative mt-16">
-        {/* animated connecting beam (desktop) */}
+        {/* scroll-linked connecting beam (desktop) */}
         <div
           aria-hidden
           className="absolute left-0 right-0 top-7 hidden h-px lg:block"
         >
-          <div className="mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+          <ProcessBeam />
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

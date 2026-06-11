@@ -17,7 +17,7 @@ export function Section({ id, children, className = "", divider = false }: Secti
       {divider && (
         <span
           aria-hidden
-          className="absolute inset-x-0 top-0 mx-auto h-px max-w-5xl bg-gradient-to-r from-transparent via-accent/40 to-transparent"
+          className="divider-animated absolute inset-x-0 top-0 mx-auto h-px max-w-5xl"
         />
       )}
       <div className="mx-auto max-w-7xl">{children}</div>

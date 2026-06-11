@@ -41,9 +41,9 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
         <Bar w="5rem" strong={false} />
       </div>
       <div className="flex items-center gap-1 self-start rounded-xl rounded-bl-sm border border-border bg-card/90 px-2.5 py-2">
-        <span className="h-1 w-1 rounded-full bg-accent-bright" />
-        <span className="h-1 w-1 rounded-full bg-accent-bright/70" />
-        <span className="h-1 w-1 rounded-full bg-accent-bright/40" />
+        <span className="pv-dot h-1 w-1 rounded-full bg-accent-bright" />
+        <span className="pv-dot h-1 w-1 rounded-full bg-accent-bright [animation-delay:0.2s]" />
+        <span className="pv-dot h-1 w-1 rounded-full bg-accent-bright [animation-delay:0.4s]" />
       </div>
     </div>
   ),
@@ -52,17 +52,20 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
   pipeline: (
     <div className="flex w-full max-w-[14rem] flex-col gap-2">
       {[
-        { tag: "UR", w: "100%" },
-        { tag: "AR", w: "78%" },
-        { tag: "EN", w: "62%" },
-        { tag: "+30", w: "40%" },
+        { tag: "UR", w: "100%", delay: "0s" },
+        { tag: "AR", w: "78%", delay: "0.18s" },
+        { tag: "EN", w: "62%", delay: "0.36s" },
+        { tag: "+30", w: "40%", delay: "0.54s" },
       ].map((row) => (
         <div key={row.tag} className="flex items-center gap-2.5">
           <span className="w-7 rounded-md border border-accent/30 bg-accent/10 px-1 py-0.5 text-center text-[9px] font-semibold text-accent-bright">
             {row.tag}
           </span>
           <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-foreground/10">
-            <span className="block h-full rounded-full bg-accent/70" style={{ width: row.w }} />
+            <span
+              className="pv-fill block h-full rounded-full bg-accent/70"
+              style={{ width: row.w, animationDelay: row.delay }}
+            />
           </span>
         </div>
       ))}
@@ -81,6 +84,7 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
         ].map(([x1, y1, x2, y2]) => (
           <line
             key={`${x2}-${y2}`}
+            className="pv-dash"
             x1={x1}
             y1={y1}
             x2={x2}
@@ -106,7 +110,7 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
             strokeOpacity="0.6"
           />
         ))}
-        <circle cx="96" cy="48" r="11" fill="var(--color-accent)" fillOpacity="0.25" />
+        <circle className="pv-pulse [transform-origin:96px_48px]" cx="96" cy="48" r="11" fill="var(--color-accent)" fillOpacity="0.25" />
         <circle cx="96" cy="48" r="6" fill="var(--color-accent)" />
       </svg>
     </div>
@@ -124,7 +128,7 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
           </div>
         ))}
       </div>
-      <span className="self-end rounded-full bg-accent/80 px-3 py-1 text-[9px] font-semibold text-white">
+      <span className="pv-pulse self-end rounded-full bg-accent/80 px-3 py-1 text-[9px] font-semibold text-white">
         Checkout
       </span>
     </div>
@@ -145,8 +149,8 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
         {[35, 55, 40, 70, 60, 90, 75].map((h, i) => (
           <span
             key={i}
-            className={`flex-1 rounded-sm ${i === 5 ? "bg-accent/80" : "bg-accent/30"}`}
-            style={{ height: `${h}%` }}
+            className={`pv-grow flex-1 rounded-sm ${i === 5 ? "bg-accent/80" : "bg-accent/30"}`}
+            style={{ height: `${h}%`, animationDelay: `${i * 0.12}s` }}
           />
         ))}
       </div>
