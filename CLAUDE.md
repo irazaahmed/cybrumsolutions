@@ -102,12 +102,13 @@ Ahmed is a **solo founder, but NEVER framed as "just one guy."** Frame him as an
 ## Lead-gen & proof rules
 
 - **CTA = "Book a Free AI Audit", GATED.** Use a qualifier form (e.g. name, email, business type, what they need / rough budget) so only **serious leads** come through. Do not leave it fully open.
-- **Proof / Work section = Option A+B mix:**
-  - Show only the **strongest ~4-5 projects**, not all 7. Hide weak learning/hackathon ones (e.g. Multiuser ToDo, InfoNest Blog).
+- **Proof / Work section (updated June 2026, per Ahmed):**
+  - Homepage shows the **top 3** projects only; the full list lives on the dedicated **/work** page ("View all projects" link).
+  - Every project card has **two buttons: Live Site + GitHub** (live URLs in `src/lib/content.ts`).
+  - Current 6 projects in order: Quran Translation Management System, Personal Professional Portfolio (irazaahmed.me), Physical AI & Humanoid Robotics, Nike E-Commerce, Saylani Impact Portal, InfoNest Blogs (last). **SMIT Virtual Assistant removed** at Ahmed's request.
   - Frame as **"What I've Built / Capabilities"**, NOT "client case studies" (honest — most aren't real client deployments yet).
-  - Strongest relevant proof = **SMIT Virtual Assistant** (Dialogflow/Flowise conversational AI) → supports the AI-agent claim.
-  - Other candidates: Quran Translation Management System (Next.js/Supabase), Nike E-Commerce (Next.js/Sanity), Saylani Impact Portal, Physical AI & Humanoid Robotics.
   - Upgrade later with real client work / flagship agent demos.
+  - The same pattern is mirrored on Ahmed's personal portfolio (`D:\Code\Portfolio-Project\portfolio-website`): top 3 on homepage + /projects page, copper theme.
 
 ---
 
