@@ -134,6 +134,51 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
     </div>
   ),
 
+  /* Profile: avatar, name lines, and skill chips (personal portfolio) */
+  profile: (
+    <div className="flex w-full max-w-[14rem] items-center gap-3.5">
+      <span className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-accent/60 bg-gradient-to-b from-accent/30 to-accent/5">
+        <span className="pv-pulse absolute inset-0 rounded-full border border-accent/40" />
+        <span className="h-5 w-5 rounded-full bg-accent/70" />
+        <span className="absolute bottom-1 left-1/2 h-2.5 w-7 -translate-x-1/2 rounded-t-full bg-accent/70" />
+      </span>
+      <div className="flex flex-1 flex-col gap-1.5">
+        <Bar w="70%" strong />
+        <Bar w="45%" />
+        <div className="mt-1 flex gap-1.5">
+          {["AI", "Web", "Auto"].map((chip) => (
+            <span
+              key={chip}
+              className="rounded-md border border-accent/30 bg-accent/10 px-1.5 py-0.5 text-[9px] font-semibold text-accent-bright"
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  ),
+
+  /* Blog: article list with a fresh-post badge */
+  blog: (
+    <div className="flex w-full max-w-[14rem] flex-col gap-2">
+      <div className="flex flex-col gap-1.5 rounded-lg border border-border bg-card/90 p-2.5">
+        <div className="flex items-center justify-between gap-2">
+          <Bar w="7rem" strong />
+          <span className="pv-pulse rounded-full bg-accent/80 px-2 py-0.5 text-[8px] font-semibold text-white">
+            NEW
+          </span>
+        </div>
+        <Bar w="100%" />
+        <Bar w="72%" />
+      </div>
+      <div className="flex flex-col gap-1.5 rounded-lg border border-border bg-card/90 p-2.5">
+        <Bar w="5.5rem" strong />
+        <Bar w="86%" />
+      </div>
+    </div>
+  ),
+
   /* Dashboard: stat chips and a rising bar chart */
   dashboard: (
     <div className="flex w-full max-w-[14rem] flex-col gap-2.5">

@@ -128,20 +128,31 @@ export const process: { heading: string; steps: ProcessStep[] } = {
 };
 
 /** Which stylized preview the project card renders (see ProjectVisual). */
-export type ProjectVisualKind = "chat" | "pipeline" | "graph" | "store" | "dashboard";
+export type ProjectVisualKind =
+  | "chat"
+  | "pipeline"
+  | "graph"
+  | "store"
+  | "dashboard"
+  | "profile"
+  | "blog";
 
 export type Project = {
   title: string;
   category: string;
   description: string;
   stack: string[];
+  /** GitHub repository. */
   link?: string;
+  /** Deployed, browsable URL. */
+  live?: string;
   visual: ProjectVisualKind;
 };
 
 /**
- * Curated capabilities showcase (Option A+B): strongest, most relevant projects only.
- * Framed as "What I've Built", not client case studies.
+ * Curated capabilities showcase: strongest, most relevant projects first.
+ * Framed as "What I've Built", not client case studies. The homepage shows
+ * the first three; /work lists them all.
  */
 export const work: { heading: string; intro: string; projects: Project[] } = {
   heading: "What I've Built",
@@ -149,22 +160,24 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
     "Real systems shipped across AI agents, automation, and web, not slide decks. Each one was built end to end and deployed to run.",
   projects: [
     {
-      title: "SMIT Virtual Assistant",
-      category: "AI Agent",
-      description:
-        "Conversational AI assistant handling student queries through intent-based flows and LLM reasoning.",
-      stack: ["Dialogflow", "Flowise AI", "Node.js"],
-      link: "https://github.com/irazaahmed/AI-Hackathon",
-      visual: "chat",
-    },
-    {
       title: "Quran Translation Management System",
       category: "AI System",
       description:
         "End-to-end management platform coordinating Quranic content translation across 33 languages.",
       stack: ["Next.js", "Supabase", "Vercel"],
       link: "https://github.com/irazaahmed/quranic-translation-management-system",
+      live: "https://quranic-translation-management-syst.vercel.app/",
       visual: "pipeline",
+    },
+    {
+      title: "Personal Professional Portfolio",
+      category: "Web Development",
+      description:
+        "Personal brand site with an animated UI, project showcase, and content hub, designed, built, and deployed end to end.",
+      stack: ["Next.js", "TypeScript", "Tailwind"],
+      link: "https://github.com/irazaahmed/iraza-portfolio",
+      live: "https://www.irazaahmed.me/",
+      visual: "profile",
     },
     {
       title: "Physical AI & Humanoid Robotics",
@@ -173,6 +186,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "Intelligent control and real-time decision-making applied to robotic systems, where AI reasoning meets the physical world.",
       stack: ["Python", "AI/ML", "Robotics"],
       link: "https://github.com/irazaahmed/physical-ai-humanoid-robotics",
+      live: "https://physical-ai-humanoid-robotics-ar.netlify.app/",
       visual: "graph",
     },
     {
@@ -182,6 +196,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "Full storefront with product management, cart, and checkout flow.",
       stack: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind"],
       link: "https://github.com/irazaahmed/NextJSQ2-hackathon",
+      live: "https://nike-ecommerce-project.vercel.app/",
       visual: "store",
     },
     {
@@ -191,7 +206,18 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
         "Dashboard platform tracking and visualizing social impact metrics.",
       stack: ["Next.js", "TypeScript", "Tailwind"],
       link: "https://github.com/irazaahmed/saylami-impact-portal",
+      live: "https://impact-portal-saylani.netlify.app/",
       visual: "dashboard",
+    },
+    {
+      title: "InfoNest Blogs",
+      category: "Blog Platform",
+      description:
+        "Blog platform where I write and publish my own articles, with a clean, fast reading experience.",
+      stack: ["HTML", "CSS", "JavaScript"],
+      link: "https://github.com/irazaahmed/InfoNest-Blogs",
+      live: "https://infonest-blogs.vercel.app/",
+      visual: "blog",
     },
   ],
 };

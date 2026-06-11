@@ -61,6 +61,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...serviceEntries,
     {
+      url: `${baseUrl}/work`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified: latest,
       changeFrequency: "weekly",

@@ -57,6 +57,12 @@ export function Footer() {
               </a>
             ))}
             <Link
+              href="/work"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              All Projects
+            </Link>
+            <Link
               href="/blog"
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
