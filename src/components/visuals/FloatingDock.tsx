@@ -24,12 +24,44 @@ export function FloatingDock() {
   const [messages, setMessages] = useState<Msg[]>([GREETING]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  // Mobile keyboard inset + visible height, from the visualViewport API.
+  // Needed on iOS Safari where the keyboard overlays instead of resizing the page.
+  const [kb, setKb] = useState(0);
+  const [vvh, setVvh] = useState(0);
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (!open) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const update = () => {
+      setVvh(vv.height);
+      setKb(Math.max(0, window.innerHeight - vv.height - vv.offsetTop));
+      scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
+    };
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+      setKb(0);
+    };
+  }, [open]);
+
+  // Grow the textarea with its content, up to ~4 lines.
+  useEffect(() => {
+    const ta = inputRef.current;
+    if (!ta) return;
+    ta.style.height = "auto";
+    ta.style.height = `${Math.min(ta.scrollHeight, 104)}px`;
+  }, [input, open]);
 
   async function send(text: string) {
     const trimmed = text.trim();
@@ -73,7 +105,12 @@ export function FloatingDock() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-24 right-4 z-[70] flex h-[30rem] max-h-[70vh] w-[22rem] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-border bg-card/95 shadow-2xl backdrop-blur-xl sm:right-6"
+            className="fixed bottom-24 left-4 right-4 z-[70] flex h-[30rem] max-h-[calc(100dvh-7.5rem)] flex-col overflow-hidden rounded-2xl border border-border bg-card/95 shadow-2xl backdrop-blur-xl sm:left-auto sm:right-6 sm:w-[22rem]"
+            style={
+              kb > 4
+                ? { bottom: kb + 12, maxHeight: Math.max(vvh - 24, 260) }
+                : undefined
+            }
           >
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-border bg-surface/60 px-4 py-3">
@@ -106,7 +143,7 @@ export function FloatingDock() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+                    className={`max-w-[85%] whitespace-pre-wrap break-words [overflow-wrap:anywhere] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                       m.role === "user"
                         ? "bg-accent text-white"
                         : "border border-border bg-surface/70 text-foreground"
@@ -150,13 +187,22 @@ export function FloatingDock() {
                 e.preventDefault();
                 send(input);
               }}
-              className="flex items-center gap-2 border-t border-border bg-surface/60 p-3"
+              className="flex items-end gap-2 border-t border-border bg-surface/60 p-3"
             >
-              <input
+              <textarea
+                ref={inputRef}
                 value={input}
+                rows={1}
+                enterKeyHint="send"
                 onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    send(input);
+                  }
+                }}
                 placeholder="Ask anything about Cybrum Solutions..."
-                className="min-w-0 flex-1 rounded-xl border border-border bg-card px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/70 outline-none transition-colors focus:border-accent"
+                className="min-w-0 flex-1 resize-none overflow-y-auto rounded-xl border border-border bg-card px-3.5 py-2.5 text-base leading-snug text-foreground placeholder:text-muted/70 outline-none transition-colors focus:border-accent sm:text-sm"
               />
               <button
                 type="submit"

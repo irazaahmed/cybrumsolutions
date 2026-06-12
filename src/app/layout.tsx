@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -29,6 +29,14 @@ const nastaliq = Noto_Nastaliq_Urdu({
   subsets: ["arabic"],
   display: "swap",
 });
+
+// "resizes-content" shrinks the layout viewport when the mobile keyboard opens,
+// so fixed-position UI (chat widget) stays visible above the keyboard.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  interactiveWidget: "resizes-content",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
