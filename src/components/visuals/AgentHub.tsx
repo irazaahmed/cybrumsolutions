@@ -47,7 +47,8 @@ export function AgentHub() {
               animate={{ rotate: -360 }}
               transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
             >
-              <span className="hidden items-center whitespace-nowrap rounded-full border border-border bg-card/80 px-3 py-1.5 text-xs font-medium text-foreground/90 backdrop-blur-sm sm:inline-flex">
+              {/* solid-ish bg on mobile (backdrop-blur on 8 moving chips is costly there) */}
+              <span className="inline-flex items-center whitespace-nowrap rounded-full border border-border bg-card/90 px-2 py-1 text-[10px] font-medium text-foreground/90 sm:bg-card/80 sm:px-3 sm:py-1.5 sm:text-xs sm:backdrop-blur-sm">
                 <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-accent-bright align-middle" />
                 {node.label}
               </span>

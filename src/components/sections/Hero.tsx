@@ -156,7 +156,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease, delay: 0.2 }}
-          className="mx-auto w-full max-w-[15rem] sm:max-w-sm lg:max-w-md"
+          className="mx-auto w-full max-w-[17rem] sm:max-w-sm lg:max-w-md"
         >
           <motion.div style={{ y: visualY, scale: visualScale, opacity: fade }}>
             <AgentHub />

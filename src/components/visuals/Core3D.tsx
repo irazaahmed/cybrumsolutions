@@ -25,11 +25,18 @@ export function Core3D({ className = "" }: { className?: string }) {
       if (disposed || !mountRef.current) return;
 
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      /* lighter scene on touch / small screens so phones hold a steady frame rate */
+      const coarse = window.matchMedia("(pointer: coarse)").matches;
+      const lowPower = coarse || window.innerWidth < 768;
       const accent = new THREE.Color("#1e88e8");
       const accentBright = new THREE.Color("#46a4ff");
 
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        powerPreference: "high-performance",
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2));
       renderer.setClearColor(0x000000, 0);
       mount.appendChild(renderer.domElement);
       renderer.domElement.style.display = "block";
@@ -54,7 +61,7 @@ export function Core3D({ className = "" }: { className?: string }) {
       scene.add(rimLight);
 
       /* inner energy core */
-      const coreGeo = new THREE.IcosahedronGeometry(1.05, 4);
+      const coreGeo = new THREE.IcosahedronGeometry(1.05, lowPower ? 3 : 4);
       const coreMat = new THREE.MeshStandardMaterial({
         color: 0x0c2f55,
         emissive: accent,
@@ -144,7 +151,7 @@ export function Core3D({ className = "" }: { className?: string }) {
       }
 
       /* ambient particle field on a spherical shell */
-      const particleCount = 320;
+      const particleCount = lowPower ? 180 : 320;
       const positions = new Float32Array(particleCount * 3);
       for (let i = 0; i < particleCount; i++) {
         const r = 2.4 + Math.random() * 1.3;
@@ -179,13 +186,14 @@ export function Core3D({ className = "" }: { className?: string }) {
       const ro = new ResizeObserver(resize);
       ro.observe(mount);
 
-      /* mouse parallax (whole window so it feels alive without hovering) */
+      /* mouse parallax (whole window so it feels alive without hovering);
+         touch devices get an autonomous sway instead since there is no cursor */
       const target = { x: 0, y: 0 };
       const onPointer = (e: PointerEvent) => {
         target.x = (e.clientX / window.innerWidth - 0.5) * 2;
         target.y = (e.clientY / window.innerHeight - 0.5) * 2;
       };
-      window.addEventListener("pointermove", onPointer, { passive: true });
+      if (!coarse) window.addEventListener("pointermove", onPointer, { passive: true });
 
       /* pause rendering when the canvas scrolls out of view */
       let visible = true;
@@ -229,7 +237,12 @@ export function Core3D({ className = "" }: { className?: string }) {
           }
         }
 
-        /* ease the rig toward the pointer */
+        if (coarse) {
+          target.x = Math.sin(t * 0.22) * 0.7;
+          target.y = Math.cos(t * 0.17) * 0.5;
+        }
+
+        /* ease the rig toward the pointer (or the autonomous sway target) */
         rig.rotation.y += (target.x * 0.35 - rig.rotation.y) * 0.04;
         rig.rotation.x += (target.y * 0.25 - rig.rotation.x) * 0.04;
 

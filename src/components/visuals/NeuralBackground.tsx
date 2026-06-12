@@ -26,9 +26,14 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    /* phones get a lower-res canvas and fewer nodes so the hero stays smooth */
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    const dprCap = coarse ? 1.5 : 2;
+    const maxNodes = coarse ? 55 : 90;
+
     let width = 0;
     let height = 0;
-    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let dpr = Math.min(window.devicePixelRatio || 1, dprCap);
     let nodes: Node[] = [];
     let raf = 0;
     const mouse = { x: -9999, y: -9999 };
@@ -39,7 +44,7 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
       const parent = canvas.parentElement;
       width = parent?.clientWidth ?? window.innerWidth;
       height = parent?.clientHeight ?? window.innerHeight;
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, dprCap);
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
@@ -47,7 +52,7 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       // density scales with area, capped for performance
-      const count = Math.min(Math.floor((width * height) / 16000), 90);
+      const count = Math.min(Math.floor((width * height) / 16000), maxNodes);
       nodes = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -56,7 +61,21 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
       }));
     };
 
+    /* skip all work while the canvas is scrolled out of view */
+    let visible = true;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
+
     const tick = () => {
+      if (!visible) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
       ctx.clearRect(0, 0, width, height);
 
       for (const n of nodes) {
@@ -130,6 +149,7 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
 
     return () => {
       cancelAnimationFrame(raf);
+      io.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseout", onLeave);
