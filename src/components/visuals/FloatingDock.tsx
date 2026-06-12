@@ -5,7 +5,13 @@ import { AnimatePresence, motion } from "motion/react";
 import { MessageCircle, X, SendHorizontal, Sparkles, Loader2 } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
-type Msg = { role: "user" | "assistant"; content: string };
+type Msg = {
+  role: "user" | "assistant";
+  content: string;
+  /** Prefilled wa.me link from the API after a lead is captured; rendered as a
+   *  "Continue on WhatsApp" button under the reply. */
+  whatsapp?: string;
+};
 
 const GREETING: Msg = {
   role: "assistant",
@@ -80,7 +86,14 @@ export function FloatingDock() {
       });
       if (!res.ok) throw new Error("chat failed");
       const data = await res.json();
-      setMessages((m) => [...m, { role: "assistant", content: data.reply }]);
+      setMessages((m) => [
+        ...m,
+        {
+          role: "assistant",
+          content: data.reply,
+          whatsapp: typeof data.whatsapp === "string" ? data.whatsapp : undefined,
+        },
+      ]);
     } catch {
       setMessages((m) => [
         ...m,
@@ -150,6 +163,17 @@ export function FloatingDock() {
                     }`}
                   >
                     {m.content}
+                    {m.whatsapp && (
+                      <a
+                        href={m.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2.5 flex w-fit items-center gap-1.5 rounded-full bg-accent px-3.5 py-2 text-xs font-medium text-white transition-colors hover:bg-accent-bright"
+                      >
+                        <MessageCircle size={14} />
+                        Continue on WhatsApp
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}

@@ -64,7 +64,7 @@ CAPTURING LEADS (important)
 - If the visitor declines, respect it, do not push, and just continue helping or point them to WhatsApp and the contact form.
 - CRITICAL: Pass exactly what the visitor typed. NEVER use placeholders like "user's name" or "user's phone number", and never guess or invent a name, email, or number. If you do not yet have a real name and a real contact method, do not call the tool.
 - A lead with no real email or phone is useless to the team because they cannot reply, so the tool will reject it. If it returns missing_contact or missing_fields, ask the visitor for the missing real detail and try again.
-- After the tool succeeds, warmly confirm that the team has their request and will reach out, and mention they can also message WhatsApp ${contact.whatsappNumber} for anything urgent.
+- After the tool succeeds, warmly confirm that the team has their request and will reach out, and tell them they can tap the "Continue on WhatsApp" button that appears right under your reply to start the conversation instantly. Do not write out any phone number or link yourself, the button handles it.
 - If the tool reports it is not configured or fails, apologize briefly and give them the WhatsApp number and the contact form as a fallback.
 
 YOUR BEHAVIOR
@@ -144,6 +144,16 @@ function looksLikePlaceholder(value?: string): boolean {
       value,
     ) || /[<\[{].*[>\]}]/.test(value)
   );
+}
+
+type CapturedLead = { name: string; businessType?: string; need: string };
+
+/** Prefilled wa.me link so the visitor can carry their chat request straight
+ *  into WhatsApp; the chat UI renders it as a "Continue on WhatsApp" button. */
+function buildWhatsappHandoff(lead: CapturedLead): string {
+  const intro = lead.businessType ? `${lead.name} (${lead.businessType})` : lead.name;
+  const text = `Hi, I'm ${intro}. I just spoke with the assistant on cybrumsolutions.dev about: ${lead.need}. I'd like to take this forward.`;
+  return `${contact.whatsappLink}?text=${encodeURIComponent(text)}`;
 }
 
 /** Run the capture_lead tool: email the lead to the team. Returns a small JSON
@@ -249,6 +259,9 @@ export async function POST(request: Request) {
     });
   }
 
+  // Set when capture_lead succeeds, so the reply can carry a WhatsApp handoff.
+  let captured: CapturedLead | null = null;
+
   try {
     // Allow a couple of tool round-trips before forcing a text answer.
     for (let turn = 0; turn < 3; turn++) {
@@ -275,6 +288,13 @@ export async function POST(request: Request) {
               parsed = {};
             }
             result = await runCaptureLead(parsed);
+            if (JSON.parse(result).ok && parsed.name && parsed.need) {
+              captured = {
+                name: parsed.name.trim(),
+                businessType: parsed.business_type?.trim() || undefined,
+                need: parsed.need.trim(),
+              };
+            }
           }
           messages.push({
             role: "tool",
@@ -289,7 +309,10 @@ export async function POST(request: Request) {
       if (!reply) {
         return Response.json({ error: "empty_reply" }, { status: 502 });
       }
-      return Response.json({ reply });
+      return Response.json({
+        reply,
+        ...(captured ? { whatsapp: buildWhatsappHandoff(captured) } : {}),
+      });
     }
 
     // Ran out of tool turns without a text reply.
