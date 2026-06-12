@@ -27,6 +27,9 @@ const budgetRanges = [
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  // Snapshot of the submitted lead so the success screen can prefill the
+  // WhatsApp message after the form state resets.
+  const [sent, setSent] = useState<{ name: string; businessType: string } | null>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -43,10 +46,10 @@ export function Contact() {
   const whatsappHref = () => {
     const text = `Hi Cybrum Solutions! I'm ${form.name || "[name]"} (${
       form.businessType
-    }, budget: ${form.budget}).%0A%0A${
+    }, budget: ${form.budget}).\n\n${
       form.message || "I'd like to discuss an AI / automation project."
     }`;
-    return `${contact.whatsappLink}?text=${text}`;
+    return `${contact.whatsappLink}?text=${encodeURIComponent(text)}`;
   };
 
   async function handleSubmit(e: FormEvent) {
@@ -59,6 +62,7 @@ export function Contact() {
         body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error("Request failed");
+      setSent({ name: form.name, businessType: form.businessType });
       setStatus("success");
       setForm({
         name: "",
@@ -144,16 +148,21 @@ export function Contact() {
                 </span>
                 <h3 className="text-xl font-semibold">Thanks! Message received.</h3>
                 <p className="max-w-sm text-sm text-muted">
-                  I&apos;ll review your inquiry and get back to you. For a faster
-                  reply, reach out directly on WhatsApp.
+                  Your request is in and a confirmation email is on its way. Want
+                  a faster reply? Continue this conversation on WhatsApp.
                 </p>
                 <a
-                  href={contact.whatsappLink}
+                  href={`${contact.whatsappLink}?text=${encodeURIComponent(
+                    `Hi, I'm ${sent?.name ?? "a visitor"} (${
+                      sent?.businessType ?? "business"
+                    }). I just submitted a free AI audit request on cybrumsolutions.dev and would like to discuss it.`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-bright"
+                  className="mt-2 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-bright"
                 >
-                  Message on WhatsApp
+                  <MessageCircle size={16} />
+                  Continue on WhatsApp
                 </a>
               </div>
             ) : (
