@@ -201,7 +201,7 @@ export function FloatingDock() {
                     send(input);
                   }
                 }}
-                placeholder="Ask anything about Cybrum Solutions..."
+                placeholder="Type your message..."
                 className="min-w-0 flex-1 resize-none overflow-y-auto rounded-xl border border-border bg-card px-3.5 py-2.5 text-base leading-snug text-foreground placeholder:text-muted/70 outline-none transition-colors focus:border-accent sm:text-sm"
               />
               <button
