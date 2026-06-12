@@ -17,7 +17,7 @@ export const site = {
 export const contact = {
   whatsappNumber: "+92 313 0221118",
   whatsappLink: "https://wa.me/923130221118",
-  email: "hafizahmedraza12345@gmail.com",
+  email: "info@cybrumsolutions.dev",
   /** Company page: use wherever Cybrum (the company) is referenced. */
   linkedinCompany: "https://www.linkedin.com/company/cybrumsolutions",
   /** Founder's personal profile: use wherever Ahmed (the founder) is referenced. */
