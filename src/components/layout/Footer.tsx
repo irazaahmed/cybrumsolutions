@@ -2,6 +2,7 @@ import Link from "next/link";
 import { contact, navLinks, site } from "@/lib/site";
 import { servicePages } from "@/lib/services";
 import { Logo } from "@/components/ui/Logo";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +10,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface/40">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+        <Reveal y={18} className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-2.5" aria-label={site.name}>
@@ -88,7 +89,7 @@ export function Footer() {
               Email
             </a>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>

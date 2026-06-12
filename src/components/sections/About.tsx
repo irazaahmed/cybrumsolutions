@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Card } from "@/components/ui/Card";
 import { CountUp } from "@/components/ui/CountUp";
+import { ParallaxY } from "@/components/visuals/ParallaxY";
 import { about, stats } from "@/lib/content";
 import { site, contact } from "@/lib/site";
 
@@ -11,8 +12,8 @@ export function About() {
     <Section id="about" divider>
       {/* Founder intro */}
       <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <Reveal>
-          <div className="relative mx-auto w-full max-w-sm">
+        <Reveal x={-32}>
+          <ParallaxY from={24} to={-24} className="relative mx-auto w-full max-w-sm">
             <div
               aria-hidden
               className="absolute -inset-4 rounded-3xl bg-accent/15 blur-2xl"
@@ -32,10 +33,10 @@ export function About() {
                 <p className="text-sm font-medium text-[#5eb0ff]">{site.founderRole}</p>
               </div>
             </div>
-          </div>
+          </ParallaxY>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} x={32}>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent-bright">
             About
           </span>
@@ -62,7 +63,7 @@ export function About() {
       </div>
 
       {/* Credibility strip: real, defensible numbers */}
-      <Reveal delay={0.05}>
+      <Reveal delay={0.05} tilt>
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {stats.map((stat) => (
             <div
@@ -79,7 +80,7 @@ export function About() {
       </Reveal>
 
       {/* Name story */}
-      <Reveal delay={0.05}>
+      <Reveal delay={0.05} tilt>
         <Card className="mt-12 bg-surface/40">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>

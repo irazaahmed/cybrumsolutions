@@ -25,7 +25,7 @@ export function WhyCybrum() {
         {whyCybrum.items.map((item, i) => {
           const Icon = icons[i];
           return (
-            <Reveal key={item.title} delay={i * 0.08} className="h-full">
+            <Reveal key={item.title} delay={i * 0.08} tilt className="h-full">
               <GlowCard className="flex h-full flex-col">
                 <div className="flex items-center justify-between">
                   <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/15 to-transparent text-accent-bright">

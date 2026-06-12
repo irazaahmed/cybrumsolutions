@@ -46,7 +46,7 @@ export function Services() {
       <div className="mt-14 flex flex-col gap-6">
         {/* Primary service feature card */}
         {primary && (
-          <Reveal>
+          <Reveal tilt>
             <GlowCard className="flex flex-col gap-6 md:flex-row md:items-center md:gap-10">
               <div className="flex items-center gap-5 md:flex-1">
                 <IconBadge Icon={icons[primary.id]} size="lg" />
@@ -87,7 +87,7 @@ export function Services() {
         {/* Supporting services */}
         <div className="grid gap-6 md:grid-cols-2">
           {rest.map((service, i) => (
-            <Reveal key={service.id} delay={i * 0.1} className="h-full">
+            <Reveal key={service.id} delay={i * 0.1} tilt className="h-full">
               <GlowCard className="flex h-full flex-col">
                 <IconBadge Icon={icons[service.id]} />
                 <h3 className="mt-5 text-xl font-semibold tracking-tight sm:text-2xl">

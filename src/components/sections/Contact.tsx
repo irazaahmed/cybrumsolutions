@@ -79,7 +79,7 @@ export function Contact() {
     <Section id="contact" divider>
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
         {/* Left: pitch + direct channels */}
-        <Reveal>
+        <Reveal x={-32}>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent-bright">
             Contact
           </span>
@@ -135,7 +135,7 @@ export function Contact() {
         </Reveal>
 
         {/* Right: gated form */}
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} x={32}>
           <div className="rounded-3xl border border-border bg-card/60 p-6 backdrop-blur-sm sm:p-8">
             {status === "success" ? (
               <div className="flex flex-col items-center gap-3 py-10 text-center">

@@ -18,7 +18,7 @@ export function ContentHub() {
       {posts.length > 0 && (
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, i) => (
-            <Reveal key={post.slug} delay={(i % 3) * 0.08}>
+            <Reveal key={post.slug} delay={(i % 3) * 0.08} tilt>
               <BlogCard post={post} />
             </Reveal>
           ))}

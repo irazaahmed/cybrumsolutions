@@ -14,7 +14,7 @@ export function Proof() {
   return (
     <section className="relative px-5 pb-20 sm:px-8 sm:pb-28">
       <div className="mx-auto max-w-7xl">
-        <Reveal>
+        <Reveal tilt>
           <div className="rounded-3xl border border-accent/20 bg-gradient-to-b from-accent/8 to-transparent p-8 sm:p-10">
             <h2 className="text-center font-heading text-xl font-semibold tracking-tight sm:text-2xl">
               {proof.heading}

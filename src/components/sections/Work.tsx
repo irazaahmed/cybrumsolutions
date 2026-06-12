@@ -24,7 +24,7 @@ export function Work() {
 
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {featured.map((project, i) => (
-          <Reveal key={project.title} delay={(i % 3) * 0.08} className="h-full">
+          <Reveal key={project.title} delay={(i % 3) * 0.08} tilt className="h-full">
             <ProjectCard project={project} />
           </Reveal>
         ))}

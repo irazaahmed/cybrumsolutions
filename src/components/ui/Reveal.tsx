@@ -7,8 +7,12 @@ type RevealProps = {
   children: ReactNode;
   /** Stagger delay in seconds. */
   delay?: number;
-  /** Direction the element rises from. */
+  /** Vertical offset the element rises from. */
   y?: number;
+  /** Horizontal offset for directional slide-ins (negative = from left). */
+  x?: number;
+  /** Adds a subtle 3D flip-up (rotateX) to the entrance. */
+  tilt?: boolean;
   className?: string;
 };
 
@@ -18,10 +22,18 @@ const variants: Variants = {
 };
 
 /**
- * Fades, de-blurs, and rises its children into view on scroll. Animates once.
+ * Fades, de-blurs, and rises its children into view on scroll, optionally
+ * sliding in from a side (x) or flipping up in 3D (tilt). Animates once.
  * Respects reduced-motion via the global CSS rule.
  */
-export function Reveal({ children, delay = 0, y = 24, className }: RevealProps) {
+export function Reveal({
+  children,
+  delay = 0,
+  y = 24,
+  x = 0,
+  tilt = false,
+  className,
+}: RevealProps) {
   return (
     <motion.div
       className={className}
@@ -29,8 +41,22 @@ export function Reveal({ children, delay = 0, y = 24, className }: RevealProps) 
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={{
-        hidden: { opacity: 0, y, filter: "blur(8px)" },
-        visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+        hidden: {
+          opacity: 0,
+          y,
+          x,
+          rotateX: tilt ? 14 : 0,
+          transformPerspective: 900,
+          filter: "blur(8px)",
+        },
+        visible: {
+          opacity: 1,
+          y: 0,
+          x: 0,
+          rotateX: 0,
+          transformPerspective: 900,
+          filter: "blur(0px)",
+        },
       }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
     >

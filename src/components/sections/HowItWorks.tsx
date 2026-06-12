@@ -35,7 +35,7 @@ export function HowItWorks() {
           {process.steps.map((step, i) => {
             const Icon = icons[i];
             return (
-              <Reveal key={step.number} delay={i * 0.1}>
+              <Reveal key={step.number} delay={i * 0.1} tilt>
                 <div className="group relative flex flex-col">
                   {/* node */}
                   <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/30 bg-card text-accent-bright transition-all duration-300 group-hover:border-accent group-hover:shadow-[0_0_30px_-8px_var(--color-accent)]">
