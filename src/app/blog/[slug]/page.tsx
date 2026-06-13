@@ -15,6 +15,7 @@ import { Logo } from "@/components/ui/Logo";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { LanguageSwitcher } from "@/components/blog/LanguageSwitcher";
 import { DownloadPdfButton } from "@/components/blog/DownloadPdfButton";
+import { TimeAgo } from "@/components/blog/TimeAgo";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 
@@ -248,6 +249,8 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
                         <time dateTime={post.date}>{formatDate(post.date, post.lang)}</time>
                         <span aria-hidden>·</span>
                         <span>{post.readingTime}</span>
+                        <span aria-hidden>·</span>
+                        <TimeAgo iso={post.date} />
                       </div>
                       <h1
                         className={
