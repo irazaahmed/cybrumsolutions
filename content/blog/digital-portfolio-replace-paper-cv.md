@@ -33,7 +33,7 @@ A company wants to hire someone. Two candidates are equally qualified. One sends
 
 A client needs a consultant. They ask around, someone mentions your name. They Google you. Nothing comes up. They move on to the next name.
 
-You attend an event, exchange contact details, and someone wants to follow up on your credentials. You send them a photo of your certificate on WhatsApp. It does not look professional. It does not inspire confidence.
+You attend an event, exchange contact details, and someone wants to follow up. You send them a photo of your certificate on WhatsApp. It does not look professional. It does not inspire confidence.
 
 In each of these cases, a link would have changed the outcome.
 
@@ -49,29 +49,29 @@ If you are a **business owner**, your background and what you offer should not l
 
 If you are a **fresh graduate**, a portfolio page separates you from a hundred CVs sitting in the same inbox.
 
-And if you are an **Islamic scholar or Aalim**, someone who has spent years earning ijazahs, completing specialized training, and building a body of scholarly work, your credentials deserve to be presented properly. Not buried in a folder or shared as phone photos of certificates.
+And if you are an **Islamic scholar or Aalim**, your work carries a responsibility that goes beyond any job title. People look to you for guidance on their faith, their lives, their questions. The more people who can find you, the greater your reach.
 
 ## A special note for Ulama and Islamic scholars
 
-Islamic scholars carry credentials that are genuinely impressive: years of structured study, ijazahs from senior scholars, expertise in specialized fields of Islamic knowledge, translation work, advisory roles. These credentials matter to the people who need your guidance.
+Islamic scholars do more than teach. They bring communities closer to their deen. They answer questions that matter. They create awareness, build understanding, and give people something to hold on to in difficult times.
 
-But most scholars have no digital presence. Their qualifications exist on paper, in a folder, or in the memory of those who know them personally. Outside that circle, they are invisible.
+That kind of work deserves to be seen. But when a scholar has no digital presence, they can only reach the people already in front of them. Someone in another city, another country, searching for guidance in their own language, goes looking online and finds nothing.
 
-A professional portfolio page changes that. It presents your scholarly background with the seriousness it deserves, and makes it easy for institutions, publications, and individuals to find you and verify your credentials.
+A simple, clean portfolio page changes that. Your name is searchable. Your work is visible. People who need what you offer can actually find you.
 
-Cybrum Solutions is offering a **special discount for Ulama and Islamic scholars** on portfolio websites, because this community has credentials worth presenting and deserves to be found by the people looking for their guidance.
+Cybrum Solutions is offering a **special discount for Ulama and Islamic scholars** on portfolio websites. The need is real. A scholar who can be found online can reach far more people than one who cannot.
 
 ## What it takes to get started
 
 Less than you think.
 
-You do not need to know anything about websites or technology. You need to know who you are and what you have done. We handle everything else: design, content organization, hosting, domain setup, and making sure it actually looks professional on both a laptop and a phone.
+You do not need to know anything about websites or technology. You need to know who you are and what you do. We handle everything else: design, content, hosting, domain setup, and making sure it looks right on both a laptop and a phone.
 
 Within a few days, from home, you can have a link that represents you properly.
 
 ## The bottom line
 
-The printed CV was useful for its time. Its time has passed. The people you want to reach are online. Your credentials, your experience, your work: all of it should be one link away, not in a folder waiting for the next time someone physically asks for it.
+The printed CV was useful for its time. Its time has passed. The people you want to reach are online. Your experience, your work, your message: all of it should be one link away, not sitting in a folder waiting for the next time someone physically asks for it.
 
 If you want to go digital, whether you are a professional, a graduate, a scholar, or a business owner, [get in touch today](/#contact). We will set it up and have it ready within days.
 

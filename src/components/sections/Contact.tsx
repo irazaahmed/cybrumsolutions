@@ -242,7 +242,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="btn-sheen inline-flex h-12 flex-1 items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] disabled:opacity-60"
+                    className="btn-sheen inline-flex h-12 w-full flex-1 items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] disabled:opacity-60"
                   >
                     {status === "submitting" ? "Sending..." : "Book a Free AI Audit"}
                   </button>
@@ -250,7 +250,7 @@ export function Contact() {
                     href={whatsappHref()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-surface/60 px-6 text-sm font-medium text-foreground transition-colors hover:border-accent"
+                    className="inline-flex h-12 w-full items-center justify-center rounded-full border border-border bg-surface/60 px-6 text-sm font-medium text-foreground transition-colors hover:border-accent sm:w-auto"
                   >
                     Send via WhatsApp
                   </a>

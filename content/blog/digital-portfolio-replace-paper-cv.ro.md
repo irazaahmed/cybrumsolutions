@@ -11,7 +11,7 @@ Woh zamana ab wapas nahi aayega.
 
 ## Kya badla
 
-Yeh tabdili is liye nahi aayi ke technology fashionable ho gayi. Yeh is liye aayi ke faisla karne wale log apna tarika badal chuke hain. Employers, clients, idare, saath kaam karne wale, yeh sab aap ko pehle online dhundh te hain, phir milte hain.
+Yeh tabdili is liye nahi aayi ke technology fashionable ho gayi. Yeh is liye aayi ke faisla karne wale log apna tarika badal chuke hain. Employers, clients, idare, saath kaam karne wale: yeh sab aap ko pehle online dhundh te hain, phir milte hain.
 
 Aap kamre mein dakhil hone se pehle hi, woh aap ko dhundh chuke hote hain. Naam likha, LinkedIn dekha, do minute click kiya. Jo mila ya nahi mila, us ne unki raay bana li, kuch bolne se pehle hi.
 
@@ -33,7 +33,7 @@ Ek company hire karna chahti hai. Do candidates barabar qualified hain. Ek link 
 
 Ek client ko mashwara chahiye. Logon se poocha, aapka naam aya. Google kiya. Kuch nahi mila. Agla naam liya aur aage badh gaye.
 
-Kisi event mein mile, contact exchange hua, koi credentials follow up karna chahta hai. Aap ne WhatsApp par certificate ki photo bheji. Professional nahi lagi. Confidence inspire nahi hua.
+Kisi event mein mile, contact exchange hua, koi follow up karna chahta hai. Aap ne WhatsApp par certificate ki photo bheji. Professional nahi lagi. Confidence inspire nahi hua.
 
 In mein se har case mein, ek link nateeja badal sakta tha.
 
@@ -49,29 +49,29 @@ Agar aap **business owner** hain: aapka background aur jo aap offer karte hain w
 
 Agar aap **fresh graduate** hain: ek portfolio page aap ko ek inbox mein pade sau CVs se alag karta hai.
 
-Aur agar aap **Aalim ya Islamic Scholar** hain, jinhon ne barson mein ijazahs hasil ki hain, specialized Islamic training mukammal ki hai, scholarly kaam ka bada silsila hai, to aapki sanad ek folder mein ya certificate ki phone photos ki shakal mein nahi rehni chahiye.
+Aur agar aap **Aalim ya Islamic Scholar** hain: aapka kaam kisi bhi job title se bada hai. Log apne deen ke baare mein, apni zindagi ke baare mein, apne sawaalon ke baare mein aap ki taraf dekhte hain. Jitne zyada log aap ko dhundh sakein, utna zyada aapki pahunch.
 
 ## Ulama aur Islamic Scholars ke liye khaas baat
 
-Islamic scholars ke paas credentials hote hain jo waqai qabil e taarif hain: barson ki structured study, bade scholars se ijazah, Islamic knowledge ke specialized fields mein maharat, tarjuma ka kaam, advisory ki zimmedari. Yeh credentials un logon ke liye matter karte hain jinhe aapki rehnumai chahiye.
+Islamic scholars sirf parhate nahi. Woh logon ko deen ke qareeb karte hain. Woh sawaalon ke jawab dete hain jo sach mein matter karte hain. Woh awam mein sha'oor paida karte hain, samajh banate hain, aur mushkil waqton mein logon ko ek sahara dete hain.
 
-Lekin aksar scholars ki koi digital presence nahi hoti. Unki qualifications kaghazaat mein hain, folder mein hain, ya unhi logon ki yaad mein jo inhe personally jaante hain. Us daaire ke bahar, woh invisible hain.
+Aisa kaam nazar aana chahiye. Lekin jab koi Aalim digital maujooda nahi hota, to woh sirf unhi logon tak pahunch sakta hai jo seedha uske saamne hain. Doosre shahar ka koi shakhs, doosre mulk mein baitha koi, apni zubaan mein rehnumai dhundh raha hai, internet par jaata hai, kuch nahi milta.
 
-Ek professional portfolio page yeh sab badal deta hai. Aapki scholarly background ko usi sanjidagi ke saath pesh karta hai jis ki woh mustahiq hai, aur institutions, publications aur afraad ke liye aasaan banata hai ke woh aap ko dhundh sakein aur aapki sanad verify kar sakein.
+Ek saada, achha portfolio page yeh sab badal deta hai. Aapka naam searchable ho jaata hai. Aapka kaam visible ho jaata hai. Jo log aapki rehnumai chahte hain woh aap ko asal mein dhundh sakte hain.
 
-Cybrum Solutions **Ulama aur Islamic Scholars ke liye portfolio websites par special discount** de rahi hai, is liye ke is community ke paas pesh karne ke qaabil credentials hain aur woh un logon ko milne chahiye jo inhe talash kar rahe hain.
+Cybrum Solutions **Ulama aur Islamic Scholars ke liye portfolio websites par special discount** de rahi hai. Yeh zaroorat asal hai. Jo Aalim online mila ja sake woh kahin zyada logon tak pahunch sakta hai.
 
 ## Shuru karne ke liye kya chahiye
 
 Jitna aap sochte hain us se kahin kam.
 
-Websites ya technology ke baare mein kuch jaanna zaroori nahi. Sirf yeh jaanna zaroori hai ke aap kaun hain aur aap ne kya kiya hai. Baaki sab hum karein ge: design, content organization, hosting, domain setup, aur yeh yaqeen dilana ke yeh laptop aur phone dono par properly professional dikhe.
+Websites ya technology ke baare mein kuch jaanna zaroori nahi. Sirf yeh jaanna zaroori hai ke aap kaun hain aur aap kya karte hain. Baaki sab hum karein ge: design, content, hosting, domain setup, aur yeh yaqeen dilana ke yeh laptop aur phone dono par sahi dikhe.
 
-Ghar baithe, kuch hi dinon mein, aapke paas ek aisa link ho sakta hai jo aapko theek se represent kare.
+Ghar baithe, kuch hi dinon mein, aapke paas ek aisa link ho sakta hai jo aapko theek se pesh kare.
 
 ## Khulasa
 
-Printed CV apne waqt ke liye useful tha. Woh waqt guzar gaya. Jo log aap tak pohanchna chahte hain woh online hain. Aapki sanad, aapka tajurba, aapka kaam: sab ek link par hona chahiye, folder mein nahi jahan tab pata chale jab koi physically maange.
+Printed CV apne waqt ke liye useful tha. Woh waqt guzar gaya. Jo log aap tak pohanchna chahte hain woh online hain. Aapka tajurba, aapka kaam, aapka paigham: sab ek link par hona chahiye, folder mein nahi jahan tab pata chale jab koi physically maange.
 
 Agar aap digital hona chahte hain, chahe aap professional hon, graduate hon, scholar hon ya business owner, [aaj hi rabta karein](/#contact). Hum sab set up kar ke kuch hi dinon mein tayar kar dein ge.
 
