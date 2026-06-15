@@ -1,19 +1,19 @@
 ---
 title: "Das Saal Pehle Printed CV Chahiye Tha. Aaj Ek Link Chahiye."
 date: "2026-06-15"
-excerpt: "Paper CV ka daur guzar gaya. Ab ek link poore documents ki jagah le leta hai — bio, experience, education, certificates sab ek screen par. Agar aap ke paas abhi tak woh link nahi, yahan samjhein kyun zaruri hai aur kaise milega."
+excerpt: "Paper CV ka daur guzar gaya. Ab ek link poore documents ki jagah le leta hai: bio, experience, education, certificates sab ek screen par. Agar aap ke paas abhi tak woh link nahi, yahan samjhein kyun zaruri hai aur kaise milega."
 tags: ["Digital Portfolio", "Online CV", "Personal Branding", "Web Development", "Pakistan"]
 ---
 
-Aaj se das saal pehle job interview par jaane ka matlab tha — CV print karo, folder mein rakh lo, saath mein degree certificates, experience letters aur jo bhi mangein woh le jao. Ghar par copies rakhi hoti thin. Raat ko printer mein ink khatam ho jaati to subah ki takleef alag hoti.
+Aaj se das saal pehle job interview par jaane ka matlab tha: CV print karo, folder mein rakh lo, saath mein degree certificates, experience letters aur jo bhi mangein woh le jao. Ghar par copies rakhi hoti thin. Raat ko printer mein ink khatam ho jaati to subah ki takleef alag hoti.
 
 Woh zamana ab wapas nahi aayega.
 
 ## Kya badla
 
-Yeh tabdili is liye nahi aayi ke technology fashionable ho gayi. Yeh is liye aayi ke faisla karne wale log — employers, clients, idare, saath kaam karne wale — aap ko check karne ka tarika badal gaya.
+Yeh tabdili is liye nahi aayi ke technology fashionable ho gayi. Yeh is liye aayi ke faisla karne wale log apna tarika badal chuke hain. Employers, clients, idare, saath kaam karne wale, yeh sab aap ko pehle online dhundh te hain, phir milte hain.
 
-Aap kamre mein dakhil hone se pehle hi, woh aap ko dhundh chuke hote hain. Naam likha, LinkedIn dekha, do minute click kiya. Jo mila ya nahi mila, us ne unki raay bana li — kuch bolne se pehle hi.
+Aap kamre mein dakhil hone se pehle hi, woh aap ko dhundh chuke hote hain. Naam likha, LinkedIn dekha, do minute click kiya. Jo mila ya nahi mila, us ne unki raay bana li, kuch bolne se pehle hi.
 
 Printed CV us lamhe mein nahi ho sakta. Ek link ho sakta hai.
 
@@ -21,7 +21,7 @@ Printed CV us lamhe mein nahi ho sakta. Ek link ho sakta hai.
 
 LinkedIn profile nahi. Google Drive par upload ki hui PDF nahi. WhatsApp status par certificate ki photo nahi.
 
-Digital portfolio internet par aapki apni jagah hoti hai — aapka naam, aapka kaam, aapki sanad, aapka contact — sab ek professional page par, jo kisi bhi screen par chand seconds mein khul jaye. Koi aapka link type kare ya QR code scan kare aur sab kuch wahan ho: aap kaun hain, kya kiya hai, kya kar sakte hain, kaise rabta karein.
+Digital portfolio internet par aapki apni jagah hoti hai: aapka naam, aapka kaam, aapki sanad, aapka contact, sab ek professional page par, jo kisi bhi screen par chand seconds mein khul jaye. Koi aapka link type kare ya QR code scan kare aur sab kuch wahan ho. Aap kaun hain, kya kiya hai, kya kar sakte hain, kaise rabta karein.
 
 Ek link. Sab kuch us mein.
 
@@ -41,15 +41,15 @@ In mein se har case mein, ek link nateeja badal sakta tha.
 
 Sabse aam ghalat fehmi yeh hai ke digital portfolio sirf software developers ya designers ke liye hota hai. Yeh galat hai.
 
-Agar aap **doctor** hain — aapki qualifications, specialization aur clinic ki details ek aise page par honi chahiye jo log dhundh sakein.
+Agar aap **doctor** hain: aapki qualifications, specialization aur clinic ki details ek aise page par honi chahiye jo log dhundh sakein.
 
-Agar aap **ustaad ya academic** hain — aapki education, publications aur tajurba ek click par hona chahiye.
+Agar aap **ustaad ya academic** hain: aapki education, publications aur tajurba ek click par hona chahiye.
 
-Agar aap **business owner** hain — aapka background aur jo aap offer karte hain woh sirf WhatsApp business profile mein nahi rehna chahiye.
+Agar aap **business owner** hain: aapka background aur jo aap offer karte hain woh sirf WhatsApp business profile mein nahi rehna chahiye.
 
-Agar aap **fresh graduate** hain — ek portfolio page aap ko ek inbox mein pade sau CVs se alag karta hai.
+Agar aap **fresh graduate** hain: ek portfolio page aap ko ek inbox mein pade sau CVs se alag karta hai.
 
-Aur agar aap **Aalim ya Islamic Scholar** hain — jinhon ne barson mein ijazahs hasil ki hain, specialized Islamic training mukammal ki hai, scholarly kaam ka bada silsila hai — aapki sanad ek folder mein ya certificate ki phone photos ki shakal mein nahi rehni chahiye.
+Aur agar aap **Aalim ya Islamic Scholar** hain, jinhon ne barson mein ijazahs hasil ki hain, specialized Islamic training mukammal ki hai, scholarly kaam ka bada silsila hai, to aapki sanad ek folder mein ya certificate ki phone photos ki shakal mein nahi rehni chahiye.
 
 ## Ulama aur Islamic Scholars ke liye khaas baat
 
@@ -59,7 +59,7 @@ Lekin aksar scholars ki koi digital presence nahi hoti. Unki qualifications kagh
 
 Ek professional portfolio page yeh sab badal deta hai. Aapki scholarly background ko usi sanjidagi ke saath pesh karta hai jis ki woh mustahiq hai, aur institutions, publications aur afraad ke liye aasaan banata hai ke woh aap ko dhundh sakein aur aapki sanad verify kar sakein.
 
-Cybrum Solutions **Ulama aur Islamic Scholars ke liye portfolio websites par special discount** de rahi hai — is liye ke is community ke paas pesh karne ke qaabil credentials hain aur woh un logon ko milne chahiye jo inhe talash kar rahe hain.
+Cybrum Solutions **Ulama aur Islamic Scholars ke liye portfolio websites par special discount** de rahi hai, is liye ke is community ke paas pesh karne ke qaabil credentials hain aur woh un logon ko milne chahiye jo inhe talash kar rahe hain.
 
 ## Shuru karne ke liye kya chahiye
 
@@ -71,8 +71,8 @@ Ghar baithe, kuch hi dinon mein, aapke paas ek aisa link ho sakta hai jo aapko t
 
 ## Khulasa
 
-Printed CV apne waqt ke liye useful tha. Woh waqt guzar gaya. Jo log aap tak pohanchna chahte hain woh online hain. Aapki sanad, aapka tajurba, aapka kaam — sab ek link par hona chahiye, folder mein nahi jahan tab pata chale jab koi physically maange.
+Printed CV apne waqt ke liye useful tha. Woh waqt guzar gaya. Jo log aap tak pohanchna chahte hain woh online hain. Aapki sanad, aapka tajurba, aapka kaam: sab ek link par hona chahiye, folder mein nahi jahan tab pata chale jab koi physically maange.
 
-Agar aap digital hona chahte hain — chahe aap professional hon, graduate hon, scholar hon ya business owner — [aaj hi rabta karein](/#contact). Hum sab set up kar ke kuch hi dinon mein tayar kar dein ge.
+Agar aap digital hona chahte hain, chahe aap professional hon, graduate hon, scholar hon ya business owner, [aaj hi rabta karein](/#contact). Hum sab set up kar ke kuch hi dinon mein tayar kar dein ge.
 
 Ulama aur Islamic Scholars: rabta karte waqt apna field zaroor bataein. Special discount laagu hogi.
