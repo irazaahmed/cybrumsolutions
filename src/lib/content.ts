@@ -187,7 +187,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
       stack: ["Playwright", "Python", "Groq"],
       link: "https://github.com/irazaahmed/linkedin-autonomous-agent",
       live: "https://raw.githubusercontent.com/irazaahmed/linkedin-autonomous-agent/main/demo/agent_demo.webm",
-      visual: "chat",
+      visual: "dashboard",
     },
     {
       title: "Physical AI & Humanoid Robotics",
