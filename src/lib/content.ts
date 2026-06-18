@@ -180,6 +180,16 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
       visual: "profile",
     },
     {
+      title: "LinkedIn Autonomous Agent",
+      category: "AI Agent",
+      description:
+        "Autonomous Playwright agent that reacts and comments on LinkedIn posts using an LLM, with built-in relevance filtering.",
+      stack: ["Playwright", "Python", "Groq"],
+      link: "https://github.com/irazaahmed/linkedin-autonomous-agent",
+      live: "https://raw.githubusercontent.com/irazaahmed/linkedin-autonomous-agent/main/demo/agent_demo.webm",
+      visual: "chat",
+    },
+    {
       title: "Physical AI & Humanoid Robotics",
       category: "AI / ML",
       description:
