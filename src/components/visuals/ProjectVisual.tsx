@@ -179,6 +179,38 @@ const visuals: Record<ProjectVisualKind, React.ReactNode> = {
     </div>
   ),
 
+  /* Bank: balance card with a pulsing credit badge, plus a transfer row */
+  bank: (
+    <div className="flex w-full max-w-[14rem] flex-col gap-2.5">
+      <div className="flex items-center justify-between rounded-lg border border-border bg-card/90 p-2.5">
+        <div className="flex flex-col gap-1.5">
+          <Bar w="4rem" />
+          <Bar w="6rem" strong />
+        </div>
+        <span className="pv-pulse rounded-full bg-accent/80 px-2 py-0.5 text-[8px] font-semibold text-white">
+          +Rs 1,000
+        </span>
+      </div>
+      <div className="flex items-center gap-2.5 rounded-lg border border-border bg-card/90 p-2.5">
+        <span className="h-6 w-6 shrink-0 rounded-full bg-accent/30" />
+        <svg viewBox="0 0 60 12" className="h-3 flex-1">
+          <line
+            className="pv-dash"
+            x1="2"
+            y1="6"
+            x2="56"
+            y2="6"
+            stroke="var(--color-accent)"
+            strokeOpacity="0.5"
+            strokeWidth="1.5"
+          />
+          <polygon points="50,2 58,6 50,10" fill="var(--color-accent)" />
+        </svg>
+        <span className="h-6 w-6 shrink-0 rounded-full bg-accent/70" />
+      </div>
+    </div>
+  ),
+
   /* Dashboard: stat chips and a rising bar chart */
   dashboard: (
     <div className="flex w-full max-w-[14rem] flex-col gap-2.5">

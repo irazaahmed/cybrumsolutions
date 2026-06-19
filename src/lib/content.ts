@@ -135,7 +135,8 @@ export type ProjectVisualKind =
   | "store"
   | "dashboard"
   | "profile"
-  | "blog";
+  | "blog"
+  | "bank";
 
 export type Project = {
   title: string;
@@ -178,6 +179,16 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
       link: "https://github.com/irazaahmed/iraza-portfolio",
       live: "https://www.irazaahmed.me/",
       visual: "profile",
+    },
+    {
+      title: "AR Bank Limited — Banking Management System",
+      category: "Full-Stack Web App",
+      description:
+        "A full-stack banking simulator: instant peer-to-peer transfers, live transaction history, and an admin panel tracking every account and rupee in the system, backed by a real Postgres database.",
+      stack: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
+      link: "https://github.com/irazaahmed/bank-management-system",
+      live: "https://ar-bank-management-system.vercel.app/",
+      visual: "bank",
     },
     {
       title: "LinkedIn Autonomous Agent",
