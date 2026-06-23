@@ -112,7 +112,7 @@ to the `main` branch triggers a new production deployment.
 
 ## Contact
 
-- WhatsApp: +92 313 0221118
+- WhatsApp: 0337-0(292786) CYBRUM (+923370292786, https://wa.me/923370292786)
 - Company LinkedIn: [linkedin.com/company/cybrumsolutions](https://www.linkedin.com/company/cybrumsolutions)
 - Founder LinkedIn: [linkedin.com/in/irazaahmed](https://www.linkedin.com/in/irazaahmed)
 - GitHub: [github.com/irazaahmed](https://github.com/irazaahmed)

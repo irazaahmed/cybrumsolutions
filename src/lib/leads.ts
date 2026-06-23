@@ -173,7 +173,7 @@ function buildAckHtml(lead: Lead): string {
                     <div style="color:${ink};font-size:15px;font-weight:700;">${escapeHtml(site.founder)}</div>
                     <div style="color:${accent};font-size:13px;margin-top:2px;">${escapeHtml(site.founderRole)}, ${escapeHtml(site.name)}</div>
                     <div style="margin-top:12px;font-size:13px;line-height:1.9;">
-                      <a href="${contact.whatsappLink}" style="color:#3a4252;">WhatsApp: ${escapeHtml(contact.whatsappNumber)}</a><br/>
+                      <a href="${contact.whatsappLink}" style="color:#3a4252;">WhatsApp: ${escapeHtml(contact.phoneDisplay)}</a><br/>
                       <a href="${contact.linkedinFounder}" style="color:#3a4252;">LinkedIn: linkedin.com/in/irazaahmed</a><br/>
                       <a href="https://${site.domain}" style="color:#3a4252;">${escapeHtml(site.domain)}</a>
                     </div>

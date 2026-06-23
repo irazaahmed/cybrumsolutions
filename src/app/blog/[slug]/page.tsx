@@ -318,7 +318,7 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
                 </div>
                 <div className="pdf-author-link">
                   <span className="pdf-author-link-label">{t.links.whatsapp}</span>
-                  <a href={contact.whatsappLink}>{contact.whatsappNumber}</a>
+                  <a href={contact.whatsappLink}>{contact.phoneDisplay}</a>
                 </div>
                 <div className="pdf-author-link">
                   <span className="pdf-author-link-label">{t.links.linkedin}</span>

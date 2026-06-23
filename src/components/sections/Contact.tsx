@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Check, MessageCircle } from "lucide-react";
+import { Check, MessageCircle, Phone } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { PhoneDisplay } from "@/components/ui/PhoneDisplay";
 import { contactSection } from "@/lib/content";
 import { contact } from "@/lib/site";
 
@@ -120,7 +121,16 @@ export function Contact() {
               <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface/60 text-accent-bright transition-colors group-hover:border-accent/60">
                 <MessageCircle size={16} />
               </span>
-              {contact.whatsappNumber}
+              <PhoneDisplay />
+            </a>
+            <a
+              href={contact.callLink}
+              className="group flex items-center gap-3 text-sm text-muted transition-colors hover:text-foreground"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface/60 text-accent-bright transition-colors group-hover:border-accent/60">
+                <Phone size={16} />
+              </span>
+              <PhoneDisplay />
             </a>
             <a
               href={contact.linkedinCompany}

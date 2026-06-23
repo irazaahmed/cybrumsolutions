@@ -15,8 +15,13 @@ export const site = {
 } as const;
 
 export const contact = {
-  whatsappNumber: "+92 313 0221118",
-  whatsappLink: "https://wa.me/923130221118",
+  /** Mnemonic display string shown to viewers; the last 6 digits spell CYBRUM. */
+  phoneDisplay: "0337-0(292786) CYBRUM",
+  /** E.164 international format for tel: links and structured data (JSON-LD). */
+  phoneRaw: "+923370292786",
+  /** Click-to-call href. */
+  callLink: "tel:+923370292786",
+  whatsappLink: "https://wa.me/923370292786",
   email: "info@cybrumsolutions.dev",
   /** Company page: use wherever Cybrum (the company) is referenced. */
   linkedinCompany: "https://www.linkedin.com/company/cybrumsolutions",

@@ -48,7 +48,7 @@ SELECTED WORK / CAPABILITIES
 ${projects}
 
 CONTACT CHANNELS
-- WhatsApp: ${contact.whatsappNumber} (${contact.whatsappLink})
+- WhatsApp: ${contact.phoneDisplay} (${contact.whatsappLink})
 - Email: ${contact.email}
 - Company LinkedIn: ${contact.linkedinCompany}
 - The website has a "Book a Free AI Audit" contact form in the Contact section.

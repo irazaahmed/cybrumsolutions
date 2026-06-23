@@ -159,7 +159,7 @@ const jsonLd = {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: contact.whatsappNumber,
+        telephone: contact.phoneRaw,
         contactType: "sales",
         areaServed: ["PK", "Worldwide"],
         availableLanguage: ["English", "Urdu"],

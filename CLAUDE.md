@@ -115,7 +115,7 @@ Ahmed is a **solo founder, but NEVER framed as "just one guy."** Frame him as an
 ## Audience & contact
 
 - **Both** Pakistani local + international clients, weighted equally. Design stays neutral-premium so global clients take it seriously. English-only copy for now.
-- **Contact channels:** WhatsApp **+92 313 0221118** (public, local), LinkedIn **linkedin.com/in/irazaahmed**, GitHub **github.com/irazaahmed**, portfolio **irazaahmed.me**.
+- **Contact channels:** WhatsApp **+923370292786** (display format **0337-0(292786) CYBRUM** — the last 6 digits spell CYBRUM; wa.me/923370292786, tel:+923370292786), LinkedIn **linkedin.com/in/irazaahmed**, GitHub **github.com/irazaahmed**, portfolio **irazaahmed.me**.
 - Provide both a booking path (international) and WhatsApp (local) at the contact section.
 
 ---
