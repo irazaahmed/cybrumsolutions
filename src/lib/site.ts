@@ -23,6 +23,9 @@ export const contact = {
   callLink: "tel:+923370292786",
   whatsappLink: "https://wa.me/923370292786",
   email: "info@cybrumsolutions.dev",
+  /** Canonical website URL and the bare label shown to viewers. */
+  website: "https://cybrumsolutions.dev",
+  websiteLabel: "cybrumsolutions.dev",
   /** Company page: use wherever Cybrum (the company) is referenced. */
   linkedinCompany: "https://www.linkedin.com/company/cybrumsolutions",
   /** Founder's personal profile: use wherever Ahmed (the founder) is referenced. */

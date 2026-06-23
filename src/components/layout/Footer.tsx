@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { QRCodeSVG } from "qrcode.react";
 import { contact, navLinks, site } from "@/lib/site";
 import { servicePages } from "@/lib/services";
 import { Logo } from "@/components/ui/Logo";
+import { PhoneDisplay } from "@/components/ui/PhoneDisplay";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Footer() {
@@ -25,6 +27,49 @@ export function Footer() {
               web systems that run real business workflows. Based in Pakistan,
               serving clients worldwide.
             </p>
+            <p className="mt-4 text-sm text-muted">{site.tagline}</p>
+
+            {/* Contact + scannable WhatsApp QR */}
+            <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-2">
+                <a
+                  href={contact.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-foreground transition-colors hover:text-accent"
+                  aria-label="Chat on WhatsApp"
+                >
+                  <PhoneDisplay />
+                </a>
+                <a
+                  href={contact.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted transition-colors hover:text-accent"
+                >
+                  {contact.websiteLabel}
+                </a>
+              </div>
+
+              <div className="flex flex-col items-center gap-1.5">
+                <a
+                  href={contact.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl bg-white p-2"
+                  aria-label="Scan to chat on WhatsApp"
+                >
+                  <QRCodeSVG
+                    value={contact.whatsappLink}
+                    size={96}
+                    bgColor="#FFFFFF"
+                    fgColor="#0B0E14"
+                    level="M"
+                  />
+                </a>
+                <span className="text-[11px] text-muted">Scan to chat on WhatsApp</span>
+              </div>
+            </div>
           </div>
 
           {/* Services */}
