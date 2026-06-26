@@ -32,6 +32,9 @@ export const contact = {
   linkedinFounder: "https://www.linkedin.com/in/irazaahmed",
   github: "https://github.com/irazaahmed",
   portfolio: "https://irazaahmed.me",
+  /** Official company social profiles. */
+  facebook: "https://facebook.com/cybrumsolution",
+  instagram: "https://instagram.com/cybrumsolutions",
 } as const;
 
 /** In-page anchor sections for smooth-scroll navigation. */

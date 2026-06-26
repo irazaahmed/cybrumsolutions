@@ -126,7 +126,7 @@ const jsonLd = {
       foundingDate: "2025-12",
       slogan: site.tagline,
       founder: { "@id": `${baseUrl}/#ahmed-raza` },
-      sameAs: [contact.linkedinCompany],
+      sameAs: [contact.linkedinCompany, contact.facebook, contact.instagram],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "AI Services",
