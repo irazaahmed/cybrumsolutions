@@ -2,6 +2,7 @@ import { ChevronDown } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { faq } from "@/lib/content";
 
 /**
@@ -51,10 +52,7 @@ export function Faq() {
         ))}
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </Section>
   );
 }

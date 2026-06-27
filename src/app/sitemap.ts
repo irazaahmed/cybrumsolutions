@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import { getAllPosts, getAvailableLangs } from "@/lib/blog";
 import { servicePages } from "@/lib/services";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 
 /** Per-language URL for a post. English is the canonical bare URL; the
  *  translations carry a `?lang=` query param. */

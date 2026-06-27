@@ -25,6 +25,8 @@ export type BlogMeta = {
   title: string;
   /** ISO date (YYYY-MM-DD) from frontmatter. */
   date: string;
+  /** Optional ISO date the post was last revised; falls back to `date`. */
+  updated: string;
   excerpt: string;
   tags: string[];
   readingTime: string;
@@ -71,6 +73,7 @@ function toMeta(
     slug,
     title: String(data.title ?? slug),
     date: String(data.date ?? ""),
+    updated: String(data.updated ?? data.date ?? ""),
     excerpt: String(data.excerpt ?? ""),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     readingTime: estimateReadingTime(content, lang),

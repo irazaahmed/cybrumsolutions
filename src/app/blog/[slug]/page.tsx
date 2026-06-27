@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import {
+  getAllPosts,
   getAllSlugs,
   getAvailableLangs,
   getPostBySlug,
@@ -12,14 +13,16 @@ import {
 } from "@/lib/blog";
 import { site, contact } from "@/lib/site";
 import { Logo } from "@/components/ui/Logo";
+import { JsonLd } from "@/components/JsonLd";
 import { BlogNav } from "@/components/blog/BlogNav";
+import { BlogCard } from "@/components/blog/BlogCard";
 import { LanguageSwitcher } from "@/components/blog/LanguageSwitcher";
 import { DownloadPdfButton } from "@/components/blog/DownloadPdfButton";
 import { TimeAgo } from "@/components/blog/TimeAgo";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -38,6 +41,7 @@ const T: Record<
   {
     back: string;
     backBottom: string;
+    more: string;
     download: string;
     article: string;
     aboutAuthor: string;
@@ -49,6 +53,7 @@ const T: Record<
   en: {
     back: "All insights",
     backBottom: "Back to all insights",
+    more: "More insights",
     download: "Download PDF",
     article: "Article",
     aboutAuthor: "About the author",
@@ -59,6 +64,7 @@ const T: Record<
   ro: {
     back: "Sari tehreerain",
     backBottom: "Wapis sari tehreerain",
+    more: "Aur tehreerain",
     download: "PDF Download Karein",
     article: "Article",
     aboutAuthor: "Musannif ke baare mein",
@@ -69,6 +75,7 @@ const T: Record<
   ur: {
     back: "تمام تحریریں",
     backBottom: "تمام تحریروں پر واپس",
+    more: "مزید تحریریں",
     download: "پی ڈی ایف ڈاؤن لوڈ کریں",
     article: "مضمون",
     aboutAuthor: "مصنف کے بارے میں",
@@ -143,19 +150,45 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
   const isUrdu = post.lang === "ur";
   const t = T[post.lang];
 
+  // Up to three other English posts for the "related" rail: keeps articles
+  // internally linked instead of orphaned at the bottom of each post.
+  const related = getAllPosts()
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3);
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.excerpt,
-    inLanguage: post.lang === "ur" ? "ur" : "en",
-    datePublished: post.date,
-    dateModified: post.date,
-    keywords: post.tags.join(", "),
-    image: `${baseUrl}/og.png`,
-    author: { "@type": "Person", name: site.founder, url: contact.portfolio },
-    publisher: { "@id": `${baseUrl}/#organization` },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${baseUrl}${pathFor(slug, post.lang)}` },
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.excerpt,
+        inLanguage: post.lang === "ur" ? "ur" : "en",
+        datePublished: post.date,
+        dateModified: post.updated || post.date,
+        keywords: post.tags.join(", "),
+        image: `${baseUrl}/og.png`,
+        author: { "@id": `${baseUrl}/#ahmed-raza` },
+        publisher: { "@id": `${baseUrl}/#organization` },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `${baseUrl}${pathFor(slug, post.lang)}`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+          { "@type": "ListItem", position: 2, name: "Insights", item: `${baseUrl}/blog` },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: `${baseUrl}${pathFor(slug, post.lang)}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (
@@ -330,6 +363,19 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
           </section>
         </div>
 
+        {related.length > 0 && (
+          <div className="no-print mt-16 border-t border-border pt-10">
+            <h2 className="font-heading text-xl font-semibold tracking-tight sm:text-2xl">
+              {t.more}
+            </h2>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {related.map((p) => (
+                <BlogCard key={p.slug} post={p} />
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="no-print mt-14 border-t border-border pt-8">
           <Link
             href="/blog"
@@ -346,10 +392,7 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
         <ScrollToTop />
       </div>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </>
   );
 }

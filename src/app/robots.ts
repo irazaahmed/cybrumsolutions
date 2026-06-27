@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 
 /**
  * Tells search engines they may crawl everything and where the sitemap lives.

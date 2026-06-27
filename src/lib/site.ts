@@ -8,6 +8,9 @@ export const site = {
   shortName: "Cybrum",
   tagline: "One element. Every solution.",
   domain: "www.cybrumsolutions.dev", // live production domain
+  /** Canonical absolute origin. Single source of truth for every SEO/JSON-LD
+   *  URL so the base is never recomputed inline across pages. */
+  url: "https://www.cybrumsolutions.dev",
   description:
     "Cybrum Solutions is an AI-native company in Pakistan building AI agents, automation, chatbots, and web systems for clients worldwide, built end to end.",
   founder: "Ahmed Raza",

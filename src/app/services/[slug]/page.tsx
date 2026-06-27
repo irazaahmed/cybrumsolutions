@@ -8,9 +8,10 @@ import { BlogNav } from "@/components/blog/BlogNav";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
 import { GlowCard } from "@/components/ui/GlowCard";
+import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -256,10 +257,7 @@ export default async function ServicePageRoute({ params }: Props) {
       <Footer />
       <ScrollToTop />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </>
   );
 }

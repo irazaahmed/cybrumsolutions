@@ -6,9 +6,10 @@ import { site } from "@/lib/site";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 const title = "Services: AI Automation, Chatbots & Web Development";
 const description =
   "What Cybrum Solutions builds: AI automation and agents, custom chatbots and assistants, and modern web development on Next.js. End to end, one partner.";
@@ -30,14 +31,25 @@ export const metadata: Metadata = {
 export default function ServicesIndexPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: `${site.name} Services`,
-    itemListElement: servicePages.map((s, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: s.name,
-      url: `${baseUrl}/services/${s.slug}`,
-    })),
+    "@graph": [
+      {
+        "@type": "ItemList",
+        name: `${site.name} Services`,
+        itemListElement: servicePages.map((s, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: s.name,
+          url: `${baseUrl}/services/${s.slug}`,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+          { "@type": "ListItem", position: 2, name: "Services", item: `${baseUrl}/services` },
+        ],
+      },
+    ],
   };
 
   return (
@@ -94,10 +106,7 @@ export default function ServicesIndexPage() {
       <Footer />
       <ScrollToTop />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </>
   );
 }

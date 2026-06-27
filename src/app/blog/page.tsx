@@ -5,9 +5,10 @@ import { BlogNav } from "@/components/blog/BlogNav";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 const title = "Insights: AI Agents, Automation & Chatbots";
 const description =
   "Practical breakdowns from Cybrum Solutions on building AI agents, business automation, custom chatbots, and systems that actually run in production.";
@@ -85,10 +86,7 @@ export default function BlogIndexPage() {
       </main>
       <Footer />
       <ScrollToTop />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </>
   );
 }

@@ -3,9 +3,10 @@ import { Space_Grotesk, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site, contact } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 
 // Buyer-intent homepage title: leads with the service term clients actually
 // search ("AI Automation Agency") while keeping the brand. Kept under ~60 chars.
@@ -166,6 +167,48 @@ const jsonLd = {
       },
     },
     {
+      // ProfessionalService is a LocalBusiness subtype: gives search engines a
+      // business entity with contact, area served, and services for local /
+      // "near me" and map-style results. Country-level (Pakistan) + Worldwide,
+      // matching the brand's local + international positioning.
+      "@type": "ProfessionalService",
+      "@id": `${baseUrl}/#localbusiness`,
+      name: site.name,
+      alternateName: "Cybrum",
+      url: baseUrl,
+      logo: `${baseUrl}/logo-dark-theme.png`,
+      image: `${baseUrl}/og.png`,
+      description: site.description,
+      email: contact.email,
+      telephone: contact.phoneRaw,
+      priceRange: "$$",
+      slogan: site.tagline,
+      founder: { "@id": `${baseUrl}/#ahmed-raza` },
+      parentOrganization: { "@id": `${baseUrl}/#organization` },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "PK",
+      },
+      areaServed: [
+        { "@type": "Country", name: "Pakistan" },
+        { "@type": "Place", name: "Worldwide" },
+      ],
+      knowsLanguage: ["English", "Urdu"],
+      sameAs: [
+        contact.linkedinCompany,
+        contact.facebook,
+        contact.instagram,
+      ],
+      hasOfferCatalog: { "@id": `${baseUrl}/#organization` },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: contact.phoneRaw,
+        contactType: "sales",
+        areaServed: ["PK", "Worldwide"],
+        availableLanguage: ["English", "Urdu"],
+      },
+    },
+    {
       "@type": "WebSite",
       "@id": `${baseUrl}/#website`,
       url: baseUrl,
@@ -209,10 +252,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={jsonLd} />
         {children}
         <Analytics />
         <SpeedInsights />

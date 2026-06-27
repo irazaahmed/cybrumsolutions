@@ -7,9 +7,10 @@ import { BlogNav } from "@/components/blog/BlogNav";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 
-const baseUrl = `https://${site.domain}`;
+const baseUrl = site.url;
 const title = "Projects: AI Agents, Automation & Web Systems I've Built";
 const description =
   "Every project shipped by Cybrum Solutions: AI systems, automation, e-commerce, dashboards, and web platforms, each with a live deployment and open source code.";
@@ -31,14 +32,25 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: `${site.name} Projects`,
-    itemListElement: work.projects.map((p, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: p.title,
-      url: p.live ?? p.link ?? `${baseUrl}/work`,
-    })),
+    "@graph": [
+      {
+        "@type": "ItemList",
+        name: `${site.name} Projects`,
+        itemListElement: work.projects.map((p, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: p.title,
+          url: p.live ?? p.link ?? `${baseUrl}/work`,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+          { "@type": "ListItem", position: 2, name: "Work", item: `${baseUrl}/work` },
+        ],
+      },
+    ],
   };
 
   return (
@@ -98,10 +110,7 @@ export default function WorkPage() {
       <Footer />
       <ScrollToTop />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </>
   );
 }
