@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { marked } from "marked";
+import { Marked } from "marked";
 
 /** Folder holding one Markdown file per blog post (with frontmatter). */
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
@@ -33,10 +33,62 @@ export type BlogMeta = {
   lang: Lang;
 };
 
+/** One entry in a post's table of contents (h2 / h3 headings). */
+export type TocItem = { id: string; text: string; level: 2 | 3 };
+
 export type BlogPost = BlogMeta & {
-  /** Rendered HTML of the Markdown body. */
+  /** Rendered HTML of the Markdown body (headings carry `id` anchors). */
   html: string;
+  /** Ordered h2/h3 headings for the on-page table of contents. */
+  toc: TocItem[];
 };
+
+/** URL-safe anchor slug. Keeps Unicode letters so Urdu headings get real ids. */
+function slugify(text: string): string {
+  return (
+    text
+      .toLowerCase()
+      .replace(/<[^>]+>/g, "")
+      .replace(/[^\p{L}\p{N}\s-]/gu, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-") || "section"
+  );
+}
+
+/**
+ * Render Markdown to HTML while (a) stamping each h2/h3 with a unique `id`
+ * anchor and (b) collecting those headings into a table of contents. A fresh
+ * Marked instance per call keeps the per-post `toc`/slug state isolated.
+ */
+function renderMarkdown(content: string): { html: string; toc: TocItem[] } {
+  const toc: TocItem[] = [];
+  const used = new Map<string, number>();
+
+  const uniqueSlug = (text: string): string => {
+    const base = slugify(text);
+    const n = used.get(base) ?? 0;
+    used.set(base, n + 1);
+    return n === 0 ? base : `${base}-${n}`;
+  };
+
+  const m = new Marked({
+    renderer: {
+      heading({ tokens, depth, text }) {
+        const inner = this.parser.parseInline(tokens);
+        if (depth !== 2 && depth !== 3) {
+          return `<h${depth}>${inner}</h${depth}>`;
+        }
+        const id = uniqueSlug(text);
+        toc.push({ id, text, level: depth });
+        return `<h${depth} id="${id}">${inner}</h${depth}>`;
+      },
+    },
+  });
+
+  const html = m.parse(content) as string;
+  return { html, toc };
+}
 
 function estimateReadingTime(text: string, lang: Lang): string {
   const words = text.trim().split(/\s+/).filter(Boolean).length;
@@ -121,6 +173,6 @@ export function getPostBySlug(slug: string, lang: Lang = "en"): BlogPost | null 
   if (!target) return null;
   const actualLang: Lang = target === file ? lang : "en";
   const { data, content } = matter(fs.readFileSync(target, "utf8"));
-  const html = marked.parse(content) as string;
-  return { ...toMeta(slug, actualLang, data, content), html };
+  const { html, toc } = renderMarkdown(content);
+  return { ...toMeta(slug, actualLang, data, content), html, toc };
 }

@@ -14,7 +14,9 @@ import {
 import { site, contact } from "@/lib/site";
 import { Logo } from "@/components/ui/Logo";
 import { JsonLd } from "@/components/JsonLd";
+import { ScrollProgress } from "@/components/visuals/ScrollProgress";
 import { BlogNav } from "@/components/blog/BlogNav";
+import { BlogToc } from "@/components/blog/BlogToc";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { LanguageSwitcher } from "@/components/blog/LanguageSwitcher";
 import { DownloadPdfButton } from "@/components/blog/DownloadPdfButton";
@@ -199,6 +201,7 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
       </div>
 
       <div className="no-print">
+        <ScrollProgress />
         <BlogNav />
       </div>
 
@@ -216,6 +219,10 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
             <LanguageSwitcher slug={slug} current={post.lang} available={available} />
           </div>
           <DownloadPdfButton label={t.download} isUrdu={isUrdu} />
+        </div>
+
+        <div className="mt-8">
+          <BlogToc items={post.toc} lang={post.lang} />
         </div>
 
         <div id="pdf-root" className="mt-6">
