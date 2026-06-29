@@ -56,7 +56,7 @@ export function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navLinks.map((link) => {
             const isActive = active === link.href;
             return (
@@ -89,7 +89,7 @@ export function Navbar() {
           {/* Desktop CTA */}
           <a
             href={primaryCta.href}
-            className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] md:inline-flex"
+            className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] lg:inline-flex"
           >
             {primaryCta.label}
           </a>
@@ -98,7 +98,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
           >
@@ -125,7 +125,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-border bg-background/95 backdrop-blur-md transition-[max-height] duration-300 md:hidden ${
+        className={`overflow-hidden border-border bg-background/95 backdrop-blur-md transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96 border-b" : "max-h-0"
         }`}
       >

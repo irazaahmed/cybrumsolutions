@@ -47,6 +47,7 @@ export const navLinks = [
   { label: "Why Us", href: "#why" },
   { label: "Process", href: "#process" },
   { label: "Work", href: "#work" },
+  { label: "Reviews", href: "#testimonials" },
   { label: "About", href: "#about" },
   { label: "Insights", href: "#insights" },
   { label: "Contact", href: "#contact" },
