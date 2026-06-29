@@ -348,3 +348,53 @@ export const proof: { heading: string; items: Differentiator[] } = {
     },
   ],
 };
+
+export type Testimonial = {
+  /** Client's words. May be English or Roman Urdu (mixed on purpose: real
+   *  local and organizational clients). */
+  quote: string;
+  /** Display name, or a title when the client is referenced by role only. */
+  name: string;
+  /** Role plus organization, shown muted under the name. */
+  role: string;
+  /** What we built for them, shown as a small chip on the card. */
+  project: string;
+  /** Avatar initials. */
+  initials: string;
+};
+
+/**
+ * Real client testimonials from delivered projects. Honest by design: every
+ * quote maps to a system actually built and running (see the Work section).
+ */
+export const testimonials: { heading: string; intro: string; items: Testimonial[] } = {
+  heading: "Trusted by the people we build for",
+  intro:
+    "Real systems, delivered to real clients and still running. Here is what they had to say.",
+  items: [
+    {
+      quote:
+        "We needed one system to coordinate Quran translation across dozens of languages, something our teams could actually work in every day. Ahmed built exactly that. The translation management system brought order to a process that used to be scattered across files and people, and it has run reliably ever since.",
+      name: "Director, Translation Department",
+      role: "Dawat-e-Islami",
+      project: "Translation Management System",
+      initials: "DI",
+    },
+    {
+      quote:
+        "Lodhi Brothers Housing Society ke liye humein aisa system chahiye tha jo hamare saare clients ek jagah sambhal sake. Ahmed ne pura client management system bana kar diya jo aaj 350 se zyada clients handle karta hai. Record dhoondhna, follow up, sab kuch ab minutes ka kaam hai. Bilkul professional aur waqt par delivery.",
+      name: "Obaidullah",
+      role: "Builder, Lodhi Brothers Housing Society",
+      project: "Client Management System",
+      initials: "OB",
+    },
+    {
+      quote:
+        "Ahmed built our website end to end and made the whole process effortless. It is fast, clean, and represents Softwavez exactly the way we wanted. Communication stayed clear throughout and everything was delivered on time. Highly recommended.",
+      name: "Nada Khaleel",
+      role: "CEO, Softwavez",
+      project: "Website Development",
+      initials: "NK",
+    },
+  ],
+};

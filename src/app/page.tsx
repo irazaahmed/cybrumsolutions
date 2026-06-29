@@ -11,6 +11,7 @@ import { WhyCybrum } from "@/components/sections/WhyCybrum";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Work } from "@/components/sections/Work";
 import { Proof } from "@/components/sections/Proof";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { About } from "@/components/sections/About";
 import { ContentHub } from "@/components/sections/ContentHub";
 import { Faq } from "@/components/sections/Faq";
@@ -34,6 +35,7 @@ export default function Home() {
         <HowItWorks />
         <Work />
         <Proof />
+        <Testimonials />
         <About />
         <ContentHub />
         <Faq />
