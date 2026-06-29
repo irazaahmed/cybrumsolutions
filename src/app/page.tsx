@@ -5,6 +5,7 @@ import { ScrollProgress } from "@/components/visuals/ScrollProgress";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 import { FloatingDock } from "@/components/visuals/FloatingDock";
 import { Hero } from "@/components/sections/Hero";
+import { Showcase } from "@/components/sections/Showcase";
 import { Services } from "@/components/sections/Services";
 import { WhyCybrum } from "@/components/sections/WhyCybrum";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -27,6 +28,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <Showcase />
         <Services />
         <WhyCybrum />
         <HowItWorks />

@@ -42,6 +42,7 @@ export const contact = {
 
 /** In-page anchor sections for smooth-scroll navigation. */
 export const navLinks = [
+  { label: "Intro", href: "#intro" },
   { label: "Services", href: "#services" },
   { label: "Why Us", href: "#why" },
   { label: "Process", href: "#process" },
