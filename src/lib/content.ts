@@ -181,7 +181,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
       visual: "profile",
     },
     {
-      title: "AR Bank Limited — Banking Management System",
+      title: "AR Bank Limited Banking Management System",
       category: "Full-Stack Web App",
       description:
         "A full-stack banking simulator: instant peer-to-peer transfers, live transaction history, and an admin panel tracking every account and rupee in the system, backed by a real Postgres database.",
