@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { navLinks, primaryCta, site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -10,6 +10,9 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  // While smooth-scrolling to a clicked link, ignore the observer so the
+  // underline lands on (and stays on) the link the user actually tapped.
+  const lockUntil = useRef(0);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -27,6 +30,7 @@ export function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        if (Date.now() < lockUntil.current) return;
         for (const entry of entries) {
           if (entry.isIntersecting) setActive(`#${entry.target.id}`);
         }
@@ -36,6 +40,13 @@ export function Navbar() {
     sections.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  /* Click: light up the tapped link immediately and hold it through the
+     smooth scroll, so even short sections (e.g. Reviews) underline reliably. */
+  const onNavClick = (href: string) => {
+    setActive(href);
+    lockUntil.current = Date.now() + 900;
+  };
 
   return (
     <header
@@ -63,6 +74,7 @@ export function Navbar() {
               <li key={link.href} className="relative">
                 <a
                   href={link.href}
+                  onClick={() => onNavClick(link.href)}
                   className={`text-sm transition-colors hover:text-foreground ${
                     isActive ? "text-foreground" : "text-muted"
                   }`}
@@ -134,7 +146,10 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  onNavClick(link.href);
+                  setOpen(false);
+                }}
                 className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
               >
                 {link.label}
