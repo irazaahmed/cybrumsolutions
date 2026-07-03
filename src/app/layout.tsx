@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site, contact } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
+import { Preloader } from "@/components/visuals/Preloader";
 import "./globals.css";
 
 const baseUrl = site.url;
@@ -253,6 +254,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <JsonLd data={jsonLd} />
+        <Preloader />
         {children}
         <Analytics />
         <SpeedInsights />
