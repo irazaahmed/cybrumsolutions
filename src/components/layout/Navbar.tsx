@@ -137,8 +137,8 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-border bg-background/95 backdrop-blur-md transition-[max-height] duration-300 lg:hidden ${
-          open ? "max-h-96 border-b" : "max-h-0"
+        className={`overflow-y-auto border-border bg-background/95 backdrop-blur-md transition-[max-height] duration-300 lg:hidden ${
+          open ? "max-h-[calc(100vh-4rem)] border-b" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col gap-1 px-5 py-4">
