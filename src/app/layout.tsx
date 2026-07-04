@@ -245,10 +245,13 @@ export default function RootLayout({
     >
       <head>
         {/* Apply the saved theme before paint to avoid a flash. Supports
-            light / dark / system; defaults to dark (brand) when unset. */}
+            light / dark / system; defaults to dark (brand) when unset.
+            Also marks repeat visits in the same tab so the brand splash
+            (Preloader) only plays once per session and never delays LCP on
+            in-session navigations. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=localStorage.getItem('cybrum-theme')||'dark';var d=p==='dark'||(p==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
+            __html: `(function(){try{var p=localStorage.getItem('cybrum-theme')||'dark';var d=p==='dark'||(p==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','dark');}try{if(sessionStorage.getItem('cybrum-splash'))document.documentElement.setAttribute('data-splash','seen');}catch(e){}})();`,
           }}
         />
       </head>

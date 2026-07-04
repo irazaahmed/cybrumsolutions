@@ -1045,6 +1045,12 @@ details.faq-item[open]::details-content {
   pointer-events: none;
 }
 
+/* Splash already played this session (flag set by the inline head script):
+   hide it before hydration so repeat page loads paint content immediately. */
+html[data-splash="seen"] .preloader {
+  display: none;
+}
+
 .preloader-stage {
   position: relative;
   display: grid;

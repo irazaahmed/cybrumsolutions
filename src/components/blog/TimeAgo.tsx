@@ -28,9 +28,15 @@ export function TimeAgo({ iso }: { iso: string }) {
   const [label, setLabel] = useState<string | null>(null);
 
   useEffect(() => {
-    setLabel(relativeTime(iso));
-    const id = setInterval(() => setLabel(relativeTime(iso)), 60_000);
-    return () => clearInterval(id);
+    const tick = () => setLabel(relativeTime(iso));
+    // First paint via timeout (client-only value, so it must land after
+    // hydration), then refresh every minute.
+    const first = setTimeout(tick, 0);
+    const id = setInterval(tick, 60_000);
+    return () => {
+      clearTimeout(first);
+      clearInterval(id);
+    };
   }, [iso]);
 
   if (!label) return null;

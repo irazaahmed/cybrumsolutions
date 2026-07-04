@@ -1,4 +1,5 @@
 import { sendLeadEmail } from "@/lib/leads";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 type ContactPayload = {
   name?: string;
@@ -6,14 +7,29 @@ type ContactPayload = {
   businessType?: string;
   budget?: string;
   message?: string;
+  /** Honeypot: hidden in the UI, so any value means a bot filled the form. */
+  company?: string;
 };
 
 export async function POST(request: Request) {
+  const limited = rateLimit("contact", clientIp(request), 5, 10 * 60 * 1000);
+  if (!limited.ok) {
+    return Response.json(
+      { ok: false, error: "rate_limited" },
+      { status: 429, headers: { "Retry-After": String(limited.retryAfterSeconds) } },
+    );
+  }
+
   let body: ContactPayload;
   try {
     body = await request.json();
   } catch {
     return Response.json({ ok: false, error: "invalid_json" }, { status: 400 });
+  }
+
+  // Honeypot tripped: report success so the bot learns nothing, send nothing.
+  if (body.company?.trim()) {
+    return Response.json({ ok: true });
   }
 
   const name = body.name?.trim();

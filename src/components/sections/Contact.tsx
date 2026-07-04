@@ -37,6 +37,9 @@ export function Contact() {
     businessType: businessTypes[0],
     budget: budgetRanges[budgetRanges.length - 1],
     message: "",
+    // Honeypot: stays empty for humans (the field is visually hidden); the
+    // API silently drops any submission where a bot filled it.
+    company: "",
   });
 
   const update =
@@ -71,6 +74,7 @@ export function Contact() {
         businessType: businessTypes[0],
         budget: budgetRanges[budgetRanges.length - 1],
         message: "",
+        company: "",
       });
     } catch {
       setStatus("error");
@@ -208,6 +212,25 @@ export function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <p className="text-sm text-muted">{contactSection.formNote}</p>
+
+                {/* Honeypot field: off-screen and skipped by keyboard/screen
+                    readers; only bots auto-filling every input touch it. */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden"
+                >
+                  <label>
+                    Company
+                    <input
+                      type="text"
+                      name="company"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={form.company}
+                      onChange={update("company")}
+                    />
+                  </label>
+                </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <input

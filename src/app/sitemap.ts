@@ -6,11 +6,11 @@ import { servicePages } from "@/lib/services";
 const baseUrl = site.url;
 
 /** Per-language URL for a post. English is the canonical bare URL; the
- *  translations carry a `?lang=` query param. */
+ *  translations live on their own paths (/blog/slug/ur). */
 function urlFor(slug: string, lang: string): string {
   return lang === "en"
     ? `${baseUrl}/blog/${slug}`
-    : `${baseUrl}/blog/${slug}?lang=${lang}`;
+    : `${baseUrl}/blog/${slug}/${lang}`;
 }
 
 /**

@@ -7,6 +7,7 @@ import {
   work,
 } from "@/lib/content";
 import { sendLeadEmail } from "@/lib/leads";
+import { rateLimit, clientIp } from "@/lib/rate-limit";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
@@ -203,6 +204,19 @@ async function runCaptureLead(args: ToolArgs): Promise<string> {
 }
 
 export async function POST(request: Request) {
+  // Each chat turn costs upstream LLM tokens, so cap per-IP throughput: a
+  // short burst window plus an hourly ceiling against slow-drip scripts.
+  const ip = clientIp(request);
+  const burst = rateLimit("chat-burst", ip, 10, 60 * 1000);
+  const hourly = rateLimit("chat-hourly", ip, 60, 60 * 60 * 1000);
+  if (!burst.ok || !hourly.ok) {
+    const retry = Math.max(burst.retryAfterSeconds, hourly.retryAfterSeconds);
+    return Response.json(
+      { error: "rate_limited" },
+      { status: 429, headers: { "Retry-After": String(retry) } },
+    );
+  }
+
   let body: { messages?: ChatMessage[] };
   try {
     body = await request.json();

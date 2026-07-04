@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/ui/Logo";
 
 /** Minimum time the splash stays visible so the animation reads, not blinks. */
-const MIN_VISIBLE_MS = 1500;
+const MIN_VISIBLE_MS = 1000;
 /** Hard cap: never hold the page hostage waiting on slow assets (promo video). */
 const MAX_WAIT_MS = 3500;
 /** Matches the CSS fade-out duration on .preloader */
@@ -20,6 +20,19 @@ export function Preloader() {
   const [phase, setPhase] = useState<"loading" | "leaving" | "done">("loading");
 
   useEffect(() => {
+    // Once per session: the inline head script already hid the splash via
+    // CSS for repeat visits, so just unmount it right away and skip the flag
+    // bookkeeping. First visit marks the session so later navigations skip.
+    try {
+      if (sessionStorage.getItem("cybrum-splash")) {
+        const skip = window.setTimeout(() => setPhase("done"), 0);
+        return () => window.clearTimeout(skip);
+      }
+      sessionStorage.setItem("cybrum-splash", "1");
+    } catch {
+      /* storage blocked: fall through and show the splash normally */
+    }
+
     const start = performance.now();
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",

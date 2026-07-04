@@ -84,6 +84,17 @@ export function FloatingDock() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: next }),
       });
+      if (res.status === 429) {
+        setMessages((m) => [
+          ...m,
+          {
+            role: "assistant",
+            content:
+              "You're sending messages a little too fast. Give it a minute and try again, or reach us directly on WhatsApp.",
+          },
+        ]);
+        return;
+      }
       if (!res.ok) throw new Error("chat failed");
       const data = await res.json();
       setMessages((m) => [

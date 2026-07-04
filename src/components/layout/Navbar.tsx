@@ -12,7 +12,8 @@ export function Navbar() {
   const [active, setActive] = useState("");
   // While smooth-scrolling to a clicked link, ignore the observer so the
   // underline lands on (and stays on) the link the user actually tapped.
-  const lockUntil = useRef(0);
+  const locked = useRef(false);
+  const lockTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -30,7 +31,7 @@ export function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (Date.now() < lockUntil.current) return;
+        if (locked.current) return;
         for (const entry of entries) {
           if (entry.isIntersecting) setActive(`#${entry.target.id}`);
         }
@@ -45,7 +46,11 @@ export function Navbar() {
      smooth scroll, so even short sections (e.g. Reviews) underline reliably. */
   const onNavClick = (href: string) => {
     setActive(href);
-    lockUntil.current = Date.now() + 900;
+    locked.current = true;
+    window.clearTimeout(lockTimer.current);
+    lockTimer.current = window.setTimeout(() => {
+      locked.current = false;
+    }, 900);
   };
 
   return (

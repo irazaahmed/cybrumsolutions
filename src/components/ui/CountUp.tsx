@@ -18,20 +18,20 @@ export function CountUp({ value, className = "" }: { value: string; className?: 
   const target = match ? parseInt(match[1], 10) : 0;
   const suffix = match ? match[2] : "";
 
-  const [display, setDisplay] = useState(0);
+  // Starts at the real target so server HTML (crawlers, JS-off readers) shows
+  // the true stat, never a placeholder 0. The count-up plays once in view.
+  const [display, setDisplay] = useState(target);
 
   useEffect(() => {
     if (!inView || !hasNumber) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return; // keep the static value
+
     let raf = 0;
     const duration = 1400;
     const start = performance.now();
     const step = (now: number) => {
-      if (reduce) {
-        setDisplay(target);
-        return;
-      }
       const t = Math.min((now - start) / duration, 1);
       /* easeOutCubic so the count settles softly */
       const eased = 1 - Math.pow(1 - t, 3);
