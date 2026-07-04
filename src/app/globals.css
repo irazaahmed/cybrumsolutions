@@ -1022,6 +1022,28 @@ details.faq-item[open]::details-content {
 }
 
 /* ------------------------------------------------------------------
+   Ambient glow orbs. Rendered as pre-computed radial gradients instead
+   of blur() filters: the look is the same, but filters on fixed
+   full-page layers force scrolling onto the main thread and are very
+   expensive on integrated GPUs (broken anchor scrolling, janky nav).
+   Set the color per orb via the --glow custom property.
+------------------------------------------------------------------- */
+.glow-orb {
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    var(--glow, color-mix(in srgb, var(--color-accent) 12%, transparent)),
+    transparent 72%
+  );
+}
+
+/* Branded keyboard focus ring (mouse clicks stay clean via :focus-visible). */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------
    Preloader splash: theme-aware logo with an orbiting loading arc.
    Rendered in the root layout, so it covers the page from first paint.
 ------------------------------------------------------------------- */

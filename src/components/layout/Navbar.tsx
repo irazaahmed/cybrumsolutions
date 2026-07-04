@@ -16,7 +16,14 @@ export function Navbar() {
   const lockTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 16);
+      // Above the first section (hero), no nav link should stay underlined;
+      // without this the last active link sticks after fast scrolls to top.
+      if (!locked.current && window.scrollY < window.innerHeight * 0.5) {
+        setActive("");
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

@@ -26,9 +26,11 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    /* phones get a lower-res canvas and fewer nodes so the hero stays smooth */
+    /* Low-res canvas everywhere: this layer is decorative dots and 1px lines
+       behind the hero, so extra resolution is invisible but fill cost is not.
+       At DPR 2 this was a 2.7M-pixel repaint per frame on integrated GPUs. */
     const coarse = window.matchMedia("(pointer: coarse)").matches;
-    const dprCap = coarse ? 1.5 : 2;
+    const dprCap = coarse ? 1 : 1.25;
     const maxNodes = coarse ? 55 : 90;
 
     let width = 0;
@@ -61,21 +63,21 @@ export function NeuralBackground({ className = "" }: { className?: string }) {
       }));
     };
 
-    /* skip all work while the canvas is scrolled out of view */
+    /* Stop the loop entirely while the canvas is scrolled out of view (no
+       idle rAF spinning); the observer restarts it when it comes back. */
     let visible = true;
     const io = new IntersectionObserver(
       ([entry]) => {
+        const wasVisible = visible;
         visible = entry.isIntersecting;
+        if (visible && !wasVisible) raf = requestAnimationFrame(tick);
       },
       { threshold: 0 }
     );
     io.observe(canvas);
 
     const tick = () => {
-      if (!visible) {
-        raf = requestAnimationFrame(tick);
-        return;
-      }
+      if (!visible) return;
       ctx.clearRect(0, 0, width, height);
 
       for (const n of nodes) {

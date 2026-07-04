@@ -36,7 +36,9 @@ export function Core3D({ className = "" }: { className?: string }) {
         antialias: true,
         powerPreference: "high-performance",
       });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2));
+      /* DPR capped low: the core is a soft glowing object, so the resolution
+         difference is invisible while the GPU fill cost is roughly halved. */
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.25 : 1.5));
       renderer.setClearColor(0x000000, 0);
       mount.appendChild(renderer.domElement);
       renderer.domElement.style.display = "block";
@@ -195,11 +197,14 @@ export function Core3D({ className = "" }: { className?: string }) {
       };
       if (!coarse) window.addEventListener("pointermove", onPointer, { passive: true });
 
-      /* pause rendering when the canvas scrolls out of view */
+      /* Stop the render loop when the canvas scrolls out of view (no idle
+         rAF spinning); the observer restarts it when it comes back. */
       let visible = true;
       const io = new IntersectionObserver(
         ([entry]) => {
+          const wasVisible = visible;
           visible = entry.isIntersecting;
+          if (visible && !wasVisible && !reduce) raf = requestAnimationFrame(tick);
         },
         { threshold: 0 }
       );
@@ -250,7 +255,8 @@ export function Core3D({ className = "" }: { className?: string }) {
       };
 
       const tick = () => {
-        if (visible) renderFrame();
+        if (!visible) return;
+        renderFrame();
         raf = requestAnimationFrame(tick);
       };
 

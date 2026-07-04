@@ -20,7 +20,7 @@ export default function Error({
     <main className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-background px-5 py-24 text-center text-foreground sm:px-8">
       <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-grid-lines opacity-40" />
-        <div className="absolute left-1/2 top-1/3 h-[20rem] w-[20rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[90px] sm:h-[30rem] sm:w-[30rem] sm:blur-[130px]" />
+        <div className="glow-orb absolute left-1/2 top-1/3 h-[20rem] w-[20rem] -translate-x-1/2 sm:h-[30rem] sm:w-[30rem] [--glow:color-mix(in_srgb,var(--color-accent)_15%,transparent)]" />
       </div>
 
       <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent-bright">

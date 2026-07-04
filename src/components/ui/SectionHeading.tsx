@@ -25,19 +25,20 @@ const pop: Variants = {
   },
 };
 
+/* Opacity + transform only (no blur filter): animated blur() re-rasterizes
+   the heading every frame and crawls on integrated GPUs. */
 const rise: Variants = {
-  hidden: { opacity: 0, y: 28, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
 /**
  * Section header with a staggered scroll entrance: the eyebrow pill pops in,
- * then the title and intro rise out of a blur one after the other.
+ * then the title and intro rise in one after the other.
  */
 export function SectionHeading({
   eyebrow,

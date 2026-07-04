@@ -198,7 +198,7 @@ export function PostArticle({ slug, lang }: { slug: string; lang: Lang }) {
     <>
       <div aria-hidden className="no-print fixed inset-0 -z-10 overflow-hidden bg-background">
         <div className="absolute inset-0 bg-grid-lines opacity-30" />
-        <div className="animate-float-slow absolute left-[-10%] top-1/4 h-[30rem] w-[30rem] rounded-full bg-accent/8 blur-[140px]" />
+        <div className="glow-orb animate-float-slow absolute left-[-10%] top-1/4 h-[30rem] w-[30rem] [--glow:color-mix(in_srgb,var(--color-accent)_13%,transparent)]" />
       </div>
 
       <div className="no-print">

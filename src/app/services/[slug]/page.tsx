@@ -92,7 +92,7 @@ export default async function ServicePageRoute({ params }: Props) {
     <>
       <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden bg-background">
         <div className="absolute inset-0 bg-grid-lines opacity-40" />
-        <div className="animate-float-slow absolute left-[-10%] top-1/4 h-[32rem] w-[32rem] rounded-full bg-accent/8 blur-[140px]" />
+        <div className="glow-orb animate-float-slow absolute left-[-10%] top-1/4 h-[32rem] w-[32rem] [--glow:color-mix(in_srgb,var(--color-accent)_13%,transparent)]" />
       </div>
 
       <BlogNav />

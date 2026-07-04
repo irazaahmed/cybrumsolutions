@@ -24,7 +24,9 @@ export function RotatingWords({
   }, [words.length, interval]);
 
   return (
-    <span className={`relative inline-grid ${className}`}>
+    /* overflow-hidden clips the entering/exiting words to the line box, so
+       the swap reads as a clean roll instead of ghosting over nearby text */
+    <span className={`relative inline-grid overflow-hidden ${className}`}>
       {/* reserve width using the longest word */}
       <span className="invisible col-start-1 row-start-1" aria-hidden>
         {words.reduce((a, b) => (a.length >= b.length ? a : b))}

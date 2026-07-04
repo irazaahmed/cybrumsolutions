@@ -16,14 +16,18 @@ type RevealProps = {
   className?: string;
 };
 
+/* Opacity + transform only: both run on the compositor. An animated blur()
+   filter here re-rasterizes every revealing section each frame, which crawls
+   on integrated GPUs (sections stayed blurred for seconds on mid-range
+   laptops), so it was removed deliberately. */
 const variants: Variants = {
-  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
 };
 
 /**
- * Fades, de-blurs, and rises its children into view on scroll, optionally
- * sliding in from a side (x) or flipping up in 3D (tilt). Animates once.
+ * Fades and rises its children into view on scroll, optionally sliding in
+ * from a side (x) or flipping up in 3D (tilt). Animates once.
  * Respects reduced-motion via the global CSS rule.
  */
 export function Reveal({
@@ -47,7 +51,6 @@ export function Reveal({
           x,
           rotateX: tilt ? 14 : 0,
           transformPerspective: 900,
-          filter: "blur(8px)",
         },
         visible: {
           opacity: 1,
@@ -55,7 +58,6 @@ export function Reveal({
           x: 0,
           rotateX: 0,
           transformPerspective: 900,
-          filter: "blur(0px)",
         },
       }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}

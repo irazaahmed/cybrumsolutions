@@ -14,7 +14,7 @@ export default function NotFound() {
     <>
       <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden bg-background">
         <div className="absolute inset-0 bg-grid-lines opacity-40" />
-        <div className="animate-float-slow absolute left-1/2 top-1/3 h-[20rem] w-[20rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[90px] sm:h-[32rem] sm:w-[32rem] sm:blur-[140px]" />
+        <div className="glow-orb animate-float-slow absolute left-1/2 top-1/3 h-[20rem] w-[20rem] -translate-x-1/2 sm:h-[32rem] sm:w-[32rem] [--glow:color-mix(in_srgb,var(--color-accent)_15%,transparent)]" />
       </div>
 
       <BlogNav />
