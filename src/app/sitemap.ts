@@ -72,6 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    {
+      // GIAIC Quarter 5 exam study notes (also served at the exam subdomain).
+      url: `${baseUrl}/exam`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
     ...postEntries,
   ];
 }

@@ -1,0 +1,7 @@
+# Keep binary assets out of CRLF/LF text conversion
+*.pdf binary
+*.png binary
+*.webp binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
