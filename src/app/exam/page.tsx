@@ -1641,7 +1641,7 @@ export default function ExamPage() {
                     Detailed Study Notes (PDF)
                   </span>
                   <span className="mt-0.5 block text-xs leading-relaxed text-muted">
-                    13 pages: saare chapters, examples, recap tables aur
+                    18 pages: saare chapters, examples, recap tables aur
                     self-test quiz
                   </span>
                 </span>
