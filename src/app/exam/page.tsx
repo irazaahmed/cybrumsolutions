@@ -25,12 +25,13 @@ import { JsonLd } from "@/components/JsonLd";
 import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Reveal } from "@/components/ui/Reveal";
+import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 import { BlogToc } from "@/components/blog/BlogToc";
 import type { TocItem } from "@/lib/blog";
 
 const pageTitle = "GIAIC Quarter 5 Mid Term: AI Agent Factory Study Notes";
 const pageDescription =
-  "Panaversity Agent Factory Foundations course ke saare chapters ka detailed Roman Urdu revision guide: Orientation, What AI Actually Is, Prompting 2026, Markdown In HTML Out, Code You Never Write, Skills and Connectors. Cheat sheet aur self-test quiz ke saath.";
+  "Panaversity Agent Factory Foundations course ke saare chapters ka detailed Roman Urdu revision guide: Orientation, How to Think in the AI Era, What AI Actually Is, Prompting 2026, Markdown In HTML Out, Code You Never Write, Skills and Connectors. Cheat sheet aur self-test quiz ke saath.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -57,11 +58,12 @@ export const metadata: Metadata = {
 const toc: TocItem[] = [
   { id: "intro", text: "Ye Notes Kya Hain", level: 2 },
   { id: "ch00", text: "00 · Orientation", level: 2 },
-  { id: "ch01", text: "01 · What AI Actually Is", level: 2 },
-  { id: "ch02", text: "02 · AI Prompting in 2026", level: 2 },
-  { id: "ch03", text: "03 · Markdown In, HTML Out", level: 2 },
-  { id: "ch04", text: "04 · Code You Never Write", level: 2 },
-  { id: "ch05", text: "05 · Skills and Connectors", level: 2 },
+  { id: "ch01", text: "01 · How to Think in the AI Era", level: 2 },
+  { id: "ch02", text: "02 · What AI Actually Is", level: 2 },
+  { id: "ch03", text: "03 · AI Prompting in 2026", level: 2 },
+  { id: "ch04", text: "04 · Markdown In, HTML Out", level: 2 },
+  { id: "ch05", text: "05 · Code You Never Write", level: 2 },
+  { id: "ch06", text: "06 · Skills and Connectors", level: 2 },
   { id: "cheat-sheet", text: "Quick Revision Cheat Sheet", level: 2 },
   { id: "self-test", text: "Self-Test Quiz", level: 2 },
   { id: "downloads", text: "PDF Downloads", level: 2 },
@@ -566,7 +568,7 @@ export default function ExamPage() {
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-muted">
-              {["6 Chapters", "Cheat Sheet", "10-Question Self Test", "Roman Urdu"].map(
+              {["7 Chapters", "Cheat Sheet", "10-Question Self Test", "Roman Urdu"].map(
                 (chip) => (
                   <span
                     key={chip}
@@ -722,6 +724,172 @@ export default function ExamPage() {
           <Reveal>
             <ChapterHeader
               num="01"
+              title="How to Think in the AI Era"
+              sub="6 disciplines, 6 AI failure modes: Prediction Lock, Reasoning Receipt, Error Taxonomy, Cascade Map"
+            />
+            <CoreIdea>
+              Deliverable kabhi bhi sirf answer nahi hota. Deliverable hai
+              documented evidence of thinking. AI seconds mein polished answer
+              de deta hai, isliye answer produce karna hard part nahi raha.
+              Hard part ab evaluate karna hai.
+            </CoreIdea>
+          </Reveal>
+
+          <Reveal>
+            <SubHeading>AI Gravity, Jo Force Yahan Address Hoti Hai</SubHeading>
+            <P>
+              Teen forces hamesha pull karte hain AI ko sochne dene ki taraf:
+              brain energy bachana chahta hai, aap expert-level output chahte
+              hain fast, aur aapko pata nahi doosre kitna AI use kar rahe hain
+              isliye race khud speed up hoti hai. MIT Media Lab ke study mein{" "}
+              <Strong>83% log apna hi submit kiya essay ka ek sentence bhi
+              repeat nahi kar sake</Strong>, kyunke words screen se seedhe
+              submission mein gaye, unke brain se guzre bina.
+            </P>
+            <Callout label="Important Distinction">
+              Fix ye nahi hai ke AI kam use karo. Fix ek counterweight hai:
+              six disciplines jo teen parts mein baante gaye hain. Gravity
+              sirf un cheezon ke against jeet ti hai jo apna weight khud hold
+              karna band kar dein.
+            </Callout>
+          </Reveal>
+
+          <Reveal>
+            <SubHeading>Discipline 1: The Prediction Lock</SubHeading>
+            <P>
+              AI kholne se pehle 4 lines likhein, sirf teen minute lagte hain:
+            </P>
+            <Ladder
+              steps={[
+                { title: "Line 1: Real decision kya hai", note: "Surface label ke neeche wali asli confusion" },
+                { title: "Line 2: Wo ek fact jo settle kar de", note: "Specific aur checkable hona chahiye" },
+                { title: "Line 3: Aapka decision AI se pehle", note: "Apni reasoning ke saath" },
+                { title: "Line 4: Confidence percentage", note: "Plus exact wo finding jo aapko flip kar de" },
+              ]}
+            />
+            <Callout label="Critical Implementation Detail" tone="warn">
+              Sirf Line 1 aur 2 AI ko prompt mein jati hain. Line 3 aur 4 apne
+              paas rakhein. Agar AI ko pata chal jaye aap already kya decide
+              kar chuke hain, wo aapse agree karega, aur comparison ka poora
+              point khatam ho jayega. Verification test: bolein out loud,
+              &quot;main ye decide kiya kyunke...&quot; bina &quot;AI ne
+              kaha&quot; use kiye. Agar bol sakte hain, lock kaam kar gaya.
+            </Callout>
+          </Reveal>
+
+          <Reveal>
+            <SubHeading>Discipline 2: The Reasoning Receipt</SubHeading>
+            <P>
+              Har AI claim ke saath ek row banayein, teen columns: AI ne kya
+              kaha, aapne kya kiya, kyun. <Strong>Paanch labels hain, na sirf
+              teen:</Strong>
+            </P>
+            <RecapTable
+              head={["Label", "Matlab"]}
+              rows={[
+                ["ACCEPT", "Bina change rakha, kyun trust kiya likhein"],
+                ["REJECT", "Ghalat samjha, hataya, kya wajah thi likhein"],
+                ["MODIFY", "Idea rakha, part change kiya, kya badla likhein"],
+                ["SURFACED", "AI ne wo diya jo socha nahi tha, kyun matter karta hai"],
+                ["MISSED", "AI ne miss kiya, khud add kiya, kya tha wo"],
+              ]}
+            />
+            <Callout label="Sabse Important Insight">
+              Agar har row ACCEPT hai, aap actually soch nahi rahe, sirf
+              sign-off kar rahe hain. Receipt sirf audit ke liye nahi hai:
+              likhne ka act khud decision badalta hai, receipt khud kaam ka
+              tool ban jata hai. Aur future aap hi sabse common auditor hain,
+              3 mahine baad khud yaad nahi rahega kya socha tha.
+            </Callout>
+          </Reveal>
+
+          <Reveal>
+            <SubHeading>Discipline 3: The Error Taxonomy</SubHeading>
+            <P>
+              Ye direct connect hota hai &quot;What AI Actually Is&quot;
+              chapter se: AI ke paas koi truth-checker nahi hai, to checker
+              aap hain. Six specific error types hain jo{" "}
+              <Strong>naam se scan karne padte hain</Strong>; &quot;kya ye
+              theek lagta hai&quot; jaisa vague check kaam nahi karta.
+            </P>
+            <RecapTable
+              head={["Error Type", "Kahan Dekhein"]}
+              rows={[
+                ["Factual error", "Har specific number wali sentence"],
+                ["Logical gap", "“Therefore/so” ke baad, kya evidence actually prove karta hai"],
+                ["False confidence", "Bina may/could ke flat statement jo debatable ho"],
+                ["Missing context", "Jo ek expert first pooche wo AI ne miss kiya"],
+                ["Fabricated source", "Har quote/study ka naam Google karein"],
+                ["Stale fact", "Prices, rules, versions jo time ke saath change hote hain"],
+              ]}
+            />
+          </Reveal>
+
+          <Reveal>
+            <SubHeading>Discipline 4: Thinking in Systems, Cascade Map</SubHeading>
+            <P>
+              AI sirf wahi answer deta hai jo aapne poocha, side effects trace
+              nahi karta. Fix teen steps ka hai:
+            </P>
+            <Flow
+              steps={[
+                "5 groups list karein jo decision affect karte hain",
+                "Har group ke liye “aur phir kya hoga” 3 baar poochein",
+                "Ek loop dhoondein jahan later effect wapis circle kar ke original decision ko undo kar de",
+              ]}
+            />
+            <Callout label="Real Example">
+              University ne AI chatbot se tutoring replace ki, &quot;30% cost
+              save hoga&quot; bola gaya. 3 layers deep gaye to pata chala:
+              struggling students samajh nahi paye, grades gir gayi, students
+              transfer ho gaye, university ne tuition lose ki, jo tighter
+              budget bana, jo aur kam tutoring resources bana. Loop ne
+              original 30% saving wipe kar diya.
+            </Callout>
+            <P>
+              Aap aur AI ke <Strong>opposite blind spots</Strong> hote hain,
+              isliye ye discipline partnership hai. AI specific sawal ka jawab
+              dene mein achha hai, side effects miss karta hai. Aap side
+              effects sochne mein better hain. Map khud draw karein pehle,
+              phir AI se har branch stress-test karwayein.
+            </P>
+          </Reveal>
+
+          <Reveal>
+            <SubHeading>Discipline 5 aur 6: Origination</SubHeading>
+            <P>
+              <Strong>First Principles:</Strong> common advice ko apni
+              specific situation pe test karein. Generic advice har jagah fit
+              nahi hoti; kahan wo break hoti hai wahi asli signal hai.
+            </P>
+            <P>
+              <Strong>Working WITH AI:</Strong> aap decide aur think karte
+              hain, AI research aur draft karta hai. Agar reverse ho jaye, AI
+              thinks aur aap sirf edit karte hain, to aap redundant ban jate
+              hain. Jo log sirf AI ka answer forward karte hain, unhe
+              eventually AI khud replace kar dega.
+            </P>
+            <RecapTable
+              head={["Discipline", "Action"]}
+              rows={[
+                ["1. Prediction Lock", "AI se pehle 4 lines likhein"],
+                ["2. Reasoning Receipt", "Har claim pe ACCEPT/REJECT/MODIFY/SURFACED/MISSED"],
+                ["3. Error Taxonomy", "6 error types naam se scan karein"],
+                ["4. Thinking in Systems", "5 groups, 3 layers, loop dhoondein"],
+                ["5. First Principles", "Advice ko apni situation pe test karein"],
+                ["6. Working WITH AI", "Aap decide karte hain, AI research/draft karta hai"],
+              ]}
+            />
+          </Reveal>
+        </section>
+
+        {/* ------------------------------------------------------------ */}
+        {/* Chapter 02                                                     */}
+        {/* ------------------------------------------------------------ */}
+        <section id="ch02" className="scroll-mt-24 border-t border-border pt-12 mt-12">
+          <Reveal>
+            <ChapterHeader
+              num="02"
               title="What AI Actually Is, A Crash Course"
               sub="Prediction machine, tokens, context window, hallucination, aur agents ki asal mechanic"
             />
@@ -905,12 +1073,12 @@ export default function ExamPage() {
         </section>
 
         {/* ------------------------------------------------------------ */}
-        {/* Chapter 02                                                     */}
+        {/* Chapter 03                                                     */}
         {/* ------------------------------------------------------------ */}
-        <section id="ch02" className="scroll-mt-24 border-t border-border pt-12 mt-12">
+        <section id="ch03" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
             <ChapterHeader
-              num="02"
+              num="03"
               title="AI Prompting in 2026"
               sub="Retrieval modes, context rot, sycophancy fix, brainstorm-iterate loop"
             />
@@ -1076,12 +1244,12 @@ export default function ExamPage() {
         </section>
 
         {/* ------------------------------------------------------------ */}
-        {/* Chapter 03                                                     */}
+        {/* Chapter 04                                                     */}
         {/* ------------------------------------------------------------ */}
-        <section id="ch03" className="scroll-mt-24 border-t border-border pt-12 mt-12">
+        <section id="ch04" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
             <ChapterHeader
-              num="03"
+              num="04"
               title="Markdown In, HTML Out"
               sub="Structure ki asymmetry, spec skeleton, document format decisions"
             />
@@ -1220,12 +1388,12 @@ export default function ExamPage() {
         </section>
 
         {/* ------------------------------------------------------------ */}
-        {/* Chapter 04                                                     */}
+        {/* Chapter 05                                                     */}
         {/* ------------------------------------------------------------ */}
-        <section id="ch04" className="scroll-mt-24 border-t border-border pt-12 mt-12">
+        <section id="ch05" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
             <ChapterHeader
-              num="04"
+              num="05"
               title="Code You Never Write"
               sub="VPRF test, five-section brief, verification ladder, blast radius safety"
             />
@@ -1350,12 +1518,12 @@ export default function ExamPage() {
         </section>
 
         {/* ------------------------------------------------------------ */}
-        {/* Chapter 05                                                     */}
+        {/* Chapter 06                                                     */}
         {/* ------------------------------------------------------------ */}
-        <section id="ch05" className="scroll-mt-24 border-t border-border pt-12 mt-12">
+        <section id="ch06" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
             <ChapterHeader
-              num="05"
+              num="06"
               title="Skills and Connectors"
               sub="Recipe vs kitchen analogy, SKILL.md anatomy, security checklist"
             />
@@ -1641,7 +1809,7 @@ export default function ExamPage() {
                     Detailed Study Notes (PDF)
                   </span>
                   <span className="mt-0.5 block text-xs leading-relaxed text-muted">
-                    18 pages: saare chapters, examples, recap tables aur
+                    20 pages: saare chapters, examples, recap tables aur
                     self-test quiz
                   </span>
                 </span>
@@ -1667,6 +1835,8 @@ export default function ExamPage() {
           </Reveal>
         </section>
       </main>
+
+      <ScrollToTop />
 
       {/* Footer */}
       <footer className="border-t border-border bg-surface/50">
