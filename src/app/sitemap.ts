@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { getAllPosts, getAvailableLangs } from "@/lib/blog";
 import { servicePages } from "@/lib/services";
+import { locationPages } from "@/lib/locations";
 
 const baseUrl = site.url;
 
@@ -52,6 +53,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  const locationEntries: MetadataRoute.Sitemap = locationPages.map((p) => ({
+    url: `${baseUrl}/${p.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
   return [
     {
       url: baseUrl,
@@ -60,6 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...serviceEntries,
+    ...locationEntries,
     {
       url: `${baseUrl}/work`,
       lastModified: new Date(),

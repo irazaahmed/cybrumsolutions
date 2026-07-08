@@ -7,6 +7,11 @@ export const hero = {
   eyebrow: "AI-Native Company",
   headline: "AI agents and automation that do the work, not just the demo.",
   sub: "Cybrum Solutions builds intelligent automation, AI agents, chatbots, and web systems that run real business workflows. Designed, built, and deployed end to end.",
+  /** Keyword-rich support line under the hero copy: carries the local + service
+   *  search intent (AI automation Karachi / Pakistan) without disturbing the
+   *  brand headline. */
+  keywordLine:
+    "AI automation, AI agents, and custom chatbots for businesses in Karachi, across Pakistan, and worldwide.",
 } as const;
 
 export const trustStrip = {
@@ -246,7 +251,7 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
 export const about = {
   heading: "About Cybrum Solutions",
   body: [
-    "Cybrum Solutions is an AI-native company founded and led by Ahmed Raza, an AI Solutions Expert. We build intelligent automation, AI agents, chatbots, and web systems for businesses that want to move faster with less manual work.",
+    "Cybrum Solutions is an AI-native company based in Karachi, Pakistan, founded and led by Ahmed Raza, an AI Solutions Expert. We build intelligent automation, AI agents, chatbots, and web systems for businesses that want to move faster with less manual work, locally and worldwide.",
     "One founder directing an agentic AI workforce, delivering team-level output with direct and accountable ownership from architecture to deployment.",
   ],
   nameStory: {
@@ -317,9 +322,14 @@ export const faq: { heading: string; intro: string; items: FaqItem[] } = {
         "A map of your current workflow, a shortlist of automation and AI opportunities ranked by impact, and an honest recommendation on what is worth building with rough cost and timeline. If automation is not the right answer for your case, the audit says so.",
     },
     {
+      question: "Do you work with businesses in Karachi and across Pakistan?",
+      answer:
+        "Yes. Cybrum Solutions is based in Karachi and works with businesses across Pakistan, on WhatsApp, on call, or in person for local clients. The free AI audit is the same for everyone: we map your workflow and give an honest answer on what is worth automating.",
+    },
+    {
       question: "Do you work with international clients?",
       answer:
-        "Yes. Cybrum Solutions is based in Pakistan and serves clients worldwide. Everything is delivered remotely with direct communication over WhatsApp, LinkedIn, or email, and systems are deployed into your own environment and accounts.",
+        "Yes. Cybrum Solutions is based in Karachi, Pakistan, and serves clients worldwide. Everything is delivered remotely with direct communication over WhatsApp, LinkedIn, or email, and systems are deployed into your own environment and accounts.",
     },
   ],
 };

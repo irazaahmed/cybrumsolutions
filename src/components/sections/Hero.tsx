@@ -128,6 +128,15 @@ export function Hero() {
             {hero.sub}
           </motion.p>
 
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease, delay: 0.66 }}
+            className="mt-4 max-w-xl text-sm font-medium text-foreground/80"
+          >
+            {hero.keywordLine}
+          </motion.p>
+
           {/* CTAs with the region line centered under the button group */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -148,7 +157,7 @@ export function Hero() {
               </Magnetic>
             </div>
             <p className="mt-3 text-center text-sm text-muted/80">
-              Serving businesses in Pakistan and worldwide.
+              Based in Karachi, serving Pakistan and clients worldwide.
             </p>
           </motion.div>
         </motion.div>

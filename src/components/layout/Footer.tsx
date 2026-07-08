@@ -24,10 +24,15 @@ export function Footer() {
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               An AI-native company building intelligent automation, AI agents, and
-              web systems that run real business workflows. Based in Pakistan,
-              serving clients worldwide.
+              web systems that run real business workflows. Based in Karachi,
+              Pakistan, serving clients worldwide.
             </p>
             <p className="mt-4 text-sm text-muted">{site.tagline}</p>
+            {/* NAP block: keep name, city, and phone identical to the Google
+                Business Profile so local citations stay consistent. */}
+            <p className="mt-4 text-xs leading-relaxed text-muted">
+              {site.name} · {site.city}, {site.country} · {contact.phoneDisplay}
+            </p>
 
             {/* Contact + scannable WhatsApp QR */}
             <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -141,6 +146,18 @@ export function Footer() {
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
               Blog
+            </Link>
+            <Link
+              href="/ai-automation-karachi"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              AI Automation Karachi
+            </Link>
+            <Link
+              href="/ai-agency-pakistan"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              AI Agency Pakistan
             </Link>
           </nav>
 

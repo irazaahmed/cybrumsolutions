@@ -12,9 +12,13 @@ export const site = {
    *  URL so the base is never recomputed inline across pages. */
   url: "https://www.cybrumsolutions.dev",
   description:
-    "Cybrum Solutions is an AI-native company in Pakistan building AI agents, automation, chatbots, and web systems for clients worldwide, built end to end.",
+    "Cybrum Solutions is an AI-native company in Karachi, Pakistan, building AI agents, automation, chatbots, and web systems for clients worldwide, built end to end.",
   founder: "Ahmed Raza",
   founderRole: "Founder & CEO",
+  /** Primary city for local SEO (schema, copy, Google Business Profile NAP). */
+  city: "Karachi",
+  region: "Sindh",
+  country: "Pakistan",
 } as const;
 
 export const contact = {
