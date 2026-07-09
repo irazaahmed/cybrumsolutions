@@ -1,0 +1,49 @@
+// Prisma schema for Cybrum Solutions.
+//
+// Prisma was introduced for the Skills Library. The pre-existing `leads`
+// table (written to by src/lib/leads.ts via the raw Neon SQL driver) is also
+// modelled here as `Lead` so Prisma is aware of it and never drops it during
+// `db push`. Runtime lead capture still uses the raw SQL in leads.ts; this
+// model just keeps the table under Prisma's management.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Lead {
+  id           BigInt   @id @default(autoincrement())
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  name         String
+  email        String?
+  phone        String?
+  businessType String?  @map("business_type")
+  need         String
+  budget       String?
+  source       String
+
+  @@index([createdAt(sort: Desc)], map: "leads_created_at_idx")
+  @@map("leads")
+}
+
+model Skill {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  category      String
+  tags          String[]
+  description   String   @db.Text
+  content       String   @db.Text
+  usageNotes    String   @db.Text
+  downloadCount Int      @default(0)
+  published     Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([category])
+  @@index([published])
+}

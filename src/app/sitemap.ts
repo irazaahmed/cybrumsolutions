@@ -3,6 +3,7 @@ import { site } from "@/lib/site";
 import { getAllPosts, getAvailableLangs } from "@/lib/blog";
 import { servicePages } from "@/lib/services";
 import { locationPages } from "@/lib/locations";
+import { getPublishedSlugs } from "@/lib/skills";
 
 const baseUrl = site.url;
 
@@ -20,9 +21,32 @@ function urlFor(slug: string, lang: string): string {
  * own entries so search engines can discover and rank each one. Served at
  * /sitemap.xml.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = getAllPosts();
   const latest = posts[0]?.date ? new Date(posts[0].date) : new Date();
+
+  // Skills come from the database. If it is unreachable at build time, fall
+  // back to just the index so the sitemap never fails to generate.
+  let skillSlugs: string[] = [];
+  try {
+    skillSlugs = await getPublishedSlugs();
+  } catch {
+    skillSlugs = [];
+  }
+  const skillEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/skills`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...skillSlugs.map((slug) => ({
+      url: `${baseUrl}/skills/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
 
   const postEntries: MetadataRoute.Sitemap = posts.flatMap((post) => {
     const lastModified = post.date ? new Date(post.date) : new Date();
@@ -81,6 +105,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...skillEntries,
     {
       // GIAIC Quarter 5 exam study notes (also served at the exam subdomain).
       url: `${baseUrl}/exam`,
