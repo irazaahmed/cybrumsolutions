@@ -129,7 +129,7 @@ export function Footer() {
             {navLinks.map((link) => (
               <a
                 key={link.href}
-                href={`/${link.href}`}
+                href={link.href.startsWith("/") ? link.href : `/${link.href}`}
                 className="text-sm text-muted transition-colors hover:text-foreground"
               >
                 {link.label}

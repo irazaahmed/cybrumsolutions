@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { navLinks, primaryCta, site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -32,6 +33,7 @@ export function Navbar() {
   /* scrollspy: highlight the nav link of the section currently in view */
   useEffect(() => {
     const sections = navLinks
+      .filter((l) => l.href.startsWith("#"))
       .map((l) => document.querySelector<HTMLElement>(l.href))
       .filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
@@ -81,6 +83,20 @@ export function Navbar() {
         {/* Desktop links */}
         <ul className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navLinks.map((link) => {
+            // Route links (e.g. /skills) navigate to their own page; anchor
+            // links drive the in-page scrollspy underline.
+            if (link.href.startsWith("/")) {
+              return (
+                <li key={link.href} className="relative">
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            }
             const isActive = active === link.href;
             return (
               <li key={link.href} className="relative">
@@ -154,20 +170,32 @@ export function Navbar() {
         }`}
       >
         <ul className="flex flex-col gap-1 px-5 py-4">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={() => {
-                  onNavClick(link.href);
-                  setOpen(false);
-                }}
-                className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith("/") ? (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ) : (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={() => {
+                    onNavClick(link.href);
+                    setOpen(false);
+                  }}
+                  className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ),
+          )}
           <li className="mt-2">
             <a
               href={primaryCta.href}
