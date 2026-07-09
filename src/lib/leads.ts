@@ -1,4 +1,5 @@
 import { contact, site } from "@/lib/site";
+import { getSql } from "@/lib/db";
 
 /** A captured sales lead, from either the contact form or the chat assistant. */
 export type Lead = {
@@ -196,6 +197,33 @@ function buildAckHtml(lead: Lead): string {
 }
 
 /**
+ * Persist a lead to Neon Postgres. Best-effort by design: returns false on any
+ * failure (including no DATABASE_URL) so a database hiccup can never break lead
+ * capture or the email path. Shared by the contact form and the chat assistant.
+ */
+export async function saveLead(lead: Lead): Promise<boolean> {
+  const sql = getSql();
+  if (!sql) return false;
+  try {
+    await sql`
+      insert into leads (name, email, phone, business_type, need, budget, source)
+      values (
+        ${lead.name},
+        ${lead.email ?? null},
+        ${lead.phone ?? null},
+        ${lead.businessType ?? null},
+        ${lead.need},
+        ${lead.budget ?? null},
+        ${lead.source}
+      )
+    `;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Send a warm, branded acknowledgement from the founder back to the visitor,
  * confirming their message was received. Best-effort: a failure here must never
  * affect the lead capture itself, so callers ignore the result.
@@ -220,6 +248,10 @@ async function sendLeadAck(lead: Lead): Promise<SendResult> {
  * (best-effort). Never logs the API key.
  */
 export async function sendLeadEmail(lead: Lead): Promise<SendResult> {
+  // Persist the lead first so it is captured even if email is unconfigured or
+  // the send fails. Best-effort: a DB failure must never block the email path.
+  await saveLead(lead).catch(() => false);
+
   const from =
     process.env.CONTACT_FROM_EMAIL ?? "Cybrum Solutions <onboarding@resend.dev>";
 
