@@ -166,13 +166,13 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
     "Real systems shipped across AI agents, automation, and web, not slide decks. Each one was built end to end and deployed to run.",
   projects: [
     {
-      title: "Quran Translation Management System",
-      category: "AI System",
+      title: "Translation Management System",
+      category: "Management Platform",
       description:
-        "End-to-end management platform coordinating Quranic content translation across 33 languages.",
-      stack: ["Next.js", "Supabase", "Vercel"],
-      link: "https://github.com/irazaahmed/quranic-translation-management-system",
-      live: "https://quranic-translation-management-syst.vercel.app/",
+        "One real-time dashboard running two translation workflows: Quranic translation across 25+ languages with weekly meeting scheduling, and an 8-stage English production pipeline for books, speeches, and articles.",
+      stack: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
+      link: "https://github.com/irazaahmed/translation-management-system",
+      live: "https://tms-dawateislami.vercel.app/",
       visual: "pipeline",
     },
     {
@@ -184,6 +184,26 @@ export const work: { heading: string; intro: string; projects: Project[] } = {
       link: "https://github.com/irazaahmed/iraza-portfolio",
       live: "https://www.irazaahmed.me/",
       visual: "profile",
+    },
+    {
+      title: "Lodhi Cooperative Housing Society",
+      category: "Client Portal",
+      description:
+        "Secure client document portal for a 360-plot housing society. Each client signs in to view and download only their own legal documents, with admin-controlled verification, private storage, and short-lived signed links.",
+      stack: ["Next.js", "Prisma", "PostgreSQL", "Cloudinary"],
+      link: "https://github.com/irazaahmed/builder-costumer-data",
+      live: "https://lodhisociety.com/",
+      visual: "dashboard",
+    },
+    {
+      title: "Hafeez Communication",
+      category: "Shop Management System",
+      description:
+        "Full-stack management panel for a mobile shop: stock, fast sales with credit (udhaar) tracking, printable invoices, and JazzCash and EasyPaisa cash operations, all tied to one live cash ledger that keeps the balance exact.",
+      stack: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
+      link: "https://github.com/irazaahmed/hafeez-communication",
+      live: "https://hafeez-communication.vercel.app/",
+      visual: "store",
     },
     {
       title: "AR Bank Limited Banking Management System",
