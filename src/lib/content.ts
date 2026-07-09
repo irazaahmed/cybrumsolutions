@@ -412,10 +412,10 @@ export const testimonials: { heading: string; intro: string; items: Testimonial[
     },
     {
       quote:
-        "Lodhi Brothers Housing Society ke liye humein aisa system chahiye tha jo hamare saare clients ek jagah sambhal sake. Ahmed ne pura client management system bana kar diya jo aaj 350 se zyada clients handle karta hai. Record dhoondhna, follow up, sab kuch ab minutes ka kaam hai. Bilkul professional aur waqt par delivery.",
+        "Lodhi Cooperative Housing Society ke liye humein aisa system chahiye tha jo hamare saare clients ek jagah sambhal sake. Ahmed ne pura client management system bana kar diya jo aaj 350 se zyada clients handle karta hai. Record dhoondhna, follow up, sab kuch ab minutes ka kaam hai. Bilkul professional aur waqt par delivery.",
       name: "Obaidullah",
-      role: "Builder, Lodhi Brothers Housing Society",
-      project: "Client Management System",
+      role: "Builder, Lodhi Cooperative Housing Society",
+      project: "Client Portal",
       initials: "OB",
     },
     {
