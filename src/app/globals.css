@@ -389,6 +389,32 @@ details.faq-item[open]::details-content {
   border-top: 1px solid var(--color-border);
   margin: 2.5rem 0;
 }
+.prose-blog table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose-blog th,
+.prose-blog td {
+  border: 1px solid var(--color-border);
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+.prose-blog th {
+  background: var(--color-card);
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+.prose-blog td {
+  color: var(--color-muted);
+}
+.prose-urdu th,
+.prose-urdu td {
+  text-align: right;
+}
 
 /* ------------------------------------------------------------------
    Urdu (Nastaliq) typography + RTL
