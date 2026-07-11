@@ -111,6 +111,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* body is a column flexbox, and a flex item with margin-inline auto sizes
+   to its content instead of stretching. Long unbreakable tokens (inline
+   code in skill/blog markdown) were widening <main> past the viewport on
+   phones, where overflow-x: hidden then clipped the right edge. Pin every
+   page shell to the viewport width. */
+body > main {
+  width: 100%;
+  min-width: 0;
+}
+
 ::selection {
   background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
   color: #fff;
@@ -286,6 +296,8 @@ details.faq-item[open]::details-content {
   color: var(--color-foreground);
   font-size: 1.0625rem;
   line-height: 1.8;
+  /* long URLs and tokens must wrap on narrow screens */
+  overflow-wrap: break-word;
 }
 .prose-blog > * + * {
   margin-top: 1.25rem;
@@ -371,6 +383,9 @@ details.faq-item[open]::details-content {
   color: var(--color-accent-bright);
   padding: 0.15rem 0.4rem;
   border-radius: 0.3rem;
+  /* inline code tokens (field names, JSON keys) have no spaces; without
+     this they set the min-content width and stretch the page on phones */
+  overflow-wrap: anywhere;
 }
 .prose-blog pre {
   background: var(--color-card);
