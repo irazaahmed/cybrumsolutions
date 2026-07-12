@@ -286,6 +286,20 @@ export const about = {
   },
 } as const;
 
+/**
+ * Extended founder profile for the /about page. The homepage carries only a
+ * short teaser; the full story lives here.
+ */
+export const founderProfile = {
+  heading: "The founder behind Cybrum",
+  paragraphs: [
+    "Ahmed Raza is an AI Solutions Expert and the Founder and CEO of Cybrum Solutions. He operates as the orchestrator of an agentic AI workforce: one accountable builder directing AI agents that plan, build, test, and ship, delivering team-level output on every project.",
+    "Before founding Cybrum, Ahmed spent more than 8 years as an Islamic scholar and Assistant Shariah Advisor. He leads translation at Dawat-e-Islami, coordinating Quran translation across 33 languages, work that demands precision, coordination at scale, and systems that cannot afford to fail. That same discipline now drives how he engineers AI systems.",
+    "He bridges deep scholarship with modern AI engineering and works in Urdu, Arabic, and English with clients in Pakistan and worldwide.",
+  ],
+  motto: "Execution Over Words.",
+} as const;
+
 export const contentHub = {
   heading: "Insights",
   intro:

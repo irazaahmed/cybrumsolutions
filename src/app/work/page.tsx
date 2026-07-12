@@ -97,7 +97,7 @@ export default function WorkPage() {
               timeline before any commitment.
             </p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="btn-sheen mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)] hover:-translate-y-0.5"
             >
               Book a Free AI Audit

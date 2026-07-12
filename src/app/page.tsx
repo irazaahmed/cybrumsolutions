@@ -10,14 +10,16 @@ import { Services } from "@/components/sections/Services";
 import { WhyCybrum } from "@/components/sections/WhyCybrum";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Work } from "@/components/sections/Work";
-import { Proof } from "@/components/sections/Proof";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { About } from "@/components/sections/About";
-import { ContentHub } from "@/components/sections/ContentHub";
-import { Faq } from "@/components/sections/Faq";
-import { Contact } from "@/components/sections/Contact";
+import { AboutTeaser } from "@/components/sections/AboutTeaser";
+import { CtaBand } from "@/components/sections/CtaBand";
 // import { Products } from "@/components/sections/Products"; // activate when a product is ready
 
+/**
+ * Homepage: a condensed overview of the whole site. Every section is a teaser
+ * that links out to its dedicated route (/services, /work, /about, /contact),
+ * so the page stays scannable while the depth lives on its own pages.
+ */
 export default function Home() {
   return (
     <>
@@ -34,13 +36,11 @@ export default function Home() {
         <WhyCybrum />
         <HowItWorks />
         <Work />
-        <Proof />
         <Testimonials />
-        <About />
-        <ContentHub />
-        <Faq />
+        <AboutTeaser />
         {/* <Products /> */}
-        <Contact />
+        {/* id keeps legacy /#contact anchor links landing on the CTA */}
+        <CtaBand id="contact" />
       </main>
       <Footer />
       <FloatingDock />

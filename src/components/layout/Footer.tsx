@@ -127,26 +127,14 @@ export function Footer() {
               Explore
             </span>
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href.startsWith("/") ? link.href : `/${link.href}`}
+                href={link.href}
                 className="text-sm text-muted transition-colors hover:text-foreground"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <Link
-              href="/work"
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              All Projects
-            </Link>
-            <Link
-              href="/blog"
-              className="text-sm text-muted transition-colors hover:text-foreground"
-            >
-              Blog
-            </Link>
             <Link
               href="/ai-automation-karachi"
               className="text-sm text-muted transition-colors hover:text-foreground"

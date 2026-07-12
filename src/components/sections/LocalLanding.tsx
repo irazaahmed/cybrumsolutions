@@ -83,7 +83,7 @@ export function LocalLanding({ page }: { page: LocationPage }) {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)]"
             >
               Book a Free AI Audit
@@ -188,7 +188,7 @@ export function LocalLanding({ page }: { page: LocationPage }) {
               honest answer on what is worth building, what it costs, and how long it takes.
             </p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-7 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)]"
             >
               Book a Free AI Audit

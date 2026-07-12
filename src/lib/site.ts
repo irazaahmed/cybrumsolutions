@@ -44,26 +44,22 @@ export const contact = {
   instagram: "https://instagram.com/cybrumsolutions",
 } as const;
 
-/** In-page anchor sections for smooth-scroll navigation. */
+/** Primary site navigation: every entry is a dedicated route. */
 export const navLinks = [
-  { label: "Intro", href: "#intro" },
-  { label: "Services", href: "#services" },
-  { label: "Why Us", href: "#why" },
-  { label: "Process", href: "#process" },
-  { label: "Work", href: "#work" },
-  { label: "Reviews", href: "#testimonials" },
-  { label: "About", href: "#about" },
-  { label: "Insights", href: "#insights" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
   { label: "Skills", href: "/skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const primaryCta = {
   label: "Book a Free AI Audit",
-  href: "#contact",
+  href: "/contact",
 } as const;
 
 export const secondaryCta = {
   label: "See What We Build",
-  href: "#services",
+  href: "/services",
 } as const;

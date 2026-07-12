@@ -85,16 +85,17 @@ export function Contact() {
     "w-full rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm text-foreground placeholder:text-muted/70 outline-none transition-[border-color,box-shadow] duration-300 focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-accent)_18%,transparent)]";
 
   return (
-    <Section id="contact" divider>
+    <Section id="contact">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
         {/* Left: pitch + direct channels */}
         <Reveal x={-32}>
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent-bright">
             Contact
           </span>
-          <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+          {/* h1: this section now leads the dedicated /contact page */}
+          <h1 className="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             {contactSection.heading}
-          </h2>
+          </h1>
           <p className="mt-4 max-w-md text-base leading-relaxed text-muted sm:text-lg">
             {contactSection.sub}
           </p>

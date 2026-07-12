@@ -78,19 +78,23 @@ Ahmed is a **solo founder, but NEVER framed as "just one guy."** Frame him as an
 
 ---
 
-## Page structure (single-page scroll)
+## Site architecture (multi-page, since July 2026)
 
-1. **Hero** — automation-focused headline + gated CTA
-2. **Trust strip** — tools/stack
-3. **Services** — the 3 above (automation first)
-4. **Why Cybrum** — 3 differentiators
-5. **How It Works** — Understand → Architect → Build & Deploy → Refine
-6. **Work / Capabilities** — selected projects (see Proof rules)
-7. **About** — founder + Cybrum name story (+ `ahmed.webp`)
-8. **Content hub** — links to LinkedIn/blog (optional, phase 1)
+The site converted from a single-page scroll to a **multi-page structure** (Ahmed's decision, July 2026): the homepage is a condensed overview where every section teases and links to its dedicated route. Navbar and footer navigation are fully route-based (no anchor scrollspy). All pages share the same `Navbar` (BlogNav is a thin alias of it).
+
+**Homepage sections (condensed):**
+1. **Hero** — automation-focused headline + CTA to /contact; tech marquee
+2. **Showcase** — company intro video
+3. **Services** — 3 cards linking to /services/[slug]
+4. **Why Cybrum** — 3 differentiators (core values stay on home)
+5. **How It Works** — 4-step strip
+6. **Work** — top 3 projects + "View all" → /work
+7. **Testimonials** — client reviews
+8. **About teaser** — founder photo + short story + "Read our story" → /about
 9. **Products** — hidden / "Coming Soon" placeholder (structure only)
-10. **Final CTA + Contact** — gated AI Audit form + WhatsApp + LinkedIn
-11. **Footer**
+10. **CTA band** (`id="contact"` for legacy /#contact anchors) → /contact
+
+**Dedicated routes:** `/services` + `/services/[slug]` (3 pages), `/work`, `/blog` (+ posts, langs), `/skills` (+ slugs), `/about` (full founder profile, stats, name story, values), `/contact` (gated AI Audit form + channels + Proof strip + FAQ with FAQPage schema), `/ai-automation-karachi`, `/ai-agency-pakistan`. All in sitemap with per-page metadata + breadcrumb JSON-LD.
 
 ### Approved hero copy (starting point)
 - Headline: *"AI agents and automation that do the work, not just the demo."*

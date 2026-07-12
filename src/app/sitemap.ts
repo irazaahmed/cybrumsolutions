@@ -16,10 +16,10 @@ function urlFor(slug: string, lang: string): string {
 }
 
 /**
- * Single-page marketing site plus a blog. The homepage is the primary URL;
- * the blog index and every article (in every available language) get their
- * own entries so search engines can discover and rank each one. Served at
- * /sitemap.xml.
+ * Multi-page marketing site plus a blog. The homepage is the primary URL;
+ * services, about, contact, work, skills, and every blog article (in every
+ * available language) get their own entries so search engines can discover
+ * and rank each one. Served at /sitemap.xml.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = getAllPosts();
@@ -93,6 +93,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...serviceEntries,
     ...locationEntries,
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/work`,
       lastModified: new Date(),

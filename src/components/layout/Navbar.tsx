@@ -1,66 +1,31 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { navLinks, primaryCta, site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Logo } from "@/components/ui/Logo";
 
+/**
+ * Shared site header. Every nav entry is a route (multi-page site), so the
+ * active state comes from the pathname instead of a scrollspy.
+ */
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("");
-  // While smooth-scrolling to a clicked link, ignore the observer so the
-  // underline lands on (and stays on) the link the user actually tapped.
-  const locked = useRef(false);
-  const lockTimer = useRef<number | undefined>(undefined);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 16);
-      // Above the first section (hero), no nav link should stay underlined;
-      // without this the last active link sticks after fast scrolls to top.
-      if (!locked.current && window.scrollY < window.innerHeight * 0.5) {
-        setActive("");
-      }
-    };
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* scrollspy: highlight the nav link of the section currently in view */
-  useEffect(() => {
-    const sections = navLinks
-      .filter((l) => l.href.startsWith("#"))
-      .map((l) => document.querySelector<HTMLElement>(l.href))
-      .filter((el): el is HTMLElement => el !== null);
-    if (sections.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (locked.current) return;
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
-        }
-      },
-      { rootMargin: "-35% 0px -55% 0px" }
-    );
-    sections.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  /* Click: light up the tapped link immediately and hold it through the
-     smooth scroll, so even short sections (e.g. Reviews) underline reliably. */
-  const onNavClick = (href: string) => {
-    setActive(href);
-    locked.current = true;
-    window.clearTimeout(lockTimer.current);
-    lockTimer.current = window.setTimeout(() => {
-      locked.current = false;
-    }, 900);
-  };
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header
@@ -72,44 +37,29 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         {/* Brand */}
-        <a href="#top" className="flex items-center gap-2.5" aria-label={site.name}>
+        <Link href="/" className="flex items-center gap-2.5" aria-label={site.name}>
           <Logo priority className="h-9 w-9" />
           <span className="text-lg font-semibold tracking-tight font-heading">
             {site.shortName}
             <span className="text-accent"> Solutions</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-5 lg:flex xl:gap-7">
           {navLinks.map((link) => {
-            // Route links (e.g. /skills) navigate to their own page; anchor
-            // links drive the in-page scrollspy underline.
-            if (link.href.startsWith("/")) {
-              return (
-                <li key={link.href} className="relative">
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            }
-            const isActive = active === link.href;
+            const active = isActive(link.href);
             return (
               <li key={link.href} className="relative">
-                <a
+                <Link
                   href={link.href}
-                  onClick={() => onNavClick(link.href)}
                   className={`text-sm transition-colors hover:text-foreground ${
-                    isActive ? "text-foreground" : "text-muted"
+                    active ? "text-foreground" : "text-muted"
                   }`}
                 >
                   {link.label}
-                </a>
-                {isActive && (
+                </Link>
+                {active && (
                   <motion.span
                     layoutId="nav-underline"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
@@ -127,12 +77,12 @@ export function Navbar() {
           <ThemeToggle />
 
           {/* Desktop CTA */}
-          <a
+          <Link
             href={primaryCta.href}
             className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] lg:inline-flex"
           >
             {primaryCta.label}
-          </a>
+          </Link>
 
           {/* Mobile toggle */}
           <button
@@ -170,40 +120,27 @@ export function Navbar() {
         }`}
       >
         <ul className="flex flex-col gap-1 px-5 py-4">
-          {navLinks.map((link) =>
-            link.href.startsWith("/") ? (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ) : (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => {
-                    onNavClick(link.href);
-                    setOpen(false);
-                  }}
-                  className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ),
-          )}
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-surface hover:text-foreground ${
+                  isActive(link.href) ? "text-foreground" : "text-muted"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
           <li className="mt-2">
-            <a
+            <Link
               href={primaryCta.href}
               onClick={() => setOpen(false)}
               className="block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-white"
             >
               {primaryCta.label}
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

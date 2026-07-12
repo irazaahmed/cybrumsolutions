@@ -64,13 +64,13 @@ export function Services() {
                   {primary.description}
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-5">
-                  <a
+                  <Link
                     href={primaryCta.href}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-bright transition-colors hover:text-foreground"
                   >
                     Start with a free audit
                     <ArrowRight size={15} />
-                  </a>
+                  </Link>
                   <Link
                     href={primary.href}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent-bright"
