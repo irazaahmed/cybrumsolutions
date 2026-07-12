@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import { getPublishedSkills, getPublishedCategories } from "@/lib/skills";
 import { SkillsBrowser } from "@/components/skills/SkillsBrowser";
+import { SkillsIntro } from "@/components/skills/SkillsIntro";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { Footer } from "@/components/layout/Footer";
 import { Reveal } from "@/components/ui/Reveal";
@@ -23,12 +24,6 @@ const HERO = {
   titleAccent: "you can download and run",
   intro:
     "A growing library of practical AI and Claude Code skills: reusable capabilities packaged as Markdown files. Browse, search, and download a skill, then drop it into Claude Code or your own agent to put it to work.",
-  howToTitle: "How to use a skill",
-  howTo: [
-    "Find a skill below and open it to read what it does and how it behaves.",
-    "Download the .md file with one click.",
-    "Add it to your Claude Code skills folder (or your agent's toolset) and invoke it.",
-  ],
 } as const;
 
 const title = "Skills Library: AI & Claude Code Skills";
@@ -92,23 +87,11 @@ export default async function SkillsIndexPage() {
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             {HERO.intro}
           </p>
-
-          <div className="mt-8 max-w-2xl rounded-2xl border border-border bg-card/50 p-6 backdrop-blur-sm">
-            <p className="text-sm font-semibold tracking-tight text-foreground">
-              {HERO.howToTitle}
-            </p>
-            <ol className="mt-3 space-y-2">
-              {HERO.howTo.map((step, i) => (
-                <li key={i} className="flex gap-3 text-sm leading-relaxed text-muted">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/5 text-xs font-semibold text-accent-bright">
-                    {i + 1}
-                  </span>
-                  {step}
-                </li>
-              ))}
-            </ol>
-          </div>
         </Reveal>
+
+        {/* Trilingual explainer: what a skill is, why it matters, which one
+            fits which visitor. Written natively in EN / Roman Urdu / Urdu. */}
+        <SkillsIntro />
 
         <SkillsBrowser skills={skills} categories={categories} />
       </main>
