@@ -158,10 +158,28 @@
   }
   .back .qrbox img { width: 16.5mm; height: 16.5mm; display: block; }
   .back .qrcap {
-    font-size: 5.4pt; font-weight: 600; letter-spacing: 0.18em;
+    font-size: 4.4pt; font-weight: 600; letter-spacing: 0.07em;
     text-transform: uppercase; color: var(--muted); text-align: center;
+    white-space: nowrap;
   }
+  /* PNG export mode (?p=all or ?p=N): flat rendering, no preview chrome. */
+  html.export body { display: block; padding: 0; margin: 0; background: #ffffff; }
+  html.export .card { box-shadow: none; border-radius: 0; }
+  html.export .card + .card { margin-top: 3mm; }
 </style>
+<script>
+  // ?p=N shows only side N; ?p=all shows both, flush, for PNG export.
+  (function () {
+    var p = new URLSearchParams(location.search).get("p");
+    if (p === null) return;
+    document.documentElement.classList.add("export");
+    addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("body > section").forEach(function (el, i) {
+        if (p !== "all" && String(i + 1) !== p) el.style.display = "none";
+      });
+    });
+  })();
+</script>
 </head>
 <body>
 
@@ -224,7 +242,7 @@
 
     <div class="qrpanel">
       <div class="qrbox"><img src="card-qr.svg" alt="WhatsApp QR code" /></div>
-      <div class="qrcap">Scan to chat<br />on WhatsApp</div>
+      <div class="qrcap">Scan to chat on WhatsApp</div>
     </div>
   </section>
 

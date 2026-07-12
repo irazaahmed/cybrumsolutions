@@ -316,7 +316,23 @@
   .closing .inner { text-align: center; color: #fff; }
   .closing .line { font-family: "Space Grotesk", sans-serif; font-size: 14pt; font-weight: 700; letter-spacing: 0.02em; }
   .closing .sub { margin-top: 1.4mm; font-size: 8pt; font-weight: 500; letter-spacing: 0.14em; opacity: 0.9; }
+  /* PNG export mode (?p=N): flat rendering of a single page, no preview chrome. */
+  html.export body { display: block; padding: 0; margin: 0; background: #ffffff; }
+  html.export .page { box-shadow: none; }
 </style>
+<script>
+  // ?p=N shows only page N, flush, for PNG export.
+  (function () {
+    var p = new URLSearchParams(location.search).get("p");
+    if (p === null) return;
+    document.documentElement.classList.add("export");
+    addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("body > section").forEach(function (el, i) {
+        if (p !== "all" && String(i + 1) !== p) el.style.display = "none";
+      });
+    });
+  })();
+</script>
 </head>
 <body>
 
