@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Cybrum Solutions - Company Prospectus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --bg: #f4f7fc;
+    --white: #ffffff;
+    --panel: #eef4fc;
+    --border: #dbe3f0;
+    --accent: #1773d6;
+    --accent-deep: #1565c0;
+    --accent-soft: #6aa5e6;
+    --accent-bright: #2f8ff0;
+    --ink: #101727;
+    --muted: #54607a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Inter", sans-serif; color: var(--ink); background: #9aa7bd; }
+  .heading { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.02em; }
+
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    background: var(--white);
+    overflow: hidden;
+    page-break-after: always;
+  }
+  @media screen {
+    body { display: flex; flex-direction: column; align-items: center; gap: 8mm; padding: 8mm; }
+    .page { box-shadow: 0 6px 30px rgba(16, 23, 39, 0.35); }
+  }
+
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(23, 115, 214, 0.05) 0.3mm, transparent 0.3mm),
+      linear-gradient(to bottom, rgba(23, 115, 214, 0.05) 0.3mm, transparent 0.3mm);
+    background-size: 8mm 8mm;
+  }
+
+  /* Shared page furniture */
+  .pagehead {
+    position: absolute; top: 0; left: 0; width: 100%; height: 3mm;
+    background: linear-gradient(to right, var(--accent-deep), var(--accent), var(--accent-bright));
+  }
+  .pagefoot {
+    position: absolute; bottom: 8mm; left: 18mm; right: 18mm;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 7pt; font-weight: 500; letter-spacing: 0.08em; color: var(--muted);
+  }
+  .pagefoot .brand { display: flex; align-items: center; gap: 2mm; }
+  .pagefoot .brand img { width: 4.5mm; height: 4.5mm; }
+  .pagefoot .pageno {
+    width: 6mm; height: 6mm; border-radius: 50%;
+    background: var(--panel); border: 0.25mm solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-deep); font-weight: 600;
+  }
+
+  .content { position: absolute; top: 20mm; left: 18mm; right: 18mm; bottom: 22mm; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 2mm;
+    border: 0.3mm solid rgba(23, 115, 214, 0.35); border-radius: 6mm;
+    background: rgba(23, 115, 214, 0.06);
+    padding: 1.4mm 4mm;
+    font-size: 7.5pt; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--accent-deep);
+  }
+  .eyebrow::before { content: ""; width: 1.6mm; height: 1.6mm; border-radius: 50%; background: var(--accent); }
+
+  h2.title { font-size: 24pt; font-weight: 700; margin-top: 5mm; }
+  h2.title span { color: var(--accent); }
+  p.lede { margin-top: 3.5mm; font-size: 10.5pt; line-height: 1.65; color: var(--muted); max-width: 150mm; }
+
+  /* ------------------------------------------------ COVER */
+  .cover { background: linear-gradient(165deg, #ffffff 0%, var(--bg) 55%, #e8f0fb 100%); }
+  .cover .sweep {
+    position: absolute; top: -45mm; right: -40mm; width: 130mm; height: 130mm; border-radius: 50%;
+    background: radial-gradient(circle, rgba(47, 143, 240, 0.25) 0%, rgba(23, 115, 214, 0.08) 55%, transparent 75%);
+  }
+  .cover .ribbon {
+    position: absolute; left: 0; bottom: 0; width: 100%; height: 60mm;
+    background: linear-gradient(120deg, var(--accent-deep) 0%, var(--accent) 45%, var(--accent-bright) 100%);
+    clip-path: polygon(0 45%, 100% 75%, 100% 100%, 0 100%);
+  }
+  .cover .ribbon-soft {
+    position: absolute; left: 0; bottom: 0; width: 100%; height: 72mm;
+    background: linear-gradient(120deg, rgba(106, 165, 230, 0.5), rgba(47, 143, 240, 0.3));
+    clip-path: polygon(0 62%, 100% 25%, 100% 45%, 0 82%);
+  }
+  .cover .center {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding-bottom: 30mm;
+  }
+  .cover img.logo { width: 34mm; height: 34mm; object-fit: contain; }
+  .cover .wordmark { margin-top: 7mm; font-size: 34pt; font-weight: 700; }
+  .cover .wordmark span { color: var(--accent); }
+  .cover .tagline {
+    margin-top: 3.5mm; display: flex; align-items: center; gap: 4mm;
+    font-size: 9.5pt; font-weight: 600; letter-spacing: 0.34em; text-transform: uppercase; color: var(--muted);
+  }
+  .cover .tagline::before, .cover .tagline::after {
+    content: ""; width: 16mm; height: 0.4mm;
+    background: linear-gradient(to right, transparent, var(--accent-soft));
+  }
+  .cover .tagline::after { background: linear-gradient(to left, transparent, var(--accent-soft)); }
+  .cover .doc-type {
+    margin-top: 12mm; padding: 2.2mm 7mm; border-radius: 6mm;
+    background: var(--white); border: 0.3mm solid var(--border);
+    box-shadow: 0 1mm 4mm rgba(16, 23, 39, 0.07);
+    font-size: 9pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink);
+  }
+  .cover .coverfoot {
+    position: absolute; bottom: 12mm; width: 100%; text-align: center;
+    color: #ffffff; font-size: 9pt; font-weight: 600; letter-spacing: 0.12em;
+  }
+  .cover .coverfoot .sub { margin-top: 1.5mm; font-weight: 500; opacity: 0.85; font-size: 8pt; }
+
+  /* ------------------------------------------------ ABOUT / VISION */
+  .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 8mm; }
+  .vm-card {
+    border: 0.3mm solid var(--border); border-radius: 4mm; background: var(--white);
+    padding: 7mm; position: relative; overflow: hidden;
+  }
+  .vm-card::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 1.4mm;
+    background: linear-gradient(to right, var(--accent), var(--accent-bright));
+  }
+  .vm-card h3 { font-size: 13pt; font-weight: 700; display: flex; align-items: center; gap: 2.5mm; }
+  .vm-card h3 .dot {
+    width: 6.5mm; height: 6.5mm; border-radius: 2mm; background: var(--panel);
+    border: 0.25mm solid var(--border); display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+  }
+  .vm-card h3 .dot svg { width: 3.6mm; height: 3.6mm; }
+  .vm-card p { margin-top: 3mm; font-size: 9pt; line-height: 1.7; color: var(--muted); }
+
+  .values { margin-top: 8mm; }
+  .values h3 { font-size: 13pt; font-weight: 700; }
+  .values-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; margin-top: 4mm; }
+  .value {
+    border: 0.3mm solid var(--border); border-radius: 4mm; background: var(--bg); padding: 5.5mm;
+  }
+  .value .num { font-family: "Space Grotesk", sans-serif; font-size: 14pt; font-weight: 700; color: var(--accent); }
+  .value h4 { margin-top: 2mm; font-size: 10pt; font-weight: 700; }
+  .value p { margin-top: 1.6mm; font-size: 8.2pt; line-height: 1.6; color: var(--muted); }
+
+  .factband {
+    margin-top: 8mm; border-radius: 4mm; padding: 5.5mm 7mm;
+    background: linear-gradient(120deg, var(--accent-deep), var(--accent) 55%, var(--accent-bright));
+    display: flex; justify-content: space-between; align-items: center; color: #fff;
+  }
+  .factband .fact { text-align: center; }
+  .factband .fact .big { font-family: "Space Grotesk", sans-serif; font-size: 16pt; font-weight: 700; }
+  .factband .fact .small { margin-top: 0.8mm; font-size: 7pt; font-weight: 500; letter-spacing: 0.06em; opacity: 0.9; }
+  .factband .sep { width: 0.3mm; height: 10mm; background: rgba(255, 255, 255, 0.35); }
+
+  /* ------------------------------------------------ SERVICES */
+  .svc { margin-top: 7mm; display: flex; flex-direction: column; gap: 5mm; }
+  .svc-card {
+    border: 0.3mm solid var(--border); border-radius: 4mm; background: var(--white);
+    padding: 6mm 7mm; display: flex; gap: 5.5mm; align-items: flex-start;
+  }
+  .svc-card.primary {
+    background: linear-gradient(135deg, rgba(23, 115, 214, 0.07), rgba(47, 143, 240, 0.03));
+    border-color: rgba(23, 115, 214, 0.4);
+  }
+  .svc-ico {
+    width: 11mm; height: 11mm; border-radius: 3mm; flex-shrink: 0;
+    background: var(--panel); border: 0.25mm solid var(--border);
+    display: flex; align-items: center; justify-content: center; color: var(--accent);
+  }
+  .svc-ico svg { width: 5.5mm; height: 5.5mm; }
+  .svc-card h4 { font-size: 12pt; font-weight: 700; display: flex; align-items: center; gap: 3mm; }
+  .svc-card h4 .chip {
+    font-family: "Inter", sans-serif; font-size: 6.5pt; font-weight: 600; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-deep);
+    border: 0.25mm solid rgba(23, 115, 214, 0.4); border-radius: 4mm;
+    background: rgba(23, 115, 214, 0.08); padding: 0.9mm 3mm;
+  }
+  .svc-card p { margin-top: 1.8mm; font-size: 9pt; line-height: 1.65; color: var(--muted); }
+
+  .process { margin-top: 8mm; }
+  .process h3 { font-size: 13pt; font-weight: 700; }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4.5mm; margin-top: 4mm; }
+  .step { border: 0.3mm solid var(--border); border-radius: 4mm; background: var(--bg); padding: 5mm; }
+  .step .n { font-family: "Space Grotesk", sans-serif; font-size: 13pt; font-weight: 700; color: var(--accent); }
+  .step h5 { margin-top: 1.6mm; font-size: 9.5pt; font-weight: 700; }
+  .step p { margin-top: 1.4mm; font-size: 7.6pt; line-height: 1.55; color: var(--muted); }
+
+  .stack {
+    margin-top: 8mm; border-radius: 4mm; border: 0.3mm solid var(--border);
+    background: var(--white); padding: 4.5mm 7mm;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .stack .label { font-size: 7.5pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .stack .tools { display: flex; gap: 5mm; }
+  .stack .tool { display: flex; align-items: center; gap: 1.6mm; font-size: 8.5pt; font-weight: 600; color: var(--ink); }
+  .stack .tool::before { content: ""; width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--accent); }
+
+  /* ------------------------------------------------ WORK */
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 7mm; }
+  .proj {
+    border: 0.3mm solid var(--border); border-radius: 4mm; background: var(--white); padding: 5.5mm 6mm;
+  }
+  .proj .cat { font-size: 6.8pt; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); }
+  .proj h4 { margin-top: 1.4mm; font-size: 10.5pt; font-weight: 700; }
+  .proj p { margin-top: 1.6mm; font-size: 8pt; line-height: 1.6; color: var(--muted); }
+  .proj .tags { margin-top: 2.2mm; display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  .proj .tag {
+    font-size: 6.4pt; font-weight: 600; color: var(--muted);
+    border: 0.25mm solid var(--border); border-radius: 3mm; background: var(--bg); padding: 0.7mm 2.4mm;
+  }
+
+  .quoteband {
+    margin-top: 6mm; border-radius: 4mm; padding: 5.5mm 7mm;
+    background: linear-gradient(135deg, rgba(23, 115, 214, 0.08), rgba(47, 143, 240, 0.04));
+    border: 0.3mm solid rgba(23, 115, 214, 0.3);
+  }
+  .quoteband p.q { font-size: 8.8pt; line-height: 1.65; color: var(--ink); font-style: italic; }
+  .quoteband p.who { margin-top: 2mm; font-size: 7.5pt; font-weight: 600; color: var(--accent-deep); }
+
+  /* ------------------------------------------------ FOUNDER */
+  .founder-grid { display: grid; grid-template-columns: 62mm 1fr; gap: 8mm; margin-top: 7mm; align-items: start; }
+  .fphoto { position: relative; }
+  .fphoto .glow { position: absolute; inset: -3mm; border-radius: 5mm; background: rgba(23, 115, 214, 0.12); filter: blur(3mm); }
+  .fphoto .frame { position: relative; border-radius: 4mm; overflow: hidden; border: 0.35mm solid var(--border); }
+  .fphoto img { width: 100%; display: block; }
+  .fphoto .cap {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 4mm 4.5mm 3.5mm;
+    background: linear-gradient(to top, rgba(6, 10, 18, 0.85), rgba(6, 10, 18, 0.35), transparent);
+  }
+  .fphoto .cap .n { font-family: "Space Grotesk", sans-serif; color: #fff; font-size: 11pt; font-weight: 700; }
+  .fphoto .cap .r { color: #8ec2ff; font-size: 7.5pt; font-weight: 600; margin-top: 0.6mm; }
+  .fbio p { font-size: 9pt; line-height: 1.7; color: var(--muted); margin-top: 3mm; }
+  .fbio p:first-child { margin-top: 0; }
+  .fbio .motto {
+    margin-top: 4mm; display: inline-block; font-family: "Space Grotesk", sans-serif;
+    font-size: 11pt; font-weight: 700; color: var(--accent-deep);
+    border-bottom: 0.6mm solid var(--accent-soft); padding-bottom: 1mm;
+  }
+  .fstats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm; margin-top: 7mm; }
+  .fstat { border: 0.3mm solid var(--border); border-radius: 4mm; background: var(--bg); padding: 5mm; text-align: center; }
+  .fstat .big { font-family: "Space Grotesk", sans-serif; font-size: 17pt; font-weight: 700; color: var(--accent); }
+  .fstat p { margin-top: 1.6mm; font-size: 7.6pt; line-height: 1.55; color: var(--muted); }
+
+  .namestory {
+    margin-top: 7mm; border-radius: 4mm; border: 0.3mm solid var(--border); background: var(--white);
+    padding: 6mm 7mm;
+  }
+  .namestory h3 { font-size: 13pt; font-weight: 700; }
+  .namestory .formula { margin-top: 1.6mm; font-family: "Space Grotesk", sans-serif; font-size: 11pt; font-weight: 600; color: var(--accent); }
+  .namestory p { margin-top: 2.4mm; font-size: 8.6pt; line-height: 1.65; color: var(--muted); }
+  .namestory p.close { color: var(--ink); font-weight: 600; }
+
+  /* ------------------------------------------------ CONTACT */
+  .audit {
+    margin-top: 7mm; border-radius: 4mm; padding: 6.5mm 7mm;
+    background: linear-gradient(135deg, rgba(23, 115, 214, 0.07), rgba(47, 143, 240, 0.03));
+    border: 0.3mm solid rgba(23, 115, 214, 0.35);
+  }
+  .audit h3 { font-size: 13pt; font-weight: 700; }
+  .audit ul { margin-top: 3mm; list-style: none; display: flex; flex-direction: column; gap: 2.2mm; }
+  .audit li { display: flex; gap: 2.5mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); align-items: flex-start; }
+  .audit li::before {
+    content: "✓"; flex-shrink: 0; width: 4.4mm; height: 4.4mm; border-radius: 50%;
+    background: rgba(23, 115, 214, 0.12); border: 0.25mm solid rgba(23, 115, 214, 0.4);
+    color: var(--accent-deep); font-size: 7pt; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 0.4mm;
+  }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 52mm; gap: 7mm; margin-top: 7mm; align-items: start; }
+  .channels { display: flex; flex-direction: column; gap: 3.2mm; }
+  .channel {
+    display: flex; align-items: center; gap: 3.5mm;
+    border: 0.3mm solid var(--border); border-radius: 3.5mm; background: var(--white); padding: 3.5mm 4.5mm;
+  }
+  .channel .ico {
+    width: 8mm; height: 8mm; border-radius: 2.4mm; flex-shrink: 0;
+    background: var(--panel); border: 0.25mm solid var(--border);
+    display: flex; align-items: center; justify-content: center; color: var(--accent);
+  }
+  .channel .ico svg { width: 4.2mm; height: 4.2mm; }
+  .channel .lbl { font-size: 6.8pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .channel .val { font-size: 9.5pt; font-weight: 600; color: var(--ink); margin-top: 0.4mm; }
+  .channel .val b { color: var(--accent-deep); }
+
+  .qrside {
+    border: 0.3mm solid var(--border); border-radius: 4mm; background: var(--bg);
+    padding: 6mm; display: flex; flex-direction: column; align-items: center; gap: 3mm; text-align: center;
+  }
+  .qrside .qrbox {
+    background: #fff; padding: 3mm; border-radius: 3mm; border: 0.3mm solid var(--border);
+    box-shadow: 0 1mm 4mm rgba(16, 23, 39, 0.08);
+  }
+  .qrside .qrbox img { width: 30mm; height: 30mm; display: block; }
+  .qrside .cap { font-size: 7.5pt; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+  .closing {
+    position: absolute; left: 0; bottom: 0; width: 100%; height: 46mm;
+    background: linear-gradient(120deg, var(--accent-deep) 0%, var(--accent) 45%, var(--accent-bright) 100%);
+    clip-path: polygon(0 38%, 100% 62%, 100% 100%, 0 100%);
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 7mm;
+  }
+  .closing .inner { text-align: center; color: #fff; }
+  .closing .line { font-family: "Space Grotesk", sans-serif; font-size: 14pt; font-weight: 700; letter-spacing: 0.02em; }
+  .closing .sub { margin-top: 1.4mm; font-size: 8pt; font-weight: 500; letter-spacing: 0.14em; opacity: 0.9; }
+</style>
+</head>
+<body>
+
+  <!-- ============================================= PAGE 1: COVER -->
+  <section class="page cover">
+    <div class="grid-bg"></div>
+    <div class="sweep"></div>
+    <div class="ribbon-soft"></div>
+    <div class="ribbon"></div>
+
+    <div class="center">
+      <img class="logo" src="../../public/logo-light-theme.png" alt="Cybrum Solutions logo" />
+      <div class="wordmark heading">Cybrum <span>Solutions</span></div>
+      <div class="tagline">One element. Every solution.</div>
+      <div class="doc-type">Company Prospectus · 2026</div>
+    </div>
+
+    <div class="coverfoot">
+      www.cybrumsolutions.dev
+      <div class="sub">AI Agents · Automation · Chatbots · Web Systems</div>
+    </div>
+  </section>
+
+  <!-- ============================================= PAGE 2: ABOUT / VISION / MISSION -->
+  <section class="page">
+    <div class="grid-bg"></div>
+    <div class="pagehead"></div>
+
+    <div class="content">
+      <span class="eyebrow">Who we are</span>
+      <h2 class="title heading">An AI-native company, <span>built for real work</span></h2>
+      <p class="lede">
+        Cybrum Solutions is an AI-native company based in Karachi, Pakistan, founded in
+        December 2025 by Ahmed Raza. We design, build, and deploy intelligent automation,
+        AI agents, chatbots, and web systems for businesses that want to move faster with
+        less manual work, locally and worldwide. One founder directs an agentic AI
+        workforce, delivering team-level output with a single, directly accountable owner
+        from architecture to deployment.
+      </p>
+
+      <div class="vm-grid">
+        <div class="vm-card">
+          <h3 class="heading">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            Our Vision
+          </h3>
+          <p>
+            A near future where a growing business does not hire more hands for repetitive
+            work; it runs on one intelligent system that handles that work end to end.
+            Cybrum exists to be the core element of that shift: the substance that turns
+            scattered tools, tasks, and processes into a single system that runs on its
+            own, for a Karachi shop and a global enterprise alike.
+          </p>
+        </div>
+        <div class="vm-card">
+          <h3 class="heading">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+            Our Mission
+          </h3>
+          <p>
+            To build AI agents, automation, chatbots, and web systems that run real
+            business workflows in production, not demos that break. Every engagement is
+            honestly scoped, built end to end by one accountable partner, and handed over
+            fully: the client owns the code, the infrastructure, and the results.
+          </p>
+        </div>
+      </div>
+
+      <div class="values">
+        <h3 class="heading">What we stand for</h3>
+        <div class="values-grid">
+          <div class="value">
+            <div class="num">01</div>
+            <h4 class="heading">AI-Native, Not AI-Added</h4>
+            <p>AI is the foundation of how we build, not a feature bolted on at the end.</p>
+          </div>
+          <div class="value">
+            <div class="num">02</div>
+            <h4 class="heading">End to End, One Partner</h4>
+            <p>From architecture to deployment, one accountable builder. No juggling multiple vendors.</p>
+          </div>
+          <div class="value">
+            <div class="num">03</div>
+            <h4 class="heading">Systems That Actually Run</h4>
+            <p>Automation that works in your real environment, not impressive demos that break in production.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="factband">
+        <div class="fact"><div class="big heading">Dec 2025</div><div class="small">Founded in Karachi</div></div>
+        <div class="sep"></div>
+        <div class="fact"><div class="big heading">3</div><div class="small">Focused services</div></div>
+        <div class="sep"></div>
+        <div class="fact"><div class="big heading">10+</div><div class="small">Systems shipped end to end</div></div>
+        <div class="sep"></div>
+        <div class="fact"><div class="big heading">2</div><div class="small">Markets: Pakistan and worldwide</div></div>
+      </div>
+    </div>
+
+    <div class="pagefoot">
+      <div class="brand"><img src="../../public/logo-light-theme.png" alt="" /> Cybrum Solutions · Company Prospectus</div>
+      <div class="pageno">2</div>
+    </div>
+  </section>
+
+  <!-- ============================================= PAGE 3: SERVICES -->
+  <section class="page">
+    <div class="grid-bg"></div>
+    <div class="pagehead"></div>
+
+    <div class="content">
+      <span class="eyebrow">Services</span>
+      <h2 class="title heading">What Cybrum Solutions <span>builds</span></h2>
+      <p class="lede">
+        Three sharp services, with automation at the core. Every engagement starts with a
+        free AI audit and ends with a system you fully own.
+      </p>
+
+      <div class="svc">
+        <div class="svc-card primary">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4"/></svg></div>
+          <div>
+            <h4 class="heading">Automation &amp; AI Agents <span class="chip">Primary focus</span></h4>
+            <p>
+              Multi-agent systems and automated pipelines that handle real tasks end to end.
+              Repetitive work, decisions, and processes turned into systems that run on their
+              own: lead handling, order flows, reporting, back-office operations.
+            </p>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <div>
+            <h4 class="heading">Custom Chatbots &amp; Assistants</h4>
+            <p>
+              Domain-specific assistants with memory, tools, and real knowledge of your
+              business, on your website or on WhatsApp, in English and Urdu. Not generic
+              wrappers: assistants that answer correctly, capture leads, and hand off to a
+              human when needed.
+            </p>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+          <div>
+            <h4 class="heading">Web Development</h4>
+            <p>
+              Fast, modern websites and web applications built on Next.js. Clean,
+              conversion-focused, and ready to scale, from company sites to full management
+              systems with databases, dashboards, and payments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="process">
+        <h3 class="heading">How we work</h3>
+        <div class="process-grid">
+          <div class="step">
+            <div class="n">01</div>
+            <h5 class="heading">Understand</h5>
+            <p>We map your actual workflow: what takes time, what breaks, what repeats. This is the free AI audit.</p>
+          </div>
+          <div class="step">
+            <div class="n">02</div>
+            <h5 class="heading">Architect</h5>
+            <p>A clear system design before any code. Tools, data flow, and structure defined upfront.</p>
+          </div>
+          <div class="step">
+            <div class="n">03</div>
+            <h5 class="heading">Build &amp; Deploy</h5>
+            <p>The system is built, tested, and deployed into your real environment, with working progress visible during the build.</p>
+          </div>
+          <div class="step">
+            <div class="n">04</div>
+            <h5 class="heading">Refine</h5>
+            <p>Real usage data drives improvements. The system gets sharper over time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <span class="label">Built with</span>
+        <div class="tools">
+          <span class="tool">Claude API</span>
+          <span class="tool">LangGraph</span>
+          <span class="tool">CrewAI</span>
+          <span class="tool">n8n</span>
+          <span class="tool">Next.js</span>
+          <span class="tool">Python</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagefoot">
+      <div class="brand"><img src="../../public/logo-light-theme.png" alt="" /> Cybrum Solutions · Company Prospectus</div>
+      <div class="pageno">3</div>
+    </div>
+  </section>
+
+  <!-- ============================================= PAGE 4: WORK -->
+  <section class="page">
+    <div class="grid-bg"></div>
+    <div class="pagehead"></div>
+
+    <div class="content">
+      <span class="eyebrow">Selected work</span>
+      <h2 class="title heading">Systems we have <span>built and shipped</span></h2>
+      <p class="lede">
+        Real systems, built end to end and deployed to run, across AI agents, automation,
+        and the web.
+      </p>
+
+      <div class="work-grid">
+        <div class="proj">
+          <div class="cat">Management Platform</div>
+          <h4 class="heading">Translation Management System</h4>
+          <p>One real-time dashboard running Quranic translation across 25+ languages with meeting scheduling, plus an 8-stage English production pipeline. In daily use at Dawat-e-Islami.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Supabase</span></div>
+        </div>
+        <div class="proj">
+          <div class="cat">Client Portal</div>
+          <h4 class="heading">Lodhi Cooperative Housing Society</h4>
+          <p>Secure document portal for a 360-plot housing society: each client signs in to access only their own legal documents, with admin verification and private storage.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span></div>
+        </div>
+        <div class="proj">
+          <div class="cat">Shop Management System</div>
+          <h4 class="heading">Hafeez Communication</h4>
+          <p>Full management panel for a mobile shop: stock, fast sales with credit tracking, printable invoices, and JazzCash and EasyPaisa operations tied to one live cash ledger.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span></div>
+        </div>
+        <div class="proj">
+          <div class="cat">AI Agent</div>
+          <h4 class="heading">LinkedIn Autonomous Agent</h4>
+          <p>Autonomous agent that reacts and comments on LinkedIn posts using an LLM, with built-in relevance filtering, running unattended.</p>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">Python</span><span class="tag">LLM</span></div>
+        </div>
+        <div class="proj">
+          <div class="cat">Full-Stack Web App</div>
+          <h4 class="heading">AR Bank Management System</h4>
+          <p>A full banking simulator: instant transfers, live transaction history, and an admin panel tracking every account and rupee, backed by a real Postgres database.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span></div>
+        </div>
+        <div class="proj">
+          <div class="cat">Free Resource</div>
+          <h4 class="heading">Skills Library</h4>
+          <p>A growing public library of downloadable AI skills: WhatsApp support bot, lead qualifier, invoice extractor, Excel formula generator, and more, free at cybrumsolutions.dev/skills.</p>
+          <div class="tags"><span class="tag">AI Skills</span><span class="tag">Open access</span></div>
+        </div>
+      </div>
+
+      <div class="quoteband">
+        <p class="q">"We needed one system to coordinate Quran translation across dozens of languages. Ahmed built exactly that, and it has run reliably ever since."</p>
+        <p class="who">Director, Translation Department · Dawat-e-Islami</p>
+      </div>
+    </div>
+
+    <div class="pagefoot">
+      <div class="brand"><img src="../../public/logo-light-theme.png" alt="" /> Cybrum Solutions · Company Prospectus</div>
+      <div class="pageno">4</div>
+    </div>
+  </section>
+
+  <!-- ============================================= PAGE 5: FOUNDER -->
+  <section class="page">
+    <div class="grid-bg"></div>
+    <div class="pagehead"></div>
+
+    <div class="content">
+      <span class="eyebrow">Leadership</span>
+      <h2 class="title heading">The founder behind <span>Cybrum</span></h2>
+
+      <div class="founder-grid">
+        <div class="fphoto">
+          <div class="glow"></div>
+          <div class="frame">
+            <img src="../../public/ahmed.webp" alt="Ahmed Raza, Founder and CEO of Cybrum Solutions" />
+            <div class="cap">
+              <div class="n">Ahmed Raza</div>
+              <div class="r">FOUNDER &amp; CEO · AI SOLUTIONS EXPERT</div>
+            </div>
+          </div>
+        </div>
+        <div class="fbio">
+          <p>
+            Ahmed Raza is an AI Solutions Expert and the Founder and CEO of Cybrum
+            Solutions. He operates as the orchestrator of an agentic AI workforce: one
+            accountable builder directing AI agents that plan, build, test, and ship,
+            delivering team-level output on every project.
+          </p>
+          <p>
+            Before founding Cybrum, Ahmed spent more than 8 years as an Islamic scholar
+            and Assistant Shariah Advisor. He leads translation at Dawat-e-Islami,
+            coordinating Quran translation across 33 languages, work that demands
+            precision, coordination at scale, and systems that cannot afford to fail.
+            That same discipline now drives how he engineers AI systems.
+          </p>
+          <p>
+            He bridges deep scholarship with modern AI engineering and works in Urdu,
+            Arabic, and English with clients in Pakistan and worldwide.
+          </p>
+          <span class="motto heading">Execution Over Words.</span>
+        </div>
+      </div>
+
+      <div class="fstats">
+        <div class="fstat">
+          <div class="big heading">33</div>
+          <p>Languages coordinated in a single AI-managed translation system</p>
+        </div>
+        <div class="fstat">
+          <div class="big heading">8+ yrs</div>
+          <p>Domain expertise bridging deep research and AI engineering</p>
+        </div>
+        <div class="fstat">
+          <div class="big heading">1</div>
+          <p>Accountable partner from architecture to deployment, no vendor juggling</p>
+        </div>
+      </div>
+
+      <div class="namestory">
+        <h3 class="heading">Why "Cybrum"?</h3>
+        <div class="formula">Cyber + um = Cybrum</div>
+        <p>
+          The name Cybrum is built from "Cyber" joined with the suffix "-um", the same
+          ending found in words like quantum, spectrum, and forum. That suffix turns a
+          word into a single, foundational element. Cybrum names exactly that: the core
+          building block of the intelligent digital world.
+        </p>
+        <p>
+          For your business, Cybrum Solutions is that element. The substance that turns
+          scattered tools, tasks, and processes into one intelligent system that runs on
+          its own.
+        </p>
+        <p class="close">Cybrum Solutions: one element, every solution.</p>
+      </div>
+    </div>
+
+    <div class="pagefoot">
+      <div class="brand"><img src="../../public/logo-light-theme.png" alt="" /> Cybrum Solutions · Company Prospectus</div>
+      <div class="pageno">5</div>
+    </div>
+  </section>
+
+  <!-- ============================================= PAGE 6: CONTACT -->
+  <section class="page">
+    <div class="grid-bg"></div>
+    <div class="pagehead"></div>
+
+    <div class="content">
+      <span class="eyebrow">Start here</span>
+      <h2 class="title heading">Book a <span>free AI audit</span></h2>
+      <p class="lede">
+        Tell us about the workflow you want automated or the AI system you want built.
+        You get a clear, honest answer on what is worth building and how, usually within
+        24 hours.
+      </p>
+
+      <div class="audit">
+        <h3 class="heading">Your free AI audit includes</h3>
+        <ul>
+          <li>A map of your current workflow: what takes time, what repeats, what breaks</li>
+          <li>A shortlist of automation and AI agent opportunities, ranked by impact</li>
+          <li>An honest build-or-not recommendation with rough cost and timeline. If automation is not the right answer for your case, the audit says so.</li>
+        </ul>
+      </div>
+
+      <div class="contact-grid">
+        <div class="channels">
+          <div class="channel">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div>
+              <div class="lbl">WhatsApp &amp; Call</div>
+              <div class="val">0337-0<b>(292786)</b> CYBRUM</div>
+            </div>
+          </div>
+          <div class="channel">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+            <div>
+              <div class="lbl">Email</div>
+              <div class="val">info@cybrumsolutions.dev</div>
+            </div>
+          </div>
+          <div class="channel">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
+            <div>
+              <div class="lbl">Website</div>
+              <div class="val">www.cybrumsolutions.dev</div>
+            </div>
+          </div>
+          <div class="channel">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z"/></svg></span>
+            <div>
+              <div class="lbl">LinkedIn</div>
+              <div class="val">linkedin.com/company/cybrumsolutions</div>
+            </div>
+          </div>
+          <div class="channel">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div>
+              <div class="lbl">Location</div>
+              <div class="val">Karachi, Pakistan · Serving clients worldwide</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="qrside">
+          <div class="qrbox"><img src="card-qr.svg" alt="WhatsApp QR code" /></div>
+          <div class="cap">Scan to chat<br />on WhatsApp</div>
+        </div>
+      </div>
+
+      <div style="height: 50mm;"></div>
+    </div>
+
+    <div class="closing">
+      <div class="inner">
+        <div class="line">One element. Every solution.</div>
+        <div class="sub">CYBRUM SOLUTIONS · KARACHI, PAKISTAN · WWW.CYBRUMSOLUTIONS.DEV</div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
