@@ -11,7 +11,7 @@ type Props = {
 const ORDER: Lang[] = ["en", "ro", "ur"];
 
 function hrefFor(slug: string, lang: Lang): string {
-  return lang === "en" ? `/blog/${slug}` : `/blog/${slug}/${lang}`;
+  return lang === "en" ? `/blogs/${slug}` : `/blogs/${slug}/${lang}`;
 }
 
 /** Language picker shown above each article. Languages without a translation

@@ -16,11 +16,11 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "/blogs" },
   openGraph: {
     title: `${title} · ${site.name}`,
     description,
-    url: `${baseUrl}/blog`,
+    url: `${baseUrl}/blogs`,
     type: "website",
     images: ["/og.png"],
   },
@@ -33,17 +33,17 @@ export default function BlogIndexPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "@id": `${baseUrl}/blog#blog`,
+    "@id": `${baseUrl}/blogs#blog`,
     name: `${site.name} Insights`,
     description,
-    url: `${baseUrl}/blog`,
+    url: `${baseUrl}/blogs`,
     publisher: { "@id": `${baseUrl}/#organization` },
     blogPost: posts.map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
       description: p.excerpt,
       datePublished: p.date,
-      url: `${baseUrl}/blog/${p.slug}`,
+      url: `${baseUrl}/blogs/${p.slug}`,
     })),
   };
 

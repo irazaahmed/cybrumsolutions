@@ -8,11 +8,11 @@ import { getPublishedSlugs } from "@/lib/skills";
 const baseUrl = site.url;
 
 /** Per-language URL for a post. English is the canonical bare URL; the
- *  translations live on their own paths (/blog/slug/ur). */
+ *  translations live on their own paths (/blogs/slug/ur). */
 function urlFor(slug: string, lang: string): string {
   return lang === "en"
-    ? `${baseUrl}/blog/${slug}`
-    : `${baseUrl}/blog/${slug}/${lang}`;
+    ? `${baseUrl}/blogs/${slug}`
+    : `${baseUrl}/blogs/${slug}/${lang}`;
 }
 
 /**
@@ -112,7 +112,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/blogs`,
       lastModified: latest,
       changeFrequency: "weekly",
       priority: 0.8,

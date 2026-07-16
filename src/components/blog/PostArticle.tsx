@@ -83,9 +83,9 @@ function formatDate(iso: string, lang: Lang): string {
 }
 
 /** Path-based language URLs: English is the bare canonical URL; translations
- *  live on their own crawlable paths (/blog/slug/ur, /blog/slug/ro). */
+ *  live on their own crawlable paths (/blogs/slug/ur, /blogs/slug/ro). */
 export function pathFor(slug: string, lang: Lang): string {
-  return lang === "en" ? `/blog/${slug}` : `/blog/${slug}/${lang}`;
+  return lang === "en" ? `/blogs/${slug}` : `/blogs/${slug}/${lang}`;
 }
 
 function ogLocale(lang: Lang): string {
@@ -128,7 +128,7 @@ export function buildPostMetadata(slug: string, lang: Lang): Metadata {
         ? {
             images: [
               {
-                url: `${baseUrl}/blog/${slug}/opengraph-image`,
+                url: `${baseUrl}/blogs/${slug}/opengraph-image`,
                 width: 1200,
                 height: 630,
               },
@@ -182,7 +182,7 @@ export function PostArticle({ slug, lang }: { slug: string; lang: Lang }) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
-          { "@type": "ListItem", position: 2, name: "Insights", item: `${baseUrl}/blog` },
+          { "@type": "ListItem", position: 2, name: "Insights", item: `${baseUrl}/blogs` },
           {
             "@type": "ListItem",
             position: 3,
@@ -208,7 +208,7 @@ export function PostArticle({ slug, lang }: { slug: string; lang: Lang }) {
 
       <main id="pdf-main" className="relative z-10 mx-auto max-w-3xl px-5 pb-24 pt-32 sm:px-8">
         <Link
-          href="/blog"
+          href="/blogs"
           className="no-print inline-flex items-center gap-1.5 text-sm font-medium text-accent-bright transition-colors hover:text-accent"
         >
           <ArrowLeft size={16} />
@@ -386,7 +386,7 @@ export function PostArticle({ slug, lang }: { slug: string; lang: Lang }) {
 
         <div className="no-print mt-14 border-t border-border pt-8">
           <Link
-            href="/blog"
+            href="/blogs"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-bright transition-colors hover:text-accent"
           >
             <ArrowLeft size={16} />

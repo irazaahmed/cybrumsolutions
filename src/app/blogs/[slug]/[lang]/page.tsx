@@ -7,8 +7,8 @@ type Props = {
   params: Promise<{ slug: string; lang: string }>;
 };
 
-/** Translated posts on crawlable paths (/blog/slug/ur, /blog/slug/ro), one
- *  static page per available translation. English stays at /blog/slug. */
+/** Translated posts on crawlable paths (/blogs/slug/ur, /blogs/slug/ro), one
+ *  static page per available translation. English stays at /blogs/slug. */
 export function generateStaticParams() {
   return getAllSlugs().flatMap((slug) =>
     getAvailableLangs(slug)

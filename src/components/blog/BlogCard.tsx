@@ -11,11 +11,11 @@ function formatDate(iso: string): string {
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
-/** Clickable blog preview card. Opens the full post at /blog/[slug]. */
+/** Clickable blog preview card. Opens the full post at /blogs/[slug]. */
 export function BlogCard({ post }: { post: BlogMeta }) {
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/blogs/${post.slug}`}
       className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_0_36px_-12px_var(--color-accent)] sm:p-7"
     >
       <div className="flex flex-wrap items-center gap-2 text-xs text-muted">

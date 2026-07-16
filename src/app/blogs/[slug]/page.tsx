@@ -6,7 +6,7 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-/** English posts, fully static. Translations live at /blog/[slug]/[lang];
+/** English posts, fully static. Translations live at /blogs/[slug]/[lang];
  *  old `?lang=` links are redirected there in next.config.ts. */
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
