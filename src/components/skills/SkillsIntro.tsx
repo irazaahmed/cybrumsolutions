@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { Check, Store, PenLine, Code2, ArrowUpRight } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Check } from "lucide-react";
 
 /**
  * Trilingual explainer shown above the skills grid. Written natively in each
@@ -13,18 +11,9 @@ import type { LucideIcon } from "lucide-react";
 
 type Lang = "en" | "ro" | "ur";
 
-type PersonaLink = { label: string; slug: string };
-
-type Persona = {
-  title: string;
-  body: string;
-  links: PersonaLink[];
-};
-
 type IntroContent = {
   what: { title: string; paragraphs: string[] };
   why: { title: string; points: string[] };
-  who: { title: string; intro: string; personas: Persona[] };
   how: { title: string; steps: string[] };
 };
 
@@ -33,8 +22,6 @@ const LANGS: { id: Lang; label: string }[] = [
   { id: "ro", label: "Roman Urdu" },
   { id: "ur", label: "اردو" },
 ];
-
-const personaIcons: LucideIcon[] = [Store, PenLine, Code2];
 
 const CONTENT: Record<Lang, IntroContent> = {
   en: {
@@ -52,38 +39,6 @@ const CONTENT: Record<Lang, IntroContent> = {
         "No more typing long instructions every day. The instructions are written once, properly, and saved forever.",
         "The output stays consistent: the same quality today, tomorrow, and six months from now.",
         "Download once, run it in Claude Code or any AI agent. Completely free.",
-      ],
-    },
-    who: {
-      title: "Which skill is for you?",
-      intro:
-        "You do not need to be a programmer. Most skills here are built for everyday business work:",
-      personas: [
-        {
-          title: "Shop or business owner",
-          body: "A customer messages at 2 AM? The WhatsApp bot answers in English and Roman Urdu, collects the lead, and hands over to you when needed. Pair it with lead scoring and invoice reading.",
-          links: [
-            { label: "WhatsApp Support Bot", slug: "whatsapp-support-bot" },
-            { label: "Lead Qualifier", slug: "lead-qualifier-agent" },
-            { label: "Invoice Extractor", slug: "invoice-receipt-extractor" },
-          ],
-        },
-        {
-          title: "Content and marketing",
-          body: "One skill writes a complete, search-optimized blog post from a single keyword. The other rewrites robotic AI text so it reads like a human actually wrote it.",
-          links: [
-            { label: "SEO Blog Post Writer", slug: "seo-blog-post-writer" },
-            { label: "Content Humanizer", slug: "content-humanizer" },
-          ],
-        },
-        {
-          title: "Developers",
-          body: "The daily documentation chores nobody enjoys: clean changelogs from your commits and complete pull request descriptions from a diff.",
-          links: [
-            { label: "Changelog Writer", slug: "changelog-writer" },
-            { label: "PR Description Generator", slug: "pr-description-generator" },
-          ],
-        },
       ],
     },
     how: {
@@ -113,38 +68,6 @@ const CONTENT: Record<Lang, IntroContent> = {
         "Ek bar download karein, Claude Code ya kisi bhi AI agent me chalayen. Bilkul free.",
       ],
     },
-    who: {
-      title: "Kaun si skill aap ke liye hai?",
-      intro:
-        "Programmer hona zaroori nahi. Yahan zyada tar skills roz ke business kaam ke liye bani hain:",
-      personas: [
-        {
-          title: "Dukandaar ya business owner",
-          body: "Raat 2 baje customer ka message aya? WhatsApp bot English aur Roman Urdu dono me jawab de ga, lead note kare ga, aur zaroorat par baat aap tak pohncha de ga. Sath me lead scoring aur invoice parhne wali skills bhi hain.",
-          links: [
-            { label: "WhatsApp Support Bot", slug: "whatsapp-support-bot" },
-            { label: "Lead Qualifier", slug: "lead-qualifier-agent" },
-            { label: "Invoice Extractor", slug: "invoice-receipt-extractor" },
-          ],
-        },
-        {
-          title: "Content aur marketing",
-          body: "Ek skill sirf ek keyword se poora SEO blog post likh deti hai. Doosri AI jaisi robotic likhai ko aisa banati hai jaise kisi insaan ne likha ho.",
-          links: [
-            { label: "SEO Blog Post Writer", slug: "seo-blog-post-writer" },
-            { label: "Content Humanizer", slug: "content-humanizer" },
-          ],
-        },
-        {
-          title: "Developers",
-          body: "Documentation ka roz ka kaam jo kisi ko pasand nahi: commits se saaf changelog, aur diff se poori PR description.",
-          links: [
-            { label: "Changelog Writer", slug: "changelog-writer" },
-            { label: "PR Description Generator", slug: "pr-description-generator" },
-          ],
-        },
-      ],
-    },
     how: {
       title: "Skill use kaise karein? (3 qadam)",
       steps: [
@@ -170,38 +93,6 @@ const CONTENT: Record<Lang, IntroContent> = {
         "روز روز لمبی ہدایات لکھنے کا جھنجھٹ ختم۔ ہدایت ایک بار ٹھیک طرح لکھی گئی، ہمیشہ کے لیے محفوظ۔",
         "نتیجہ ہر بار ایک جیسا: آج بھی وہی معیار، کل بھی، اور چھ مہینے بعد بھی۔",
         "ایک بار ڈاؤن لوڈ کیجیے، کلاڈ کوڈ یا کسی بھی اے آئی ایجنٹ میں چلائیے۔ بالکل مفت۔",
-      ],
-    },
-    who: {
-      title: "کون سی اسکل آپ کے لیے ہے؟",
-      intro:
-        "پروگرامر ہونا ضروری نہیں۔ یہاں زیادہ تر اسکلز روزمرہ کے کاروباری کام کے لیے بنی ہیں:",
-      personas: [
-        {
-          title: "دکاندار یا کاروباری",
-          body: "رات دو بجے کسٹمر کا میسج آیا؟ واٹس ایپ بوٹ انگریزی اور رومن اردو دونوں میں جواب دے گا، لیڈ نوٹ کرے گا، اور ضرورت پڑنے پر بات آپ تک پہنچا دے گا۔ ساتھ میں لیڈ اسکورنگ اور انوائس پڑھنے والی اسکلز بھی ہیں۔",
-          links: [
-            { label: "WhatsApp Support Bot", slug: "whatsapp-support-bot" },
-            { label: "Lead Qualifier", slug: "lead-qualifier-agent" },
-            { label: "Invoice Extractor", slug: "invoice-receipt-extractor" },
-          ],
-        },
-        {
-          title: "کانٹینٹ اور مارکیٹنگ",
-          body: "ایک اسکل صرف ایک کی ورڈ سے پورا ایس ای او بلاگ پوسٹ لکھ دیتی ہے۔ دوسری اے آئی جیسی مشینی تحریر کو ایسا بنا دیتی ہے جیسے کسی انسان نے لکھی ہو۔",
-          links: [
-            { label: "SEO Blog Post Writer", slug: "seo-blog-post-writer" },
-            { label: "Content Humanizer", slug: "content-humanizer" },
-          ],
-        },
-        {
-          title: "ڈیویلپرز",
-          body: "ڈاکیومینٹیشن کا وہ روز کا کام جو کسی کو پسند نہیں: کمٹس سے صاف ستھرا چینج لاگ، اور ڈف سے مکمل پی آر ڈسکرپشن۔",
-          links: [
-            { label: "Changelog Writer", slug: "changelog-writer" },
-            { label: "PR Description Generator", slug: "pr-description-generator" },
-          ],
-        },
       ],
     },
     how: {
@@ -289,45 +180,6 @@ export function SkillsIntro() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-
-          {/* Which skill is for you */}
-          <div className="mt-8">
-            <h2 className={headingText}>{c.who.title}</h2>
-            <p className={`mt-2 text-muted ${bodyText}`}>{c.who.intro}</p>
-            <div className="mt-5 grid gap-5 md:grid-cols-3">
-              {c.who.personas.map((persona, i) => {
-                const Icon = personaIcons[i];
-                return (
-                  <div
-                    key={persona.title}
-                    className="flex h-full flex-col rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-colors duration-300 hover:border-accent/50"
-                  >
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent-bright">
-                      <Icon size={18} strokeWidth={1.7} />
-                    </span>
-                    <h3 className={`mt-4 ${isUrdu ? "urdu-heading text-lg sm:text-xl" : "font-heading text-base font-semibold tracking-tight"}`}>
-                      {persona.title}
-                    </h3>
-                    <p className={`mt-2 flex-1 text-muted ${bodyText}`}>
-                      {persona.body}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2" dir="ltr">
-                      {persona.links.map((link) => (
-                        <Link
-                          key={link.slug}
-                          href={`/skills/${link.slug}`}
-                          className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent/5 px-3 py-1 text-xs font-medium text-accent-bright transition-colors hover:border-accent hover:bg-accent/10"
-                        >
-                          {link.label}
-                          <ArrowUpRight size={12} />
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </div>
 
