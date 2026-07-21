@@ -42,6 +42,7 @@ export const contact = {
   /** Official company social profiles. */
   facebook: "https://facebook.com/cybrumsolution",
   instagram: "https://instagram.com/cybrumsolutions",
+  tiktok: "https://tiktok.com/@cybrumsolutions",
 } as const;
 
 /** Primary site navigation: every entry is a dedicated route. */

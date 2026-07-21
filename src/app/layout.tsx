@@ -139,7 +139,7 @@ const jsonLd = {
       foundingDate: "2025-12",
       slogan: site.tagline,
       founder: { "@id": `${baseUrl}/#ahmed-raza` },
-      sameAs: [contact.linkedinCompany, contact.facebook, contact.instagram],
+      sameAs: [contact.linkedinCompany, contact.facebook, contact.instagram, contact.tiktok],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "AI Services",
@@ -220,6 +220,7 @@ const jsonLd = {
         contact.linkedinCompany,
         contact.facebook,
         contact.instagram,
+        contact.tiktok,
       ],
       hasOfferCatalog: { "@id": `${baseUrl}/#organization` },
       contactPoint: {

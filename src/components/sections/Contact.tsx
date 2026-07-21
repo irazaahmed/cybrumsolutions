@@ -180,6 +180,20 @@ export function Contact() {
               </span>
               Instagram
             </a>
+            <a
+              href={contact.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Cybrum Solutions on TikTok"
+              className="group flex items-center gap-3 text-sm text-muted transition-colors hover:text-foreground"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface/60 text-accent-bright transition-colors group-hover:border-accent/60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M16.6 5.82c-.9-.98-1.4-2.26-1.4-3.62h-3.45v13.34a2.6 2.6 0 0 1-4.72 1.52 2.6 2.6 0 0 1 2.6-4.02V9.6a5.99 5.99 0 0 0-5.6 8.13 5.99 5.99 0 0 0 11.17-3v-6.6a8.16 8.16 0 0 0 4.77 1.53V6.2a4.85 4.85 0 0 1-3.37-1.38z" />
+                </svg>
+              </span>
+              TikTok
+            </a>
           </div>
         </Reveal>
 

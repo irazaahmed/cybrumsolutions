@@ -102,6 +102,17 @@ export function Footer() {
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
               </a>
+              <a
+                href={contact.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cybrum Solutions on TikTok"
+                className="text-accent transition-all duration-300 hover:text-accent-bright hover:scale-110"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M16.6 5.82c-.9-.98-1.4-2.26-1.4-3.62h-3.45v13.34a2.6 2.6 0 0 1-4.72 1.52 2.6 2.6 0 0 1 2.6-4.02V9.6a5.99 5.99 0 0 0-5.6 8.13 5.99 5.99 0 0 0 11.17-3v-6.6a8.16 8.16 0 0 0 4.77 1.53V6.2a4.85 4.85 0 0 1-3.37-1.38z" />
+                </svg>
+              </a>
             </div>
           </div>
 
