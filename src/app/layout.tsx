@@ -120,6 +120,9 @@ export const metadata: Metadata = {
   verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
     : undefined,
+  other: {
+    "cybrum-verify": "4767a9434d5290a310e738b5e8b8340b",
+  },
 };
 
 /** Structured data so search engines understand the brand, site, and founder. */
