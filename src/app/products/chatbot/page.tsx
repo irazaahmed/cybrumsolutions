@@ -83,7 +83,7 @@ const steps = [
   {
     title: "Full crawl trains the bot",
     description:
-      "The system reads your whole website, up to 1,000 pages depending on plan, and keeps the knowledge fresh with one-click recrawls.",
+      "The system reads your whole website, up to 200 pages depending on plan, and keeps the knowledge fresh with one-click recrawls.",
   },
   {
     title: "Paste one script tag",
@@ -96,22 +96,22 @@ const plans = [
   {
     name: "Starter",
     price: "5,000",
-    pages: "50 pages",
-    messages: "1,000 messages / month",
+    pages: "15 pages",
+    messages: "500 messages / month",
     highlight: false,
   },
   {
     name: "Pro",
     price: "15,000",
-    pages: "300 pages",
-    messages: "5,000 messages / month",
+    pages: "50 pages",
+    messages: "2,000 messages / month",
     highlight: true,
   },
   {
     name: "Business",
     price: "40,000",
-    pages: "1,000 pages",
-    messages: "20,000 messages / month",
+    pages: "200 pages",
+    messages: "10,000 messages / month",
     highlight: false,
   },
 ];
