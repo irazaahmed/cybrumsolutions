@@ -92,6 +92,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     ...serviceEntries,
+    {
+      url: `${baseUrl}/products/chatbot`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     ...locationEntries,
     {
       url: `${baseUrl}/about`,

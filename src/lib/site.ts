@@ -48,6 +48,7 @@ export const contact = {
 /** Primary site navigation: every entry is a dedicated route. */
 export const navLinks = [
   { label: "Services", href: "/services" },
+  { label: "Chatbot", href: "/products/chatbot" },
   { label: "Work", href: "/work" },
   { label: "Skills", href: "/skills" },
   { label: "Blogs", href: "/blogs" },

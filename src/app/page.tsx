@@ -13,7 +13,7 @@ import { Work } from "@/components/sections/Work";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { CtaBand } from "@/components/sections/CtaBand";
-// import { Products } from "@/components/sections/Products"; // activate when a product is ready
+import { Products } from "@/components/sections/Products";
 
 /**
  * Homepage: a condensed overview of the whole site. Every section is a teaser
@@ -33,12 +33,12 @@ export default function Home() {
         <Hero />
         <Showcase />
         <Services />
+        <Products />
         <WhyCybrum />
         <HowItWorks />
         <Work />
         <Testimonials />
         <AboutTeaser />
-        {/* <Products /> */}
         {/* id keeps legacy /#contact anchor links landing on the CTA */}
         <CtaBand id="contact" />
       </main>
