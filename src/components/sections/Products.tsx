@@ -60,6 +60,7 @@ export function Products() {
             </a>
             <Link
               href="/products/chatbot"
+              aria-label="Learn more about Cybrum Chatbot"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-border bg-surface/60 px-6 text-sm font-medium text-foreground transition-colors hover:border-accent"
             >
               Learn more

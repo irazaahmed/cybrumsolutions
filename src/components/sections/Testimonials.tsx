@@ -34,7 +34,7 @@ export function Testimonials() {
                   className="h-8 w-8 fill-accent/15 text-accent/40"
                   aria-hidden
                 />
-                <div className="flex gap-0.5" aria-label="Rated 5 out of 5">
+                <div className="flex gap-0.5" role="img" aria-label="Rated 5 out of 5">
                   {Array.from({ length: 5 }).map((_, s) => (
                     <Star
                       key={s}

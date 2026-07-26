@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { site } from "@/lib/site";
 
 /**
  * The Cybrum Solutions mark, theme-aware.
@@ -7,6 +6,10 @@ import { site } from "@/lib/site";
  *   - light theme -> blue + black  (logo-light-theme.png)
  * Both variants are rendered and swapped purely via CSS off [data-theme]
  * (see globals.css), so there is no theme-state flash on load.
+ *
+ * Always used next to the "Cybrum Solutions" wordmark or inside a link/element
+ * that already carries its own accessible name, so the mark itself is
+ * decorative (alt="") to avoid duplicating "logo" into that accessible name.
  */
 export function Logo({
   className = "",
@@ -22,7 +25,7 @@ export function Logo({
     <>
       <Image
         src="/logo-dark-theme.png"
-        alt={`${site.name} logo`}
+        alt=""
         width={size}
         height={size}
         priority={priority}
@@ -30,7 +33,7 @@ export function Logo({
       />
       <Image
         src="/logo-light-theme.png"
-        alt={`${site.name} logo`}
+        alt=""
         width={size}
         height={size}
         priority={priority}

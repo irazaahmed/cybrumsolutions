@@ -70,6 +70,7 @@ export function Footer() {
                     bgColor="#FFFFFF"
                     fgColor="#0B0E14"
                     level="M"
+                    title="WhatsApp QR code"
                   />
                 </a>
                 <span className="text-[11px] text-muted">Scan to chat on WhatsApp</span>

@@ -177,12 +177,17 @@ export function Core3D({ className = "" }: { className?: string }) {
       rig.add(particles);
 
       /* sizing */
+      let rerenderStaticFrame: (() => void) | null = null;
       const resize = () => {
         const w = mount.clientWidth || 1;
         const h = mount.clientHeight || 1;
         renderer.setSize(w, h, false);
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
+        /* the static (lowPower/reduced-motion) path only renders once up
+           front, so an orientation change or container resize needs an
+           explicit repaint or it's left showing the old dimensions. */
+        rerenderStaticFrame?.();
       };
       resize();
       const ro = new ResizeObserver(resize);
@@ -204,13 +209,18 @@ export function Core3D({ className = "" }: { className?: string }) {
         ([entry]) => {
           const wasVisible = visible;
           visible = entry.isIntersecting;
-          if (visible && !wasVisible && !reduce) raf = requestAnimationFrame(tick);
+          if (visible && !wasVisible && !reduce && !lowPower) raf = requestAnimationFrame(tick);
         },
         { threshold: 0 }
       );
       io.observe(mount);
 
       let raf = 0;
+      /* 30fps cap: this is an ambient background, not an interactive surface,
+         so halving the render rate halves its main-thread/GPU cost for a
+         difference nobody notices. */
+      const frameInterval = 1000 / 30;
+      let lastFrameTime = 0;
       const clock = new THREE.Clock();
       const renderFrame = () => {
         const t = clock.getElapsedTime();
@@ -254,17 +264,22 @@ export function Core3D({ className = "" }: { className?: string }) {
         renderer.render(scene, camera);
       };
 
-      const tick = () => {
+      const tick = (now: number) => {
         if (!visible) return;
-        renderFrame();
         raf = requestAnimationFrame(tick);
+        if (now - lastFrameTime < frameInterval) return;
+        lastFrameTime = now;
+        renderFrame();
       };
 
-      if (reduce) {
-        /* static, but still a fully lit 3D frame */
+      if (reduce || lowPower) {
+        /* static, but still a fully lit 3D frame; touch/small-screen devices
+           skip the continuous WebGL render loop entirely, since it was the
+           single biggest main-thread cost on mobile. */
+        rerenderStaticFrame = renderFrame;
         renderFrame();
       } else {
-        tick();
+        raf = requestAnimationFrame(tick);
       }
 
       cleanup = () => {
