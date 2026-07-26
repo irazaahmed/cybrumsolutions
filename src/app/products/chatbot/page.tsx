@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { GlowCard } from "@/components/ui/GlowCard";
 import { JsonLd } from "@/components/JsonLd";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
+import { ChatbotPricing } from "@/components/sections/ChatbotPricing";
 
 const baseUrl = site.url;
 
@@ -15,12 +16,12 @@ const baseUrl = site.url;
 const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
 export const metadata: Metadata = {
-  title: "Cybrum Chatbot: AI Chatbot Trained on Your Website",
+  title: "Cybrum Solutions Chatbot: AI Chatbot Trained on Your Website",
   description:
     "Add an AI chatbot that answers only from your website's content. Live in minutes, cites its sources, captures leads, and speaks English, Urdu, and Roman Urdu.",
   alternates: { canonical: "/products/chatbot" },
   openGraph: {
-    title: `Cybrum Chatbot · ${site.name}`,
+    title: `Cybrum Solutions Chatbot · ${site.name}`,
     description:
       "An AI chatbot trained on your website's content. Try it on your own site before signing up.",
     url: `${baseUrl}/products/chatbot`,
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cybrum Chatbot: AI Chatbot Trained on Your Website",
+    title: "Cybrum Solutions Chatbot: AI Chatbot Trained on Your Website",
     description:
       "An AI chatbot trained on your website's content. Try it on your own site before signing up.",
     images: ["/og.png"],
@@ -83,7 +84,7 @@ const steps = [
   {
     title: "Full crawl trains the bot",
     description:
-      "The system reads your whole website, up to 200 pages depending on plan, and keeps the knowledge fresh with one-click recrawls.",
+      "The system reads your whole website — from 100 pages on Starter up to unlimited on Business — and keeps the knowledge fresh with one-click recrawls.",
   },
   {
     title: "Paste one script tag",
@@ -92,28 +93,12 @@ const steps = [
   },
 ];
 
-const plans = [
-  {
-    name: "Starter",
-    price: "5,000",
-    pages: "15 pages",
-    messages: "500 messages / month",
-    highlight: false,
-  },
-  {
-    name: "Pro",
-    price: "15,000",
-    pages: "50 pages",
-    messages: "2,000 messages / month",
-    highlight: true,
-  },
-  {
-    name: "Business",
-    price: "40,000",
-    pages: "200 pages",
-    messages: "10,000 messages / month",
-    highlight: false,
-  },
+// Monthly prices for structured data only; the interactive cards (with all
+// billing cycles) live in <ChatbotPricing />. Keep in sync with that component.
+const planOffers = [
+  { name: "Starter", price: "3500" },
+  { name: "Pro", price: "9000" },
+  { name: "Business", price: "24000" },
 ];
 
 const included = [
@@ -139,7 +124,7 @@ const faqs = [
   {
     question: "How does payment work in Pakistan?",
     answer:
-      "Plans are billed monthly in PKR via JazzCash, EasyPaisa, or bank transfer. You get an invoice reference, pay from your phone, upload the receipt, and your account is extended immediately while we verify, so approval never blocks your chatbot.",
+      "Plans are billed in PKR — monthly, quarterly (save 10%), or yearly (save 20%) — via JazzCash, EasyPaisa, or bank transfer. You get an invoice reference, pay from your phone, upload the receipt, and your account is extended immediately while we verify, so approval never blocks your chatbot.",
   },
   {
     question: "What happens when my content changes?",
@@ -155,16 +140,16 @@ export default function ChatbotProductPage() {
       {
         "@type": "SoftwareApplication",
         "@id": `${baseUrl}/products/chatbot#product`,
-        name: "Cybrum Chatbot",
+        name: "Cybrum Solutions Chatbot",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         description:
           "An AI chatbot trained only on your website's content: answers with sources, captures leads, and supports English, Urdu, and Roman Urdu.",
         url: APP_URL,
-        offers: plans.map((p) => ({
+        offers: planOffers.map((p) => ({
           "@type": "Offer",
           name: `${p.name} plan`,
-          price: p.price.replace(",", ""),
+          price: p.price,
           priceCurrency: "PKR",
         })),
         provider: { "@id": `${baseUrl}/#organization` },
@@ -176,7 +161,7 @@ export default function ChatbotProductPage() {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Cybrum Chatbot",
+            name: "CS Chatbot",
             item: `${baseUrl}/products/chatbot`,
           },
         ],
@@ -210,7 +195,7 @@ export default function ChatbotProductPage() {
               Home
             </Link>
             <span aria-hidden className="mx-2">/</span>
-            <span className="text-foreground">Cybrum Chatbot</span>
+            <span className="text-foreground">CS Chatbot</span>
           </nav>
 
           <span className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-accent/25 bg-accent/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-accent-bright">
@@ -218,13 +203,16 @@ export default function ChatbotProductPage() {
             Product
           </span>
           <h1 className="mt-5 max-w-3xl font-heading text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl md:text-5xl">
-            An AI chatbot trained on <span className="text-gradient">your website</span>,
-            live in minutes
+            Stop losing customers who leave before{" "}
+            <span className="text-gradient">you reply</span>
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            Cybrum Chatbot reads your website and answers your visitors from that
-            content alone, with sources, in English, Urdu, or Roman Urdu. Paste your
-            URL and chat with it on your own content before you even sign up.
+          <p className="mt-5 max-w-2xl font-heading text-lg font-medium text-foreground sm:text-xl">
+            Cheaper than one support hire, answering every visitor 24/7.
+          </p>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            The Cybrum Solutions Chatbot reads your website and answers your visitors
+            from that content alone, with sources, in English, Urdu, or Roman Urdu.
+            Paste your URL and chat with it on your own content before you even sign up.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
@@ -297,58 +285,11 @@ export default function ChatbotProductPage() {
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
             Every plan includes the full product. Plans differ only in how many pages
-            the bot learns and how many visitor messages it answers each month.
+            the bot learns and how many visitor conversations it answers each month.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {plans.map((plan, i) => (
-            <Reveal key={plan.name} delay={i * 0.08} className="h-full">
-              <div
-                className={`flex h-full flex-col rounded-2xl border p-7 backdrop-blur-sm transition-colors ${
-                  plan.highlight
-                    ? "border-accent/60 bg-accent/[0.07] shadow-[0_0_40px_-12px_var(--color-accent)]"
-                    : "border-border bg-card/60"
-                }`}
-              >
-                {plan.highlight && (
-                  <span className="mb-3 self-start rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-accent-bright">
-                    Most popular
-                  </span>
-                )}
-                <h3 className="font-heading text-lg font-semibold tracking-tight">
-                  {plan.name}
-                </h3>
-                <p className="mt-3">
-                  <span className="font-heading text-3xl font-semibold">
-                    Rs. {plan.price}
-                  </span>
-                  <span className="text-sm text-muted"> / month</span>
-                </p>
-                <ul className="mt-5 flex flex-col gap-2.5 text-sm text-muted">
-                  <li className="flex items-center gap-2.5">
-                    <Check size={14} className="text-accent-bright" strokeWidth={2.5} />
-                    {plan.pages} of your site
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Check size={14} className="text-accent-bright" strokeWidth={2.5} />
-                    {plan.messages}
-                  </li>
-                </ul>
-                <a
-                  href={APP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-7 inline-flex h-11 items-center justify-center rounded-full text-sm font-medium transition-all duration-300 ${
-                    plan.highlight
-                      ? "bg-accent text-white hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)]"
-                      : "border border-border bg-surface/60 text-foreground hover:border-accent"
-                  }`}
-                >
-                  Get started
-                </a>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-8">
+          <ChatbotPricing />
         </div>
         <Reveal className="mt-8">
           <div className="rounded-2xl border border-border bg-card/40 p-6">
@@ -412,7 +353,7 @@ export default function ChatbotProductPage() {
               rel="noopener noreferrer"
               className="btn-sheen mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-7 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)]"
             >
-              Try Cybrum Chatbot free
+              Try CS Chatbot free
               <ArrowRight size={16} />
             </a>
           </div>
