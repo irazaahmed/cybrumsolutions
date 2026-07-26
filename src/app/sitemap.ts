@@ -50,16 +50,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const postEntries: MetadataRoute.Sitemap = posts.flatMap((post) => {
     const lastModified = post.date ? new Date(post.date) : new Date();
-    // Roman Urdu variants canonicalize to English, so they stay out of the
-    // sitemap; only canonical language versions (en, ur) are listed.
-    return getAvailableLangs(post.slug)
-      .filter((lang) => lang !== "ro")
-      .map((lang) => ({
-        url: urlFor(post.slug, lang),
-        lastModified,
-        changeFrequency: "monthly" as const,
-        priority: lang === "en" ? 0.7 : 0.6,
-      }));
+    // Every language variant is its own self-canonical page (see
+    // buildPostMetadata in PostArticle.tsx), so all of them belong here,
+    // including 'ro' — Roman Urdu is the product's actual SEO wedge.
+    return getAvailableLangs(post.slug).map((lang) => ({
+      url: urlFor(post.slug, lang),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: lang === "en" ? 0.7 : 0.6,
+    }));
   });
 
   const serviceEntries: MetadataRoute.Sitemap = [

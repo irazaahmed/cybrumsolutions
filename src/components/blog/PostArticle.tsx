@@ -99,13 +99,18 @@ export function buildPostMetadata(slug: string, lang: Lang): Metadata {
 
   // hreflang alternates so Google serves the right language version. Only
   // standard tags (en, ur): Roman Urdu has no valid BCP 47 tag Google accepts,
-  // so the ro variant canonicalizes to the English page instead.
+  // so 'ro' is left out of hreflang. It still gets its own canonical below —
+  // omitting it from hreflang only means Google won't auto-swap it in for a
+  // language query, not that the page can't rank on its own content.
   const languages: Record<string, string> = {};
   for (const l of getAvailableLangs(slug)) {
     if (l === "ro") continue;
     languages[l] = `${baseUrl}${pathFor(slug, l)}`;
   }
-  const canonicalLang: Lang = post.lang === "ro" ? "en" : post.lang;
+  // Self-canonical for every language, including 'ro': Roman Urdu content is
+  // the product's actual SEO wedge, so it must be indexable as its own page
+  // rather than folded into the English canonical.
+  const canonicalLang: Lang = post.lang;
 
   return {
     title: post.title,
