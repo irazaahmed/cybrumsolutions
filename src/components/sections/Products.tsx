@@ -15,7 +15,7 @@ const highlights = [
 ];
 
 /**
- * Products section: features Cybrum Chatbot, the first packaged product.
+ * Products section: features CS Chatbot, the first packaged product.
  * A mini widget-style chat preview animates on the right; copy and CTAs on
  * the left link to the dedicated /products/chatbot page and the live app.
  */
@@ -26,10 +26,10 @@ export function Products() {
         eyebrow="Product"
         title={
           <>
-            Meet <span className="text-gradient">Cybrum Chatbot</span>
+            Meet <span className="text-gradient">CS Chatbot</span>
           </>
         }
-        intro="Our first packaged product: an AI chatbot trained on your website that answers visitors 24/7, cites its sources, and never invents facts about your business."
+        intro="Our first packaged product: an AI chatbot for website trained on your content that answers visitors 24/7, cites its sources, and never invents facts about your business."
       />
 
       <div className="mx-auto mt-14 grid max-w-5xl items-center gap-10 lg:grid-cols-2">
@@ -60,7 +60,7 @@ export function Products() {
             </a>
             <Link
               href="/products/chatbot"
-              aria-label="Learn more about Cybrum Chatbot"
+              aria-label="Learn more about CS Chatbot"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-border bg-surface/60 px-6 text-sm font-medium text-foreground transition-colors hover:border-accent"
             >
               Learn more
@@ -93,7 +93,7 @@ export function Products() {
                 <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-card bg-emerald-400" />
               </span>
               <div>
-                <p className="text-sm font-semibold">Cybrum Chatbot</p>
+                <p className="text-sm font-semibold">CS Chatbot</p>
                 <p className="text-[11px] text-muted">Trained on your website</p>
               </div>
             </div>

@@ -16,10 +16,11 @@ const baseUrl = site.url;
 const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
 export const metadata: Metadata = {
-  title: "AI Chatbot for Your Website — Cybrum Solutions Chatbot",
+  title: "CS Chatbot — AI Chatbot for Your Website | Cybrum Solutions",
   description:
-    "Get an AI chatbot for your website that answers only from your own content, cites its sources, and captures leads in English, Urdu, or Roman Urdu. PKR pricing, live in minutes — try it free on your own site first.",
+    "CS Chatbot is an AI chatbot for your website that answers only from your own content, cites its sources, and captures leads in English, Urdu, or Roman Urdu. PKR pricing, live in minutes — try it free on your own site first.",
   keywords: [
+    "CS Chatbot",
     "AI chatbot for website",
     "chatbot for website free",
     "website chatbot builder",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/products/chatbot" },
   openGraph: {
-    title: `AI Chatbot for Your Website · ${site.name}`,
+    title: `CS Chatbot — AI Chatbot for Your Website · ${site.name}`,
     description:
       "An AI chatbot trained on your website's content, not a WhatsApp bot. Cites sources, captures leads, PKR pricing. Try it on your own site before signing up.",
     url: `${baseUrl}/products/chatbot`,
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Chatbot for Your Website — Cybrum Solutions Chatbot",
+    title: "CS Chatbot — AI Chatbot for Your Website | Cybrum Solutions",
     description:
       "An AI chatbot trained on your website's content, not a WhatsApp bot. Cites sources, captures leads, PKR pricing.",
     images: ["/og.png"],
@@ -157,7 +158,7 @@ export default function ChatbotProductPage() {
       {
         "@type": "SoftwareApplication",
         "@id": `${baseUrl}/products/chatbot#product`,
-        name: "Cybrum Solutions Chatbot",
+        name: "CS Chatbot",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         description:
@@ -227,10 +228,10 @@ export default function ChatbotProductPage() {
             Cheaper than one support hire, answering every visitor 24/7.
           </p>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            The Cybrum Solutions Chatbot is an AI chatbot for your website: it reads
-            your pages and answers visitors from that content alone, with sources, in
-            English, Urdu, or Roman Urdu. Paste your URL and chat with it on your own
-            content before you even sign up.
+            CS Chatbot is an AI chatbot for your website: it reads your pages and
+            answers visitors from that content alone, with sources, in English, Urdu,
+            or Roman Urdu. Paste your URL and chat with it on your own content before
+            you even sign up.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
