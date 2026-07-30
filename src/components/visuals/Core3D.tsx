@@ -20,7 +20,7 @@ export function Core3D({ className = "" }: { className?: string }) {
     let disposed = false;
     let cleanup: (() => void) | undefined;
 
-    (async () => {
+    const build = async () => {
       const THREE = await import("three");
       if (disposed || !mountRef.current) return;
 
@@ -302,10 +302,18 @@ export function Core3D({ className = "" }: { className?: string }) {
         renderer.dispose();
         renderer.domElement.remove();
       };
-    })();
+    };
+
+    // Defer the heaviest part (three.js import + scene/geometry/shader setup)
+    // until the browser is idle, so it never competes with first paint —
+    // this was the single biggest main-thread cost on the initial load.
+    const ric = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(() => cb({ didTimeout: false, timeRemaining: () => 0 } as IdleDeadline), 1));
+    const cic = window.cancelIdleCallback ?? window.clearTimeout;
+    const idleHandle = ric(() => void build(), { timeout: 1500 });
 
     return () => {
       disposed = true;
+      cic(idleHandle);
       cleanup?.();
     };
   }, []);

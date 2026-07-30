@@ -25,11 +25,15 @@ const inter = Inter({
   display: "swap",
 });
 
-// Nastaliq script for Urdu blog articles and PDFs (free, web-optimized).
+// Nastaliq script for Urdu blog articles and PDFs only (see .prose-urdu /
+// .urdu-heading in globals.css and SkillsIntro). preload: false so this
+// ~235KB font isn't force-downloaded on every page — the browser only
+// fetches it on the routes that actually render Urdu text.
 const nastaliq = Noto_Nastaliq_Urdu({
   variable: "--font-nastaliq",
   subsets: ["arabic"],
   display: "swap",
+  preload: false,
 });
 
 // "resizes-content" shrinks the layout viewport when the mobile keyboard opens,

@@ -15,7 +15,7 @@ export function Footer() {
         <Reveal y={18} className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="max-w-sm">
-            <Link href="/" className="flex items-center gap-2.5" aria-label={site.name}>
+            <Link href="/" className="flex items-center gap-2.5">
               <Logo className="h-9 w-9" />
               <span className="text-lg font-semibold tracking-tight font-heading">
                 {site.shortName}

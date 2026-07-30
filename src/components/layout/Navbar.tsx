@@ -37,7 +37,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-2.5" aria-label={site.name}>
+        <Link href="/" className="flex items-center gap-2.5">
           <Logo priority className="h-9 w-9" />
           <span className="text-lg font-semibold tracking-tight font-heading">
             {site.shortName}

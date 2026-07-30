@@ -73,10 +73,9 @@ export function Services() {
                   </Link>
                   <Link
                     href={primary.href}
-                    aria-label={`Learn more about ${primary.title}`}
                     className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-accent-bright"
                   >
-                    Learn more
+                    Learn more <span className="sr-only">about {primary.title}</span>
                     <ArrowRight size={15} />
                   </Link>
                 </div>
@@ -99,10 +98,9 @@ export function Services() {
                 </p>
                 <Link
                   href={service.href}
-                  aria-label={`Learn more about ${service.title}`}
                   className="mt-4 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-accent-bright transition-colors hover:text-foreground"
                 >
-                  Learn more
+                  Learn more <span className="sr-only">about {service.title}</span>
                   <ArrowRight size={15} />
                 </Link>
               </GlowCard>

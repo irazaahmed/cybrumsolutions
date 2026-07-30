@@ -119,14 +119,13 @@ export function Hero() {
             />
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.62 }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
-          >
+          {/* Lighthouse identifies this paragraph as the LCP element on most
+              viewports. Rendered plain (no mount-triggered opacity animation)
+              so it paints the instant SSR'd HTML/CSS is ready instead of
+              waiting on JS/hydration to flip it from opacity:0 to 1. */}
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             {hero.sub}
-          </motion.p>
+          </p>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
