@@ -26,7 +26,7 @@ interface Plan {
   features: string[];
 }
 
-// Marketing display only — the real billing runs in the CS Chatbot app. Keep
+// Marketing display only, the real billing runs in the CS Chatbot app. Keep
 // these numbers in sync with cs-chatbot/lib/billing/plans.ts.
 const PLANS: Plan[] = [
   {
@@ -34,7 +34,7 @@ const PLANS: Plan[] = [
     popular: false,
     pageCap: 100,
     conversationCap: 200,
-    prices: { monthly: 3500, quarterly: 9450, yearly: 33600 },
+    prices: { monthly: 3499, quarterly: 9447, yearly: 33590 },
     features: [
       "The full product & website widget",
       "Lead capture into your dashboard",
@@ -47,7 +47,7 @@ const PLANS: Plan[] = [
     popular: true,
     pageCap: 500,
     conversationCap: 800,
-    prices: { monthly: 9000, quarterly: 24300, yearly: 86400 },
+    prices: { monthly: 8999, quarterly: 24297, yearly: 86390 },
     features: [
       "Everything in Starter",
       "Lead export to Google Sheet / CRM",
@@ -60,7 +60,7 @@ const PLANS: Plan[] = [
     popular: false,
     pageCap: UNLIMITED,
     conversationCap: 3000,
-    prices: { monthly: 24000, quarterly: 64800, yearly: 230400 },
+    prices: { monthly: 23999, quarterly: 64797, yearly: 230390 },
     features: [
       "Everything in Pro",
       "Full custom branding",
@@ -69,6 +69,20 @@ const PLANS: Plan[] = [
     ],
   },
 ];
+
+// WhatsApp has two rates: bundled onto any plan above (cheaper), or on its
+// own with no website plan at all.
+const WHATSAPP_BUNDLE_PRICES: Record<Cycle, number> = {
+  monthly: 4499,
+  quarterly: 12147,
+  yearly: 43190,
+};
+
+const WHATSAPP_STANDALONE_PRICES: Record<Cycle, number> = {
+  monthly: 4999,
+  quarterly: 13497,
+  yearly: 47990,
+};
 
 function pages(cap: number): string {
   return cap >= UNLIMITED ? "Unlimited pages" : `${cap.toLocaleString()} pages`;
@@ -110,7 +124,7 @@ export function ChatbotPricing() {
       </div>
       {cycle === "yearly" && (
         <p className="mt-3 text-center text-xs font-medium text-accent-bright">
-          Save 20% — 2 months free
+          Save 20%, 2 months free
         </p>
       )}
 
@@ -177,6 +191,37 @@ export function ChatbotPricing() {
 
       <p className="mt-8 text-center text-sm font-medium text-foreground">
         Still cheaper than one support hire.
+      </p>
+
+      {/* WhatsApp add-on */}
+      <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border border-accent/25 bg-accent/5 p-6 text-center backdrop-blur-sm">
+          <p className="font-heading text-base font-semibold tracking-tight text-foreground sm:text-lg">
+            Add WhatsApp to any plan:{" "}
+            <span className="text-accent-bright">
+              Rs {WHATSAPP_BUNDLE_PRICES[cycle].toLocaleString()} / {cycle}
+            </span>
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            The same AI, the same crawled content, and the same lead capture, now also answering on
+            your own WhatsApp Business number.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-border bg-card/60 p-6 text-center backdrop-blur-sm">
+          <p className="font-heading text-base font-semibold tracking-tight text-foreground sm:text-lg">
+            WhatsApp only, no website plan:{" "}
+            <span className="text-accent-bright">
+              Rs {WHATSAPP_STANDALONE_PRICES[cycle].toLocaleString()} / {cycle}
+            </span>
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            Just the WhatsApp number, no website widget. Same AI, same knowledge base.
+          </p>
+        </div>
+      </div>
+      <p className="mx-auto mt-4 max-w-2xl text-center text-xs text-muted">
+        WhatsApp is enabled per account. Request it from your dashboard after you sign up and we will
+        turn it on for you.
       </p>
     </div>
   );

@@ -16,16 +16,17 @@ const baseUrl = site.url;
 const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
 export const metadata: Metadata = {
-  title: "CS Chatbot — AI Chatbot for Your Website | Cybrum Solutions",
+  title: "CS Chatbot: AI Chatbot for Your Website & WhatsApp | Cybrum Solutions",
   description:
-    "CS Chatbot is an AI chatbot for your website that answers only from your own content, cites its sources, and captures leads in English, Urdu, or Roman Urdu. PKR pricing, live in minutes — try it free on your own site first.",
+    "CS Chatbot is an AI chatbot for your website, with an optional WhatsApp add-on, that answers only from your own content, cites its sources, and captures leads in English, Urdu, or Roman Urdu. PKR pricing, live in minutes. Try it free on your own site first.",
   keywords: [
     "CS Chatbot",
     "AI chatbot for website",
+    "AI chatbot for WhatsApp",
+    "WhatsApp AI chatbot Pakistan",
     "chatbot for website free",
     "website chatbot builder",
     "chatbot pricing Pakistan",
-    "website chatbot vs WhatsApp chatbot",
     "chatbot monthly plan Pakistan",
     "Roman Urdu chatbot for website",
     "AI chatbot for small business Pakistan",
@@ -34,18 +35,18 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/products/chatbot" },
   openGraph: {
-    title: `CS Chatbot — AI Chatbot for Your Website · ${site.name}`,
+    title: `CS Chatbot: AI Chatbot for Your Website & WhatsApp · ${site.name}`,
     description:
-      "An AI chatbot trained on your website's content, not a WhatsApp bot. Cites sources, captures leads, PKR pricing. Try it on your own site before signing up.",
+      "An AI chatbot trained on your website's content, with an optional WhatsApp add-on for your own number. Cites sources, captures leads, PKR pricing. Try it on your own site before signing up.",
     url: `${baseUrl}/products/chatbot`,
     type: "website",
     images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CS Chatbot — AI Chatbot for Your Website | Cybrum Solutions",
+    title: "CS Chatbot: AI Chatbot for Your Website & WhatsApp | Cybrum Solutions",
     description:
-      "An AI chatbot trained on your website's content, not a WhatsApp bot. Cites sources, captures leads, PKR pricing.",
+      "An AI chatbot trained on your website's content, with an optional WhatsApp add-on for your own number. Cites sources, captures leads, PKR pricing.",
     images: ["/og.png"],
   },
 };
@@ -97,7 +98,7 @@ const steps = [
   {
     title: "Full crawl trains the bot",
     description:
-      "The system reads your whole website — from 100 pages on Starter up to unlimited on Business — and keeps the knowledge fresh with one-click recrawls.",
+      "The system reads your whole website, from 100 pages on Starter up to unlimited on Business, and keeps the knowledge fresh with one-click recrawls.",
   },
   {
     title: "Paste one script tag",
@@ -109,9 +110,29 @@ const steps = [
 // Monthly prices for structured data only; the interactive cards (with all
 // billing cycles) live in <ChatbotPricing />. Keep in sync with that component.
 const planOffers = [
-  { name: "Starter", price: "3500" },
-  { name: "Pro", price: "9000" },
-  { name: "Business", price: "24000" },
+  { name: "Starter", price: "3499" },
+  { name: "Pro", price: "8999" },
+  { name: "Business", price: "23999" },
+  { name: "WhatsApp Add-on", price: "4499" },
+  { name: "WhatsApp Standalone", price: "4999" },
+];
+
+const whatsappSteps = [
+  {
+    title: "Request it in your dashboard",
+    description:
+      "WhatsApp is switched on per account so number connections stay clean and reliable. Sign up, then request WhatsApp access from your dashboard and we will enable it for your account.",
+  },
+  {
+    title: "Scan a QR code",
+    description:
+      "Once enabled, link your own WhatsApp Business number from your dashboard the same way you would link WhatsApp Web. No app, no separate number to manage.",
+  },
+  {
+    title: "It just works",
+    description:
+      "The exact same AI, trained on the exact same crawled content, with the exact same lead capture and conversation history, now also answering on WhatsApp.",
+  },
 ];
 
 const included = [
@@ -125,9 +146,14 @@ const included = [
 
 const faqs = [
   {
-    question: "How is this different from a WhatsApp chatbot?",
+    question: "Does CS Chatbot work on WhatsApp too?",
     answer:
-      "A WhatsApp chatbot lives inside WhatsApp — visitors need your number or a QR code before they can even start. This is a website chatbot: it sits directly on your pages, so anyone who lands on your site can start chatting immediately, with no app, no number, and no extra step. Every answer also cites the page it came from, which most WhatsApp bots don't do.",
+      "Yes. CS Chatbot can also answer on your own WhatsApp Business number, either as an add-on to any plan or on its own with no website plan at all, using the exact same crawled content, lead capture, and conversation history as the website widget. It is not Meta's official WhatsApp Business API, it runs on Cybrum Solutions' own infrastructure. It is enabled per account, so request it from your dashboard after you sign up and we will turn it on for you.",
+  },
+  {
+    question: "How is this different from a typical WhatsApp bot?",
+    answer:
+      "Most WhatsApp bots are scripted menus, or they forward every message to a generic AI with no knowledge of your business. CS Chatbot, on your website or on your own WhatsApp number, only answers from your actual content. On the website every answer also cites the exact page it came from. When it does not know something, it says so instead of guessing.",
   },
   {
     question: "Will the chatbot make things up about my business?",
@@ -142,7 +168,7 @@ const faqs = [
   {
     question: "How does payment work in Pakistan?",
     answer:
-      "Plans are billed in PKR — monthly, quarterly (save 10%), or yearly (save 20%) — via JazzCash, EasyPaisa, or bank transfer. You get an invoice reference, pay from your phone, upload the receipt, and your account is extended immediately while we verify, so approval never blocks your chatbot.",
+      "Plans are billed in PKR: monthly, quarterly (save 10%), or yearly (save 20%), via JazzCash, EasyPaisa, or bank transfer. You get an invoice reference, pay from your phone, upload the receipt, and your account is extended immediately while we verify, so approval never blocks your chatbot.",
   },
   {
     question: "What happens when my content changes?",
@@ -282,6 +308,39 @@ export default function ChatbotProductPage() {
         <ol className="mt-8 grid gap-6 sm:grid-cols-2">
           {steps.map((step, i) => (
             <Reveal key={step.title} delay={(i % 2) * 0.08} className="h-full">
+              <li className="flex h-full items-start gap-4 rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/10 font-heading text-sm font-semibold text-accent-bright">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="font-semibold tracking-tight">{step.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                    {step.description}
+                  </p>
+                </div>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
+
+        {/* WhatsApp add-on */}
+        <Reveal className="mt-20">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-accent/25 bg-accent/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-accent-bright">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent-bright shadow-[0_0_8px_var(--color-accent)]" />
+            Add-on
+          </span>
+          <h2 className="mt-5 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+            One AI, on your website and your own WhatsApp number
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+            CS Chatbot does not have to stay on your website. Connect your own WhatsApp Business
+            number and the same AI, trained on the same crawled content, with the same lead
+            capture, answers there too. One knowledge base, two channels, one dashboard.
+          </p>
+        </Reveal>
+        <ol className="mt-8 grid gap-6 sm:grid-cols-3">
+          {whatsappSteps.map((step, i) => (
+            <Reveal key={step.title} delay={i * 0.08} className="h-full">
               <li className="flex h-full items-start gap-4 rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-sm">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/10 font-heading text-sm font-semibold text-accent-bright">
                   {i + 1}
