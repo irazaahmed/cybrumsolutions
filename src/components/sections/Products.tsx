@@ -12,6 +12,7 @@ const highlights = [
   "Live demo on your own site before signup",
   "English, Urdu & Roman Urdu",
   "Captures leads while it chats",
+  "Also answers on your own WhatsApp number",
 ];
 
 /**
