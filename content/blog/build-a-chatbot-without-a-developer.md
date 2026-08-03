@@ -1,7 +1,7 @@
 ---
 title: "You Can Build a Working Chatbot for Your Website in the Next 60 Seconds"
 date: "2026-07-25"
-excerpt: "Building a chatbot used to mean hiring a developer, writing a scope document, and waiting weeks. Now you paste your URL and watch it happen live. Here is how anyone can build one today, and why your business needs one regardless."
+excerpt: "Building a chatbot used to mean hiring a developer, writing a scope document, and waiting weeks. Now you paste your URL and watch it happen live, and add it to your own WhatsApp number after. Here is how anyone can build one today, and why your business needs one regardless."
 tags: ["Chatbots", "CS Chatbot", "No-Code", "Website Tools", "Pakistan"]
 ---
 
@@ -22,6 +22,8 @@ Here is the entire process, no exaggeration:
 5. **Paste one script tag on your site.** The same way you'd add Google Analytics. That's the whole install.
 
 There is no step where you talk to a developer, write a spec, or wait for a quote. The chatbot exists the moment your pages finish loading in step 2, and it goes live on your real site the moment you paste the script tag in step 5. Most people are done inside a few minutes, including reading their own results.
+
+Want it answering on WhatsApp too? Once you're live on your website, request WhatsApp access from your dashboard and connect your own number — same bot, same knowledge base, no separate setup.
 
 ## Why this only became possible recently
 
@@ -53,7 +55,7 @@ It also speaks the way your customers actually type — English, اردو, or Ro
 
 ## What it costs
 
-There's a free plan to start on, and paid plans scale with how much of your site it needs to learn and how many conversations it handles a month — nothing more complicated than that. You can see the exact numbers on the [product page](/products/chatbot), but the honest summary is: you can try the whole thing, on your own real website, before you've entered a card number anywhere.
+There's a free plan to start on, and paid plans scale with how much of your site it needs to learn and how many conversations it handles a month — nothing more complicated than that. WhatsApp is a separate optional add-on on top of any plan, or on its own with no website plan at all. You can see the exact numbers on the [product page](/products/chatbot), but the honest summary is: you can try the whole thing, on your own real website, before you've entered a card number anywhere.
 
 ## Try it on your own site right now
 

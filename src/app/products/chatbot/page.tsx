@@ -188,7 +188,7 @@ export default function ChatbotProductPage() {
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         description:
-          "An AI chatbot trained only on your website's content: answers with sources, captures leads, and supports English, Urdu, and Roman Urdu.",
+          "An AI chatbot trained only on your website's content, with an optional WhatsApp add-on: answers with sources, captures leads, and supports English, Urdu, and Roman Urdu.",
         url: APP_URL,
         offers: planOffers.map((p) => ({
           "@type": "Offer",

@@ -1,7 +1,7 @@
 ---
 title: "Your Website Chatbot Shouldn't Just Answer Questions. It Should Capture the Lead."
 date: "2026-07-31"
-excerpt: "A chatbot that only answers questions is half a product. Here is how CS Chatbot turns a conversation into a captured lead, a booked appointment, or a question you now know you need to answer — without a contact form anyone actually has to fill."
+excerpt: "A chatbot that only answers questions is half a product. Here is how CS Chatbot turns a conversation into a captured lead, a booked appointment, or a question you now know you need to answer — on your website or your own WhatsApp number — without a contact form anyone actually has to fill."
 tags: ["CS Chatbot", "Chatbots", "Lead Generation", "Website Tools", "Pakistan"]
 ---
 
@@ -14,6 +14,8 @@ Grounded answers, replies pulled only from a business's real pages with a source
 A visitor asking "do you deliver to Gulshan?" or "what does this cost?" is not browsing. They are close to buying, and a contact form buried in your footer is not going to catch them at 11 PM on a Tuesday. [CS Chatbot](/products/chatbot) asks for the missing piece right there in the chat, naturally, the way a good salesperson would: a name, a way to reach back, and what they actually need — then it drops straight into your dashboard's Leads tab with the question still attached, so you know exactly what to say when you call back.
 
 Nobody has to notice a form exists. Nobody has to fill one out on purpose. The lead falls out of a conversation the visitor was already having.
+
+Connect your own WhatsApp Business number as an add-on and the exact same thing happens there, too — one Leads tab either way, tagged by which channel the conversation started on.
 
 ## It can book the appointment right there, too
 
@@ -41,3 +43,6 @@ Yes. It replies in whichever of the three the tenant is set to, matching how cus
 
 **Do I still need a separate contact form on my site?**
 No. The conversation itself is the form — visitors give up their name and contact because they are already mid-question, not because they navigated to a page just to do it.
+
+**Does lead capture work on WhatsApp too?**
+Yes, if you have connected WhatsApp as an add-on. It is the same AI, the same knowledge base, and the same Leads tab — a visitor messaging your WhatsApp number gets the exact same capture flow as one on your website.
