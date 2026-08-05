@@ -33,17 +33,6 @@ function row(label: string, value?: string) {
   return `<p><strong>${label}:</strong> ${escapeHtml(value).replace(/\n/g, "<br/>")}</p>`;
 }
 
-/** The verified sender address (inside any "Name <addr>" form). Used as the
- *  from address for the founder acknowledgement. */
-function senderAddress(): string {
-  const configured = process.env.CONTACT_FROM_EMAIL;
-  if (configured) {
-    const match = configured.match(/<([^>]+)>/);
-    return match ? match[1] : configured;
-  }
-  return "onboarding@resend.dev";
-}
-
 /** Where lead notifications and any replies should land. */
 function inboxAddress(): string {
   return process.env.CONTACT_TO_EMAIL ?? contact.email;
@@ -232,7 +221,7 @@ async function sendLeadAck(lead: Lead): Promise<SendResult> {
   if (!lead.email) return { ok: false, error: "no_recipient" };
   const firstName = lead.name.split(/\s+/)[0] || lead.name;
   return send({
-    from: `${site.founder} (${site.name}) <${senderAddress()}>`,
+    from: `${site.name} <${contact.email}>`,
     to: lead.email,
     replyTo: inboxAddress(),
     subject: `Thanks ${firstName}, your message reached Cybrum Solutions`,

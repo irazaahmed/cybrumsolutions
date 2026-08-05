@@ -42,3 +42,6 @@ next-env.d.ts
 
 # OpenClaw local backup (contains WhatsApp credentials - never commit)
 /openclaw-backup
+
+# local infra/DNS reference notes - not for the repo
+/infra-dns-notes.md
