@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { useSession } from "next-auth/react";
-import { navLinks, primaryCta, site } from "@/lib/site";
+import { navLinks, site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Logo } from "@/components/ui/Logo";
 
@@ -97,25 +97,18 @@ export function Navbar() {
           {/* Theme switch (all sizes) */}
           <ThemeToggle />
 
-          {/* Auth: avatar when logged in, "Log in" link otherwise */}
+          {/* Desktop auth slot: avatar once logged in, otherwise the same
+              pill-button spot doubles as Login/Signup. */}
           {status === "authenticated" ? (
             <ProfileAvatar name={session.user?.name} image={session.user?.image} />
           ) : (
             <Link
-              href="/login"
-              className="hidden text-sm text-muted transition-colors hover:text-foreground lg:inline-flex"
+              href="/signup"
+              className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] lg:inline-flex"
             >
-              Log in
+              Log in / Sign up
             </Link>
           )}
-
-          {/* Desktop CTA */}
-          <Link
-            href={primaryCta.href}
-            className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] lg:inline-flex"
-          >
-            {primaryCta.label}
-          </Link>
 
           {/* Mobile toggle */}
           <button
@@ -166,22 +159,13 @@ export function Navbar() {
               </Link>
             </li>
           ))}
-          <li>
-            <Link
-              href={status === "authenticated" ? "/dashboard/profile" : "/login"}
-              onClick={() => setOpen(false)}
-              className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
-            >
-              {status === "authenticated" ? "Your profile" : "Log in"}
-            </Link>
-          </li>
           <li className="mt-2">
             <Link
-              href={primaryCta.href}
+              href={status === "authenticated" ? "/dashboard/profile" : "/signup"}
               onClick={() => setOpen(false)}
               className="block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-white"
             >
-              {primaryCta.label}
+              {status === "authenticated" ? "Your profile" : "Log in / Sign up"}
             </Link>
           </li>
         </ul>
