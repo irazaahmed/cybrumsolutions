@@ -1,16 +1,18 @@
-import { neon, type NeonQueryFunction } from "@neondatabase/serverless";
+import { Pool } from "pg";
 
 /**
- * Lazily-created Neon Postgres client (HTTP driver, ideal for serverless
- * route handlers). Returns null when DATABASE_URL is not configured, so lead
- * capture degrades gracefully instead of throwing: the email path still runs.
+ * Lazily-created Postgres connection pool for the raw-SQL lead capture path.
+ * Uses the standard wire protocol (via `pg`) so the same DATABASE_URL works
+ * whether it points at Neon or a self-hosted Postgres. Returns null when
+ * DATABASE_URL is not configured, so lead capture degrades gracefully instead
+ * of throwing: the email path still runs.
  */
-let cached: NeonQueryFunction<false, false> | null = null;
+let cached: Pool | null = null;
 
-export function getSql(): NeonQueryFunction<false, false> | null {
+export function getPool(): Pool | null {
   if (cached) return cached;
   const url = process.env.DATABASE_URL;
   if (!url) return null;
-  cached = neon(url);
+  cached = new Pool({ connectionString: url });
   return cached;
 }
