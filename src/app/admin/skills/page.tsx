@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { BlogNav } from "@/components/blog/BlogNav";
+import { requireAdmin } from "@/lib/admin/current";
 
-// TODO: protect this route. It is currently UNPROTECTED and must not be linked
-// publicly or shipped as-is with real controls. Add authentication (e.g. an
-// admin session / middleware check) before building any create/edit/publish
-// actions here. Scaffold only.
 export const metadata = { title: "Admin · Skills", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function AdminSkillsPage() {
+  await requireAdmin();
+
   const skills = await prisma.skill.findMany({
     orderBy: { updatedAt: "desc" },
     select: {
@@ -27,11 +26,7 @@ export default async function AdminSkillsPage() {
     <>
       <BlogNav />
       <main className="relative z-10 mx-auto max-w-5xl px-5 pb-24 pt-32 sm:px-8">
-        <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm text-amber-500">
-          Unprotected admin stub. TODO: add auth before using in production.
-        </div>
-
-        <h1 className="mt-8 font-heading text-3xl font-semibold tracking-tight">
+        <h1 className="font-heading text-3xl font-semibold tracking-tight">
           Skills ({skills.length})
         </h1>
 

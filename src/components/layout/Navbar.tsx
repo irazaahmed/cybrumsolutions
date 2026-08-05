@@ -4,9 +4,29 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
+import { useSession } from "next-auth/react";
 import { navLinks, primaryCta, site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Logo } from "@/components/ui/Logo";
+
+/** Circular avatar: the student's uploaded picture, or their initial. */
+function ProfileAvatar({ name, image }: { name?: string | null; image?: string | null }) {
+  const initial = (name?.trim()?.[0] ?? "?").toUpperCase();
+  return (
+    <Link
+      href="/dashboard/profile"
+      aria-label="Your profile"
+      className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-border bg-accent/15 text-sm font-semibold text-accent-bright transition-colors hover:border-accent"
+    >
+      {image ? (
+        // eslint-disable-next-line @next/next/no-img-element -- small avatar served from our own route, no benefit from next/image optimization here
+        <img src={image} alt="" className="h-full w-full object-cover" />
+      ) : (
+        initial
+      )}
+    </Link>
+  );
+}
 
 /**
  * Shared site header. Every nav entry is a route (multi-page site), so the
@@ -16,6 +36,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -76,6 +97,18 @@ export function Navbar() {
           {/* Theme switch (all sizes) */}
           <ThemeToggle />
 
+          {/* Auth: avatar when logged in, "Log in" link otherwise */}
+          {status === "authenticated" ? (
+            <ProfileAvatar name={session.user?.name} image={session.user?.image} />
+          ) : (
+            <Link
+              href="/login"
+              className="hidden text-sm text-muted transition-colors hover:text-foreground lg:inline-flex"
+            >
+              Log in
+            </Link>
+          )}
+
           {/* Desktop CTA */}
           <Link
             href={primaryCta.href}
@@ -133,6 +166,15 @@ export function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link
+              href={status === "authenticated" ? "/dashboard/profile" : "/login"}
+              onClick={() => setOpen(false)}
+              className="block rounded-lg px-3 py-2.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
+            >
+              {status === "authenticated" ? "Your profile" : "Log in"}
+            </Link>
+          </li>
           <li className="mt-2">
             <Link
               href={primaryCta.href}

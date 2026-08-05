@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import { site, contact } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Preloader } from "@/components/visuals/Preloader";
@@ -285,7 +286,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <JsonLd data={jsonLd} />
         <Preloader />
-        {children}
+        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
   );

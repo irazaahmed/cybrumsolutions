@@ -45,3 +45,6 @@ next-env.d.ts
 
 # local infra/DNS reference notes - not for the repo
 /infra-dns-notes.md
+
+# payment proof screenshots (local disk / Coolify persistent volume, never committed)
+/uploads

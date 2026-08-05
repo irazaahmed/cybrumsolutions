@@ -1,5 +1,6 @@
 import { contact, site } from "@/lib/site";
 import { getPool } from "@/lib/db";
+import { send, escapeHtml, type SendResult } from "@/lib/email/send";
 
 /** A captured sales lead, from either the contact form or the chat assistant. */
 export type Lead = {
@@ -16,17 +17,7 @@ export type Lead = {
   source: string;
 };
 
-export type SendResult = { ok: boolean; error?: string };
-
-const RESEND_ENDPOINT = "https://api.resend.com/emails";
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
+export type { SendResult };
 
 function row(label: string, value?: string) {
   if (!value) return "";
@@ -36,39 +27,6 @@ function row(label: string, value?: string) {
 /** Where lead notifications and any replies should land. */
 function inboxAddress(): string {
   return process.env.CONTACT_TO_EMAIL ?? contact.email;
-}
-
-/** Low-level Resend send. Never logs the API key. */
-async function send(payload: {
-  from: string;
-  to: string;
-  replyTo?: string;
-  subject: string;
-  html: string;
-}): Promise<SendResult> {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return { ok: false, error: "email_not_configured" };
-
-  try {
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: payload.from,
-        to: [payload.to],
-        ...(payload.replyTo ? { reply_to: payload.replyTo } : {}),
-        subject: payload.subject,
-        html: payload.html,
-      }),
-    });
-    if (!res.ok) return { ok: false, error: "send_failed" };
-    return { ok: true };
-  } catch {
-    return { ok: false, error: "send_failed" };
-  }
 }
 
 /** Branded, responsive HTML for the founder acknowledgement sent back to the

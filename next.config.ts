@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    // Default is 1MB, too small for the payment proof screenshot upload
+    // (src/lib/enrollment/actions.ts#submitPayment) — those need headroom
+    // up to the 5MB ceiling enforced in proof-storage.ts, plus multipart
+    // overhead.
+    serverActions: { bodySizeLimit: "6mb" },
+  },
   async redirects() {
     return [
       // Blog translations moved from ?lang= query params to real paths
