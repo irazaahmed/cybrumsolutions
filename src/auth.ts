@@ -10,6 +10,9 @@ import { prisma } from "@/lib/prisma";
 // database adapter, so the schema stays exactly as prisma/schema.prisma
 // defines it (no NextAuth Account/Session tables needed).
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  // Behind Coolify's Traefik + Cloudflare reverse proxies, so NextAuth must
+  // trust the forwarded Host header rather than rejecting it as untrusted.
+  trustHost: true,
   providers: [
     Google,
     Credentials({
