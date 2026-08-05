@@ -86,9 +86,9 @@ const benefits = [
 
 const steps = [
   {
-    title: "Paste your URL",
+    title: "Paste your URL, or upload a file",
     description:
-      "The landing page crawls up to 15 pages instantly and opens a live chat so you can test the answers before creating an account.",
+      "The landing page crawls up to 15 pages instantly and opens a live chat so you can test the answers before creating an account. No website? At signup you can upload a PDF or Word document instead and train the bot on that.",
   },
   {
     title: "Verify your domain",
@@ -175,6 +175,11 @@ const faqs = [
     answer:
       "Hit Recrawl in the dashboard and the bot re-reads your site. The Unanswered tab also shows you exactly which visitor questions your current content misses, so you know what to write next.",
   },
+  {
+    question: "Do I need a website to use this?",
+    answer:
+      "No. At signup you can upload a PDF or Word document instead of a website URL, and the chatbot trains on that content. You still choose a domain for the widget to run on, and can add a website to crawl later, or use both together.",
+  },
 ];
 
 export default function ChatbotProductPage() {
@@ -257,7 +262,8 @@ export default function ChatbotProductPage() {
             CS Chatbot is an AI chatbot for your website: it reads your pages and
             answers visitors from that content alone, with sources, in English, Urdu,
             or Roman Urdu. Paste your URL and chat with it on your own content before
-            you even sign up.
+            you even sign up. No website yet? Upload a PDF or Word document instead
+            and train it on that.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a

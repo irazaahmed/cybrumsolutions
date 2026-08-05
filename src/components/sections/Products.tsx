@@ -8,8 +8,9 @@ import { Reveal } from "@/components/ui/Reveal";
 const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
 const highlights = [
-  "Answers only from your website's content, with sources",
+  "Answers only from your content, with sources",
   "Live demo on your own site before signup",
+  "No website? Upload a PDF or Word doc instead",
   "English, Urdu & Roman Urdu",
   "Captures leads while it chats",
   "Also answers on your own WhatsApp number",
@@ -30,7 +31,7 @@ export function Products() {
             Meet <span className="text-gradient">CS Chatbot</span>
           </>
         }
-        intro="Our first packaged product: an AI chatbot for website trained on your content that answers visitors 24/7, cites its sources, and never invents facts about your business."
+        intro="Our first packaged product: an AI chatbot trained on your website or your own PDF/Word documents that answers visitors 24/7, cites its sources, and never invents facts about your business."
       />
 
       <div className="mx-auto mt-14 grid max-w-5xl items-center gap-10 lg:grid-cols-2">
