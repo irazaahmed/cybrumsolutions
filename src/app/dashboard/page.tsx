@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { submitPayment, enrollInCourse } from "@/lib/enrollment/actions";
+import { checkIsAdmin } from "@/lib/admin/current";
 
 export const metadata = { title: "Dashboard · Cybrum Solutions" };
 export const dynamic = "force-dynamic";
@@ -19,6 +20,11 @@ export default async function DashboardPage({
   const session = await auth();
   const studentId = session?.user?.id;
   if (!studentId) redirect("/login");
+
+  // Every sign-in method (Google or Credentials) lands here first, so
+  // sending admins straight to the review queue happens once, here, instead
+  // of duplicating the check in every login/signup code path.
+  if (await checkIsAdmin()) redirect("/admin/enrollments");
 
   const { error } = await searchParams;
 
