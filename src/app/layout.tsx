@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site, contact } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Preloader } from "@/components/visuals/Preloader";
@@ -288,8 +286,6 @@ export default function RootLayout({
         <JsonLd data={jsonLd} />
         <Preloader />
         {children}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

@@ -16,8 +16,6 @@
   "dependencies": {
     "@prisma/client": "^6.19.3",
     "@types/three": "^0.184.1",
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
     "fuse.js": "^7.4.2",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.17.0",
