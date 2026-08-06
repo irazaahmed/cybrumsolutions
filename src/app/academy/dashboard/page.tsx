@@ -87,18 +87,49 @@ export default async function DashboardPage({
                     </div>
                   </div>
 
-                  <div className="mt-6 grid gap-3 rounded-2xl border border-border bg-surface/60 p-5 text-sm">
-                    <p>
-                      <strong>JazzCash:</strong> {process.env.PAYMENT_JAZZCASH_NUMBER ?? "—"}
-                    </p>
-                    <p>
-                      <strong>Easypaisa:</strong> {process.env.PAYMENT_EASYPAISA_NUMBER ?? "—"}
-                    </p>
-                    <p>
-                      <strong>Bank transfer:</strong> {process.env.PAYMENT_BANK_ACCOUNT_TITLE ?? "—"},{" "}
-                      {process.env.PAYMENT_BANK_NAME ?? "—"}, A/C {process.env.PAYMENT_BANK_ACCOUNT_NUMBER ?? "—"}
-                      {process.env.PAYMENT_BANK_IBAN ? `, IBAN ${process.env.PAYMENT_BANK_IBAN}` : ""}
-                    </p>
+                  <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-border bg-surface/60 p-5 text-sm">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-muted">JazzCash</span>
+                      <span className="font-medium tabular-nums text-foreground">
+                        {process.env.PAYMENT_JAZZCASH_NUMBER ?? "—"}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-muted">Easypaisa</span>
+                      <span className="font-medium tabular-nums text-foreground">
+                        {process.env.PAYMENT_EASYPAISA_NUMBER ?? "—"}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col gap-3 border-t border-border pt-4">
+                      <p className="text-xs font-medium uppercase tracking-wider text-muted">Bank transfer</p>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-xs text-muted">Account title</span>
+                        <span className="font-medium text-foreground">
+                          {process.env.PAYMENT_BANK_ACCOUNT_TITLE ?? "—"}
+                        </span>
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-xs text-muted">Bank</span>
+                        <span className="font-medium text-foreground">
+                          {process.env.PAYMENT_BANK_NAME ?? "—"}
+                        </span>
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-xs text-muted">Account number</span>
+                        <span className="font-medium tabular-nums text-foreground">
+                          {process.env.PAYMENT_BANK_ACCOUNT_NUMBER ?? "—"}
+                        </span>
+                      </div>
+                      {process.env.PAYMENT_BANK_IBAN && (
+                        <div className="flex flex-col gap-1">
+                          <span className="text-xs text-muted">IBAN</span>
+                          <span className="font-medium tabular-nums text-foreground">
+                            {process.env.PAYMENT_BANK_IBAN}
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <form action={submitPayment} className="mt-6 flex flex-col gap-4" encType="multipart/form-data">
