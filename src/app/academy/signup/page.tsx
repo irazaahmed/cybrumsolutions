@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { signUp, signInWithGoogle } from "@/lib/enrollment/actions";
 
-export const metadata = { title: "Sign up · Cybrum Solutions" };
+export const metadata = { title: "Sign up · CS Academy" };
 
 const inputClass =
   "w-full rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm text-foreground placeholder:text-muted/70 outline-none transition-[border-color,box-shadow] duration-300 focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-accent)_18%,transparent)]";
@@ -20,7 +20,7 @@ export default async function SignupPage({
       <main className="relative z-10 mx-auto max-w-md px-5 pb-24 pt-32 sm:px-8">
         <h1 className="font-heading text-3xl font-semibold tracking-tight">Create your account</h1>
         <p className="mt-3 text-sm text-muted">
-          One account gets you into every Cybrum Solutions course.
+          One account gets you into every CS Academy course.
         </p>
 
         <form action={signInWithGoogle} className="mt-8">
@@ -60,7 +60,7 @@ export default async function SignupPage({
           {error === "exists" && (
             <p className="text-sm text-red-400">
               An account with that email already exists.{" "}
-              <Link href="/login" className="underline">
+              <Link href="/academy/login" className="underline">
                 Log in instead
               </Link>
               .
@@ -80,7 +80,7 @@ export default async function SignupPage({
 
         <p className="mt-6 text-sm text-muted">
           Already have an account?{" "}
-          <Link href="/login" className="text-accent-bright hover:underline">
+          <Link href="/academy/login" className="text-accent-bright hover:underline">
             Log in
           </Link>
         </p>

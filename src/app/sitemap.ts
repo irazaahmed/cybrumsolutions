@@ -4,6 +4,7 @@ import { getAllPosts, getAvailableLangs } from "@/lib/blog";
 import { servicePages } from "@/lib/services";
 import { locationPages } from "@/lib/locations";
 import { getPublishedSlugs } from "@/lib/skills";
+import { prisma } from "@/lib/prisma";
 
 const baseUrl = site.url;
 
@@ -76,6 +77,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   ];
 
+  // CS Academy courses come from the database, same fallback pattern as
+  // skills above so the sitemap never fails to generate at build time.
+  let courseSlugs: string[] = [];
+  try {
+    const courses = await prisma.course.findMany({ where: { published: true }, select: { slug: true } });
+    courseSlugs = courses.map((c) => c.slug);
+  } catch {
+    courseSlugs = [];
+  }
+  const academyEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/academy`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...courseSlugs.map((slug) => ({
+      url: `${baseUrl}/academy/courses/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   const locationEntries: MetadataRoute.Sitemap = locationPages.map((p) => ({
     url: `${baseUrl}/${p.slug}`,
     lastModified: new Date(),
@@ -97,6 +122,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...academyEntries,
     ...locationEntries,
     {
       url: `${baseUrl}/about`,

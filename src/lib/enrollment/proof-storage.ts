@@ -5,7 +5,7 @@ import path from "node:path";
 // volume), not a vendor bucket — mirrors cs-chatbot's
 // lib/billing/proof-storage.ts. Never a public URL: served only via the
 // authenticated route handler at
-// src/app/admin/enrollments/[id]/proof/route.ts.
+// src/app/academy/admin/payments/[id]/proof/route.ts.
 const UPLOAD_DIR = path.join(process.cwd(), "uploads", "payments");
 const MAX_SIZE_BYTES = 5 * 1024 * 1024;
 const ALLOWED_TYPES: Record<string, string> = {

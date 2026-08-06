@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { updateProfile, logout } from "@/lib/enrollment/actions";
 
-export const metadata = { title: "Your profile · Cybrum Solutions" };
+export const metadata = { title: "Your profile · CS Academy", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 const inputClass =
@@ -30,12 +30,12 @@ export default async function ProfilePage({
 }) {
   const session = await auth();
   const studentId = session?.user?.id;
-  if (!studentId) redirect("/login");
+  if (!studentId) redirect("/academy/login");
 
   const { saved, error } = await searchParams;
 
   const student = await prisma.student.findUnique({ where: { id: studentId } });
-  if (!student) redirect("/login");
+  if (!student) redirect("/academy/login");
 
   const [enrollments, payments] = await Promise.all([
     prisma.enrollment.findMany({

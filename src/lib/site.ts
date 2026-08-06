@@ -49,6 +49,7 @@ export const contact = {
 export const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products/chatbot" },
+  { label: "Academy", href: "/academy" },
   { label: "Work", href: "/work" },
   { label: "Skills", href: "/skills" },
   { label: "Blogs", href: "/blogs" },

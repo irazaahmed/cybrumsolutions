@@ -32,6 +32,43 @@ const nextConfig: NextConfig = {
         destination: "/blogs/:path*",
         permanent: true,
       },
+      // The enrollment portal moved under /academy (CS Academy). Permanent
+      // redirects preserve every previously shared/bookmarked link.
+      {
+        source: "/login",
+        destination: "/academy/login",
+        permanent: true,
+      },
+      {
+        source: "/signup",
+        destination: "/academy/signup",
+        permanent: true,
+      },
+      {
+        source: "/dashboard",
+        destination: "/academy/dashboard",
+        permanent: true,
+      },
+      {
+        source: "/dashboard/profile",
+        destination: "/academy/dashboard/profile",
+        permanent: true,
+      },
+      {
+        source: "/courses/:slug",
+        destination: "/academy/courses/:slug",
+        permanent: true,
+      },
+      {
+        source: "/courses/:slug/enroll",
+        destination: "/academy/courses/:slug/enroll",
+        permanent: true,
+      },
+      {
+        source: "/admin/enrollments",
+        destination: "/academy/admin",
+        permanent: true,
+      },
     ];
   },
 };

@@ -38,7 +38,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   session: { strategy: "jwt", maxAge: 180 * 24 * 60 * 60 },
-  pages: { signIn: "/login" },
+  pages: { signIn: "/academy/login" },
   callbacks: {
     async jwt({ token, user, account }) {
       if (account?.provider === "google" && user?.email) {

@@ -14,7 +14,7 @@ function ProfileAvatar({ name, image }: { name?: string | null; image?: string |
   const initial = (name?.trim()?.[0] ?? "?").toUpperCase();
   return (
     <Link
-      href="/dashboard/profile"
+      href="/academy/dashboard/profile"
       aria-label="Your profile"
       className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-border bg-accent/15 text-sm font-semibold text-accent-bright transition-colors hover:border-accent"
     >
@@ -48,6 +48,11 @@ export function Navbar() {
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
 
+  // CS Academy is a sub-brand, not a separate site: same logo/theme, just a
+  // different wordmark on its own routes (mirrors the "Cybrum Solutions"
+  // treatment below, not a second Navbar component).
+  const isAcademy = pathname.startsWith("/academy");
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -58,11 +63,19 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href={isAcademy ? "/academy" : "/"} className="flex items-center gap-2.5">
           <Logo priority className="h-9 w-9" />
           <span className="text-lg font-semibold tracking-tight font-heading">
-            {site.shortName}
-            <span className="text-accent"> Solutions</span>
+            {isAcademy ? (
+              <>
+                CS<span className="text-accent"> Academy</span>
+              </>
+            ) : (
+              <>
+                {site.shortName}
+                <span className="text-accent"> Solutions</span>
+              </>
+            )}
           </span>
         </Link>
 
@@ -103,7 +116,7 @@ export function Navbar() {
             <ProfileAvatar name={session.user?.name} image={session.user?.image} />
           ) : (
             <Link
-              href="/signup"
+              href="/academy/signup"
               className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] lg:inline-flex"
             >
               Log in / Sign up
@@ -161,7 +174,7 @@ export function Navbar() {
           ))}
           <li className="mt-2">
             <Link
-              href={status === "authenticated" ? "/dashboard/profile" : "/signup"}
+              href={status === "authenticated" ? "/academy/dashboard/profile" : "/academy/signup"}
               onClick={() => setOpen(false)}
               className="block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-white"
             >

@@ -16,8 +16,8 @@ function isAdminEmail(email: string): boolean {
 export async function requireAdmin(): Promise<{ email: string }> {
   const session = await auth();
   const email = session?.user?.email;
-  if (!email) redirect("/login");
-  if (!isAdminEmail(email)) redirect("/dashboard");
+  if (!email) redirect("/academy/login");
+  if (!isAdminEmail(email)) redirect("/academy/dashboard");
   return { email };
 }
 

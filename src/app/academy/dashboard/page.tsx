@@ -1,16 +1,26 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { GraduationCap, Clock3, CheckCircle2, ArrowRight } from "lucide-react";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { submitPayment, enrollInCourse } from "@/lib/enrollment/actions";
 import { checkIsAdmin } from "@/lib/admin/current";
 
-export const metadata = { title: "Dashboard · Cybrum Solutions" };
+export const metadata = { title: "Dashboard · CS Academy", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 const inputClass =
   "w-full rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm text-foreground placeholder:text-muted/70 outline-none transition-[border-color,box-shadow] duration-300 focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-accent)_18%,transparent)]";
+
+function StatTile({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="rounded-2xl border border-border bg-surface/60 px-5 py-4">
+      <p className="text-2xl font-semibold text-foreground">{value}</p>
+      <p className="text-xs uppercase tracking-wider text-muted">{label}</p>
+    </div>
+  );
+}
 
 export default async function DashboardPage({
   searchParams,
@@ -19,12 +29,12 @@ export default async function DashboardPage({
 }) {
   const session = await auth();
   const studentId = session?.user?.id;
-  if (!studentId) redirect("/login");
+  if (!studentId) redirect("/academy/login");
 
   // Every sign-in method (Google or Credentials) lands here first, so
   // sending admins straight to the review queue happens once, here, instead
   // of duplicating the check in every login/signup code path.
-  if (await checkIsAdmin()) redirect("/admin/enrollments");
+  if (await checkIsAdmin()) redirect("/academy/admin");
 
   const { error } = await searchParams;
 
@@ -40,6 +50,8 @@ export default async function DashboardPage({
     }),
   ]);
 
+  const activeCount = enrollments.filter((e) => e.status === "active").length;
+
   return (
     <>
       <BlogNav />
@@ -47,6 +59,14 @@ export default async function DashboardPage({
         <h1 className="font-heading text-3xl font-semibold tracking-tight">
           Welcome, {session.user?.name?.split(/\s+/)[0] ?? "there"}
         </h1>
+        <p className="mt-2 text-sm text-muted">Your CS Academy learning dashboard.</p>
+
+        {enrollments.length > 0 && (
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:w-fit sm:grid-cols-2">
+            <StatTile label="Enrolled" value={enrollments.length} />
+            <StatTile label="Active" value={activeCount} />
+          </div>
+        )}
 
         {enrollments.length === 0 ? (
           <p className="mt-8 text-muted">You&apos;re not enrolled in any course yet.</p>
@@ -55,10 +75,17 @@ export default async function DashboardPage({
             {enrollments.map((enrollment) =>
               enrollment.status === "pending_payment" ? (
                 <div key={enrollment.id} className="rounded-3xl border border-border bg-card/60 p-6 backdrop-blur-sm sm:p-8">
-                  <h2 className="text-xl font-semibold">Complete your payment</h2>
-                  <p className="mt-2 text-sm text-muted">
-                    {enrollment.course.title} &middot; PKR {enrollment.course.priceAmount.toLocaleString()}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/15 to-transparent text-accent-bright">
+                      <GraduationCap size={20} strokeWidth={1.6} />
+                    </span>
+                    <div>
+                      <h2 className="text-xl font-semibold">Complete your payment</h2>
+                      <p className="text-sm text-muted">
+                        {enrollment.course.title} &middot; PKR {enrollment.course.priceAmount.toLocaleString()}
+                      </p>
+                    </div>
+                  </div>
 
                   <div className="mt-6 grid gap-3 rounded-2xl border border-border bg-surface/60 p-5 text-sm">
                     <p>
@@ -126,16 +153,36 @@ export default async function DashboardPage({
                 </div>
               ) : enrollment.status === "pending_review" ? (
                 <div key={enrollment.id} className="rounded-3xl border border-border bg-card/60 p-6 backdrop-blur-sm sm:p-8">
-                  <h2 className="text-xl font-semibold">We&apos;re verifying your payment</h2>
-                  <p className="mt-2 text-sm text-muted">
-                    {enrollment.course.title} &middot; usually within 24 hours. We&apos;ll email you as soon as you&apos;re enrolled.
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/15 to-transparent text-accent-bright">
+                      <Clock3 size={20} strokeWidth={1.6} />
+                    </span>
+                    <div>
+                      <h2 className="text-xl font-semibold">We&apos;re verifying your payment</h2>
+                      <p className="text-sm text-muted">
+                        {enrollment.course.title} &middot; usually within 24 hours
+                      </p>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm text-muted">We&apos;ll email you as soon as you&apos;re enrolled.</p>
                 </div>
               ) : (
-                <div key={enrollment.id} className="rounded-3xl border border-border bg-card/60 p-6 backdrop-blur-sm sm:p-8">
-                  <h2 className="text-xl font-semibold">{enrollment.course.title}</h2>
-                  <p className="mt-2 text-sm text-muted">You&apos;re enrolled. Course materials will appear here.</p>
-                </div>
+                <Link
+                  key={enrollment.id}
+                  href={`/academy/dashboard/courses/${enrollment.id}`}
+                  className="group flex items-center justify-between gap-4 rounded-3xl border border-border bg-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:border-accent/60 hover:shadow-[0_0_36px_-16px_var(--color-accent)] sm:p-8"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/15 to-transparent text-accent-bright">
+                      <CheckCircle2 size={20} strokeWidth={1.6} />
+                    </span>
+                    <div>
+                      <h2 className="text-xl font-semibold">{enrollment.course.title}</h2>
+                      <p className="text-sm text-muted">Active &middot; view your course outline</p>
+                    </div>
+                  </div>
+                  <ArrowRight size={18} className="shrink-0 text-accent-bright transition-transform group-hover:translate-x-1" />
+                </Link>
               ),
             )}
           </div>
@@ -170,7 +217,7 @@ export default async function DashboardPage({
         )}
 
         <p className="mt-10 text-sm">
-          <Link href="/dashboard/profile" className="text-accent-bright hover:underline">
+          <Link href="/academy/dashboard/profile" className="text-accent-bright hover:underline">
             View your profile &amp; payment history
           </Link>
         </p>

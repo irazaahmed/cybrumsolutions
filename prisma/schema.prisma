@@ -82,6 +82,34 @@ model Course {
 
   enrollments   Enrollment[]
   payments      Payment[]
+  modules       Module[]
+}
+
+// Gives a course real curriculum structure (CS Academy) even before Ahmed
+// has recorded real lessons — modules/lessons render as an outline with
+// placeholder summaries rather than the site showing nothing at all.
+model Module {
+  id       String   @id @default(cuid())
+  courseId String
+  title    String
+  order    Int
+
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons  Lesson[]
+
+  @@index([courseId])
+}
+
+model Lesson {
+  id       String  @id @default(cuid())
+  moduleId String
+  title    String
+  order    Int
+  summary  String? @db.Text
+
+  module   Module  @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+
+  @@index([moduleId])
 }
 
 model Enrollment {

@@ -27,18 +27,18 @@ export async function signUp(formData: FormData) {
   const phone = String(formData.get("phone") ?? "").trim() || undefined;
 
   if (!name || !email || password.length < 8) {
-    redirect("/signup?error=validation");
+    redirect("/academy/signup?error=validation");
   }
 
   const existing = await prisma.student.findUnique({ where: { email } });
-  if (existing) redirect("/signup?error=exists");
+  if (existing) redirect("/academy/signup?error=exists");
 
   const passwordHash = await bcrypt.hash(password, 10);
   await prisma.student.create({
     data: { name, email, passwordHash, phone },
   });
 
-  await signIn("credentials", { email, password, redirectTo: "/dashboard" });
+  await signIn("credentials", { email, password, redirectTo: "/academy/dashboard" });
 }
 
 /**
@@ -50,11 +50,11 @@ export async function signUp(formData: FormData) {
 export async function enrollInCourse(formData: FormData) {
   const session = await auth();
   const studentId = session?.user?.id;
-  if (!studentId) redirect("/signup");
+  if (!studentId) redirect("/academy/signup");
 
   const courseId = String(formData.get("courseId") ?? "");
   const course = await prisma.course.findUnique({ where: { id: courseId, published: true } });
-  if (!course) redirect("/dashboard");
+  if (!course) redirect("/academy/dashboard");
 
   const existing = await prisma.enrollment.findUnique({
     where: { studentId_courseId: { studentId, courseId } },
@@ -65,8 +65,8 @@ export async function enrollInCourse(formData: FormData) {
     });
   }
 
-  revalidatePath("/dashboard");
-  redirect("/dashboard");
+  revalidatePath("/academy/dashboard");
+  redirect("/academy/dashboard");
 }
 
 /** Signs an existing student in. Wrong email/password redirects back with an error. */
@@ -75,10 +75,10 @@ export async function login(formData: FormData) {
   const password = String(formData.get("password") ?? "");
 
   try {
-    await signIn("credentials", { email, password, redirectTo: "/dashboard" });
+    await signIn("credentials", { email, password, redirectTo: "/academy/dashboard" });
   } catch (error) {
     if (error instanceof AuthError) {
-      redirect("/login?error=1");
+      redirect("/academy/login?error=1");
     }
     throw error; // re-throw NEXT_REDIRECT (the success case) and anything unexpected
   }
@@ -88,16 +88,16 @@ export async function logout() {
   await signOut({ redirectTo: "/" });
 }
 
-/** Used by the "Continue with Google" button on both /login and /signup. */
+/** Used by the "Continue with Google" button on both /academy/login and /academy/signup. */
 export async function signInWithGoogle() {
-  await signIn("google", { redirectTo: "/dashboard" });
+  await signIn("google", { redirectTo: "/academy/dashboard" });
 }
 
 /** Updates the logged-in student's own name/phone, and optionally their avatar. */
 export async function updateProfile(formData: FormData) {
   const session = await auth();
   const studentId = session?.user?.id;
-  if (!studentId) redirect("/login");
+  if (!studentId) redirect("/academy/login");
 
   const name = String(formData.get("name") ?? "").trim().slice(0, 200);
   const phone = String(formData.get("phone") ?? "").trim() || null;
@@ -111,14 +111,14 @@ export async function updateProfile(formData: FormData) {
     try {
       data.avatarFilename = await saveAvatarFile(studentId, avatar);
     } catch {
-      redirect("/dashboard/profile?error=avatar");
+      redirect("/academy/dashboard/profile?error=avatar");
     }
   }
 
   await prisma.student.update({ where: { id: studentId }, data });
 
-  revalidatePath("/dashboard/profile");
-  redirect("/dashboard/profile?saved=1");
+  revalidatePath("/academy/dashboard/profile");
+  redirect("/academy/dashboard/profile?saved=1");
 }
 
 /**
@@ -129,7 +129,7 @@ export async function updateProfile(formData: FormData) {
 export async function submitPayment(formData: FormData) {
   const session = await auth();
   const studentId = session?.user?.id;
-  if (!studentId) redirect("/login");
+  if (!studentId) redirect("/academy/login");
 
   const enrollmentId = String(formData.get("enrollmentId") ?? "");
   const method = String(formData.get("method") ?? "bank");
@@ -141,23 +141,23 @@ export async function submitPayment(formData: FormData) {
     where: { id: enrollmentId, studentId },
     include: { course: true, student: true },
   });
-  if (!enrollment) redirect("/dashboard");
+  if (!enrollment) redirect("/academy/dashboard");
 
   if (!senderName || !transactionRef || !file || file.size === 0) {
-    redirect("/dashboard?error=validation");
+    redirect("/academy/dashboard?error=validation");
   }
 
   const alreadyPending = await prisma.payment.findFirst({
     where: { enrollmentId: enrollment.id, status: "submitted" },
   });
-  if (alreadyPending) redirect("/dashboard");
+  if (alreadyPending) redirect("/academy/dashboard");
 
   const paymentId = randomUUID();
   let proofFilename: string;
   try {
     proofFilename = await saveProofFile(paymentId, file);
   } catch {
-    redirect("/dashboard?error=file");
+    redirect("/academy/dashboard?error=file");
   }
 
   await prisma.payment.create({
@@ -187,6 +187,6 @@ export async function submitPayment(formData: FormData) {
     method,
   );
 
-  revalidatePath("/dashboard");
-  redirect("/dashboard");
+  revalidatePath("/academy/dashboard");
+  redirect("/academy/dashboard");
 }

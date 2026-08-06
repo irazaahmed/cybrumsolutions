@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BlogNav } from "@/components/blog/BlogNav";
 import { login, signInWithGoogle } from "@/lib/enrollment/actions";
 
-export const metadata = { title: "Log in · Cybrum Solutions" };
+export const metadata = { title: "Log in · CS Academy" };
 
 const inputClass =
   "w-full rounded-xl border border-border bg-surface/60 px-4 py-3 text-sm text-foreground placeholder:text-muted/70 outline-none transition-[border-color,box-shadow] duration-300 focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-accent)_18%,transparent)]";
@@ -74,7 +74,7 @@ export default async function LoginPage({
 
         <p className="mt-6 text-sm text-muted">
           Not enrolled yet?{" "}
-          <Link href="/signup" className="text-accent-bright hover:underline">
+          <Link href="/academy/signup" className="text-accent-bright hover:underline">
             Sign up
           </Link>
         </p>

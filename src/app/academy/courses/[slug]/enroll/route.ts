@@ -6,9 +6,9 @@ import { prisma } from "@/lib/prisma";
 // across every visitor, so it can never call auth() directly — that would
 // bake one visitor's session into the cached HTML for everyone else. This
 // route is the always-dynamic hop the "Enroll Now" link goes through
-// instead: not logged in -> /signup, logged in -> create the Enrollment (if
-// not already enrolled) and land on /dashboard where they see the payment
-// step.
+// instead: not logged in -> /academy/signup, logged in -> create the
+// Enrollment (if not already enrolled) and land on /academy/dashboard where
+// they see the payment step.
 export const dynamic = "force-dynamic";
 
 export async function GET(
@@ -19,7 +19,7 @@ export async function GET(
 
   const session = await auth();
   const studentId = session?.user?.id;
-  if (!studentId) redirect("/signup");
+  if (!studentId) redirect("/academy/signup");
 
   const course = await prisma.course.findUnique({ where: { slug, published: true } });
   if (!course) redirect("/");
@@ -33,5 +33,5 @@ export async function GET(
     });
   }
 
-  redirect("/dashboard");
+  redirect("/academy/dashboard");
 }
