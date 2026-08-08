@@ -16,9 +16,9 @@ const baseUrl = site.url;
 const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
 export const metadata: Metadata = {
-  title: "CS Chatbot: AI Chatbot for Your Website & WhatsApp | Cybrum Solutions",
+  title: "CS Chatbot: AI Chatbot for Your Website and WhatsApp | Cybrum Solutions",
   description:
-    "CS Chatbot is an AI chatbot for your website, with an optional WhatsApp add-on, that answers only from your own content, cites its sources, and captures leads in English, Urdu, or Roman Urdu. PKR pricing, live in minutes. Try it free on your own site first.",
+    "CS Chatbot is an AI chatbot for your website and your own WhatsApp number — two equal channels — that answers only from your own content, cites its sources, and captures leads in English, Urdu, or Roman Urdu. PKR pricing, live in minutes. Try it free on your own site first.",
   keywords: [
     "CS Chatbot",
     "AI chatbot for website",
@@ -35,18 +35,18 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/products/chatbot" },
   openGraph: {
-    title: `CS Chatbot: AI Chatbot for Your Website & WhatsApp · ${site.name}`,
+    title: `CS Chatbot: AI Chatbot for Your Website and WhatsApp · ${site.name}`,
     description:
-      "An AI chatbot trained on your website's content, with an optional WhatsApp add-on for your own number. Cites sources, captures leads, PKR pricing. Try it on your own site before signing up.",
+      "An AI chatbot trained on your own content, for your website and your own WhatsApp number. Cites sources, captures leads, PKR pricing. Try it on your own site before signing up.",
     url: `${baseUrl}/products/chatbot`,
     type: "website",
     images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CS Chatbot: AI Chatbot for Your Website & WhatsApp | Cybrum Solutions",
+    title: "CS Chatbot: AI Chatbot for Your Website and WhatsApp | Cybrum Solutions",
     description:
-      "An AI chatbot trained on your website's content, with an optional WhatsApp add-on for your own number. Cites sources, captures leads, PKR pricing.",
+      "An AI chatbot trained on your own content, for your website and your own WhatsApp number. Cites sources, captures leads, PKR pricing.",
     images: ["/og.png"],
   },
 };
@@ -91,9 +91,9 @@ const steps = [
       "The landing page crawls up to 15 pages instantly and opens a live chat so you can test the answers before creating an account. No website? At signup you can upload a PDF or Word document instead and train the bot on that.",
   },
   {
-    title: "Verify your domain",
+    title: "Turn on Website and/or WhatsApp",
     description:
-      "Prove you own the site with a meta tag, a file upload, or a DNS record, whichever is easiest for you. No code changes required for the DNS option.",
+      "Two independent, self-serve toggles — no ownership proof, no approval. Turn on one, both, or switch any time from your dashboard.",
   },
   {
     title: "Full crawl trains the bot",
@@ -113,20 +113,20 @@ const planOffers = [
   { name: "Starter", price: "3499" },
   { name: "Pro", price: "8999" },
   { name: "Business", price: "23999" },
-  { name: "WhatsApp Add-on", price: "4499" },
-  { name: "WhatsApp Standalone", price: "4999" },
+  { name: "WhatsApp (bundled with a plan)", price: "4499" },
+  { name: "WhatsApp (standalone)", price: "4999" },
 ];
 
 const whatsappSteps = [
   {
-    title: "Request it in your dashboard",
+    title: "Turn it on in your dashboard",
     description:
-      "WhatsApp is switched on per account so number connections stay clean and reliable. Sign up, then request WhatsApp access from your dashboard and we will enable it for your account.",
+      "WhatsApp is a self-serve toggle, same as Website — no request, no waiting. Sign up, then turn on the WhatsApp channel from your dashboard and it's ready immediately.",
   },
   {
     title: "Scan a QR code",
     description:
-      "Once enabled, link your own WhatsApp Business number from your dashboard the same way you would link WhatsApp Web. No app, no separate number to manage.",
+      "Link your own WhatsApp Business number from your dashboard the same way you would link WhatsApp Web. No app, no separate number to manage.",
   },
   {
     title: "It just works",
@@ -148,7 +148,7 @@ const faqs = [
   {
     question: "Does CS Chatbot work on WhatsApp too?",
     answer:
-      "Yes. CS Chatbot can also answer on your own WhatsApp Business number, either as an add-on to any plan or on its own with no website plan at all, using the exact same crawled content, lead capture, and conversation history as the website widget. It is not Meta's official WhatsApp Business API, it runs on Cybrum Solutions' own infrastructure. It is enabled per account, so request it from your dashboard after you sign up and we will turn it on for you.",
+      "Yes. Website and WhatsApp are two equal, independent channels — turn on WhatsApp alongside a website plan or entirely on its own, using the exact same crawled content, lead capture, and conversation history as the website widget. It is not Meta's official WhatsApp Business API, it runs on Cybrum Solutions' own infrastructure. It's self-serve: turn it on from your dashboard any time, no approval needed.",
   },
   {
     question: "How is this different from a typical WhatsApp bot?",
@@ -193,7 +193,7 @@ export default function ChatbotProductPage() {
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         description:
-          "An AI chatbot trained only on your website's content, with an optional WhatsApp add-on: answers with sources, captures leads, and supports English, Urdu, and Roman Urdu.",
+          "An AI chatbot trained on your own content, for your website and your own WhatsApp number: answers with sources, captures leads, and supports English, Urdu, and Roman Urdu.",
         url: APP_URL,
         offers: planOffers.map((p) => ({
           "@type": "Offer",
@@ -259,11 +259,11 @@ export default function ChatbotProductPage() {
             Cheaper than one support hire, answering every visitor 24/7.
           </p>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-            CS Chatbot is an AI chatbot for your website: it reads your pages and
-            answers visitors from that content alone, with sources, in English, Urdu,
-            or Roman Urdu. Paste your URL and chat with it on your own content before
-            you even sign up. No website yet? Upload a PDF or Word document instead
-            and train it on that.
+            CS Chatbot is an AI chatbot for your website and your own WhatsApp number:
+            it reads your pages and answers visitors from that content alone, with
+            sources, in English, Urdu, or Roman Urdu. Paste your URL and chat with it
+            on your own content before you even sign up. No website yet? Upload a PDF
+            or Word document instead and train it on that.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
@@ -329,11 +329,11 @@ export default function ChatbotProductPage() {
           ))}
         </ol>
 
-        {/* WhatsApp add-on */}
+        {/* WhatsApp channel */}
         <Reveal className="mt-20">
           <span className="inline-flex items-center gap-2.5 rounded-full border border-accent/25 bg-accent/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-accent-bright">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-bright shadow-[0_0_8px_var(--color-accent)]" />
-            Add-on
+            Channel
           </span>
           <h2 className="mt-5 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
             One AI, on your website and your own WhatsApp number
@@ -341,7 +341,7 @@ export default function ChatbotProductPage() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
             CS Chatbot does not have to stay on your website. Connect your own WhatsApp Business
             number and the same AI, trained on the same crawled content, with the same lead
-            capture, answers there too. One knowledge base, two channels, one dashboard.
+            capture, answers there too. One knowledge base, two equal channels, one dashboard.
           </p>
         </Reveal>
         <ol className="mt-8 grid gap-6 sm:grid-cols-3">
@@ -368,8 +368,9 @@ export default function ChatbotProductPage() {
             Simple chatbot pricing in PKR for Pakistani businesses
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-            Every plan includes the full product. Plans differ only in how many pages
-            the bot learns and how many visitor conversations it answers each month.
+            Website plans differ only in how many pages the bot learns and how many
+            visitor conversations it answers each month. WhatsApp is priced and billed
+            independently, on any plan or on its own.
           </p>
         </Reveal>
         <div className="mt-8">

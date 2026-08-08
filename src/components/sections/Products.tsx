@@ -9,11 +9,11 @@ const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
 const highlights = [
   "Answers only from your content, with sources",
+  "Website and WhatsApp — two equal channels, your choice",
   "Live demo on your own site before signup",
   "No website? Upload a PDF or Word doc instead",
   "English, Urdu & Roman Urdu",
   "Captures leads while it chats",
-  "Also answers on your own WhatsApp number",
 ];
 
 /**
