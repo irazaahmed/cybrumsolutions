@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
 import { contact, navLinks, site } from "@/lib/site";
+import { visionMission } from "@/lib/content";
 import { servicePages } from "@/lib/services";
 import { Logo } from "@/components/ui/Logo";
 import { PhoneDisplay } from "@/components/ui/PhoneDisplay";
@@ -23,11 +24,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
-              An AI-native company building intelligent automation, AI agents, and
-              web systems that run real business workflows. Based in Karachi,
-              Pakistan, serving clients worldwide.
+              {visionMission.mission.text}
             </p>
-            <p className="mt-4 text-sm text-muted">{site.tagline}</p>
+            <p className="mt-4 text-sm font-medium text-accent-bright">{site.tagline}</p>
             {/* NAP block: keep name, city, and phone identical to the Google
                 Business Profile so local citations stay consistent. */}
             <p className="mt-4 text-xs leading-relaxed text-muted">

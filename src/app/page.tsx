@@ -7,6 +7,7 @@ import { FloatingDock } from "@/components/visuals/FloatingDock";
 import { Hero } from "@/components/sections/Hero";
 import { Showcase } from "@/components/sections/Showcase";
 import { Services } from "@/components/sections/Services";
+import { VisionMission } from "@/components/sections/VisionMission";
 import { WhyCybrum } from "@/components/sections/WhyCybrum";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Work } from "@/components/sections/Work";
@@ -33,6 +34,7 @@ export default function Home() {
         <Hero />
         <Showcase />
         <Services />
+        <VisionMission />
         <Products />
         <WhyCybrum />
         <HowItWorks />

@@ -9,7 +9,8 @@ import { ParallaxY } from "@/components/visuals/ParallaxY";
 import { ScrollToTop } from "@/components/visuals/ScrollToTop";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { JsonLd } from "@/components/JsonLd";
-import { about, founderProfile, stats, whyCybrum } from "@/lib/content";
+import { Compass, Target } from "lucide-react";
+import { about, founderProfile, stats, visionMission, whyCybrum } from "@/lib/content";
 import { site, contact } from "@/lib/site";
 
 const baseUrl = site.url;
@@ -169,6 +170,36 @@ export default function AboutPage() {
             </div>
           </Card>
         </Reveal>
+
+        {/* Vision & Mission */}
+        <div className="mt-16 sm:mt-20">
+          <Reveal>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-accent-bright">
+              {visionMission.eyebrow}
+            </span>
+          </Reveal>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {[
+              { icon: Compass, ...visionMission.vision },
+              { icon: Target, ...visionMission.mission },
+            ].map(({ icon: Icon, label, text }, i) => (
+              <Reveal key={label} delay={i * 0.08} tilt>
+                <div className="h-full rounded-2xl border border-border bg-card/60 p-7 backdrop-blur-sm transition-colors duration-300 hover:border-accent/50">
+                  <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/15 to-transparent text-accent-bright">
+                    <span className="absolute inset-0 rounded-2xl bg-accent/10 blur-md" />
+                    <Icon size={20} strokeWidth={1.6} className="relative" />
+                  </span>
+                  <h3 className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-accent-bright">
+                    {label}
+                  </h3>
+                  <p className="mt-3 text-xl font-medium leading-snug tracking-tight text-foreground sm:text-2xl">
+                    {text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
 
         {/* Core values */}
         <div className="mt-16 sm:mt-20">

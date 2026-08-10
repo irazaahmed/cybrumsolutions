@@ -287,6 +287,24 @@ export const about = {
 } as const;
 
 /**
+ * Locked brand foundation (10 August 2026): vision is the ten-year picture,
+ * mission is the daily work. Both are quoted verbatim wherever they appear;
+ * never paraphrase or scale the vision down to a market or company size.
+ */
+export const visionMission = {
+  eyebrow: "Vision & Mission",
+  heading: "Where we're going, and the work that gets us there",
+  vision: {
+    label: "Vision",
+    text: "To become the one element that powers every business on earth.",
+  },
+  mission: {
+    label: "Mission",
+    text: "We build AI agents, chatbots, and automation systems that let businesses run smarter, faster, and without limits.",
+  },
+} as const;
+
+/**
  * Extended founder profile for the /about page. The homepage carries only a
  * short teaser; the full story lives here.
  */
