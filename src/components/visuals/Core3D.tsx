@@ -1,14 +1,44 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import {
+  AdditiveBlending,
+  AmbientLight,
+  BufferAttribute,
+  BufferGeometry,
+  CanvasTexture,
+  Clock,
+  Color,
+  Group,
+  IcosahedronGeometry,
+  Line,
+  LineBasicMaterial,
+  Mesh,
+  MeshBasicMaterial,
+  MeshStandardMaterial,
+  PerspectiveCamera,
+  PointLight,
+  Points,
+  PointsMaterial,
+  Scene,
+  SphereGeometry,
+  Sprite,
+  SpriteMaterial,
+  Vector3,
+  WebGLRenderer,
+} from "three";
 
 /**
  * Real WebGL 3D core for the hero: a glowing blue energy sphere inside a
  * rotating wireframe icosahedron shell, wrapped by tilted orbit rings with
  * traveling sparks and a surrounding particle field. Built with vanilla
- * three.js (lazy-loaded so it never blocks first paint), transparent canvas,
- * mouse parallax, pauses offscreen, and renders a single static frame for
- * users who prefer reduced motion.
+ * three.js, transparent canvas, mouse parallax, pauses offscreen, and
+ * renders a single static frame for users who prefer reduced motion.
+ *
+ * Named imports (not `import * as THREE`) so the bundler tree-shakes unused
+ * three.js modules; this component itself is only ever reached via a
+ * next/dynamic(..., { ssr: false }) boundary in AgentHub, which both splits
+ * it into its own chunk and keeps that chunk out of the initial bundle.
  */
 export function Core3D({ className = "" }: { className?: string }) {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -20,20 +50,21 @@ export function Core3D({ className = "" }: { className?: string }) {
     let disposed = false;
     let cleanup: (() => void) | undefined;
 
-    const build = async () => {
-      const THREE = await import("three");
+    const build = () => {
       if (disposed || !mountRef.current) return;
 
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       /* lighter scene on touch / small screens so phones hold a steady frame rate */
       const coarse = window.matchMedia("(pointer: coarse)").matches;
       const lowPower = coarse || window.innerWidth < 768;
-      const accent = new THREE.Color("#1e88e8");
-      const accentBright = new THREE.Color("#46a4ff");
+      const accent = new Color("#1e88e8");
+      const accentBright = new Color("#46a4ff");
 
-      const renderer = new THREE.WebGLRenderer({
+      const renderer = new WebGLRenderer({
         alpha: true,
-        antialias: true,
+        /* antialiasing is a pure GPU-fill cost on a soft glowing object where
+           the edges barely matter; only worth paying on non-touch/large screens */
+        antialias: !lowPower,
         powerPreference: "high-performance",
       });
       /* DPR capped low: the core is a soft glowing object, so the resolution
@@ -45,54 +76,57 @@ export function Core3D({ className = "" }: { className?: string }) {
       renderer.domElement.style.width = "100%";
       renderer.domElement.style.height = "100%";
 
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 50);
+      const scene = new Scene();
+      const camera = new PerspectiveCamera(42, 1, 0.1, 50);
       camera.position.set(0, 0, 7.2);
 
       /* everything lives in one group so mouse parallax tilts the whole rig */
-      const rig = new THREE.Group();
+      const rig = new Group();
       scene.add(rig);
 
-      /* lights */
-      scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-      const keyLight = new THREE.PointLight(accentBright, 28, 30);
+      /* lights: the rim light is a fine-detail highlight that only reads on
+         the full-res desktop scene, so skip it on the lowPower static frame */
+      scene.add(new AmbientLight(0xffffff, 0.55));
+      const keyLight = new PointLight(accentBright, 28, 30);
       keyLight.position.set(3, 3, 4);
       scene.add(keyLight);
-      const rimLight = new THREE.PointLight(0xffffff, 8, 30);
-      rimLight.position.set(-3, -2, 2);
-      scene.add(rimLight);
+      if (!lowPower) {
+        const rimLight = new PointLight(0xffffff, 8, 30);
+        rimLight.position.set(-3, -2, 2);
+        scene.add(rimLight);
+      }
 
       /* inner energy core */
-      const coreGeo = new THREE.IcosahedronGeometry(1.05, lowPower ? 3 : 4);
-      const coreMat = new THREE.MeshStandardMaterial({
+      const coreGeo = new IcosahedronGeometry(1.05, lowPower ? 2 : 4);
+      const coreMat = new MeshStandardMaterial({
         color: 0x0c2f55,
         emissive: accent,
         emissiveIntensity: 0.55,
         metalness: 0.35,
         roughness: 0.3,
       });
-      const core = new THREE.Mesh(coreGeo, coreMat);
+      const core = new Mesh(coreGeo, coreMat);
       rig.add(core);
 
       /* wireframe shells */
-      const shellGeo = new THREE.IcosahedronGeometry(1.65, 1);
-      const shellMat = new THREE.MeshBasicMaterial({
+      const shellGeo = new IcosahedronGeometry(1.65, 1);
+      const shellMat = new MeshBasicMaterial({
         color: accent,
         wireframe: true,
         transparent: true,
         opacity: 0.32,
       });
-      const shell = new THREE.Mesh(shellGeo, shellMat);
+      const shell = new Mesh(shellGeo, shellMat);
       rig.add(shell);
 
-      const shell2Geo = new THREE.IcosahedronGeometry(1.38, 0);
-      const shell2Mat = new THREE.MeshBasicMaterial({
+      const shell2Geo = new IcosahedronGeometry(1.38, 0);
+      const shell2Mat = new MeshBasicMaterial({
         color: accentBright,
         wireframe: true,
         transparent: true,
         opacity: 0.16,
       });
-      const shell2 = new THREE.Mesh(shell2Geo, shell2Mat);
+      const shell2 = new Mesh(shell2Geo, shell2Mat);
       rig.add(shell2);
 
       /* soft glow halo behind the core (radial-gradient sprite) */
@@ -105,46 +139,46 @@ export function Core3D({ className = "" }: { className?: string }) {
       grad.addColorStop(1, "rgba(30, 136, 232, 0)");
       gctx.fillStyle = grad;
       gctx.fillRect(0, 0, 128, 128);
-      const glowTex = new THREE.CanvasTexture(glowCanvas);
-      const glowMat = new THREE.SpriteMaterial({
+      const glowTex = new CanvasTexture(glowCanvas);
+      const glowMat = new SpriteMaterial({
         map: glowTex,
         transparent: true,
         depthWrite: false,
-        blending: THREE.AdditiveBlending,
+        blending: AdditiveBlending,
       });
-      const glow = new THREE.Sprite(glowMat);
+      const glow = new Sprite(glowMat);
       glow.scale.setScalar(5.6);
       rig.add(glow);
 
       /* tilted orbit rings with traveling sparks */
-      type Ring = { group: typeof rig; sparks: { mesh: InstanceType<typeof THREE.Mesh>; offset: number }[]; radius: number; speed: number };
+      type Ring = { group: Group; sparks: { mesh: Mesh; offset: number }[]; radius: number; speed: number };
       const rings: Ring[] = [];
       const ringDefs = [
         { radius: 2.2, tiltX: 1.15, tiltZ: 0.25, speed: 0.35, sparks: 3 },
         { radius: 2.65, tiltX: -0.95, tiltZ: -0.45, speed: -0.25, sparks: 2 },
       ];
-      const sparkGeo = new THREE.SphereGeometry(0.05, 12, 12);
-      const sparkMat = new THREE.MeshBasicMaterial({ color: accentBright });
+      const sparkGeo = new SphereGeometry(0.05, 12, 12);
+      const sparkMat = new MeshBasicMaterial({ color: accentBright });
       for (const def of ringDefs) {
-        const group = new THREE.Group();
+        const group = new Group();
         group.rotation.set(def.tiltX, 0, def.tiltZ);
 
-        const pts: InstanceType<typeof THREE.Vector3>[] = [];
+        const pts: Vector3[] = [];
         for (let i = 0; i <= 96; i++) {
           const a = (i / 96) * Math.PI * 2;
-          pts.push(new THREE.Vector3(Math.cos(a) * def.radius, 0, Math.sin(a) * def.radius));
+          pts.push(new Vector3(Math.cos(a) * def.radius, 0, Math.sin(a) * def.radius));
         }
-        const ringGeo = new THREE.BufferGeometry().setFromPoints(pts);
-        const ringMat = new THREE.LineBasicMaterial({
+        const ringGeo = new BufferGeometry().setFromPoints(pts);
+        const ringMat = new LineBasicMaterial({
           color: accent,
           transparent: true,
           opacity: 0.35,
         });
-        group.add(new THREE.Line(ringGeo, ringMat));
+        group.add(new Line(ringGeo, ringMat));
 
         const sparks: Ring["sparks"] = [];
         for (let s = 0; s < def.sparks; s++) {
-          const mesh = new THREE.Mesh(sparkGeo, sparkMat);
+          const mesh = new Mesh(sparkGeo, sparkMat);
           group.add(mesh);
           sparks.push({ mesh, offset: (s / def.sparks) * Math.PI * 2 });
         }
@@ -153,7 +187,7 @@ export function Core3D({ className = "" }: { className?: string }) {
       }
 
       /* ambient particle field on a spherical shell */
-      const particleCount = lowPower ? 180 : 320;
+      const particleCount = lowPower ? 130 : 320;
       const positions = new Float32Array(particleCount * 3);
       for (let i = 0; i < particleCount; i++) {
         const r = 2.4 + Math.random() * 1.3;
@@ -163,17 +197,17 @@ export function Core3D({ className = "" }: { className?: string }) {
         positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
         positions[i * 3 + 2] = r * Math.cos(phi);
       }
-      const particleGeo = new THREE.BufferGeometry();
-      particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-      const particleMat = new THREE.PointsMaterial({
+      const particleGeo = new BufferGeometry();
+      particleGeo.setAttribute("position", new BufferAttribute(positions, 3));
+      const particleMat = new PointsMaterial({
         color: accentBright,
         size: 0.035,
         transparent: true,
         opacity: 0.75,
         depthWrite: false,
-        blending: THREE.AdditiveBlending,
+        blending: AdditiveBlending,
       });
-      const particles = new THREE.Points(particleGeo, particleMat);
+      const particles = new Points(particleGeo, particleMat);
       rig.add(particles);
 
       /* sizing */
@@ -221,7 +255,7 @@ export function Core3D({ className = "" }: { className?: string }) {
          difference nobody notices. */
       const frameInterval = 1000 / 30;
       let lastFrameTime = 0;
-      const clock = new THREE.Clock();
+      const clock = new Clock();
       const renderFrame = () => {
         const t = clock.getElapsedTime();
 
@@ -288,7 +322,7 @@ export function Core3D({ className = "" }: { className?: string }) {
         io.disconnect();
         window.removeEventListener("pointermove", onPointer);
         scene.traverse((obj) => {
-          if (obj instanceof THREE.Mesh || obj instanceof THREE.Points || obj instanceof THREE.Line) {
+          if (obj instanceof Mesh || obj instanceof Points || obj instanceof Line) {
             obj.geometry.dispose();
             const mat = obj.material;
             if (Array.isArray(mat)) mat.forEach((m) => m.dispose());
@@ -304,12 +338,12 @@ export function Core3D({ className = "" }: { className?: string }) {
       };
     };
 
-    // Defer the heaviest part (three.js import + scene/geometry/shader setup)
-    // until the browser is idle, so it never competes with first paint —
-    // this was the single biggest main-thread cost on the initial load.
+    // Defer scene/geometry/shader setup until the browser is idle, so it
+    // never competes with first paint or hydration — this was the single
+    // biggest main-thread cost on the initial load.
     const ric = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(() => cb({ didTimeout: false, timeRemaining: () => 0 } as IdleDeadline), 1));
     const cic = window.cancelIdleCallback ?? window.clearTimeout;
-    const idleHandle = ric(() => void build(), { timeout: 1500 });
+    const idleHandle = ric(() => build(), { timeout: 1500 });
 
     return () => {
       disposed = true;

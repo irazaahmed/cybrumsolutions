@@ -1,7 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "motion/react";
-import { Core3D } from "@/components/visuals/Core3D";
+
+/* Code-split from the main bundle: this pulls in three.js, and the tree-
+   shaken named imports inside Core3D.tsx only end up in this chunk, not the
+   page's initial JS. */
+const Core3D = dynamic(() => import("@/components/visuals/Core3D").then((m) => m.Core3D), {
+  ssr: false,
+});
 
 const orbit = [
   { label: "Automation" },
