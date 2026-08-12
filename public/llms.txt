@@ -1,0 +1,36 @@
+# Cybrum Solutions
+
+> Cybrum Solutions is an AI-native company based in Karachi, Pakistan, building
+> AI agents, automation, custom chatbots, and web systems for clients in
+> Pakistan and worldwide, delivered end to end by one accountable team. The
+> founder is Ahmed Raza. Every engagement starts with a free AI audit that
+> maps the client's workflow and gives an honest recommendation on what is
+> worth automating.
+
+## Services
+
+- [Automation & AI Agents](https://www.cybrumsolutions.dev/services/ai-automation): Multi-agent systems (LangGraph, CrewAI), n8n workflow automation, document/data processing, and lead handling. A single workflow ships in 1-2 weeks; multi-agent systems in 4-8 weeks.
+- [Custom Chatbots & Assistants](https://www.cybrumsolutions.dev/services/ai-chatbots): Domain-specific AI assistants with memory and tool access, grounded in a business's real documents and data, for websites, WhatsApp, or internal use. Ships in 2-4 weeks.
+- [Web Development](https://www.cybrumsolutions.dev/services/web-development): Fast, SEO-ready websites and web applications on Next.js, with technical SEO, structured data, and analytics built in. Marketing sites ship in 2-3 weeks.
+
+## Products
+
+- [CS Chatbot](https://www.cybrumsolutions.dev/products/chatbot): An AI chatbot product for a business's website and WhatsApp Business number, trained only on that business's own content, answering with source citations. Also documented at https://chatbot.cybrumsolutions.dev/llms.txt.
+
+## Other pages
+
+- [About](https://www.cybrumsolutions.dev/about): The company, the founder, and how Cybrum Solutions works with clients.
+- [Work](https://www.cybrumsolutions.dev/work): Past projects and systems built for clients.
+- [Academy](https://www.cybrumsolutions.dev/academy): Courses on AI agents, automation, and related skills.
+- [Blogs](https://www.cybrumsolutions.dev/blogs): Articles on AI agents, automation, and chatbots, most published in English, Urdu, and Roman Urdu.
+- [Contact](https://www.cybrumsolutions.dev/contact): Book a free AI audit, or reach the team by WhatsApp, phone, or email.
+
+## Frequently asked questions
+
+- **What is the difference between an AI agent and a chatbot?** A chatbot answers questions in a conversation. An AI agent reasons about a goal, uses tools, and completes real tasks like updating systems, sending emails, or processing orders.
+- **How much does AI automation or an AI agent cost?** A single automated workflow is usually a few hundred dollars. Custom chatbots and assistants typically run into the low thousands. Multi-agent systems are quoted per project after a free AI audit.
+- **How long does it take to build and deploy?** A focused automation workflow ships in 1-2 weeks, a custom chatbot or assistant in 2-4 weeks, and larger multi-agent systems in 4-8 weeks.
+- **Which tools and platforms does Cybrum Solutions build with?** Claude API, LangGraph, CrewAI, and n8n for agents and automation, plus Next.js and Python for web systems. Clients own all the code and infrastructure.
+- **Does Cybrum Solutions work with international clients?** Yes. The company is based in Karachi, Pakistan, and serves clients worldwide, delivered remotely with systems deployed into the client's own accounts.
+
+Contact: info@cybrumsolutions.dev · https://wa.me/923370292786

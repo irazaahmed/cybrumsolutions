@@ -15,6 +15,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Products } from "@/components/sections/Products";
+import { Faq } from "@/components/sections/Faq";
 
 /**
  * Homepage: a condensed overview of the whole site. Every section is a teaser
@@ -41,6 +42,8 @@ export default function Home() {
         <Work />
         <Testimonials />
         <AboutTeaser />
+        {/* FAQ with FAQPage structured data, right before the final CTA */}
+        <Faq />
         {/* id keeps legacy /#contact anchor links landing on the CTA */}
         <CtaBand id="contact" />
       </main>
