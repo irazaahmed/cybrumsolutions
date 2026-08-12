@@ -45,11 +45,20 @@ export const contact = {
   tiktok: "https://tiktok.com/@cybrumsolutions",
 } as const;
 
+/**
+ * CS Academy is paused: every /academy route (including old /login, /signup,
+ * /dashboard, /courses/:slug redirects) sends visitors to the homepage — see
+ * next.config.ts — and nothing on the live site links to it. Flip this back
+ * to true to bring the whole section back online; no other file needs to
+ * change.
+ */
+export const ACADEMY_LIVE = false;
+
 /** Primary site navigation: every entry is a dedicated route. */
 export const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products/chatbot" },
-  { label: "Academy", href: "/academy" },
+  ...(ACADEMY_LIVE ? [{ label: "Academy", href: "/academy" }] : []),
   { label: "Work", href: "/work" },
   { label: "Skills", href: "/skills" },
   { label: "Blogs", href: "/blogs" },

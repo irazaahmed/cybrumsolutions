@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { useSession } from "next-auth/react";
-import { navLinks, site } from "@/lib/site";
+import { navLinks, primaryCta, site, ACADEMY_LIVE } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Logo } from "@/components/ui/Logo";
 
@@ -111,15 +111,26 @@ export function Navbar() {
           <ThemeToggle />
 
           {/* Desktop auth slot: avatar once logged in, otherwise the same
-              pill-button spot doubles as Login/Signup. */}
-          {status === "authenticated" ? (
-            <ProfileAvatar name={session.user?.name} image={session.user?.image} />
+              pill-button spot doubles as Login/Signup. CS Academy-only, so
+              gated behind ACADEMY_LIVE (src/lib/site.ts) — while paused, the
+              same spot reverts to the pre-Academy "Book a Free AI Audit" CTA. */}
+          {ACADEMY_LIVE ? (
+            status === "authenticated" ? (
+              <ProfileAvatar name={session.user?.name} image={session.user?.image} />
+            ) : (
+              <Link
+                href="/academy/signup"
+                className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] lg:inline-flex"
+              >
+                Log in / Sign up
+              </Link>
+            )
           ) : (
             <Link
-              href="/academy/signup"
+              href={primaryCta.href}
               className="btn-sheen hidden rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_30px_-6px_var(--color-accent)] lg:inline-flex"
             >
-              Log in / Sign up
+              {primaryCta.label}
             </Link>
           )}
 
@@ -172,15 +183,27 @@ export function Navbar() {
               </Link>
             </li>
           ))}
-          <li className="mt-2">
-            <Link
-              href={status === "authenticated" ? "/academy/dashboard/profile" : "/academy/signup"}
-              onClick={() => setOpen(false)}
-              className="block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-white"
-            >
-              {status === "authenticated" ? "Your profile" : "Log in / Sign up"}
-            </Link>
-          </li>
+          {ACADEMY_LIVE ? (
+            <li className="mt-2">
+              <Link
+                href={status === "authenticated" ? "/academy/dashboard/profile" : "/academy/signup"}
+                onClick={() => setOpen(false)}
+                className="block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-white"
+              >
+                {status === "authenticated" ? "Your profile" : "Log in / Sign up"}
+              </Link>
+            </li>
+          ) : (
+            <li className="mt-2">
+              <Link
+                href={primaryCta.href}
+                onClick={() => setOpen(false)}
+                className="block rounded-full bg-accent px-5 py-3 text-center text-sm font-medium text-white"
+              >
+                {primaryCta.label}
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </header>
