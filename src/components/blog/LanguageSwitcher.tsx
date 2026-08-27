@@ -10,6 +10,14 @@ type Props = {
 
 const ORDER: Lang[] = ["en", "ro", "ur"];
 
+/** "Coming soon" notice shown on a disabled language button, written in that
+ *  language itself rather than English. */
+const COMING_SOON: Record<Lang, string> = {
+  en: "Translation coming soon",
+  ro: "Tarjuma jald aa rahi hai",
+  ur: "ترجمہ جلد آ رہا ہے",
+};
+
 function hrefFor(slug: string, lang: Lang): string {
   return lang === "en" ? `/blogs/${slug}` : `/blogs/${slug}/${lang}`;
 }
@@ -35,7 +43,7 @@ export function LanguageSwitcher({ slug, current, available }: Props) {
               <span
                 key={lang}
                 aria-disabled="true"
-                title="Translation coming soon"
+                title={COMING_SOON[lang]}
                 className={`cursor-not-allowed rounded-lg border border-border px-4 py-2 text-sm text-muted/50 ${
                   isUrdu ? "urdu-heading text-lg" : ""
                 }`}
