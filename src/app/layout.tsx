@@ -148,6 +148,7 @@ const jsonLd = {
       sameAs: [contact.linkedinCompany, contact.facebook, contact.instagram, contact.tiktok],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
+        "@id": `${baseUrl}/#ai-services-catalog`,
         name: "AI Services",
         itemListElement: [
           {
@@ -209,17 +210,21 @@ const jsonLd = {
         addressRegion: "Sindh",
         addressCountry: "PK",
       },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 24.8607,
-        longitude: 67.0011,
-      },
+      // No `geo` here deliberately: the previous coordinates (24.8607,
+      // 67.0011) were Karachi's generic city-centroid, not a real
+      // business-specific location — that reads as placeholder data to
+      // anyone who checks, and provides no local-ranking benefit over
+      // omitting it. Add back real coordinates only if a genuine (even
+      // block-approximate) location for in-person client meetings exists.
+      // `areaServed` intentionally excludes "Worldwide": this is the
+      // *local* entity (Organization carries the global/remote scope via
+      // its own contactPoint below), so keeping it Pakistan-only sharpens
+      // the local-business signal instead of contradicting it.
       areaServed: [
         { "@type": "City", name: "Karachi" },
         { "@type": "City", name: "Lahore" },
         { "@type": "City", name: "Islamabad" },
         { "@type": "Country", name: "Pakistan" },
-        { "@type": "Place", name: "Worldwide" },
       ],
       knowsLanguage: ["English", "Urdu"],
       sameAs: [
@@ -228,7 +233,7 @@ const jsonLd = {
         contact.instagram,
         contact.tiktok,
       ],
-      hasOfferCatalog: { "@id": `${baseUrl}/#organization` },
+      hasOfferCatalog: { "@id": `${baseUrl}/#ai-services-catalog` },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: contact.phoneRaw,
@@ -276,10 +281,16 @@ export default function RootLayout({
             light / dark / system; defaults to dark (brand) when unset.
             Also marks repeat visits in the same tab so the brand splash
             (Preloader) only plays once per session and never delays LCP on
-            in-session navigations. */}
+            in-session navigations. Also corrects <html lang>/dir for the
+            /ur and /ro blog locale variants before paint: the root layout
+            is shared across every route (Next.js only allows one <html> per
+            app), so this can't be set server-side per page without forcing
+            the whole site into dynamic rendering just for two blog routes.
+            "ur" -> native Urdu script (rtl); "ro" (Roman Urdu) -> Urdu
+            content in Latin script, so lang="ur-Latn" per BCP 47, dir="ltr". */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=localStorage.getItem('cybrum-theme')||'dark';var d=p==='dark'||(p==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','dark');}try{if(sessionStorage.getItem('cybrum-splash'))document.documentElement.setAttribute('data-splash','seen');}catch(e){}})();`,
+            __html: `(function(){try{var p=localStorage.getItem('cybrum-theme')||'dark';var d=p==='dark'||(p==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}catch(e){document.documentElement.setAttribute('data-theme','dark');}try{if(sessionStorage.getItem('cybrum-splash'))document.documentElement.setAttribute('data-splash','seen');}catch(e){}try{var seg=location.pathname.split('/').filter(Boolean).pop();if(seg==='ur'){document.documentElement.lang='ur';document.documentElement.dir='rtl';}else if(seg==='ro'){document.documentElement.lang='ur-Latn';document.documentElement.dir='ltr';}}catch(e){}})();`,
           }}
         />
       </head>

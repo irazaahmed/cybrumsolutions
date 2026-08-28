@@ -4,9 +4,13 @@ import { useEffect, useState } from "react";
 import { Logo } from "@/components/ui/Logo";
 
 /** Minimum time the splash stays visible so the animation reads, not blinks. */
-const MIN_VISIBLE_MS = 1000;
-/** Hard cap: never hold the page hostage waiting on slow assets (promo video). */
-const MAX_WAIT_MS = 3500;
+const MIN_VISIBLE_MS = 700;
+/** Hard cap: never hold the page hostage waiting on slow assets (promo video).
+ *  Every first visit in a session pays this cost (most organic/search
+ *  referrals), so it's kept tight — 3.5s was measured as a real perceived-
+ *  load contributor in the 2026-08-28 SEO audit, on top of the hero's own
+ *  paint time. */
+const MAX_WAIT_MS = 2000;
 /** Matches the CSS fade-out duration on .preloader */
 const EXIT_MS = 650;
 

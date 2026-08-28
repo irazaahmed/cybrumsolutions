@@ -56,6 +56,16 @@ export async function getPublishedSlugs(): Promise<string[]> {
   return rows.map((r) => r.slug);
 }
 
+/** Slug + real last-edit date for every published skill, for the sitemap's
+ *  lastModified (the DB already tracks this via @updatedAt — no reason to
+ *  fall back to build/request time like the static routes have to). */
+export async function getPublishedSlugsWithDates(): Promise<{ slug: string; updatedAt: Date }[]> {
+  return prisma.skill.findMany({
+    where: { published: true },
+    select: { slug: true, updatedAt: true },
+  });
+}
+
 /** Full published skill by slug (detail page). Null if missing/unpublished. */
 export function getSkillBySlug(slug: string) {
   return prisma.skill.findFirst({ where: { slug, published: true } });

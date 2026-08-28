@@ -28,12 +28,14 @@ function Word({
   index: number;
   className?: string;
 }) {
-  // No blur filter and short stagger: the headline is the LCP element, so it
-  // must reach full opacity fast (Google ignores paints while transparent).
+  // The headline is the LCP element on most viewports, and Chrome only
+  // counts a paint once the element is opaque — so this animates position
+  // only (never opacity:0), letting the text paint the instant SSR'd
+  // HTML/CSS is ready instead of waiting on JS/hydration to reveal it.
   return (
     <motion.span
-      initial={{ opacity: 0, y: 22 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ y: 22 }}
+      animate={{ y: 0 }}
       transition={{ duration: 0.45, ease, delay: 0.05 + index * 0.035 }}
       className={`inline-block ${className}`}
     >
@@ -59,7 +61,11 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative flex min-h-screen flex-col overflow-hidden bg-grid-lines px-5 pt-28 pb-10 sm:px-8"
+      // Extra bottom padding on mobile only: the fixed chat launcher
+      // (FloatingDock, bottom-5 right-4, 56px) overlaps the trust line
+      // ("...clients worldwide.") when the hero's content sits flush
+      // against the viewport's bottom edge on short mobile screens.
+      className="relative flex min-h-screen flex-col overflow-hidden bg-grid-lines px-5 pt-28 pb-24 sm:px-8 sm:pb-10"
     >
       {/* Layered animated background */}
       <NeuralBackground className="absolute inset-0 h-full w-full opacity-70" />
