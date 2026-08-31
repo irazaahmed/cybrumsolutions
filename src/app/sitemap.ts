@@ -28,6 +28,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   chatbotProduct: "2026-08-08T13:44:26+05:00",
   location: "2026-07-08T17:33:55+05:00",
   exam: "2026-07-05T11:23:37+05:00",
+  anthropicExamPrep: "2026-08-31T00:00:00+05:00",
   skillsIndex: "2026-07-12T23:26:12+05:00",
 };
 
@@ -130,6 +131,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // GIAIC Quarter 5 exam study notes (also served at the exam subdomain).
       url: `${baseUrl}/exam`,
       lastModified: PAGE_LAST_MODIFIED.exam,
+    },
+    {
+      // Anthropic exam prep: Agent Factory book Roman Urdu study notes.
+      url: `${baseUrl}/anthropic-exam-prep`,
+      lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
     },
     ...postEntries,
   ];
