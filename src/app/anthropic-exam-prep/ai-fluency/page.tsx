@@ -42,7 +42,7 @@ import {
 } from "../_components/notes-ui";
 import { chapters } from "../_lib/chapters";
 
-const chapter = chapters.find((c) => c.slug === "ai-fluency-4ds")!;
+const chapter = chapters.find((c) => c.slug === "ai-fluency")!;
 
 const pageTitle = `${chapter.title} — Anthropic Exam Prep`;
 const pageDescription =
@@ -51,12 +51,12 @@ const pageDescription =
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  alternates: { canonical: "/anthropic-exam-prep/ai-fluency-4ds" },
+  alternates: { canonical: "/anthropic-exam-prep/ai-fluency" },
   openGraph: {
     type: "article",
     title: pageTitle,
     description: pageDescription,
-    url: `${site.url}/anthropic-exam-prep/ai-fluency-4ds`,
+    url: `${site.url}/anthropic-exam-prep/ai-fluency`,
     siteName: site.name,
   },
   twitter: {
@@ -264,7 +264,7 @@ const jsonLd = {
   "@type": "LearningResource",
   name: pageTitle,
   description: pageDescription,
-  url: `${site.url}/anthropic-exam-prep/ai-fluency-4ds`,
+  url: `${site.url}/anthropic-exam-prep/ai-fluency`,
   inLanguage: "ur-Latn",
   learningResourceType: "Study notes",
   isPartOf: { "@type": "ItemList", url: `${site.url}/anthropic-exam-prep` },

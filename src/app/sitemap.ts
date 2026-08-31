@@ -138,7 +138,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
     },
     {
-      url: `${baseUrl}/anthropic-exam-prep/ai-fluency-4ds`,
+      url: `${baseUrl}/anthropic-exam-prep/ai-fluency`,
       lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
     },
     ...postEntries,

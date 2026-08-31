@@ -12,7 +12,7 @@ export type ChapterMeta = {
  *  (and a matching `[slug]/page.tsx`) whenever a new topic is organized. */
 export const chapters: ChapterMeta[] = [
   {
-    slug: "ai-fluency-4ds",
+    slug: "ai-fluency",
     num: "01",
     title: "AI Fluency, The 4Ds",
     sub: "Delegation, Description, Discernment, Diligence — AI ke saath kaam karne ka insaan wala skill",
