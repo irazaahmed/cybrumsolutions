@@ -160,6 +160,25 @@ export function Footer() {
             </Link>
           </nav>
 
+          {/* Extras: standalone study-notes pages, outside the main nav */}
+          <nav className="flex flex-col gap-3">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Extras
+            </span>
+            <Link
+              href="/exam"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              GIAIC Exam Notes
+            </Link>
+            <Link
+              href="/anthropic-exam-prep"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Anthropic Exam Prep
+            </Link>
+          </nav>
+
           {/* Connect */}
           <div className="flex flex-col gap-3">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
