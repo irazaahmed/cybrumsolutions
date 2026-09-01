@@ -23,4 +23,13 @@ export const chapters: ChapterMeta[] = [
     readTime: "25-30 min",
     examCode: "CCAO-F",
   },
+  {
+    slug: "claude-chatgpt-101",
+    num: "02",
+    title: "Claude Aur ChatGPT 101",
+    sub: "9 concepts, 2 cockpits — Claude aur ChatGPT ke workspace ko bharosay se chalana",
+    tag: "Foundations",
+    readTime: "30-35 min",
+    examCode: "CCAO-F",
+  },
 ];

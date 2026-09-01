@@ -43,6 +43,7 @@ import {
 import { chapters } from "../_lib/chapters";
 
 const chapter = chapters.find((c) => c.slug === "ai-fluency")!;
+const nextChapter = chapters[chapters.findIndex((c) => c.slug === "ai-fluency") + 1];
 
 const pageTitle = `${chapter.title} — Anthropic Exam Prep`;
 const pageDescription =
@@ -1665,10 +1666,20 @@ one-person business with a limited budget.`}</PromptBox>
             <ArrowLeft size={15} />
             Sab Chapters
           </Link>
-          <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted/60">
-            Agla chapter jald aa raha hai
-            <ArrowRight size={15} />
-          </span>
+          {nextChapter ? (
+            <Link
+              href={`/anthropic-exam-prep/${nextChapter.slug}`}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
+            >
+              Agla: {nextChapter.title}
+              <ArrowRight size={15} />
+            </Link>
+          ) : (
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted/60">
+              Agla chapter jald aa raha hai
+              <ArrowRight size={15} />
+            </span>
+          )}
         </nav>
       </main>
 

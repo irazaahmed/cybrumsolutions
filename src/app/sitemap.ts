@@ -141,6 +141,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/anthropic-exam-prep/ai-fluency`,
       lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
     },
+    {
+      url: `${baseUrl}/anthropic-exam-prep/claude-chatgpt-101`,
+      lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
+    },
     ...postEntries,
   ];
 }
