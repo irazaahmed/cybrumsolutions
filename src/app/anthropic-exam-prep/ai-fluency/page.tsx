@@ -47,7 +47,7 @@ const nextChapter = chapters[chapters.findIndex((c) => c.slug === "ai-fluency") 
 
 const pageTitle = `${chapter.title} — Anthropic Exam Prep`;
 const pageDescription =
-  "AI Fluency ke 4Ds, Delegation, Description, Discernment, Diligence, ka Agent Factory book se liya gaya, sahih Roman Urdu revision guide, self-test quiz ke saath.";
+  "AI Fluency ke 4Ds — Delegation, Description, Discernment, Diligence — ka Agent Factory book se liya gaya Roman Urdu revision guide, self-test quiz ke saath.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -83,17 +83,15 @@ const toc: TocItem[] = [
 
 /* ------------------------------------------------------------------ */
 /*  Diagrams: recreated in Cybrum's own visual language (Tailwind +    */
-/*  lucide), not the book's original illustrations, to stay on-brand   */
-/*  and to avoid reusing a third party's illustration design. Labels   */
-/*  and captions are drawn directly from the source figure's alt text. */
+/*  lucide), not the book's original illustrations, to stay on-brand.  */
 /* ------------------------------------------------------------------ */
 
 function FourQualitiesDiagram() {
   const items = [
-    { icon: Target, t: "Effective", d: "Aap apne goal tak pahunch jate hain" },
-    { icon: Gauge, t: "Efficient", d: "Waqt, mehnat ya tokens zaya nahi hote" },
-    { icon: Scale, t: "Ethical", d: "AI ke kirdar ke baare mein sach aur insaaf se bataya jata hai" },
-    { icon: ShieldCheck, t: "Safe", d: "Privacy aur ahem maloomat mehfooz rehti hai" },
+    { icon: Target, t: "Effective", d: "Aap apne goal tak pahunch jate ho" },
+    { icon: Gauge, t: "Efficient", d: "Time, effort ya tokens waste nahi hote" },
+    { icon: Scale, t: "Ethical", d: "AI ka role honestly batate ho, chhupate nahi" },
+    { icon: ShieldCheck, t: "Safe", d: "Privacy aur important info safe rehti hai" },
   ];
   return (
     <figure className="my-7">
@@ -109,9 +107,9 @@ function FourQualitiesDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Ye chaar sifatein hain, aur 4Ds mein se har ek in mein se kam az kam
-        ek sifat ki khidmat karta hai, ye ek pukhta (durable) hunar hai, kuch
-        chaalaak prompts ka majmua nahi
+        Ye 4 qualities hain, aur 4Ds mein se har ek in mein se kam az kam ek
+        quality serve karti hai. Ye ek durable skill hai, kuch clever
+        prompts ka collection nahi
       </figcaption>
     </figure>
   );
@@ -119,9 +117,9 @@ function FourQualitiesDiagram() {
 
 function ThreeModesDiagram() {
   const modes = [
-    { icon: Settings, t: "Automation", q: "Ye kaam kar do", role: "Aap script writer hain", d: "AI aapki di hui khaas hidayaat se ek khaas kaam anjaam deta hai" },
-    { icon: Users, t: "Augmentation", q: "Chalein mil kar sochte hain", role: "Aap co-creator hain", d: "Aap aur AI donon mil kar, ek doosre ke soch ko aage barhate hue kaam karte hain" },
-    { icon: Compass, t: "Agency", q: "Meri taraf se ye maqsad hasil karo", role: "Aap director hain", d: "AI aapke bataye hue daaire ke andar khud faisle karta hai" },
+    { icon: Settings, t: "Automation", q: "Ye kaam kar do", role: "Aap script writer ho", d: "AI aapki specific instructions se ek specific task karta hai" },
+    { icon: Users, t: "Augmentation", q: "Chalo mil kar sochte hain", role: "Aap co-creator ho", d: "Aap aur AI dono mil kar, ek doosre ki thinking pe build karte hain" },
+    { icon: Compass, t: "Agency", q: "Ye goal mere liye achieve karo", role: "Aap director ho", d: "AI aapke diye hue boundary ke andar khud decide karta hai" },
   ];
   return (
     <figure className="my-7">
@@ -149,14 +147,14 @@ function ThreeModesDiagram() {
         ))}
       </div>
       <div className="mt-3 flex items-center gap-2 text-xs text-muted">
-        <span className="rounded-full border border-border px-2 py-0.5">Kam AI azadi</span>
+        <span className="rounded-full border border-border px-2 py-0.5">Kam AI autonomy</span>
         <span className="h-px flex-1 bg-border" />
-        <span className="rounded-full border border-border px-2 py-0.5">Zyada AI azadi</span>
+        <span className="rounded-full border border-border px-2 py-0.5">Zyada AI autonomy</span>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Koi tareeqa doosre se behtar nahi, hunar ye hai ke jo tareeqa kaam ko
-        chahiye wo chuna jaye, aur zaroorat par un teenon ke darmiyan move
-        kiya ja sake
+        Koi mode dusre se better nahi hai. Skill ye hai ke jo mode task ko
+        chahiye wahi pick karo, aur zaroorat pe teenon ke beech switch kar
+        sako
       </figcaption>
     </figure>
   );
@@ -165,12 +163,12 @@ function ThreeModesDiagram() {
 function LlmRealityDiagram() {
   return (
     <figure className="my-7">
-      <Flow steps={["Aapka prompt", "Training ke patterns", "Ek plausible tasalsul (continuation)"]} />
+      <Flow steps={["Aapka prompt", "Training ke patterns", "Ek plausible continuation"]} />
       <div className="grid gap-2.5 sm:grid-cols-3">
         {[
-          { t: "Plausible sahi nahi hota", d: "Confident aur ghalat, dono ek sath ho sakte hain" },
-          { t: "Jawab badalta rehta hai", d: "Ek hi sawal alag waqt mein alag jawab de sakta hai" },
-          { t: "Sirf jo maujood ho", d: "Training, guftagu, documents, tools; jo maujood na ho wahan andaza lagaya ja sakta hai" },
+          { t: "Plausible ≠ Correct", d: "Confident aur wrong dono ek sath ho sakte hain" },
+          { t: "Output change hota rehta hai", d: "Same sawal alag time pe alag answer de sakta hai" },
+          { t: "Sirf jo available hai", d: "Training, chat, documents, tools; jo available nahi wahan guess hota hai" },
         ].map((n) => (
           <div key={n.t} className="rounded-xl border border-border bg-card/60 p-4">
             <p className="text-sm font-semibold text-foreground">{n.t}</p>
@@ -179,8 +177,8 @@ function LlmRealityDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Har output ko ek qabil colleague ka ek soocha samjha draft samjhein,
-        kabhi bhi hatmi sach (ground truth) nahi
+        Har output ko ek capable colleague ka draft samjho, kabhi bhi ground
+        truth nahi
       </figcaption>
     </figure>
   );
@@ -191,14 +189,14 @@ function DelegationPartsDiagram() {
     <figure className="my-7">
       <Flow
         steps={[
-          "Problem Awareness: apna goal aur success ka matlab maloom ho",
-          "Platform Awareness: is kaam ke liye kaunsa AI tool theek hai, ye maloom ho",
-          "Task Delegation: kaam ko jaan-boojh kar taqseem kiya jaye",
+          "Problem Awareness: apna goal aur success ka matlab pata ho",
+          "Platform Awareness: pata ho ke is task ke liye kaunsa AI tool sahi hai",
+          "Task Delegation: kaam ko jaan-boojh kar divide karo",
         ]}
       />
       <figcaption className="mt-1 text-center text-xs text-muted">
         Pehle domain expert bano, phir AI delegator, kyunke AI expertise ko
-        tez karta hai, usay replace shayad hi karta hai
+        speed karta hai, replace kam hi karta hai
       </figcaption>
     </figure>
   );
@@ -206,9 +204,9 @@ function DelegationPartsDiagram() {
 
 function DescriptionPartsDiagram() {
   const parts = [
-    { icon: Package, t: "Product", q: "Kya chahiye", d: "Output ki qisam, audience, format, tul (length), aur lehja (tone)" },
-    { icon: GitBranch, t: "Process", q: "Kis tarah ho", d: "Marahil (steps), tarteeb, tareeqa, misaalein, aur beech ke checks" },
-    { icon: Sliders, t: "Performance", q: "Kaisa suluk kare", d: "AI aapke sath aur khud apne taur par kaisa behave kare" },
+    { icon: Package, t: "Product", q: "Kya chahiye", d: "Output ka type, audience, format, length, tone" },
+    { icon: GitBranch, t: "Process", q: "Kaise hona chahiye", d: "Steps, order, method, examples, beech ke checks" },
+    { icon: Sliders, t: "Performance", q: "Kaise behave kare", d: "AI aapke sath aur khud apne taur pe kaise behave kare" },
   ];
   return (
     <figure className="my-7">
@@ -225,8 +223,8 @@ function DescriptionPartsDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Yaad rakhne ka tareeqa: What → How → Mere sath kis tarah pesh aana
-        hai. Mukammal hona chaalaaki se ziyada zaroori hai
+        Yaad rakhne ka trick: What → How → Mujhse kaise deal karo. Complete
+        hona clever hone se important hai
       </figcaption>
     </figure>
   );
@@ -234,9 +232,9 @@ function DescriptionPartsDiagram() {
 
 function DiligenceTimelineDiagram() {
   const stops = [
-    { icon: ShieldCheck, t: "Pehle · Creation", d: "Sahi tool, sahi data, aur sahi context ka intekhab" },
-    { icon: Eye, t: "Dauran · Transparency", d: "AI ke kirdar ke baare mein sab se ziyada honest rehna" },
-    { icon: Rocket, t: "Baad Mein · Deployment", d: "Bhejne se pehle taeed (verify) aur zimmedari (vouch)" },
+    { icon: ShieldCheck, t: "Before · Creation", d: "Right tool, right data, right context pick karna" },
+    { icon: Eye, t: "During · Transparency", d: "AI ke role ke baare mein honest rehna" },
+    { icon: Rocket, t: "After · Deployment", d: "Ship karne se pehle verify karna" },
   ];
   return (
     <figure className="my-7">
@@ -252,8 +250,8 @@ function DiligenceTimelineDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        &ldquo;Kya main is par yaqeen ke sath apna naam laga sakta hoon? Agar
-        nahi, to ye abhi bhejne ke qabil nahi.&rdquo;
+        &ldquo;Kya main confidently is par apna naam laga sakta hoon? Agar
+        nahi, to ye ship nahi hoga.&rdquo;
       </figcaption>
     </figure>
   );
@@ -286,7 +284,6 @@ export default function AiFluencyChapterPage() {
       <JsonLd data={jsonLd} />
       <NotesHeader backHref="/anthropic-exam-prep" backLabel="Notes Index" />
 
-      {/* Compact chapter intro, no full hero — this is a sub-page */}
       <section className="relative overflow-hidden pt-28 pb-6 sm:pt-32">
         <div
           aria-hidden
@@ -317,47 +314,45 @@ export default function AiFluencyChapterPage() {
               se match karta hai
             </p>
             <CoreIdea>
-              AI fluency ka matlab chaalaak prompts yaad karna nahi, balke
-              chaar salahiyaton, <Strong>4Ds</Strong>, ka majmua hai:
-              Delegation, yani kaam ka batwaara karna; Description, yani AI
-              ko wo maloomat dena jiski usay zaroorat hai; Discernment, yani
-              AI ka diya hua kaam parakhna; aur Diligence, yani is sab ki
-              zimmedari uthana. Ek nihayat qawi AI bhi, agar in chaaron ke
-              baghair istemal ho, to ghalat ya khatarnaak natija de sakta
-              hai.
+              AI fluency ka matlab clever prompts yaad karna nahi hai. Ye
+              4Ds hain: <Strong>Delegation</Strong> (kaam divide karna),{" "}
+              <Strong>Description</Strong> (AI ko wo info dena jo usay
+              chahiye), <Strong>Discernment</Strong> (jo answer aaye usay
+              check karna), aur <Strong>Diligence</Strong> (responsibility
+              lena). Agar in 4 ke bina powerful AI use karo, to result
+              wrong ya risky ho sakta hai.
             </CoreIdea>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Ek Naye Colleague Ki Misaal</SubHeading>
+            <SubHeading>Ek Naye Colleague Ki Example</SubHeading>
             <P>
-              Tasawwur karein ke aapki team mein ek qabil naya colleague
-              shamil hota hai. Pehle hi din aap usay kehte hain ke &ldquo;AI
-              agents par ek course ki outline tayar karo.&rdquo; Chand
-              ghanton baad wo aapke saamne PhD researchers ke liye ek
-              chamakti hui outline pesh karti hai, jismein poore semester ka
-              time-table shamil hai, magar hands-on practice na ke barabar.
-              Yahan masla uski qabiliyat mein nahi tha, balke is baat mein
-              tha ke usay poori tarah rehnumai nahi di gayi thi.
+              Socho aapki team mein ek talented naya colleague join karta
+              hai. Pehle hi din aap usay bolte ho, &ldquo;AI agents pe ek
+              course outline bana do.&rdquo; Kuch ghanton baad wo PhD
+              researchers ke liye ek polished outline deti hai, poore
+              semester ka timeline, aur hands-on practice na ke barabar.
+              Problem uski capability mein nahi thi, problem ye thi ke usay
+              proper direction nahi mili.
             </P>
             <Callout label="Key Distinction">
-              Insaan colleague se ye farq hai ke AI, guftagu ke darmiyan
-              kuch bhi yaad nahi rakhta. Har naya chat ek aisi hasti se
-              shuru hota hai jo aap se pehle kabhi nahi mili. Jo baat aap
-              kisi insaan ko ek dafa bata dete hain, wahi baat AI ko har
-              baar dobara batani parti hai, ya phir aisi jagah rakhni parti
-              hai jahan se AI khud ba khud parh le. Ye koi khaami nahi, balke
-              ek kaam karne ki soorat-e-haal hai jiske gird planning honi
-              chahiye, aur yehi planning karna un chaar zaroori salahiyaton
-              mein se ek hai.
+              Human colleague se ye farq hai: AI conversations ke beech
+              kuch bhi remember nahi karta. Har naya chat ek aisi entity se
+              start hota hai jo aapse pehle kabhi mili hi nahi. Jo baat aap
+              kisi insaan ko ek baar batate ho, wahi baat AI ko har baar
+              dobara batani parti hai, ya phir kahin aisi jagah rakhni
+              parti hai jahan se AI khud read kar le. Ye koi flaw nahi hai,
+              ye ek working condition hai jiske around plan karna padta
+              hai, aur yehi planning karna un 4 essential skills mein se ek
+              hai.
             </Callout>
             <P>
-              Ek nihayat qawi AI bhi, agar sath kamzor tareeqe se kaam kiya
-              jaye, to ghalat natija deta hai. Sirf chaalaak prompts jaanna
-              kaafi nahi. <Strong>AI Fluency ka matlab ye hai</Strong> ke
-              AI ko kya dena hai, usay kis tarah rehnumai karni hai, uske
-              kaam ko kis tarah parakhna hai, aur kab usay istemal ya
-              bharosa nahi karna, ye sab jaan lena.
+              Ek powerful AI bhi, agar sath weak tareeke se kaam kiya jaye,
+              to wrong result deta hai. Sirf clever prompts pata hona kaafi
+              nahi. <Strong>AI Fluency ka matlab ye hai</Strong> ke AI ko
+              kya dena hai, usay kaise guide karna hai, uske kaam ko kaise
+              judge karna hai, aur kab use ya trust nahi karna, ye sab pata
+              hona.
             </P>
           </Reveal>
 
@@ -365,96 +360,90 @@ export default function AiFluencyChapterPage() {
             <SubHeading>Is Framework Ka Naam: 4Ds</SubHeading>
             <P>
               Ye framework Professor Rick Dakan aur Professor Joseph Feller
-              ne banaya, aur ise Anthropic ke sath milkar tayar kiye gaye
-              courses ke zariye parhaya jata hai. Is mein chaar insaani
-              salahiyatein shamil hain, jinhein 4Ds kaha jata hai:
+              ne banaya, aur Anthropic ke sath milkar tayar kiye gaye
+              courses ke through taught hota hai. Isme 4 human competencies
+              hain, jinhe 4Ds kehte hain:
             </P>
             <RecapTable
               head={["Competency", "Ek Line Sawal"]}
               rows={[
                 ["Delegation", "AI kya kare, aur mere paas kya rahe?"],
                 ["Description", "AI ko kaam achi tarah karne ke liye kya chahiye?"],
-                ["Discernment", "Kya natija waqai achha aur qabil-e-bharosa hai?"],
-                ["Diligence", "Kya ye AI ka zimmedaraana istemal hai, aur kya main is natije ka zimmedar banne ke liye tayyar hoon?"],
+                ["Discernment", "Result actually achha aur trustworthy hai?"],
+                ["Diligence", "Kya ye AI ka responsible use hai, aur main result ka zimmedar banne ke liye ready hoon?"],
               ]}
             />
             <P>
-              Aasan lafzon mein: pehle faisla karo, phir wazeh batao, phir
-              jaanch lo, aur aakhir mein zimmedari qabool karo. Is ko parhne
-              mein taqreeban tees minute lagte hain, aur practice prompts ke
-              liye pandra se bees minute alag se darkaar hote hain.
+              Simple words mein: pehle decide karo, phir explain karo, phir
+              check karo, phir apna own bano. Ye parhne mein roughly 30
+              minute lagte hain, plus practice prompts ke liye 15-20 minute
+              alag se.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Ye Course Foundations Mein Kahan Aata Hai</SubHeading>
-            <P>Book ka tajweez karda (recommended) tarteeb ye hai:</P>
+            <SubHeading>Ye Course Foundations Mein Kahan Fit Hota Hai</SubHeading>
+            <P>Book ka recommended sequence ye hai:</P>
             <Flow
               steps={[
-                "\"What AI Actually Is\", jo machine ko samjhata hai",
+                "\"What AI Actually Is\", jo machine ko explain karta hai",
                 "\"AI Fluency\", ye course, jo machine ke sath kaam karna sikhata hai",
-                "\"AI Prompting in 2026\", jo amali (practical) tareeqe sikhata hai",
+                "\"AI Prompting in 2026\", jo practical techniques sikhata hai",
               ]}
             />
             <RecapTable
-              head={["Mauzu", "What AI Actually Is", "Ye Course", "AI Prompting 2026"]}
+              head={["Topic", "What AI Actually Is", "Ye Course", "AI Prompting 2026"]}
               rows={[
-                ["AI kis tarah kaam karta hai", "Tafseel se", "Ek mukhtasar yaad-dahani", "Pehle se maloom farz kiya gaya"],
-                ["Kis tarah baat cheet ki jaye", "Context kyun ahem hai", "Description", "Amali prompting ke tareeqe"],
-                ["Jawab ko kis tarah parkha jaye", "Sahi lagna, sahi hone jaisa kyun nahi", "Discernment", "Model ko check karne ki aadatein"],
-                ["AI ko kya diya jaye", "Jagged frontier", "Delegation", "Models aur tools ka intekhab"],
-                ["Zimmedaraana istemal", "Zyada tar is chapter se bahar", "Diligence", "Mehfooz tool istemal aur permissions"],
+                ["AI kaise kaam karta hai", "In-depth", "Quick reminder", "Assume kiya gaya"],
+                ["Communicate kaise karein", "Context kyun matter karta hai", "Description", "Practical techniques"],
+                ["Answer kaise judge karein", "Plausible wrong kyun ho sakta hai", "Discernment", "Model-checking habits"],
+                ["AI ko kya dein", "Jagged frontier", "Delegation", "Models/tools choose karna"],
+                ["Responsible use", "Zyada tar is chapter se bahar hai", "Diligence", "Safe tool use, permissions"],
               ]}
             />
             <Callout label="Note">
-              Tareeqe (techniques) to models behtar hote hi badalte rahenge,
-              lekin ye chaar salahiyatein isi liye tayar ki gayi hain ke ye
-              hamesha kaam aayen.
+              Techniques to models improve hone ke sath badalte rahenge,
+              lekin ye 4 competencies isliye design hui hain ke ye last
+              karein.
             </Callout>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Teen Minute Mein Farq Dekhein</SubHeading>
-            <P>Pehla prompt, jo aam (generic) hai:</P>
+            <SubHeading>3 Minute Mein Difference Dekho</SubHeading>
+            <P>Pehla prompt, generic:</P>
             <PromptBox>Write a welcome email for new members.</PromptBox>
-            <P>
-              Natija qabil-e-qabool tha, sahi grammar ke sath, magar bilkul
-              aam sa.
-            </P>
-            <P>Doosra prompt, ek naye chat mein, khaas tafseel ke sath:</P>
+            <P>Result competent tha, grammar sahi thi, lekin bilkul generic.</P>
+            <P>Doosra prompt, ek fresh chat mein, specific detail ke sath:</P>
             <PromptBox>{`Write a welcome email for new members of a small women's cycling club
 in Karachi. Most are nervous beginners who have never ridden in traffic.
 Warm and a bit funny, under 150 words, no exclamation marks. End by
 telling them the Saturday 6am ride is slow on purpose and nobody gets
 dropped.`}</PromptBox>
             <P>
-              Wahi model, aur mehnat bhi taqreeban teen second ki, lekin
-              doosra email pehle se kaafi behtar tha. Is se do baatein
-              sabit hoti hain. Pehli ye ke donon natijon ka farq insaan ki
-              taraf se aaya, model ki taraf se nahi. Doosri ye ke aap doosre
-              email ko behtar isi liye keh sake kyunke aap cycling clubs,
-              hichkichahat mehsoos karne wale naye logon, aur Karachi ko
-              achi tarah samajhte hain. Pehli baat <Strong>Description</Strong>{" "}
-              ki misaal hai, aur doosri <Strong>Discernment</Strong> ki.
+              Same model, same 3 second ka kaam, lekin doosra email kaafi
+              better tha. Isse do cheezein pata chalti hain. Pehli, dono
+              results ka gap human ki taraf se aaya, model ki taraf se
+              nahi. Doosri, aap doosre email ko better isliye judge kar
+              paaye kyunke aap cycling clubs, nervous beginners, aur
+              Karachi ko achi tarah samajhte ho. Pehli baat{" "}
+              <Strong>Description</Strong> hai, doosri{" "}
+              <Strong>Discernment</Strong>.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Course Ke Aakhir Tak Kya Samajh Aana Chahiye</SubHeading>
-            <P>
-              Course mukammal hone tak, aapko in cheezon ki wazahat karne ke
-              qabil ho jana chahiye:
-            </P>
+            <SubHeading>Course Ke End Tak Kya Samajh Aana Chahiye</SubHeading>
+            <P>Course complete hone tak, aapko ye cheezein explain karne aani chahiyen:</P>
             <CheckList
               items={[
-                "AI fluency ka matlab, sirf \"prompts mein mahir hona\" se aage kya hai",
-                "Automation, augmentation, aur agency mein farq",
-                "Kaam ka kaunsa hissa khud rakhna hai aur kaunsa AI ko dena hai, ye kis tarah tay kiya jaye",
-                "Description ki teen qismein: product, process, aur performance",
-                "AI ke output ko sirf confident jawab ki bina par qabool karne ki bajaye, usay kis tarah parkha jaye",
-                "Diligence ki teen qismein: creation, transparency, aur deployment",
-                "Ek asal (real) project mein ye chaaron salahiyatein sath sath kis tarah kaam karti hain",
-                "Ye zaati (personal) salahiyatein Agent Factory ki engineering practices mein kis tarah phailti (scale) hain",
+                "AI fluency ka matlab, sirf \"prompts mein achha hona\" se aage kya hai",
+                "Automation, augmentation, aur agency mein difference",
+                "Kaam ka kaunsa part khud rakhna hai aur kaunsa AI ko dena hai, ye kaise decide karein",
+                "Description ke 3 types: product, process, aur performance",
+                "AI ke output ko sirf confident answer dekh ke accept karne ki jagah, use kaise evaluate karein",
+                "Diligence ke 3 types: creation, transparency, aur deployment",
+                "Ek real project mein ye 4 competencies sath sath kaise kaam karti hain",
+                "Ye personal skills Agent Factory ki engineering practices mein kaise scale hoti hain",
               ]}
             />
           </Reveal>
@@ -463,15 +452,15 @@ dropped.`}</PromptBox>
         {/* ---------------------------- PART 1 ---------------------- */}
         <section id="part1" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <PartBanner>Part 1 · Bari Tasveer Se Ibtida</PartBanner>
-            <SubHeading>1. AI Tak Rasai, AI Fluency Nahi</SubHeading>
+            <PartBanner>Part 1 · Bari Picture Se Start</PartBanner>
+            <SubHeading>1. AI Access, AI Fluency Nahi Hai</SubHeading>
             <P>
-              Ek qawi AI tak rasai hona is baat ki zamanat nahi deta ke usay
-              achi tarah istemal karna bhi aata hai. Taqreeban sab logon ke
-              paas ek jaisi models mojood hain. Ek hi plan par ek hi
-              assistant istemal karne wale do log bilkul mukhtalif natije
-              hasil karte hain. Farq tool mein nahi tha, <Strong>farq is
-              baat mein tha ke unhon ne usay istemal kis tarah kiya.</Strong>
+              Ek powerful AI tak access hona, use achi tarah use karna
+              aane ke barabar nahi hai. Almost sab ke paas same models
+              available hain. Same plan pe same assistant use karne wale
+              do log bilkul different results get karte hain. Farq tool
+              mein nahi tha, <Strong>farq is baat mein tha ke unhone use
+              kaise use kiya.</Strong>
             </P>
           </Reveal>
 
@@ -479,127 +468,120 @@ dropped.`}</PromptBox>
             <SubHeading>AI Fluency Ka Matlab: AI Ke Sath Aise Kaam Karna Jo</SubHeading>
             <FourQualitiesDiagram />
             <P>
-              <Strong>Jo cheez zaroori NAHI hai</Strong> wo ye hai ke large
-              language models ki training samjhi jaye, transformer
-              architecture ki gehri maloomat hasil ki jaye, ya &ldquo;jaadui
-              prompts&rdquo; ka koi majmua yaad kiya jaye. Bunyad sirf itni
-              hai ke AI ke gird achay insaani faisle karna seekha jaye. Is
-              ka silsila yun hai: Delegation, phir Description, phir
-              Discernment, aur aakhir mein Diligence, ya aasan lafzon mein:
-              faisla karo, samjhao, jaancho, aur zimmedar bano.
+              <Strong>Jo cheez zaroori NAHI hai</Strong> wo ye hai: large
+              language models kaise train hoti hain ye samajhna,
+              transformer architecture ki deep knowledge, ya
+              &ldquo;magic prompts&rdquo; ka koi collection. Foundation
+              sirf itni hai: AI ke around good human decisions lena
+              seekhna. Sequence yehi hai: Delegation, phir Description,
+              phir Discernment, phir Diligence, ya simple words mein:
+              decide karo, explain karo, check karo, apna own bano.
             </P>
-            <Callout label="Agent Factory Parhne Walon Ke Liye Ahmiyat">
-              Ye sab se pehle aati hai. Mode 1 mein aap aam (general) agents
-              istemal kar ke masail hal karte hain. Mode 2 mein aap doosron
-              ke liye Digital FTEs banate hain. Donon soorat mein AI fluency
-              laazmi hai. <Strong>&ldquo;Agar aap ek AI assistant ke sath
-              achi tarah kaam nahi kar sakte, to aap us AI system ko design
-              karne ke liye tayyar nahi hain jo saikron ya hazaron logon ki
-              taraf se kaam karega.&rdquo;</Strong>
+            <Callout label="Agent Factory Readers Ke Liye Important">
+              Ye sab se pehle aata hai. Mode 1 mein aap general agents use
+              karte ho problems solve karne ke liye. Mode 2 mein aap
+              dusron ke liye Digital FTEs banate ho. Dono ke liye AI
+              fluency zaroori hai. <Strong>&ldquo;Agar aap ek AI assistant
+              ke sath achi tarah kaam nahi kar sakte, to aap wo AI system
+              design karne ke liye ready nahi ho jo hundreds ya thousands
+              users ke liye act karega.&rdquo;</Strong>
             </Callout>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Pichle Chapter Se Teen Baatein Yaad Rakhein</SubHeading>
-            <P>
-              &ldquo;What AI Actually Is&rdquo; chapter se ye teen baatein
-              zehan mein rakhein:
-            </P>
+            <SubHeading>Pichle Chapter Se 3 Baatein Yaad Rakho</SubHeading>
             <CheckList
               items={[
-                "Sahi lagna, sahi hone jaisa nahi hota, AI aisa confident jawab de sakta hai jo ghalat ho (hallucination)",
-                "Output badalta rehta hai, ek hi darkhwast alag waqt mein alag jawab de sakti hai",
-                "AI sirf usi maloomat par kaam karta hai jo us tak mojood ho, jo maloomat mojood na ho, wahan andaza lagaya ja sakta hai",
+                "Plausible, correct ke barabar nahi hai, AI aisa confident answer de sakta hai jo wrong ho (hallucination)",
+                "Output change hota rehta hai, same request alag time pe alag answer de sakti hai",
+                "AI sirf available information pe kaam karta hai, jo info missing hai wahan guess ho sakta hai",
               ]}
             />
             <LlmRealityDiagram />
           </Reveal>
 
           <Reveal>
-            <SubHeading>2. AI Ke Sath Kaam Karne Ke Teen Tareeqe: Automation, Augmentation, Agency</SubHeading>
+            <SubHeading>2. AI Ke Sath Kaam Karne Ke 3 Tareeke: Automation, Augmentation, Agency</SubHeading>
             <P>
-              4Ds seekhne se pehle, ek aur bunyadi baat samajhni zaroori
-              hai. Insaan AI ke sath teen wasee (broad) tareeqon se kaam
-              karte hain, aur in mein farq zyada tar is baat se hota hai ke{" "}
-              <Strong>AI ko agla qadam khud tay karne ki kitni azadi di gayi
-              hai.</Strong>
+              4Ds seekhne se pehle, ek aur foundational idea zaroori hai.
+              Humans AI ke sath 3 broad modes mein kaam karte hain, aur
+              inka farq mainly is baat se hota hai ke{" "}
+              <Strong>AI ko agla step khud decide karne ki kitni freedom
+              di gayi hai.</Strong>
             </P>
             <ThreeModesDiagram />
           </Reveal>
 
           <Reveal>
-            <SubHeading>Automation: &ldquo;Ye Kaam Kar Do&rdquo;</SubHeading>
+            <SubHeading>Automation: &ldquo;Ye Task Karo&rdquo;</SubHeading>
             <P>
-              Automation mein aap AI ko theek theek batate hain ke kaunsa
-              kaam karna hai, jaise &ldquo;is report ko paanch bullets mein
-              summarize kar do&rdquo;, &ldquo;is email ka Urdu tarjuma kar
-              do&rdquo;, ya &ldquo;invoice se number, tareekh, aur total
-              nikaal do.&rdquo; Yahan aap ek <Strong>script writer</Strong>{" "}
-              ki tarah hote hain. Ye tareeqa tab sab se behtar rehta hai jab
-              kaam wazeh aur baar baar dohraya jane wala ho.
+              Automation mein aap AI ko exactly batate ho ke kaunsa task
+              karna hai, jaise &ldquo;is report ko 5 bullets mein
+              summarize karo&rdquo;, &ldquo;is email ka Urdu translation
+              karo&rdquo;, ya &ldquo;invoice se number, date, total nikaal
+              do.&rdquo; Yahan aap ek <Strong>script writer</Strong> ho.
+              Ye best tab kaam karta hai jab task clear aur repeatable ho.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>Augmentation: &ldquo;Mere Sath Socho&rdquo;</SubHeading>
             <P>
-              Augmentation mein aap aur AI mil kar kaam karte hain, misaal
-              ke taur par kisi business idea par ghor karna, software ki
-              architecture ka jaiza lena, lesson plan ko behtar banana, do
-              hikmat-e-amaliyon (strategies) ka muwazna karna, ya koi aisa
-              sawal cheher karna jiska jawab abhi khud aapko bhi maloom
-              nahi. Yahan AI aik <Strong>sochne wale saathi (thinking
-              partner)</Strong> ki tarah kaam karta hai, sirf hidayaat par
-              amal nahi karta. Is mein aap ke aur AI ke darmiyan kai baar
-              baat aage peeche hoti hai, aap sawal karte hain, wo jawab
-              deta hai, aap us par etraaz karte hain, aur wo apna jawab
-              tarmeem karta hai.
+              Augmentation mein aap aur AI mil kar kaam karte ho, jaise
+              business idea pe brainstorm karna, software architecture ka
+              review karna, lesson plan ko better banana, do strategies ka
+              comparison karna, ya koi aisa question explore karna jiska
+              answer aapko khud abhi pata nahi. Yahan AI ek{" "}
+              <Strong>thinking partner</Strong> ki tarah kaam karta hai,
+              sirf instructions execute nahi karta. Isme aap aur AI ke
+              beech kai turns back and forth hote hain, aap poochte ho, wo
+              answer deta hai, aap challenge karte ho, wo revise karta
+              hai.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Agency: &ldquo;Meri Taraf Se Ye Maqsad Hasil Karo&rdquo;</SubHeading>
+            <SubHeading>Agency: &ldquo;Ye Goal Mere Liye Achieve Karo&rdquo;</SubHeading>
             <P>
-              Agency mein aap AI ko ek maqsad aur usi ki hadood (boundaries)
-              de dete hain, phir usay kai qadam khud tay karne dete hain.
-              &ldquo;Ye paanch emails parh kar mujhe khulasa (summary) do&rdquo;
-              kehne ki bajaye, aap kuch is tarah kehte hain:
+              Agency mein aap AI ko ek goal aur boundaries de dete ho, phir
+              usay kai steps khud decide karne dete ho. &ldquo;Ye 5 emails
+              parh ke summary do&rdquo; kehne ki jagah, aap kuch aisa bolte
+              ho:
             </P>
             <PromptBox>{`"Keep my inbox manageable. Reply to routine messages, flag important ones,
 and ask me before doing anything you are unsure about."`}</PromptBox>
             <P>
-              Ab AI ko khud faisla karna parta hai ke kya routine hai, kya
-              ahem hai, aur kab poochna zaroori hai. Yahan aap script writer
-              se <Strong>director</Strong> ban jate hain. Do lafz is mein
-              bohot wazan rakhte hain. Pehla, <Strong>future</Strong>, yani
-              aap us waqt maujood nahi hote, aap ne peer ko sab kuch tay kar
-              diya aur juma ko wo kaam khud anjaam pata hai jab aap so rahe
-              hote hain. Doosra, <Strong>for others</Strong>, yani jis
-              insaan ki khidmat AI kar rahi hai, wo khud aap na bhi ho.
-              Automation aur augmentation mein aap kursi par baithe rehte
-              hain, lekin agency mein aap kursi se uth jate hain, aur Mode 2
-              ki har mushkil isi ek haqiqat se nikalti hai: aap har faisle
-              ki nigrani nahi kar sakte, isliye samajh-boojh (judgment)
-              pehle se hi shamil honi chahiye.
+              Ab AI ko khud decide karna padta hai ke kya routine hai, kya
+              important hai, aur kab poochna hai. Yahan aap script writer
+              se <Strong>director</Strong> ban jate ho. Do words yahan
+              bohot weight rakhte hain. Pehla, <Strong>future</Strong>, yani
+              aap us waqt present nahi ho, aap ne Monday ko sab set kar
+              diya aur Thursday ka kaam khud handle ho raha hai jab aap so
+              rahe ho. Doosra, <Strong>for others</Strong>, yani jis insaan
+              ki AI service kar rahi hai, wo khud aap na bhi ho. Automation
+              aur augmentation mein aap chair pe baithe rehte ho, lekin
+              agency mein aap chair se uth jate ho, aur Mode 2 ki har
+              difficulty isi ek fact se aati hai: aap har decision
+              supervise nahi kar sakte, isliye judgment pehle se built-in
+              honi chahiye.
             </P>
             <RecapTable
-              head={["Pehlu", "Automation", "Agency"]}
+              head={["Aspect", "Automation", "Agency"]}
               rows={[
-                ["Aap kya dete hain", "Kaam ya usi ke marahil (steps)", "Maqsad aur hadood (boundaries)"],
-                ["AI kya faisla karta hai", "Bohot kam", "Aage ke kai qadam"],
-                ["Aapka kirdar", "Script writer", "Director"],
-                ["Aam ghalti", "Koi ek qadam ghalat ho jata hai", "Maqsad ya hadood samajhne mein ghalti ho jati hai"],
+                ["Aap kya dete ho", "Task ya uske steps", "Goal aur boundaries"],
+                ["AI kya decide karta hai", "Bohot kam", "Aage ke kai steps"],
+                ["Aapka role", "Script writer", "Director"],
+                ["Common failure", "Ek step wrong ho jata hai", "Goal ya boundary misunderstand ho jati hai"],
               ]}
             />
             <P>
-              Koi bhi tareeqa khud ba khud doosre se behtar nahi hota. Ek
-              achha AI istemal karne wala wahi tareeqa chunta hai jo us
-              waqt kaam ko chahiye, aur ek hi project mein teenon tareeqe
-              shamil ho sakte hain. Mode 1 zyada tar automation aur
-              augmentation istemal karta hai, jabke Mode 2 agency ko
-              tarteeb-yaafta (systematic) bana deta hai. Ek Digital FTE sirf
-              itna nahi ke &ldquo;AI kaam kar rahi hai&rdquo;, balke ye ek
-              job definition, System of Record, permissions, qawaid, aur
+              Koi mode automatically dusre se better nahi hota. Ek achha
+              AI user wahi mode pick karta hai jo task ko chahiye, aur ek
+              project mein teenon mode use ho sakte hain. Mode 1 zyada tar
+              automation aur augmentation use karta hai, jabke Mode 2
+              agency ko systematic bana deta hai. Ek Digital FTE sirf itna
+              nahi ke &ldquo;AI kaam kar rahi hai&rdquo;, balke ye ek job
+              definition, System of Record, permissions, rules, aur
               governance ke andar reh kar kaam karta hai.
             </P>
           </Reveal>
@@ -608,113 +590,109 @@ and ask me before doing anything you are unsure about."`}</PromptBox>
         {/* ---------------------------- DELEGATION ---------------------- */}
         <section id="delegation" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <PartBanner>Part 2 · Chaar Salahiyatein</PartBanner>
-            <SubHeading>3. Delegation: Kaam Kaun Karega, Ye Faisla Karna</SubHeading>
+            <PartBanner>Part 2 · 4 Competencies</PartBanner>
+            <SubHeading>3. Delegation: Decide Karo Kaun Kya Karega</SubHeading>
             <P>
-              Beginners ki sab se aam ghalti pehle prompt se bhi pehle ho
-              jati hai. Log AI assistant khol kar seedha type karna shuru
-              kar dete hain, jabke unhon ne abhi ye tay hi nahi kiya hota ke
-              asal mein hasil kya karna hai, achha natija kaisa dikhega,
-              kaam ka kaunsa hissa AI ko dena hai, kaunsa hissa khud
-              sambhalna hai, aur kaunse faisle kabhi bhi AI ke supurd nahi
-              karne chahiye. Yehi <Strong>Delegation</Strong> ka masla hai.
+              Beginners ki sab se common mistake first prompt se bhi pehle
+              ho jati hai. Log AI assistant khol ke seedha type karna
+              start kar dete hain, jabke unhone abhi ye decide hi nahi
+              kiya hota ke actually achieve kya karna hai, achha result
+              kaisa dikhega, kaunsa part AI kare, kaunsa part khud karein,
+              aur kaunse decisions kabhi AI ko na diye jayein. Yehi{" "}
+              <Strong>Delegation</Strong> ka problem hai.
             </P>
             <Callout label="Definition">
-              <Strong>Delegation</Strong> ka matlab ye tay karna hai ke kaam
-              insaan aur AI ke darmiyan kis tarah taqseem hoga. Ye sirf itna
-              nahi ke &ldquo;AI ko kaam de diya&rdquo;, balke ye poori
-              workflow ko design karna hai.
+              <Strong>Delegation</Strong> ka matlab hai decide karna ke
+              kaam human aur AI ke beech kaise divide hoga. Ye sirf
+              &ldquo;AI ko kaam de diya&rdquo; nahi hai, ye poori workflow
+              design karna hai.
             </Callout>
             <DelegationPartsDiagram />
-            <Callout label="Yaad Rahe">
+            <Callout label="Yaad Rakho">
               Pehle domain expert bano, phir AI delegator, kyunke AI
-              expertise ko tez karta hai, usay replace shayad hi karta hai.{" "}
-              <Strong>Delegation asal mein workflow design hai, kaam ko AI
-              par daal dena nahi.</Strong>
+              expertise ko speed karta hai, replace kam hi karta hai.{" "}
+              <Strong>Delegation workflow design hai, task offloading
+              nahi.</Strong>
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>3.1 Problem Awareness</SubHeading>
-            <P>
-              AI se kuch bhi poochne se pehle, khud se ye sawalat poochein:
-            </P>
+            <P>AI se kuch bhi poochne se pehle, khud se ye poocho:</P>
             <CheckList
               items={[
-                "Maqsad kya hai?",
-                "Ye kis ke liye hai?",
-                "Kamiyabi kis tarah nazar aayegi?",
-                "Kya galat ho sakta hai?",
-                "Kahan par insaani samajh-boojh (judgment) zaroori hai?",
+                "Goal kya hai?",
+                "Ye kiske liye hai?",
+                "Success kaisa dikhega?",
+                "Kya wrong ho sakta hai?",
+                "Human judgment kahan zaroori hai?",
               ]}
             />
             <P>
-              Iski ek misaal lein: ek naya (beginner) user AI se kehta hai,
-              &ldquo;mujhe ek invoice-chasing agent bana do.&rdquo; AI kuch
-              na kuch bana to dega, lekin kai mushkil sawalat abhi bhi jawab
-              talab rahenge: kaunse customers se rabta kiya jaye, invoice
-              kitne din late hone par follow-up bheja jaye, kaunsa lehja
-              (tone) istemal ho, kitni raqam par insaan ki manzoori zaroori
-              ho, agar customer invoice par etraaz kare to kya kiya jaye,
-              agent kaunsa accounting system parh sakta hai, aur ye ke agent
+              Ek example dekho: ek beginner AI se kehta hai,
+              &ldquo;mujhe ek invoice-chasing agent bana do.&rdquo; AI
+              kuch na kuch bana to dega, lekin kai hard questions abhi bhi
+              unanswered rahenge, jaise kaunse customers ko contact karein,
+              invoice kitne din late hone pe follow-up bheja jaye, kaunsa
+              tone use ho, kitni amount pe human ki approval chahiye, agar
+              customer invoice pe dispute kare to kya kiya jaye, agent
+              kaunsa accounting system read kar sakta hai, aur ye ke agent
               sirf message ka draft banaye ya khud bhej bhi sake.{" "}
-              <Strong>Ye sawalat business ke hain, prompting ke nahi.</Strong>{" "}
-              AI aapki business policy khud se tay nahi kar sakta, jab tak
-              aap jaan-boojh kar usay ye ikhtiyar na dein, aur aksar aisa
-              karna bhi munasib nahi hota.
+              <Strong>Ye business questions hain, prompting questions
+              nahi.</Strong> AI aapki business policy khud se decide nahi
+              kar sakta jab tak aap jaan-boojh kar usay ye authority na
+              dein, aur zyada tar cases mein aapko dena bhi nahi chahiye.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>3.2 Platform Awareness</SubHeading>
             <P>
-              Har AI system har kaam mein barabar achha nahi hota. Mushkil,
-              kai marahil (steps) wale masail ke liye reasoning model chuna
-              ja sakta hai, taaza maloomat ke liye search-enabled assistant,
-              software banane ke liye coding agent, aur un kaamon ke liye
-              jin mein tools aur kai qadam shamil hon, agent-capable system.
-              Ek achi aadat ye hai ke khud se poochein, &ldquo;kya ye tool
-              is kaam ke liye theek hai?&rdquo; Alag alag systems ko
-              aazmayein, unke natije muwazna karein, aur ye note karte rahein
-              ke kya cheez kaam kar rahi hai.
+              Har AI system har task mein equally achha nahi hota. Mushkil,
+              multi-step problems ke liye reasoning model pick kar sakte
+              ho, current info ke liye search-enabled assistant, software
+              banane ke liye coding agent, aur un tasks ke liye jinme
+              tools aur multiple steps shamil hon, agent-capable system.
+              Ek achi habit ye hai ke khud se poocho, &ldquo;kya ye tool is
+              job ke liye sahi hai?&rdquo; Alag alag systems try karo,
+              unke results compare karo, aur note karte raho ke kya kaam
+              kar raha hai.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>3.3 Task Delegation</SubHeading>
             <P>
-              Jab problem aur platform, donon samajh mein aa jayen, to kaam
-              ko soch samajh kar hisson mein baant dein. Iski ek misaal, ek
+              Jab problem aur platform, dono samajh mein aa jayen, to kaam
+              ko soch samajh kar parts mein divide karo. Ek example, ek
               course banate waqt:
             </P>
             <RecapTable
-              head={["Kaam", "Behtareen Zimmedar", "Wajah"]}
+              head={["Task", "Best Owner", "Kyun"]}
               rows={[
-                ["Audience aur seekhne ke maqasid tay karna", "Insaan", "Yahan maqsad aur samajh-boojh darkaar hai"],
-                ["Course ki mumkin structures tajweez karna", "AI + Insaan", "AI wusaat (breadth) deta hai, insaan intekhab karta hai"],
-                ["Tay-shuda outline se sections ka draft banana", "AI", "Pehla draft banane mein tez hai"],
-                ["Haqeeqi (factual) daawon ki tasdeeq karna", "Insaan", "Zimmedari mussanif (author) par rehti hai"],
-                ["Zaati tajurbaat aur ilaqai misaalein shamil karna", "Insaan", "AI ke paas aapka tajurba nahi hota"],
-                ["Grammar aur consistency behtar banana", "AI", "Ye mechanical jaiza lene ke liye munasib hai"],
-                ["Course ki aakhri manzoori dena", "Insaan", "Yahan aapka naam aur wuqar (reputation) juda hai"],
+                ["Audience aur learning goals decide karna", "Human", "Purpose aur judgment chahiye"],
+                ["Possible course structures suggest karna", "AI + Human", "AI breadth deta hai, human choose karta hai"],
+                ["Agreed outline se sections draft karna", "AI", "First drafts mein fast hai"],
+                ["Factual claims verify karna", "Human", "Accountability author ke paas rehti hai"],
+                ["Lived experience aur local examples add karna", "Human", "AI ke paas aapka experience nahi hai"],
+                ["Grammar aur consistency improve karna", "AI", "Mechanical review ke liye achha fit"],
+                ["Course ki final approval dena", "Human", "Aapka naam aur reputation attached hai"],
               ]}
             />
-            <Callout label="Behtar Sawal">
-              &ldquo;Kya AI ye kar sakta hai?&rdquo; poochne ki bajaye,
-              behtar sawal ye hai: <Strong>&ldquo;Kaunsa hissa AI kare,
-              kaunsa main karoon, aur kyun?&rdquo;</Strong>
+            <Callout label="Better Question">
+              &ldquo;Kya AI ye kar sakta hai?&rdquo; poochne ki jagah, ye
+              poocho: <Strong>&ldquo;Kaunsa part AI kare, kaunsa main
+              karoon, aur kyun?&rdquo;</Strong>
             </Callout>
             <P>
-              Agent Factory mein aa kar Delegation ek engineering amal ban
-              jati hai. Problem Awareness ek <Strong>specification</Strong>{" "}
-              ki shakl ikhtiyar karti hai, jis mein maqsad, hadood
-              (constraints), khatraat (risks), aur &ldquo;definition of
-              done&rdquo; shamil hote hain. Task Delegation, Digital FTE ki
-              hadd (boundary) ban jati hai, jo ye tay karti hai ke AI kya kar
-              sakta hai, insaan kya apne paas rakhte hain, aur kaunsi cheez
-              escalate honi chahiye. Aur ek vertical System of Record inhi
-              faislon ko mehfooz aur qabil-e-mushahida (inspectable) banata
-              hai.
+              Agent Factory mein Delegation ek engineering step ban jati
+              hai. Problem Awareness ek <Strong>specification</Strong> ban
+              jati hai, yani goal, constraints, risks, aur &ldquo;definition
+              of done&rdquo;. Task Delegation Digital FTE ki boundary ban
+              jati hai, jo decide karti hai AI kya kar sakta hai, humans
+              kya apne paas rakhte hain, aur kya escalate hona chahiye. Aur
+              ek vertical System of Record in decisions ko durable aur
+              inspectable banata hai.
             </P>
           </Reveal>
         </section>
@@ -722,130 +700,122 @@ and ask me before doing anything you are unsure about."`}</PromptBox>
         {/* ---------------------------- DESCRIPTION ---------------------- */}
         <section id="description" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <SubHeading>4. Description: AI Ko Wo Dena Jo Usay Chahiye</SubHeading>
+            <SubHeading>4. Description: AI Ko Wo Do Jo Usay Chahiye</SubHeading>
             <P>
-              Shuru wale colleague ko yaad karein, uski outline isi liye
-              galat thi kyunke usay ahem maloomat nahi di gayi thi. AI ko
-              bhi yehi masla darpesh hota hai, magar is se bhi shiddat se.
-              Wo aapka zehan parh nahi sakta. Agar aap koi ahem baat chhor
-              dein, to wo ek mawafiq (reasonable) andaza laga leta hai, aur
-              ye mawafiq andaza bhi ghalat sabit ho sakta hai.
+              Shuru wale colleague ko yaad karo, uski outline isliye wrong
+              thi kyunke usay important information nahi di gayi thi. AI
+              ko bhi yehi problem hoti hai, magar zyada severely. Wo aapka
+              mind read nahi kar sakta. Agar aap koi important cheez chhor
+              dein, to wo ek reasonable guess laga leta hai, aur ye
+              reasonable guess bhi wrong ho sakti hai.
             </P>
             <Callout label="Definition">
-              <Strong>Description</Strong> wo salahiyat hai jis se aap AI ko
-              wo maloomat aur rehnumai faraham karte hain jiski usay kaam
-              achi tarah karne ke liye zaroorat hoti hai. Ye sirf &ldquo;ek
-              achha prompt likhne&rdquo; se kahin ziyada wasee (bigger)
-              cheez hai.
+              <Strong>Description</Strong> wo skill hai jisse aap AI ko wo
+              information aur guidance dete ho jo usay kaam achi tarah
+              karne ke liye chahiye. Ye sirf &ldquo;ek achha prompt
+              likhna&rdquo; se bohot bigger cheez hai.
             </Callout>
             <DescriptionPartsDiagram />
             <Callout label="Key Principle">
-              &ldquo;Mukammal hona chaalaaki se jeet jata hai, sab se achha
-              prompt chaalaak nahi hota, mukammal hota hai.&rdquo; Bare
-              paimane par, description khud <Strong>context
-              engineering</Strong> ban jati hai, yani wo har cheez design
-              karna jo AI ko kamiyab hone ke liye chahiye, na ke sirf ek
-              paigham (message) ki alfaaz-bandi.
+              &ldquo;Complete hona clever hone se jeet jata hai, best
+              prompt clever nahi hota, complete hota hai.&rdquo; Scale pe,
+              description khud <Strong>context engineering</Strong> ban
+              jati hai, yani wo har cheez design karna jo AI ko succeed
+              karne ke liye chahiye, sirf ek message ki wording nahi.
             </Callout>
           </Reveal>
 
           <Reveal>
-            <SubHeading>4.1 Product Description: Natije Ki Wazahat</SubHeading>
-            <P>
-              Ye sawal poochti hai: &ldquo;mujhe wapis theek theek kya
-              chahiye?&rdquo;
-            </P>
-            <P>Mubham (vague) darkhwast:</P>
+            <SubHeading>4.1 Product Description: Result Define Karo</SubHeading>
+            <P>Ye sawal poochti hai: &ldquo;mujhe wapis exactly kya chahiye?&rdquo;</P>
+            <P>Vague:</P>
             <PromptBox>Summarize this report.</PromptBox>
-            <P>Wazeh (clear) darkhwast:</P>
+            <P>Clear:</P>
             <PromptBox>{`Summarize this quarterly financial report for senior executives who have
 ten minutes to read. Focus on revenue trends, major risks, and recommended
 actions. Use short bullet points and keep it to one page. Highlight any
 figure that changed significantly from last quarter. Avoid unnecessary
 accounting jargon.`}</PromptBox>
             <P>
-              Doosri darkhwast zyada zeheen nahi, balke <Strong>zyada
-              mukammal</Strong> hai. Mukammal hona aksar chaalaak alfaaz se
-              kahin zyada matter karta hai.
+              Doosra request zyada intelligent nahi, <Strong>zyada
+              complete</Strong> hai. Complete hona aksar clever wording se
+              zyada matter karta hai.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>4.2 Process Description: Tareeqe Ki Wazahat</SubHeading>
-            <P>Ye sawal poochti hai: &ldquo;AI ko kaam kis tarah karna chahiye?&rdquo; Misaal:</P>
+            <SubHeading>4.2 Process Description: Approach Define Karo</SubHeading>
+            <P>Ye sawal poochti hai: &ldquo;AI ko kaam kaise karna chahiye?&rdquo; Example:</P>
             <PromptBox>{`Review this code for correctness first, security second, and style last.
 Do not spend time on naming issues until you have checked whether the
 code actually works.`}</PromptBox>
             <P>
               Process description sab se zyada tab matter karti hai jab
-              kaam kai marahil par mushtamil ho. Iski ek misaal, teen
-              vendors, A, B, aur C, ke proposals se ek sifarish (recommendation)
-              banana:
+              kaam ke kai stages hon. Ek example, 3 vendors, A, B, aur C,
+              ke proposals se ek recommendation banana:
             </P>
             <Ladder
               steps={[
-                { title: "Extract", note: "Har proposal se wahi facts ek table mein nikaalein: qeemat, contract ki muddat, exit terms, aur support ke auqaat. Check: teen ya chaar cells ko asal source se taeed karein." },
-                { title: "Compare", note: "Sirf usi table ka istemal karte hue vendors ka muwazna karein. Check: har farq waqai table mein maujood hai?" },
-                { title: "Score", note: "Har vendor ko score dein, jo baat aapke liye zyada matter karti hai usay zyada wazan dein. Check: scores aapki criteria ke mutabiq hain, ya AI ne khud koi naya criterion shamil kar liya?" },
-                { title: "Draft", note: "Sifarish likhein. Check: kya ye sirf wahi baat kehti hai jo pehle teen marahil se sabit hoti hai?" },
+                { title: "Extract", note: "Har proposal se same facts ek table mein nikalo: price, contract length, exit terms, support hours. Check: 3-4 cells ko source se confirm karo." },
+                { title: "Compare", note: "Sirf table use kar ke vendors compare karo. Check: har difference actually table mein hai?" },
+                { title: "Score", note: "Har vendor ko score do, jo cheez aapke liye zyada matter karti hai usay zyada weight do. Check: scores aapki criteria follow karte hain, ya AI ne khud koi criterion add kar diya?" },
+                { title: "Draft", note: "Recommendation likho. Check: ye sirf wahi claim karta hai jo steps 1-3 support karte hain?" },
               ]}
             />
-            <Callout label="Umoomi Usool" tone="warn">
-              Jis marhale ki ghalti sab se door tak asar andaaz hoti hai, wo
-              sab se pehle aana chahiye, aur aage barhne se pehle usay check
-              kar lena chahiye. Extraction is liye pehle hai kyunke agar
-              table mein qeematein ghalat hon, to wo comparison, score, aur
-              draft tak sath chalti hain, aur parhne tak sahi hi lagti
-              rehti hain.
+            <Callout label="General Rule" tone="warn">
+              Jis step ki mistake sab se door tak spread hoti hai, wo pehle
+              aana chahiye, aur aage barhne se pehle usay check karo.
+              Extraction isliye pehle hai kyunke table mein wrong prices
+              comparison, scoring, aur draft tak carry ho jati hain, aur
+              reading time tak sahi lagti rehti hain.
             </Callout>
           </Reveal>
 
           <Reveal>
-            <SubHeading>4.3 Performance Description: Suluk Ki Wazahat</SubHeading>
-            <P>Ye sawal poochti hai: &ldquo;ye AI kis tarah suluk kare, aur kis ke sath?&rdquo; Misaal:</P>
+            <SubHeading>4.3 Performance Description: Behavior Define Karo</SubHeading>
+            <P>Ye sawal poochti hai: &ldquo;ye AI kaise behave kare, aur kis ke sath?&rdquo; Example:</P>
             <PromptBox>{`Challenge my assumptions when they are weak. Flag uncertainty. Do not
 agree with me just to be polite. If my argument is stronger, explain why.
 If yours is stronger, hold your position and explain it.`}</PromptBox>
             <P>
-              Is se AI ek shaista (polite) jawab dene wali machine se
-              nikal kar ek behtar sochne wala saathi ban jata hai. Iske do
-              darje hain. Chhota darja, chat window mein, sirf aap ke liye,
-              aur bara darja, ek deploy ki hui agent mein, jaise ek tutoring
-              agent ka ye usool ke &ldquo;student ki koshish se pehle jawab
-              mat do.&rdquo; Ye wahi jumla hai, bas iski ahmiyat badal jati
-              hai: ek dafa likha jata hai, aur hazar dafa un logon par
-              lagoo hota hai jinse aap kabhi mile bhi nahi. Chat mein ek
-              kamzor performance description das minute pareshan karti hai,
-              lekin ek deploy ki hui agent mein wahi khud{" "}
+              Isse AI ek polite answer machine se better thinking partner
+              ban jata hai. Iske do versions hain. Chhota version, chat
+              window mein, sirf aapke liye, aur bara version, ek deployed
+              agent mein, jaise ek tutoring agent ka rule &ldquo;student ke
+              attempt karne se pehle answer mat do.&rdquo; Ye same sentence
+              hai bas stakes change ho gaye, ek baar likha jata hai, aur
+              hazar baar un logon pe apply hota hai jinse aap kabhi mile
+              hi nahi. Chat mein ek weak performance description 10 minute
+              annoy karti hai, lekin ek deployed agent mein wahi khud{" "}
               <Strong>product</Strong> ban jati hai.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Description, Prompting Se Bara Mafhoom Hai</SubHeading>
+            <SubHeading>Description, Prompting Se Bigger Hai</SubHeading>
             <P>
               Book ka agla chapter, <Strong>&ldquo;AI Prompting in
-              2026&rdquo;</Strong>, amali (practical) tareeqe sikhata hai,
-              jaise misaalein dena, hadood (constraints) muta&apos;yyin
-              karna, kaam ko chhote hisson mein taqseem karna, aur roles
-              define karna. Ye chapter is se bhi bara khayal sikhata hai:{" "}
+              2026&rdquo;</Strong>, practical techniques sikhata hai, jaise
+              examples dena, constraints specify karna, tasks ko chhote
+              parts mein decompose karna, aur roles define karna. Ye
+              chapter is se bhi bigger idea sikhata hai:{" "}
               <Strong>Description.</Strong>
             </P>
             <P>
-              Kai teams ek prompt template istemal karti hain jis mein
-              role, context, task, constraints, aur output format ke liye
-              jagah rakhi jati hai. Task, constraints, aur output format,
-              asal mein <Strong>product description</Strong> hi hain.
-              Context wahi cheez hai jise agla hissa{" "}
-              <Strong>context engineering</Strong> kehta hai. Agar kaam kis
-              tarah aage barhe iske liye ek jumla, aur AI aapke sath kis
-              tarah pesh aaye iske liye ek jumla shamil kar diya jaye, to ye
-              template teenon hisson ko mukammal kar deta hai.
+              Kai teams ek prompt template use karti hain jisme role,
+              context, task, constraints, aur output format ke liye jagah
+              hoti hai. Task, constraints, aur output format, actually{" "}
+              <Strong>product description</Strong> hi hain. Context wahi
+              cheez hai jise agla section <Strong>context
+              engineering</Strong> kehta hai. Agar kaam kaise proceed hoga
+              iske liye ek line, aur AI aapke sath kaise behave karega
+              iske liye ek line add kar do, to ye template teenon parts
+              cover kar leta hai.
             </P>
             <Callout label="Note">
-              Kisi baat ko lafzon mein dhalne ka tareeqa maloom nahi? Ruk mat
-              jayein. Apni soorat-e-haal ko aam alfaaz mein bayan karein aur
-              AI se poochein ke wo isay ek wazeh hidayat mein badal de.
+              Kisi cheez ko phrase karne ka tareeka pata nahi? Ruk mat
+              jao. Apni situation normal words mein explain karo aur AI se
+              poocho ke wo isay clear instruction mein badal de.
             </Callout>
           </Reveal>
 
@@ -853,26 +823,26 @@ If yours is stronger, hold your position and explain it.`}</PromptBox>
             <SubHeading>Prompt Engineering Se Context Engineering Tak</SubHeading>
             <P>
               <Strong>Prompt engineering ye sawal poochti hai:</Strong>{" "}
-              &ldquo;ye paigham kis tarah likhun?&rdquo;{" "}
-              <Strong>Context engineering is se bara sawal poochti
-              hai:</Strong> &ldquo;AI ke kamiyab hone ke liye kya mojood
-              hona chahiye?&rdquo;
+              &ldquo;ye message kaise likhun?&rdquo;{" "}
+              <Strong>Context engineering ek bigger sawal poochti
+              hai:</Strong> &ldquo;AI ke succeed karne ke liye kya
+              available hona chahiye?&rdquo;
             </P>
             <CheckList
               items={[
-                "Documents", "Misaalein (examples)", "Memory", "Guftagu ki tareekh",
-                "Policies", "Tools", "Database ke records", "Tareef (definitions)", "Hidayaat (instructions)",
+                "Documents", "Examples", "Memory", "Conversation history",
+                "Policies", "Tools", "Database records", "Definitions", "Instructions",
               ]}
             />
             <P>
-              Ek agent ke liye ye bohot matter karta hai: khoobsurat prompt
-              bhi agent ko nahi bacha sakta agar uske paas ghalat data ho,
-              qawaid maujood na hon, kamzor misaalein hon, ya zaroori tools
-              tak rasai na ho. Agent Factory mein: system prompt ek
-              performance description ko qaim rakhta hai, ek{" "}
-              <Strong>SKILL.md</Strong> ek process description ko dobara
-              istemal ke qabil banata hai, aur ek System of Record domain
-              ki maloomat, qawaid, tareefain, aur governance rakh sakta hai.
+              Ek agent ke liye ye bohot matter karta hai: ek beautiful
+              prompt bhi agent ko nahi bacha sakta agar uske paas wrong
+              data ho, rules missing hon, weak examples hon, ya zaroori
+              tools tak access na ho. Agent Factory mein: system prompt ek
+              performance description ko persistent banata hai, ek{" "}
+              <Strong>SKILL.md</Strong> ek process description ko reusable
+              banata hai, aur ek System of Record domain knowledge, rules,
+              definitions, aur governance rakh sakta hai.
             </P>
           </Reveal>
         </section>
@@ -880,64 +850,57 @@ If yours is stronger, hold your position and explain it.`}</PromptBox>
         {/* ---------------------------- DISCERNMENT ---------------------- */}
         <section id="discernment" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <SubHeading>5. Discernment: Aitmaad Ko Sehat Na Samjhein</SubHeading>
+            <SubHeading>5. Discernment: Confidence Ko Correctness Mat Samjho</SubHeading>
             <P>
-              AI aksar bharosemand (confident) maloom hota hai. Ye pardh-
-              waaz (readability) ke liye faidamand hai, lekin bharose ke
-              liye khatarnaak. Ek ghalat AI jawab aam taur par kisi warning
-              label ke sath nahi aata, balke wo saaf-suthra, tafseeli, aur
-              yaqeeni maloom ho sakta hai.
+              AI aksar confident sound karta hai. Ye readability ke liye
+              useful hai, lekin trust ke liye risky hai. Ek wrong AI
+              answer usually kisi warning label ke sath nahi aata, wo
+              polished, detailed, aur certain dikh sakta hai.
             </P>
             <Callout label="Definition">
-              <Strong>Discernment</Strong> AI ke diye hue kaam ko parakhne
-              ki salahiyat hai. Description ye sawal poochti hai, &ldquo;kya
-              maine kaam wazeh tareeqe se bayan kiya?&rdquo; jabke
-              Discernment ye poochti hai, &ldquo;kya AI ne kaam waqai achi
-              tarah kiya?&rdquo;
+              <Strong>Discernment</Strong> AI ka diya hua kaam judge karne
+              ki ability hai. Description poochti hai &ldquo;kya maine
+              kaam clearly explain kiya?&rdquo;, Discernment poochti hai
+              &ldquo;kya AI ne actually kaam achi tarah kiya?&rdquo;
             </Callout>
-            <Callout label="Ahem Istilaah" tone="warn">
-              <Strong>Automation Bias:</Strong> ek khud-kaar (automated)
-              jawab par zaroorat se zyada aasani se bharosa kar lena, khaas
-              taur par jab wo bharosemand ya pesha-warana maloom ho.
+            <Callout label="Important Term" tone="warn">
+              <Strong>Automation Bias:</Strong> ek automated answer ko
+              zaroorat se zyada easily trust kar lena, especially jab wo
+              confident ya professional lage.
             </Callout>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Bani Hui Baat Bhi Kamiyabi Jaisi Dikh Sakti Hai</SubHeading>
+            <SubHeading>Fake Answer Bhi Success Jaisi Dikh Sakti Hai</SubHeading>
             <P>
-              Ek bani hui (hallucinated) jawab, sahi jawab se taqreeban
-              milta julta dikh sakta hai. Rawaan (fluent) tehreer koi
-              saboot nahi, koi hawala jaisi link koi saboot nahi, aur
-              bharosemand lehja bhi koi saboot nahi. Chaar alamaat aksar
-              bani hui baat ki nishandahi karti hain:
+              Ek hallucinated answer, correct answer se almost identical
+              dikh sakta hai. Fluent writing koi proof nahi, citation jaisi
+              link koi proof nahi, confident tone bhi koi proof nahi. 4
+              signs jo aksar fake answer show karte hain:
             </P>
             <RecapTable
-              head={["Alamat", "Kya Karein"]}
+              head={["Sign", "Kya Karo"]}
               rows={[
-                ["Bohot ziyada theek theek tafseelaat", "Number dohrane se pehle asal source khol kar check karein"],
-                ["Wahan bharosa jahan expert bhi hichkichaye", "Poochein ke kaunsi cheez jawab badal degi"],
-                ["Lambi tehreer mein tazaad (contradiction)", "Aakhir ko shuru ke muqable mein parhein"],
-                ["Ek daawa kiya gaya amal jo hua hi nahi", "Jab tak tool khud saboot na de (bheja gaya paigham, khula hua safha, test ka log), daawe ko sirf ek jumla samjhein, waqia nahi"],
+                ["Bohot zyada exact specifics", "Number repeat karne se pehle asal source khol ke check karo"],
+                ["Wahan confidence jahan expert bhi hesitate kare", "Poocho ke kya cheez answer change kar degi"],
+                ["Long output mein contradiction", "Ending ko beginning ke against parho"],
+                ["Ek claimed action jo hui hi nahi", "Jab tak tool khud proof na de (sent message, opened page, test log), claim ko ek sentence samjho, event nahi"],
               ]}
             />
-            <Callout label="Umoomi Usool" tone="warn">
-              Jahan sehat (accuracy) matter karti hai, wahan taeed (verify)
-              zaroor karein.
+            <Callout label="General Principle" tone="warn">
+              Jahan accuracy matter karti hai, wahan verify zaroor karo.
             </Callout>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Discernment, Description Ki Aks (Mirror) Hai</SubHeading>
-            <P>
-              Isi tarah is ke bhi teen hisse hain, aur ye teenon hisse unhi
-              teen cheezon ki taraf ishara karte hain:
-            </P>
+            <SubHeading>Discernment, Description Ko Mirror Karti Hai</SubHeading>
+            <P>Isi ke bhi 3 parts hain, aur ye 3 parts unhi 3 cheezon ki taraf point karte hain:</P>
             <RecapTable
-              head={["Qisam", "Sawal"]}
+              head={["Type", "Sawal"]}
               rows={[
-                ["Product Discernment", "Kya natija achha hai?"],
-                ["Process Discernment", "Kya AI ke sath kaam karne ka ye tareeqa faida-mand sabit ho raha hai?"],
-                ["Performance Discernment", "Jab AI khud amal karta hai, to kya logon ki achi khidmat ho rahi hai?"],
+                ["Product Discernment", "Kya result achha hai?"],
+                ["Process Discernment", "Kya AI ke sath is tarah kaam karna faida de raha hai?"],
+                ["Performance Discernment", "Jab AI khud act karta hai, log achi tarah serve ho rahe hain?"],
               ]}
             />
           </Reveal>
@@ -946,207 +909,198 @@ If yours is stronger, hold your position and explain it.`}</PromptBox>
             <SubHeading>5.1 Product Discernment</SubHeading>
             <CheckList
               items={[
-                "Kya ye haqeeqat mein sahi hai?",
-                "Kya har ahem shart poori hui?",
-                "Kya kuch chhoot to nahi gaya?",
-                "Kya ye andar se ba-ham-aahang (consistent) hai?",
-                "Kya ek expert isay qabil-e-etimaad samjhega?",
+                "Kya ye factually correct hai?",
+                "Kya har important requirement follow hui?",
+                "Kuch missing to nahi?",
+                "Kya ye internally consistent hai?",
+                "Kya ek expert isay credible samjhega?",
                 "Kya main is par apna naam laga sakta hoon?",
               ]}
             />
             <P>
-              <Strong>Ek ahem baat:</Strong> is mauqe par aapki apni domain
-              ki maloomat nihayat qeemti ban jati hai. Ek accountant kamzor
-              andaazon ko pehchan leta hai, ek programmer chhupi hui bugs
-              pakar leta hai, aur ek teacher wo wazahatein pehchan leta hai
-              jo naye seekhne walon ke liye uljhi hui hon. &ldquo;AI mahir
-              kaam ki raftaar barha sakta hai, lekin ye mahaarat ki
-              zaroorat ko khatam nahi karta.&rdquo;
+              <Strong>Ek important baat:</Strong> yahan aapki apni domain
+              knowledge bohot valuable ban jati hai. Ek accountant weak
+              assumptions notice kar leta hai, ek programmer subtle bugs
+              pakar leta hai, aur ek teacher wo explanations pehchan leta
+              hai jo beginners ke liye confusing hon. &ldquo;AI expert
+              work ki speed barha sakta hai, lekin ye expertise ki
+              zaroorat khatam nahi karta.&rdquo;
             </P>
             <P>
-              Natije ke pichhe ki <Strong>daleel (reasoning) ko bhi
-              parakhein</Strong>, kyunke AI kamzor wajooh ke sath bhi sahi
-              jawab tak pahunch sakta hai, aur ek ghalat andaaze par khara
-              sahi jawab zyada der tak sahi nahi rehta. Behtar ye hai ke AI
-              se ye dikhwaya jaye: andaaze (assumptions), saboot (evidence),
-              faisle ki bunyad (decision criteria), hisaab-kitaab
-              (calculations), darmiyani natije, aur mumkin doosri tashreehat.
-              Inhein ek <Strong>jaiza lene ke liye pesh ki gayi daleel</Strong>{" "}
-              samjhein, na ke chhupi hui soch ka lafz-ba-lafz byaan.
+              Result ke peeche ki <Strong>reasoning ko bhi judge karo</Strong>,
+              kyunke AI weak reasons ke sath bhi correct answer tak
+              pahunch sakta hai, aur ek wrong assumption pe khara correct
+              answer zyada der correct nahi rehta. Useful ye hai ke AI se
+              ye dikhwao: assumptions, evidence, decision criteria,
+              calculations, intermediate results, aur alternative
+              interpretations. Inhe ek <Strong>review ke liye
+              justification</Strong> samjho, hidden reasoning ka literal
+              transcript nahi.
             </P>
             <PromptBox>{`Before recommending one option, list your assumptions, the evidence
 supporting them, and the criteria you are using to decide. Then give
 the recommendation.`}</PromptBox>
-            <P>
-              Documents par mabni (based) jawabon ke liye ye bhi shamil
-              karein:
-            </P>
+            <P>Document-based answers ke liye ye bhi add karo:</P>
             <PromptBox>{`Answer only from the three proposals I attached, not from anything
 you know about these vendors. If a proposal does not state its exit
 terms, say so instead of guessing. For every term you report, quote
 the proposal's section heading and the sentence it came from.`}</PromptBox>
             <P>
-              Ye teen kaam karta hai. Pehla, sirf woh cheez istemal karta
-              hai jo saath mansook (attached) ki gayi ho, is se training
-              ki maloomat se khaali jagah bharne se bacha jata hai, jahan
-              se ghair-mojood khususiyaat paida hoti hain. Doosra, ye
-              &ldquo;is mein ye likha nahi&rdquo; kehne ki ijazat deta hai.
-              Teesra, ye aapko ek minute mein qabil-e-jaanch cheez de deta
-              hai, teenon proposals ko dobara parhne ki bajaye. Koi bhi
-              cheez jawab ko khud parhne ki jagah nahi le sakti, ye sirf
-              parhna tez bana deti hai aur bani hui baat ko pakarna aasan
-              kar deti hai.
+              Ye 3 kaam karta hai. Pehla, sirf wahi cheez use karta hai jo
+              attach ki gayi ho, taake training knowledge se gaps na
+              bhare, jahan se imaginary features aati hain. Doosra, ye
+              &ldquo;isme ye likha nahi&rdquo; kehne ki permission deta
+              hai. Teesra, ye aapko ek minute mein checkable cheez deta
+              hai, teenon proposals dobara parhne ki jagah. Koi bhi cheez
+              answer khud parhne ki jagah nahi le sakti, ye sirf reading
+              fast bana deti hai aur fake answer pakarna aasan kar deti
+              hai.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>5.2 Process Discernment</SubHeading>
             <P>
-              Kabhi kabhi jawab theek hota hai lekin AI ke sath kaam karne
-              ka andaaz theek nahi hota. Ye wo sawal hai jo log taqreeban
-              kabhi nahi poochte, kyunke output qabil-e-qabool laga aur
-              session kamiyab mehsoos hua. Khud se ye poochein:
+              Kabhi kabhi answer theek hota hai lekin AI ke sath kaam karne
+              ka tareeka theek nahi hota. Ye wo sawal hai jo log almost
+              kabhi nahi poochte, kyunke output acceptable laga aur session
+              successful feel hua. Khud se ye poocho:
             </P>
             <CheckList
               items={[
-                "Kya AI mere feedback ke mutabiq dhal raha hai, ya wapis purani rawish par laut raha hai?",
-                "Kya do baar theek karne ke baad bhi wahi ghalti dohra raha hai?",
-                "Kya wo itna razamand ho gaya hai ke ab bekar sabit ho raha hai?",
-                "Kya main har baar wahi formatting ka masla khud theek kar raha hoon?",
-                "Kya main iske draft ko itni shiddat se tarmeem kar raha hoon ke khud likhna asaan hota?",
+                "Kya AI mere feedback ke hisab se adapt kar raha hai, ya wapis purani cheez pe drift ho raha hai?",
+                "Kya do baar correct karne ke baad bhi wahi mistake repeat kar raha hai?",
+                "Kya wo itna agreeable ho gaya hai ke ab useless ban gaya hai?",
+                "Kya main har turn wahi formatting problem khud fix kar raha hoon?",
+                "Kya main iska draft khud likhne se zyada heavily edit kar raha hoon?",
               ]}
             />
-            <Callout label="Ek Imandaraana Jaiza">
-              Aakhri sawal par khaas tawajju dein: aisi bees minute ki
-              rehnumai jo ek ghanta bacha de, ek kamiyabi hai. Lekin aisi
-              bees minute ki rehnumai jo sirf pandra minute bachaye, dar
-              asal ek nuqsaan hai, jise aap kamiyabi samajh rahe hain
-              kyunke wo mehnat karte huye achi lagi.
+            <Callout label="Honest Reflection">
+              Last question pe khaas attention do: 20 minute ka steering
+              jo ek hour bacha de, wo ek win hai. 20 minute ka steering jo
+              sirf 15 minute bacha de, wo actually ek loss hai jise aap
+              win samajh rahe ho kyunke wo productive feel hui.
             </Callout>
             <P>
-              Jab ye tareeqa kaam na kare, to teen qadam uthaye ja sakte
-              hain, aur teenon hi fluency ka hissa hain: performance
-              description badal dein, tool badal dein, ya phir kaam wapis
-              khud sambhal lein. In mein se sirf teesra qadam shikast jaisa
-              lagta hai, lekin aksar aisa nahi hota.
+              Jab ye process kaam nahi kar raha, teen escalating moves
+              hain, aur teenon fluency hain: performance description change
+              karo, tool change karo, ya task wapis khud apne paas le lo.
+              Sirf teesra defeat jaisa feel hota hai, lekin usually aisa
+              hota nahi.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>5.3 Performance Discernment</SubHeading>
             <P>
-              Ye tab wajood mein aati hai jab aap agency istemal kar chuke
-              hon, aur book ke aakhir mein isi ki sab se zyada fikar ki
-              jati hai. Ye ye sawal poochti hai ke kya AI ka{" "}
-              <Strong>khud-mukhtar, user ke saamne aane wala suluk</Strong>{" "}
-              logon ke liye achay natije la raha hai. Ye is baat se mukhtalif
-              hai ke koi ek jawab sahi tha ya nahi. Misaal ke taur par, ek
-              AI tutor har sawal ka sahi jawab de sakta hai, aur phir bhi
-              bura tutor sabit ho sakta hai agar wo student ke hichkichane
-              ki fauran jawab de deta hai, jis se koi kuch nahi seekhta.
-              Isi tarah ek support agent tickets ko tezi se hal kar sakta
-              hai, aur phir bhi bura sabit ho sakta hai agar wo guftagu us
-              waqt band kar de jab customer usay abhi mukammal na samjhe.
-              Ye masla akele chats mein nazar nahi aata, balke majmui
-              (aggregate) surat mein zahir hota hai: users iske baad kya
-              karte hain, wo kis baat ki shikayat karte hain, aur kaunse
-              cases baar baar chupke se wahi ghalati dohrate hain. Chunke
-              hazaron guftaguon ko khud dekhna mumkin nahi, isliye koi aisa
-              nizaam banana parta hai jo aapki jagah in par nazar rakhe.
+              Ye tab exist karti hai jab aap agency use kar chuke ho, aur
+              book ke end mein isi ki sab se zyada care ki jati hai. Ye ye
+              sawal poochti hai ke kya AI ka{" "}
+              <Strong>independent, user-facing behavior</Strong> logon ke
+              liye good outcomes deta hai. Ye is baat se different hai ke
+              koi ek output correct tha ya nahi. Example: ek AI tutor har
+              sawal ka correct answer de sakta hai, aur phir bhi bad tutor
+              ho sakta hai agar wo student ke hesitate karte hi solution
+              de deta hai, jisse koi kuch nahi seekhta. Isi tarah ek
+              support agent tickets ko fast resolve kar sakta hai, aur
+              phir bhi bad ho sakta hai agar wo conversation us time band
+              kar de jab customer ne usay abhi complete na samjha ho. Ye
+              single chats mein nahi, aggregate mein show hota hai: users
+              iske baad kya karte hain, wo kis baat pe complain karte hain,
+              aur kaunse cases baar baar chupke se wahi wrong hote hain.
+              Aap thousands conversations khud check nahi kar sakte,
+              isliye kuch aisa banana padta hai jo aapki jagah in par
+              nazar rakhe.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Description–Discernment Ka Chakkar (Loop)</SubHeading>
+            <SubHeading>Description–Discernment Loop</SubHeading>
             <Flow
               loop
               steps={[
-                "Aap ye bayan karte hain ke kya chahiye",
-                "AI kuch tayar karta hai",
-                "Aap uska jaiza lete hain",
-                "Aap batate hain ke kya badalna hai",
+                "Aap describe karte ho kya chahiye",
+                "AI kuch produce karta hai",
+                "Aap inspect karte ho",
+                "Aap batate ho kya change karna hai",
               ]}
             />
             <P>
-              Jab Discernment koi masla nishaan-zad kare, to aksar iska hal
-              behtar description hota hai. Kabhi kabhi ye wapis Delegation
-              tak le jata hai, ya to ghalat tool ki wajah se, ghalat
-              taqseem ki wajah se, ya phir ghalat tareeqe ki wajah se.{" "}
-              <Strong>&ldquo;Pesha-warana AI tawun (collaboration) baar
-              baar koshish se hasil hoti hai, ye kabhi bhi ek hi koshish
-              mein kamil nahi hoti.&rdquo;</Strong>
+              Jab Discernment koi problem flag kare, to usually iska fix
+              better description hota hai. Kabhi kabhi ye wapis Delegation
+              tak le jata hai, ya to wrong tool ki wajah se, wrong split ki
+              wajah se, ya phir wrong approach ki wajah se.{" "}
+              <Strong>&ldquo;Professional AI collaboration iteration se
+              converge hoti hai, ye kabhi ek hi shot mein perfect nahi
+              hoti.&rdquo;</Strong>
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Ye Ek Fitri Amal Hai</SubHeading>
+            <SubHeading>Ye Normal Hai</SubHeading>
             <P>
-              AI ke sath achha kaam aam taur par baar baar koshish (iterative)
-              se hota hai. Pehla jawab aksar ek draft hota hai, aakhri
-              manzil nahi. Feedback dete waqt is tarteeb ka istemal karein:
-              masla batayein, phir ye ke wo kyun matter karta hai, aur phir
-              rehnumai dein.
+              AI ke sath achha kaam usually iterative hota hai. Pehla
+              response aksar ek draft hota hai, finish line nahi. Feedback
+              dete waqt is pattern ka use karo: problem batao, phir ye ke
+              wo kyun matter karta hai, phir direction do.
             </P>
-            <P>Kamzor feedback:</P>
+            <P>Weak feedback:</P>
             <PromptBox>Wrong. Try again.</PromptBox>
-            <P>Behtar feedback:</P>
+            <P>Better feedback:</P>
             <PromptBox>{`The second section assumes enterprise customers. Our audience is solo
 founders, so the advice is too expensive. Rewrite that section for a
 one-person business with a limited budget.`}</PromptBox>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Ek Achhe Draft Ko Doosri Koshish Ki Zaroorat Kyun Parti Hai</SubHeading>
+            <SubHeading>Ek Achhe Draft Ko Doosri Try Ki Zaroorat Kyun Parti Hai</SubHeading>
             <P>
-              Isliye kyunke wo galat parhne wale (reader) ke liye likha gaya
-              tha. Iski ek misaal, ek quarterly report ki ek dariyaft
-              (finding) ko board aur support team, donon ke liye alag alag
-              likha jaye:
+              Kyunke wo wrong reader ke liye likha gaya tha. Ek example, ek
+              quarterly report ki finding, board aur support team, dono ke
+              liye alag alag likho:
             </P>
             <RecapTable
               head={["Board Ke Liye", "Support Team Ke Liye"]}
               rows={[
                 [
-                  "Number, wajah, aur faisla: \"Tickets dogune ho gaye, jawab dene ka waqt 4 se 9 ghante ho gaya, team ka size wahi raha. Do naye afraad ki manzoori dein ya 9 ghante ke jawab qabool karein.\"",
-                  "Kya badla, ye unki ghalti kyun nahi, aur juma ko kya karna hai: \"Is quarter tickets dogune ho gaye, team ka size wahi raha, isliye 9 ghante ke jawab volume ki wajah se hain, aapki wajah se nahi. Do naye afraad ki darkhwast ho chuki hai. Jab tak wo aa nahi jate, sab se purana ticket pehle nipatayein.\"",
+                  "Number, cause, decision: \"Tickets double ho gaye, reply time 4 se 9 hour ho gaya, team ka size same raha. Do naye hires approve karo ya 9-hour replies accept karo.\"",
+                  "Kya change hua, ye unki galti kyun nahi, aur Monday ko kya karna hai: \"Tickets is quarter double huye, team same size rahi, isliye 9-hour replies volume se aayi hain, aapse nahi. Do hires ki request ho chuki hai. Jab tak wo aayen, sab se purana ticket pehle karo.\"",
                 ],
               ]}
             />
             <P>
-              Facts wahi, model wahi, lekin natije donon alag. In mein se
-              koi bhi doosre parhne wale ke liye kaam nahi karta.
+              Facts same, model same, results dono different. In mein se
+              koi bhi doosre reader ke liye kaam nahi karta.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Har Jaiza Kisi Ek Anjaam Par Khatam Hota Hai</SubHeading>
+            <SubHeading>Har Review Ka Ek Ending Hota Hai</SubHeading>
             <CheckList
               items={[
-                "Kaam bhej diya jata hai, jaise cycling club wala email bhej diya gaya",
+                "Kaam bhej diya jata hai, jaise cycling club wala email send ho gaya",
                 "Ye feedback ke sath wapis chala jata hai",
-                "Aap khud kaam apne haath mein le lete hain, kyunke uska hal sirf aap jaante hain",
+                "Aap khud kaam apne haath mein le lete ho, kyunke fix ke liye sirf aap jaante ho",
               ]}
             />
-            <Callout label="Ek Ahem Aadat">
-              Agla paigham likhne se pehle ye tay kar lein ke natija kya
-              hoga. Baar baar koshish karna hamesha ke liye nahi chalna
-              chahiye, aakhir ko pehchan lena us &ldquo;bas ek aur chhoti si
-              tabdeeli&rdquo; wale silsile ko rokta hai jo poora din kha
-              jata hai.
+            <Callout label="Important Practice">
+              Agla message likhne se pehle decide kar lo ke ending kya
+              hogi. Iterate karna hamesha ke liye nahi chalna chahiye,
+              ending pehchan lena us &ldquo;bas ek aur chhoti change&rdquo;
+              wale loop ko rok deta hai jo poora din kha jata hai.
             </Callout>
             <P>
-              Kabhi kabhi behtar description bhi kaafi nahi hoti, aur
-              Discernment ye zahir kar deti hai ke asal Delegation ka
-              faisla hi galat tha, shayad ghalat tool chuna gaya, shayad AI
-              ko wo hissa kabhi milna hi nahi chahiye tha, ya shayad ye kaam
-              ek insani expert hi maangta hai. Ye bhi fluency ka hissa hai.
-              Agent Factory mein Discernment{" "}
-              <Strong>evaluation engineering</Strong> ban jati hai, yani
-              aapka zaati sawal &ldquo;kya ye kaafi achha hai?&rdquo; eval
-              suites, production checks, monitoring, sampling, aur release
-              gates ki soorat ikhtiyar kar leta hai.{" "}
-              <Strong>&ldquo;Aap wo samajh-boojh khud kar (automate) nahi
-              sakte jo aap ne khud kabhi seekhi hi nahi.&rdquo;</Strong>
+              Kabhi kabhi better description bhi kaafi nahi hoti, aur
+              Discernment show kar deti hai ke original Delegation decision
+              hi wrong tha, shayad wrong tool choose hua, shayad AI ko wo
+              part kabhi milna hi nahi chahiye tha, ya shayad ye kaam ek
+              human expert hi maangta hai. Ye bhi fluency hai. Agent
+              Factory mein Discernment <Strong>evaluation
+              engineering</Strong> ban jati hai, yani aapka personal sawal
+              &ldquo;kya ye kaafi achha hai?&rdquo; eval suites, production
+              checks, monitoring, sampling, aur release gates ki shape le
+              leta hai. <Strong>&ldquo;Aap wo judgment automate nahi kar
+              sakte jo aapne khud kabhi seekha hi nahi.&rdquo;</Strong>
             </P>
           </Reveal>
         </section>
@@ -1154,181 +1108,171 @@ one-person business with a limited budget.`}</PromptBox>
         {/* ---------------------------- DILIGENCE ---------------------- */}
         <section id="diligence" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <SubHeading>6. Diligence: AI Ka Zimmedaraana Istemal</SubHeading>
-            <P>
-              Pehli teen Ds behtar natije hasil karne mein madad deti hain.
-              Diligence ek bilkul mukhtalif sawal poochti hai:
-            </P>
-            <PullQuote>Kya mujhe AI ko is tarah istemal karna bhi chahiye?</PullQuote>
-            <Callout label="Misaal: Lecture Feedback Ka Masla" tone="warn">
-              Ek ustaad AI ki madad se semester ke aakhir mein students ka
-              feedback likhwata hai. Tehreer nihayat achi hoti hai. Lekin
-              usne students ke naam, grades, aur nazm-o-zabt (disciplinary)
-              ke notes ek aam consumer AI service mein daal diye, jise
-              university ne kabhi manzoor nahi kiya tha. Students ko ye
-              bataya hi nahi gaya ke unke academic record ka ye hissa AI ki
-              madad se bana. <Strong>Natija achha ho sakta hai, lekin AI ka
-              ye istemal phir bhi ghair-zimmedaraana hai.</Strong>
+            <SubHeading>6. Diligence: AI Ko Responsibly Use Karna</SubHeading>
+            <P>Pehli 3 Ds better results lane mein help karti hain. Diligence ek alag sawal poochti hai:</P>
+            <PullQuote>Kya mujhe AI ko is tarah use karna bhi chahiye?</PullQuote>
+            <Callout label="Example: Lecture Feedback Ka Case" tone="warn">
+              Ek teacher AI se end-of-term student feedback draft karwata
+              hai. Writing excellent hoti hai. Lekin usne student names,
+              grades, aur disciplinary notes ek consumer AI service mein
+              paste kar diye jise university ne approve nahi kiya tha.
+              Students ko bataya hi nahi gaya ke unke academic record ka
+              ye part AI ki help se bana. <Strong>Output achha ho sakta
+              hai, lekin AI ka ye use phir bhi irresponsible hai.</Strong>
             </Callout>
             <Callout label="Definition">
-              <Strong>Diligence</Strong> ka matlab ye hai ke AI ka istemal
-              kis tarah hua, aur uske natije ka anjaam kya hua, iski
-              zimmedari khud lena.
+              <Strong>Diligence</Strong> ka matlab hai AI kaise use hui,
+              aur uske output ka kya hua, iski responsibility khud lena.
             </Callout>
             <DiligenceTimelineDiagram />
           </Reveal>
 
           <Reveal>
             <SubHeading>6.1 Creation Diligence</SubHeading>
-            <P>Koi bhi maloomat share karne se pehle ye poochein:</P>
+            <P>Koi bhi information share karne se pehle ye poocho:</P>
             <CheckList
               items={[
-                "Kya is mein zaati (personal) data shamil hai?",
-                "Kya is mein company ki khufiya (confidential) maloomat shamil hai?",
-                "Kya mujhe ye maloomat is tool mein daalne ki ijazat hai?",
-                "Ye data kaun access ya mehfooz rakh sakta hai?",
-                "Kya ye service meri organization se manzoor-shuda hai?",
-                "Kya koi qanooni, muahide se juri, ya pesha-warana pabandiyan hain?",
+                "Kya isme personal data hai?",
+                "Kya isme company ki confidential information hai?",
+                "Kya mujhe ye info is tool mein daalne ki permission hai?",
+                "Ye data kaun access ya retain kar sakta hai?",
+                "Kya ye service meri organization se approved hai?",
+                "Koi legal, contractual, ya professional restrictions hain?",
               ]}
             />
             <P>
-              <Strong>Aasan raasta hamesha zimmedaraana raasta nahi hota.</Strong>{" "}
-              Iska hal aksar ye nahi hota ke kaam chhor diya jaye, balke ye
-              hota hai ke data ko <Strong>saaf (strip)</Strong> kar diya
-              jaye. Ustaad ki misaal mein, wo naam aur student ID hata
-              sakta tha, sirf grade ka daira aur ek suluk baaqi rakh sakta
-              tha, aur usi se feedback likh sakta tha. Usool ye hai:
-              &ldquo;AI ko pattern chahiye, shakhs nahi.&rdquo; Ise{" "}
-              <Strong>redaction</Strong> kaha jata hai.
+              <Strong>Easy path hamesha responsible path nahi hota.</Strong>{" "}
+              Iska fix aksar ye nahi hota ke task chhor diya jaye, balke ye
+              hota hai ke data ko <Strong>strip</Strong> kar diya jaye.
+              Teacher wale example mein, wo naam aur student ID hata sakta
+              tha, sirf grade range aur ek behavior rakh sakta tha, aur
+              usi se feedback draft kar sakta tha. Principle ye hai:
+              &ldquo;AI ko pattern chahiye, person nahi.&rdquo; Isay{" "}
+              <Strong>redaction</Strong> kehte hain.
             </P>
             <RecapTable
-              head={["Redaction Kis Tarah Nakaam Hoti Hai", "Kya Hota Hai"]}
+              head={["Redaction Kaise Fail Hoti Hai", "Kya Hota Hai"]}
               rows={[
-                ["Bohot ziyada hata diya jaye", "Feedback bina grade aur bina waqia ke, feedback nahi rehta"],
-                ["Bohot kam hataya jaye", "Tafseelaat ka majmua bhi kisi ek shakhs ki pehchaan karwa deta hai, jaise \"wo student jisne week 3 ki lab miss ki\""],
+                ["Bohot zyada hata dena", "Feedback bina grade aur bina incident ke, feedback nahi rehta"],
+                ["Bohot kam hataana", "Details ka combination bhi ek person ki identity de deta hai, jaise \"wo student jisne week 3 ki lab miss ki\""],
               ]}
             />
-            <Callout label="Ek Aazmaish (Test)">
-              Kya koi sirf isi paste ki hui tehreer parh kar samajh sakta hai
-              ke ye kis ke baare mein hai? Agar jawab haan hai, to aapne
-              bohot kam hataya hai.
+            <Callout label="Ek Test">
+              Kya koi sirf ye paste kiya hua parh ke samajh sakta hai ye
+              kis ke baare mein hai? Agar haan, to aapne bohot kam hataya
+              hai.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>6.2 Transparency Diligence</SubHeading>
             <P>
-              Har AI-assisted kaam ko aam elaan ki zaroorat nahi hoti.
-              Lekin jab AI doosron ko sarahniya (materially) mutasir kare,
-              to zahoori (disclosure) ki ahmiyat barh jati hai: academic
-              kaam, mulazmat (hiring) ke faisle, customers se rabta, tibbi
-              ya maali mashware, pesha-warana reports, ya aisi tehreer jo
-              khalis insaani kaam ki tarah pesh ki jaye. Iske theek theek
-              qawaid haalaat, organization, qanoon, aur pesha-warana
-              maiyaar (standard) par munhasir hote hain.
+              Har AI-assisted task ko public announcement ki zaroorat nahi
+              hoti. Lekin jab AI dusre logon ko significantly affect kare,
+              to disclosure matter karti hai: academic work, hiring
+              decisions, customer communications, medical ya financial
+              advice, professional reports, ya aisa content jo original
+              human work ki tarah present kiya jaye. Exact rules context,
+              organization, law, aur professional standard pe depend karti
+              hain.
             </P>
-            <Callout label="Rehnuma Usool">
-              &ldquo;AI ki madad se hasil natija doosron ko jitna zyada
-              mutasir karta hai, transparency ka mauqif utna hi mazboot ho
-              jata hai.&rdquo; Transparency ka matlab apni poori workflow
-              bata dena nahi, balke iska matlab ye hai ke jab AI ka kirdar
-              ahem ho, to logon ko ghalat-fehmi mein na rakha jaye.
+            <Callout label="Guiding Principle">
+              &ldquo;AI-assisted result jitna zyada dusron ko affect karta
+              hai, transparency ka case utna hi strong hai.&rdquo;
+              Transparency ka matlab apni poori workflow bata dena nahi,
+              balke matlab ye hai ke jab AI ka role matter kare to logon
+              ko mislead na karna.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>6.3 Deployment Diligence</SubHeading>
             <P>
-              AI ki madad se banaya gaya kaam shaya (publish), bheja, chalaya
-              ja rahe, ya kisi faisle mein istemal hone se pehle check
-              karein. Kitni jaanch honi chahiye, ye transparency ka usool
-              tay karta hai: jitne zyada log mutasir hote hain, utni hi
-              zyada jaanch chahiye. Khud ke liye likha gaya note sirf ek
-              nazar chahta hai, welcome email poori tarah parha jata hai,
-              aur regulator ko bheji jane wali report ek doosre reviewer se
-              guzarti hai.
+              AI-assisted kaam publish, send, execute, ya kisi decision
+              mein use hone se pehle check karo. Kitni checking chahiye,
+              ye transparency ka principle decide karta hai, jitne zyada
+              log affect hote hain, utni zyada checking chahiye: khud ke
+              liye likha note ek nazar leta hai, welcome email full read
+              leta hai, aur regulator ko jane wali report ek second
+              reviewer se guzarti hai.
             </P>
             <CheckList
               items={[
-                "Facts ki taeed karein",
-                "Yaqeen karein ke sources waqai mojood hain",
-                "Hisaab-kitaab (calculations) check karein",
-                "Taasub (bias) ya na-insafi wale natijon ka jaiza lein",
-                "Ijazat aur huqooq ki taeed karein",
-                "Organization ki policy par amal karein",
-                "Bare asar wale amal ke liye insaani manzoori lein",
+                "Facts verify karo",
+                "Confirm karo ke sources actually exist karte hain",
+                "Calculations check karo",
+                "Bias ya unfair outcomes ka review karo",
+                "Permissions aur rights confirm karo",
+                "Organization ki policy follow karo",
+                "High-impact actions ke liye human approval lo",
               ]}
             />
           </Reveal>
 
           <Reveal>
             <SubHeading>The Numbers Rule</SubHeading>
-            <Callout label="Ek Nihayat Ahem Usool" tone="warn">
-              <Strong>Jis number par koi faisla khara ho, wo hamesha
-              hisaab laga kar nikala jana chahiye, kabhi bana kar (generate
-              karke) nahi.</Strong> Jab AI se kisi quarterly report ka
-              khulasa mangwaya jata hai, to wo column ko spreadsheet ki
-              tarah jama nahi karta, sirf ye andaza lagata hai ke jama ka
-              natija kya lagega, is liye total ghalat ho sakta hai chahe har
-              line item sahi ho. Number hamesha spreadsheet, calculator, ya
-              AI ke chalaye hue us code se lein jo aapko dikhaya gaya ho,
-              phir sirf inputs check karein, jama nahi: kya sahi rows aur
-              sahi rate istemal hui?
+            <Callout label="Critical Rule" tone="warn">
+              <Strong>Jis number pe koi decision khara ho, wo hamesha
+              compute hona chahiye, kabhi generate nahi.</Strong> Jab aap
+              AI se quarterly report summarize karwate ho, wo column ko
+              spreadsheet ki tarah add nahi karta, sirf predict karta hai
+              ke likely-looking total kya hoga, isliye total wrong ho
+              sakta hai chahe har line item correct ho. Number spreadsheet,
+              calculator, ya AI ke chalaye hue us code se lo jo aapko
+              dikhaya gaya ho, phir inputs check karo, sum nahi: sahi rows
+              aur sahi rate use hui?
             </Callout>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Ek Nihayat Ahem Aakhri Sawal</SubHeading>
-            <PullQuote>Kya main is par yaqeen ke sath apna naam laga sakta hoon?</PullQuote>
-            <P>Agar jawab &ldquo;nahi&rdquo; hai, to kaam abhi tayyar nahi.</P>
+            <SubHeading>Ek Powerful Last Question</SubHeading>
+            <PullQuote>Kya main confidently is par apna naam laga sakta hoon?</PullQuote>
+            <P>Agar answer &ldquo;na&rdquo; hai, to kaam ready nahi hai.</P>
             <P>
-              Kabhi kabhi mamla saaf ghalat nahi hota, sirf mubham hota hai.
-              Iski misaal: ek AI ki banayi hui job applicants ki fehrist
-              mawafiq (reasonable) lagti hai, lekin ye pata nahi chalta ke
-              wo khamoshi se do universities ke graduates ko tarjeeh de rahi
-              hai ya nahi. Faisla karne se pehle ye chaar sawal poochein:
+              Kabhi kabhi case clear wrong nahi hota, sirf unclear hota
+              hai. Example: ek AI-ranked job applicant shortlist reasonable
+              lagti hai, lekin pata nahi chalta ke wo silently do
+              universities ke graduates ko favor kar rahi hai ya nahi.
+              Decide karne se pehle ye 4 sawal poocho:
             </P>
             <CheckList
               items={[
-                "Is natije se kaun mutasir hota hai, un logon samet jo isay kabhi dekhenge bhi nahi?",
-                "Un ke liye kya ghalat ho sakta hai, aur kya wo isay bata bhi sakenge?",
-                "Yahan ek munsifana (fair) natija kaisa hoga?",
-                "Kya kisi cheez ki zahoori (disclosure) honi chahiye, aur kis ke saamne?",
+                "Is result se kaun affect hota hai, un logon samet jo ise kabhi dekhenge bhi nahi?",
+                "Unke liye kya wrong ho sakta hai, aur kya wo bata bhi payenge?",
+                "Yahan fair outcome kaisa dikhega?",
+                "Kya kisi cheez ka disclose hona chahiye, aur kis ko?",
               ]}
             />
             <P>
-              Agar aap chaaron ka jawab de sakte hain, to faisla karein aur
-              usay likh lein. Agar nahi, to andaza laga kar bhejne ki
-              bajaye, us faisle ke zimmedar tak baat pahunchayein.{" "}
-              <Strong>Andaza lagana ek mubham surat-e-haal ko aapki apni
-              ghalti bana deta hai.</Strong>
+              Agar aap chaaron ka answer de sakte ho, to decide karo aur
+              likh lo. Agar nahi, to guess kar ke bhejne ki jagah, us
+              decision ke owner tak baat pahunchao. <Strong>Guessing ek
+              unclear case ko aapki apni mistake bana deta hai.</Strong>
             </P>
-            <PullQuote>AI kaam khud kar sakta hai, lekin zimmedari khud nahi le sakta.</PullQuote>
+            <PullQuote>AI kaam khud kar sakta hai, lekin responsibility khud nahi le sakta.</PullQuote>
             <P>
-              Agar koi AI-assisted nizaam koi nuqsaan-deh faisla kar leta
-              hai, to us nizaam ko chalane wali organization phir bhi
-              zimmedar rehti hai. Agar coding assistant kisi khaami
-              (vulnerability) ko shamil kar deta hai aur engineer usay
-              bhej deta hai, to engineer aur organization, donon hi natije
-              ke zimmedar rehte hain. Agent Factory isi liye governance ko
-              sab se pehle rakhti hai: Creation diligence data ke qawaid,
-              rasai ka control, aur manzoor-shuda tool ki policy ban jati
-              hai. Transparency diligence zahoori aur istemal karne wale ke
-              tajurbe (user experience) ki design ban jati hai. Deployment
-              diligence evaluation gates, audit logs, monitoring, aur
-              insaani jaiza ban jati hai.
+              Agar ek AI-assisted system koi harmful decision le leta hai,
+              to us system ko chalane wali organization phir bhi
+              responsible rehti hai. Agar coding assistant koi vulnerability
+              introduce kar de aur engineer usay ship kar de, to engineer
+              aur organization, dono result ke owner rehte hain. Agent
+              Factory isliye governance ko sab se pehle rakhta hai: Creation
+              diligence data rules, access control, aur approved-tool
+              policy ban jati hai. Transparency diligence disclosure aur
+              user experience design ban jati hai. Deployment diligence
+              evaluation gates, audit logs, monitoring, aur human review
+              ban jati hai.
             </P>
-            <Callout label="Policy Bhi Ek Zimmedari Hai">
-              Koi bhi policy tabhi kaam karti hai jab manzoor-shuda tool tak
-              itni hi aasani se rasai ho jitni us tool tak hai jo log pehle
-              se khula rakhte hain. Ustaad ka istemal kiya hua consumer
-              service sirf ek click door tha. Agar university ka
-              manzoor-shuda tool ek darkhwast farm aur ek hafte ke intezar
-              ke baad milta, to ye bhi ek policy ki khaami thi, sirf
-              ustaad ki zaati ghalti nahi. Mode 2 mein aap sirf khud
-              zimmedaraana AI ka istemal nahi kar rahe, balke aap us
-              zimmedari ko ek aise product mein shamil kar rahe hain jise
-              doosre log istemal karenge.
+            <Callout label="Policy Bhi Ek Responsibility Hai">
+              Koi bhi policy tabhi kaam karti hai jab approved tool utna hi
+              easy reach ho jitna wo tool jo log pehle se khula rakhte
+              hain. Teacher ka use kiya hua consumer service ek click door
+              tha. Agar university ka approved tool ek request form aur ek
+              week ke wait ke baad milta, to ye bhi ek policy flaw thi,
+              sirf teacher ki personal mistake nahi. Mode 2 mein aap sirf
+              khud responsible AI practice nahi kar rahe, aap us
+              responsibility ko ek aise product mein build kar rahe ho jise
+              dusre log use karenge.
             </Callout>
           </Reveal>
         </section>
@@ -1337,70 +1281,69 @@ one-person business with a limited budget.`}</PromptBox>
         <section id="part3" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
             <PartBanner>Part 3 · Chaaron Ko Ek Sath Milana</PartBanner>
-            <SubHeading>7. 4Ds Ek Amali Operating Loop Ki Tarah</SubHeading>
+            <SubHeading>7. 4Ds Ek Practical Operating Loop Ki Tarah</SubHeading>
             <Flow
               loop
-              steps={["Delegate karein", "Describe karein", "Discern karein", "Diligent rahein"]}
+              steps={["Delegate karo", "Describe karo", "Discern karo", "Diligent raho"]}
             />
             <P>
-              <Strong>Delegation</Strong> ye faisla karti hai ke AI kaam
-              mein shamil ho ya nahi, aur kya apni zimmedari mein le.{" "}
-              <Strong>Description</Strong> AI ko maqsad, context, tareeqa,
-              aur suluk ka pata deti hai. <Strong>Discernment</Strong>{" "}
-              natije ka jaiza leti hai aur agla marhala behtar banati hai.{" "}
-              <Strong>Diligence</Strong> is poore amal ko zimmedari se gher
-              leti hai.
+              <Strong>Delegation</Strong> decide karti hai AI kaam mein aaye
+              ya nahi, aur kya own kare. <Strong>Description</Strong> AI ko
+              goal, context, process, aur behavior deti hai.{" "}
+              <Strong>Discernment</Strong> result check karti hai aur agla
+              round better banati hai. <Strong>Diligence</Strong> poore
+              process ko responsibility se cover karti hai.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Misaal: Ek Bookkeeping Digital FTE</SubHeading>
+            <SubHeading>Example: Ek Bookkeeping Digital FTE</SubHeading>
             <P>
               Ayesha Lahore mein ek Forward Deployed Engineer hai, jo
-              Karachi ki ek chhoti si accounting practice ke liye ek
-              bookkeeping Digital FTE bana rahi hai. Sab se pehla kaam jo
-              automate karna hai, wo hai monthly bank reconciliation.
+              Karachi ki ek small accounting practice ke liye bookkeeping
+              Digital FTE bana rahi hai. Pehla kaam jo automate karna hai,
+              wo hai monthly bank reconciliation.
             </P>
             <Ladder
               steps={[
-                { title: "Marhala 1 · Delegation", note: "Ayesha ye nahi poochti ke \"ek reconciliation agent bana do.\" Wo accounting partners ke sath baith kar poora kaam naqsha (map) karti hai: agent bank transactions ko ledger entries se milaye ga, na-milne wale items nishaan-zad karega, aur report ka draft banayega; insaan har journal adjustment manzoor karenge, har write-off ka faisla apne paas rakhenge, tax se juri koi bhi maamla accountant ke paas rahega, aur zyada raqam wale na-milne wale items ek muta&apos;yyin shakhs tak pahunchaye jayenge." },
-                { title: "Marhala 2 · Description", note: "System ko chart of accounts, milane ke qawaid, purani reconciliations ki misaalein, partners ka report format, escalation ke qawaid, aur duplicate ya purani cheques ki tareefain di jati hain. Usool ye hai: agent kabhi khud journal entry post nahi karega, aur kabhi client se seedha rabta nahi karega." },
-                { title: "Marhala 3 · Discernment", note: "Ayesha ye farz nahi karti ke agent sirf isliye theek kaam kar raha hai kyunke demo achi lagi. Wo agent ko purani, qabil-e-etimaad reconciliations ke muqable mein aazmati hai: kitne matches sahi hain, kitne ghalat matches nikal jate hain, sahi cases escalate hote hain ya nahi, kya agent zaroorat se zyada escalate kar raha hai, aur kya kaarkardagi waqt ke sath badal rahi hai. Ek accountant kuch \"kamiyab\" matches ka bhi jaiza leta hai, sirf nakaamiyon ka nahi, kyunke koi nizaam khamoshi se nakaam ho kar bhi mehfooz dikh sakta hai." },
-                { title: "Marhala 4 · Diligence", note: "Client ka maali data manzoor-shuda infrastructure ke andar rehta hai, agent ke amal ka record rakha jata hai, jahan zaroori ho wahan clients ko bataya jata hai ke reconciliation AI ki madad se hui hai, aur phir bhi ek insaani partner reconciliation par dastkhat karta hai aur aakhri natije ka zimmedar rehta hai." },
+                { title: "Step 1 · Delegation", note: "Ayesha ye nahi poochti ke \"reconciliation agent bana do.\" Wo accounting partners ke sath baith kar poora kaam map karti hai: agent bank transactions ko ledger entries se match kar sakta hai, unmatched items flag kar sakta hai, aur report draft kar sakta hai; humans har journal adjustment approve karenge, har write-off ka decision apne paas rakhenge, tax se related koi bhi cheez accountant ke paas rahegi, aur high-value unmatched items ek named person tak escalate hongi." },
+                { title: "Step 2 · Description", note: "System ko chart of accounts, matching rules, purani reconciliations ki examples, partners ka report format, escalation rules, aur duplicate/stale cheque ki definitions di jati hain. Rule ye hai: agent kabhi khud journal entry post nahi karega, aur kabhi client se directly contact nahi karega." },
+                { title: "Step 3 · Discernment", note: "Ayesha ye assume nahi karti ke agent sirf isliye theek kaam kar raha hai kyunke demo achi lagi. Wo agent ko purani, trusted reconciliations ke against test karti hai: kitne matches correct hain, kitne wrong matches slip karte hain, sahi cases escalate hote hain ya nahi, kya agent zaroorat se zyada escalate kar raha hai, aur kya performance time ke sath change ho rahi hai. Ek accountant kuch \"successful\" matches ka bhi review karta hai, sirf failures ka nahi, kyunke koi system silently fail ho kar bhi safe dikh sakta hai." },
+                { title: "Step 4 · Diligence", note: "Client ka financial data approved infrastructure ke andar rehta hai, agent ke actions log hote hain, jahan zaroori ho wahan clients ko bataya jata hai ke reconciliation AI-assisted hai, aur phir bhi ek human partner reconciliation sign karta hai aur final result ka zimmedar rehta hai." },
               ]}
             />
             <P>
-              Yehi 4D loop amal mein hai. <Strong>Ek zaati (personal)
-              salahiyat ek nizaam ki khasiyat ban gayi.</Strong>
+              Yehi 4D loop practice mein hai. <Strong>Ek personal skill ek
+              system property ban gayi.</Strong>
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Chart: Chat Ki Salahiyat Se Factory Nizaam Tak</SubHeading>
+            <SubHeading>Chart: Chat Skill Se Factory System Tak</SubHeading>
             <RecapTable
-              head={["Salahiyat", "Ek Chat Mein", "Agent Factory Mein"]}
+              head={["Competency", "Ek Chat Mein", "Agent Factory Mein"]}
               rows={[
-                ["Delegation", "Ye faisla karna ke AI se kya poochna hai", "Digital FTE ka daira tay karna, insaan-AI ki hadd muta'yyin karna"],
-                ["Description", "Hidayaat aur context faraham karna", "System prompts, skills, context engineering, Systems of Record"],
-                ["Discernment", "Jawab ka jaiza lena", "Evals, monitoring, sampling, checker par bharosa"],
-                ["Diligence", "Data ki hifazat, natije ki zimmedari lena", "Governance, permissions, audit, zahoori, insaani jaiza"],
+                ["Delegation", "AI se kya poochna hai decide karna", "Digital FTE scope karna, human/AI boundary set karna"],
+                ["Description", "Instructions aur context dena", "System prompts, skills, context engineering, Systems of Record"],
+                ["Discernment", "Answer review karna", "Evals, monitoring, sampling, checker ko trust karna"],
+                ["Diligence", "Data protect karna, result ka zimmedar hona", "Governance, permissions, audit, disclosure, human review"],
               ]}
             />
             <P>
-              <Strong>&ldquo;Agent Factory AI fluency ki jagah nahi leta, ye
-              usay sanaati (industrialize) banata hai.&rdquo;</Strong>
+              <Strong>&ldquo;Agent Factory AI fluency replace nahi karta.
+              Wo use industrialize karta hai.&rdquo;</Strong>
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>10-80-10 Rule Se Talluq</SubHeading>
+            <SubHeading>10-80-10 Rule Se Connection</SubHeading>
             <RecapTable
-              head={["Marhala", "4Ds Kis Tarah Kaam Karti Hain"]}
+              head={["Stage", "4Ds Kaise Kaam Karti Hain"]}
               rows={[
-                ["Pehle 10%: samt (direction) tay karna", "Delegation aur Description yahan sab se zyada mazboot hain, ye faisla karna ke kya karne ke qabil hai, aur maqsad wazeh karna"],
-                ["Darmiyani 80%: AI ki rehnumai karna", "Description aur Discernment mustaqil dohrai jati hain, jaise jaise AI kaam banata hai, aap usay rehnumai dete rehte hain"],
-                ["Aakhri 10%: sach ka faisla karna", "Kuch bhi bhejne se pehle Discernment nihayat ahem ho jati hai"],
-                ["Poore 100% mein: zimmedaraana amal", "Diligence koi aakhri checkbox nahi, ye poori workflow ko gher leti hai"],
+                ["Pehle 10%: direction set karo", "Delegation aur Description yahan sab se strong hain, decide karo kya karne layak hai, goal clear karo"],
+                ["Beech ke 80%: AI ko orchestrate karo", "Description aur Discernment continuously repeat hoti hain, jaise jaise AI kaam banata hai aap use steer karte ho"],
+                ["Last 10%: truth judge karo", "Kuch bhi ship hone se pehle Discernment critical ban jati hai"],
+                ["Poore 100% mein: responsibly act karo", "Diligence koi final checkbox nahi hai, ye poori workflow ko cover karti hai"],
               ]}
             />
           </Reveal>
@@ -1409,52 +1352,49 @@ one-person business with a limited budget.`}</PromptBox>
         {/* ---------------------------- MISTAKES ---------------------- */}
         <section id="mistakes" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <SubHeading>8. Naye Logon Ki Chaar Aam Ghaltiyan</SubHeading>
+            <SubHeading>8. Beginners Ki 4 Common Mistakes</SubHeading>
             <RecapTable
-              head={["Ghalti", "Kaunsi Salahiyat Ki Kami", "Hal"]}
+              head={["Mistake", "Missing Skill", "Fix"]}
               rows={[
-                ["Masla samjhe baghair prompt likhna", "Delegation", "Pehle maqsad, audience, hadood, aur insaan-AI ki taqseem tay karein"],
-                ["Pehle jawab ko hi aakhri samajh lena", "Description + Discernment ka chakkar", "Natije ka jaiza lein, khaas feedback dein, aur baar baar koshish karein"],
-                ["Pesha-warana lagne wale jawab par andhi tarah bharosa karna", "Discernment", "Ahem facts, andaaze, hisaab-kitaab, aur sources ki taeed karein"],
-                ["Privacy aur zimmedari ke baare mein sirf kuch ghalat hone ke baad sochna", "Diligence", "Deployment se pehle data, zahoori, manzoori, aur zimmedari ke qawaid tay karein"],
+                ["Problem define kiye bina prompt karna", "Delegation", "Pehle goal, audience, constraints, aur human/AI split define karo"],
+                ["Pehle answer ko hi final samajh lena", "Description + Discernment loop", "Result inspect karo, specific feedback do, aur iterate karo"],
+                ["Professional sounding answer pe blindly trust karna", "Discernment", "Important facts, assumptions, calculations, aur sources verify karo"],
+                ["Privacy/accountability ke baare mein sirf kuch wrong hone ke baad sochna", "Diligence", "Deployment se pehle data, disclosure, approval, aur accountability rules decide karo"],
               ]}
             />
           </Reveal>
 
           <Reveal>
-            <SubHeading>Roz Ka Checklist</SubHeading>
+            <SubHeading>Daily Checklist</SubHeading>
             <RecapTable
-              head={["Marhala", "Khud Se Poochein"]}
+              head={["Stage", "Khud Se Poocho"]}
               rows={[
-                ["Delegate", "Maqsad kya hai? AI kya kare? Mere paas kya rahe?"],
-                ["Describe", "Output, context, tareeqa, aur suluk mein se AI ko kya chahiye?"],
-                ["Discern", "Mujhe kaise pata chalega ke jawab sahi, mukammal, aur qabil-e-istemal hai?"],
-                ["Be diligent", "Kya data mehfooz hai? Kya AI ke kirdar ki zahoori zaroori hai? Natije ko kaun manzoor aur zimmedar karta hai?"],
+                ["Delegate", "Goal kya hai? AI kya kare? Mere paas kya rahe?"],
+                ["Describe", "Output, context, method, aur behavior mein se AI ko kya chahiye?"],
+                ["Discern", "Mujhe kaise pata chalega answer correct, complete, aur useful hai?"],
+                ["Be diligent", "Data safe hai? AI ke role ko disclosure chahiye? Result ko kaun approve/own karta hai?"],
               ]}
             />
             <P>
-              Har chhote se kaam ke liye ise kaghazi karwai (paperwork)
-              banane ki zaroorat nahi, maqsad sirf itna hai ke ye chaar
-              sawal khud-ba-khud zehan mein aa jayen.
+              Har chhote task ke liye ise paperwork banane ki zaroorat
+              nahi, maqsad bas itna hai ke ye 4 sawal automatic ban jayen.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Practice Se Pehle Ek Chhota Khulasa</SubHeading>
+            <SubHeading>Practice Se Pehle Ek Chhota Recap</SubHeading>
             <P>
-              AI fluency prompts ratta lagane ki salahiyat nahi. Ye AI ke
-              sath <Strong>mo&apos;ussar (effective), momtaaz (efficient),
-              akhlaaqi (ethical), aur mehfooz (safe)</Strong> tareeqe se
-              kaam karne ki salahiyat hai. Iske teen tareeqe hain: Automation,
-              jahan AI muta&apos;yyin kaam anjaam deta hai; Augmentation, jahan
-              aap aur AI mil kar sochte hain; aur Agency, jahan AI aapke
-              tay kiye maqsad ki taraf khud kaam karta hai, aksar un logon
-              ke liye jo aap khud nahi hote.
+              AI fluency prompts ratta lagane ki ability nahi hai. Ye AI ke
+              sath <Strong>effectively, efficiently, ethically, aur
+              safely</Strong> kaam karne ki ability hai. Iske 3 modes hain:
+              Automation (AI defined task karta hai), Augmentation (aap aur
+              AI sath sochte hain), aur Agency (AI aapke set kiye goal ki
+              taraf khud kaam karta hai, aksar un logon ke liye jo aap khud
+              nahi hain).
             </P>
             <PullQuote>
-              Faisla karo ke AI kya kare. Kaam ko wazeh tareeqe se bayan
-              karo. Jo wapis aaye usay jaancho. Aage jo bhi ho, uski
-              zimmedari lo.
+              Decide karo AI kya kare. Kaam ko clearly describe karo. Jo
+              wapis aaye usay check karo. Aage jo bhi ho uska zimmedar bano.
             </PullQuote>
           </Reveal>
         </section>
@@ -1462,43 +1402,43 @@ one-person business with a limited budget.`}</PromptBox>
         {/* ---------------------------- PRACTICE ---------------------- */}
         <section id="practice" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <SubHeading>Ab Khud Aazmayein: Chhe Prompts</SubHeading>
+            <SubHeading>Ab Khud Try Karo: 6 Prompts</SubHeading>
             <P>
-              Sirf parh lena kaafi nahi, ek AI assistant khol kar ye
-              mashqein (exercises) khud aazmayein. Sab ko ek hi baithak mein
-              mukammal karna zaroori nahi.
+              Sirf parhna kaafi nahi, ek AI assistant khol ke ye exercises
+              khud try karo. Sab ek hi sitting mein complete karna zaroori
+              nahi.
             </P>
             <Ladder
               steps={[
                 {
-                  title: "1. Kisi Asal Kaam Ke Liye 4D Plan Banayein",
-                  note: "Koi asal kaam chunein aur AI se kahein ke wo ek ek karke Delegation, Description, Discernment, aur Diligence par sawal poochhe, jo apply na ho usay chhor de, aur aakhir mein ek chhoti si table de. Ghor karne wali baat: plan zyada tar aapke apne jawabon se banta hai, AI ke nahi, kyunke Delegation aur Diligence sirf aap khud faisla kar sakte hain.",
+                  title: "1. Kisi Real Task Ke Liye 4D Plan Banao",
+                  note: "Koi real task chuno aur AI se poocho ke wo ek ek kar ke Delegation, Description, Discernment, Diligence pe sawal poochhe, jo apply na ho wo skip kar de, aur end mein ek chhoti table de. What to notice: plan zyada tar aapke apne answers se banta hai, AI ke nahi, kyunke Delegation aur Diligence sirf aap khud decide kar sakte ho.",
                 },
                 {
-                  title: "2. Ek Jaani-Pehchani Mauzu Par Discernment Aazmayein",
-                  note: "Ek aisi mauzu par baat karein jismein aapko waqai tajurba ho, aur AI se kahein ke wo aik samajhdar saathi ki tarah baat kare, ustaad ki tarah nahi. Ghor karne wali baat: jab mauzu aapki apni domain ho to Discernment kitni sasti mehsoos hoti hai, aap bina koshish ke hi ghalat daawa pakar lete hain.",
+                  title: "2. Ek Jani-Pehchani Topic Pe Discernment Try Karo",
+                  note: "Ek aisi topic pe baat karo jismein aapko actually experience ho, aur AI se kaho ke wo ek knowledgeable colleague ki tarah baat kare, teacher ki tarah nahi. What to notice: jab domain aapki khud ki ho to Discernment kitni cheap feel hoti hai, aap bina effort ke wrong claim pakar lete ho.",
                 },
                 {
-                  title: "3. Non-Expert Hone Ka Ehsaas Karein",
-                  note: "Ek aisi mauzu chunein jismein aapko kuch bhi maloom na ho, aur AI se kahein ke wo ek naye seekhne wale ke liye samjhaye, aur aakhir mein wo daawe batae jo aapko taeed karne chahiye. Ghor karne wali baat: usi darje ka output kitna mukhtalif mehsoos hota hai jab check karne ko kuch bhi na ho, yehi ehsaas har us user ko hoga jo aapki banayi hui agent istemal karega.",
+                  title: "3. Non-Expert Hone Ka Feel Karo",
+                  note: "Ek aisi topic chuno jisme aapko kuch bhi pata na ho, aur AI se kaho ke wo ek beginner ke liye explain kare, aur end mein wo claims batae jo aapko verify karni chahiyen. What to notice: same quality output kitna different feel hota hai jab check karne ko kuch bhi na ho, yehi feeling har us user ki hai jo aapka banaya agent use karega.",
                 },
                 {
-                  title: "4. Ek Performance Description Likhein",
-                  note: "Session ke shuru mein hi AI ko batayein ke wo kamzor andaazon ko chunauti de, be-yaqeeni ko nishaan-zad kare, aur sirf shaistagi ke liye razamandi na dikhaye. Ghor karne wali baat: farq kitni jaldi nazar aata hai, aur agar naya chat khol kar ye dobara na batayein, to ye kitni jaldi mit jata hai.",
+                  title: "4. Ek Performance Description Likho",
+                  note: "Session ke shuru mein hi AI ko bata do ke wo weak assumptions ko challenge kare, uncertainty flag kare, aur sirf politeness ke liye agree na kare. What to notice: difference kitni jaldi visible hoti hai, aur agar naya chat khol ke ye dobara na batao, to ye kitni jaldi fade ho jati hai.",
                 },
                 {
-                  title: "5. Sifarish Se Pehle Uski Daleel Ka Jaiza Lein",
-                  note: "Koi asal faisla AI ko dein aur usay andaaze, saboot, criteria, aur be-yaqeeniyaan fehrist karne ko kahein, phir sifarish mangwayein. Ghor karne wali baat: koi bhi aisa andaza jo aap bina likhe khamoshi se qabool kar lete, wahi sab se zyada jaanch ke qabil hota hai.",
+                  title: "5. Recommendation Se Pehle Uski Justification Check Karo",
+                  note: "Koi real decision AI ko do aur usay assumptions, evidence, criteria, aur uncertainties list karne ko kaho, phir recommendation mangwao. What to notice: koi bhi assumption jo aap bina likhe silently accept kar lete, wahi sab se zyada check karne layak hai.",
                 },
                 {
-                  title: "6. Ek Chhota Project Poore 4D Chakkar Se Guzarein",
-                  note: "Ek ghante mein mukammal hone wala project chunein: Delegation se shuru karein, har AI ke zimme kaam se pehle description poochein, har ahem output ke baad ruk kar jaiza lein, aur aakhir mein facts, hassas data, zahoori, aur manzoori ka Diligence check karein.",
+                  title: "6. Ek Chhota Project Poore 4D Loop Se Guzaro",
+                  note: "Ek hour mein complete hone wala project chuno: Delegation se start karo, har AI-owned task se pehle description poocho, har important output ke baad ruk ke evaluate karo, aur end mein facts, sensitive data, disclosure, aur approvals ka Diligence check karo.",
                 },
               ]}
             />
-            <Callout label="Har Mashq Ke Baad">
-              Khud se poochein: &ldquo;kaunsi D mujh se sab se zyada mehnat
-              mangti hai?&rdquo; Yehi wo salahiyat hai jiski aapko sab se
+            <Callout label="Har Exercise Ke Baad">
+              Khud se poocho: &ldquo;kaunsi D mujhse sab se zyada effort
+              maangti hai?&rdquo; Yehi wo competency hai jiski aapko sab se
               zyada practice karni chahiye.
             </Callout>
           </Reveal>
@@ -1507,39 +1447,36 @@ one-person business with a limited budget.`}</PromptBox>
         {/* ---------------------------- GLOSSARY ---------------------- */}
         <section id="glossary" className="scroll-mt-24 border-t border-border pt-12 mt-12">
           <Reveal>
-            <SubHeading>Is Chapter Ki Nayi Istilaahaat (Terms)</SubHeading>
-            <P>
-              Imtihaan ke liye ye poori fehrist yaad rakhein, koi bhi
-              istilaah chhorein nahi:
-            </P>
+            <SubHeading>Is Chapter Ke Naye Terms</SubHeading>
+            <P>Exam ke liye ye poori glossary yaad rakho, koi bhi term skip mat karo:</P>
             <RecapTable
               head={["Term", "Matlab"]}
               rows={[
-                ["AI fluency", "AI ke sath mo'ussar, momtaaz, akhlaaqi, aur mehfooz tareeqe se kaam karne ki salahiyat"],
+                ["AI fluency", "AI ke sath effectively, efficiently, ethically, aur safely kaam karne ki ability"],
                 ["The 4Ds", "Delegation, Description, Discernment, aur Diligence"],
-                ["Automation", "AI khaas hidayaat se ek muta'yyin kaam anjaam deta hai"],
-                ["Augmentation", "Insaan aur AI ek doosre ke sochne mein saathi ki tarah kaam karte hain"],
-                ["Agency", "AI kisi insaan ki taraf se ek maqsad ki taraf kaam karta hai aur khud kai qadam chunta hai"],
-                ["Delegation", "Ye faisla karna ke kaam ka kya hona chahiye, AI kya kare, aur insaan kya apne paas rakhein"],
-                ["Problem awareness", "AI ko shamil karne se pehle maqsad, kaam, khatraat, aur kamiyabi ko samajhna"],
-                ["Platform awareness", "Ye samajhna ke kaunsa AI system ya tool is kaam ke liye theek hai"],
-                ["Task delegation", "Kaam ke hisson ko jaan-boojh kar insaan ya AI ko sonpna"],
-                ["Description", "AI ko wo maloomat aur rehnumai dena jo achay kaam ke liye zaroori hai"],
-                ["Product description", "Chahiye wale output ki wazahat karna"],
-                ["Process description", "AI ko kaam kis tareeqe se karna hai, iski wazahat karna"],
-                ["Performance description", "Ye wazahat karna ke AI khud se un logon ke liye kis tarah suluk kare jo isay istemal karenge"],
-                ["Discernment", "AI ke output, uski daleel, aur uske suluk ka jaiza lena"],
-                ["Product discernment", "Khud natije ka jaiza lena"],
-                ["Process discernment", "Ye jaiza lena ke AI ke sath kaam karne ka ye tareeqa faida-mand hai ya nahi"],
-                ["Performance discernment", "Ye jaiza lena ke AI ka khud-mukhtar, user ke saamne aane wala suluk logon ke liye achay natije la raha hai ya nahi"],
-                ["Diligence", "AI ka istemal kis tarah hua, aur uske natije ka anjaam kya hua, iski zimmedari lena"],
-                ["Creation diligence", "Banane se pehle aur is dauran tools, data, aur AI ka zimmedaraana intekhab"],
-                ["Transparency diligence", "Jab AI ka kirdar mutasir hone wale logon ke liye ahem ho, to sachai batana"],
-                ["Deployment diligence", "AI-assisted kaam ko istemal, shaya, bhejne, ya chalane se pehle taeed aur zimmedari lena"],
-                ["Context engineering", "AI system ke liye zaroori poora ma'lumati mahol design karna: hidayaat, documents, tools, memory, policies, aur misaalein"],
-                ["Automation bias", "Khud-kaar output par zaroorat se zyada aasani se bharosa kar lene ki insaani fitrat"],
-                ["Hallucination", "Ek bharosemand ya sahi lagne wala AI output jismein banayi hui ya ghalat maloomat shamil ho"],
-                ["Redaction", "AI ko data dene se pehle shakhs ya organization ki pehchaan karwane wali tafseelaat hatana, jabke kaam ke liye zaroori pattern baaqi rakhna"],
+                ["Automation", "AI specific instructions se ek defined task perform karta hai"],
+                ["Augmentation", "Human aur AI thinking partners ki tarah sath kaam karte hain"],
+                ["Agency", "AI kisi insaan ki taraf se ek goal ki taraf kaam karta hai aur khud kai steps choose karta hai"],
+                ["Delegation", "Decide karna kya kaam hona chahiye, AI kya kare, humans kya rakhein"],
+                ["Problem awareness", "AI involve karne se pehle goal, kaam, risks, aur success ko samajhna"],
+                ["Platform awareness", "Ye samajhna ke kaunsa AI system ya tool is task ke liye fit hai"],
+                ["Task delegation", "Kaam ke parts jaan-boojh kar humans ya AI ko assign karna"],
+                ["Description", "AI ko wo information aur guidance dena jo achhe kaam ke liye chahiye"],
+                ["Product description", "Chahiye wale output ko define karna"],
+                ["Process description", "AI ko kaam kaise approach karna hai ye define karna"],
+                ["Performance description", "AI khud kaise behave kare, un logon ke liye jo use karenge, ye define karna"],
+                ["Discernment", "AI ke output, justification, aur behavior ko evaluate karna"],
+                ["Product discernment", "Khud result ko evaluate karna"],
+                ["Process discernment", "Evaluate karna ke AI ke sath kaam karne ka tareeka faida de raha hai ya nahi"],
+                ["Performance discernment", "Evaluate karna ke AI ka independent, user-facing behavior logon ke liye good outcomes de raha hai ya nahi"],
+                ["Diligence", "AI kaise use hui aur uske output ka kya hua, iski responsibility lena"],
+                ["Creation diligence", "Creation se pehle aur us dauran tools, data, aur AI ka responsible use choose karna"],
+                ["Transparency diligence", "Jab AI ka role affected logon ke liye matter kare to honest rehna"],
+                ["Deployment diligence", "AI-assisted kaam ko use, publish, send, ya execute karne se pehle verify aur vouch karna"],
+                ["Context engineering", "AI system ko chahiye wala poora information environment design karna: instructions, documents, tools, memory, policies, examples"],
+                ["Automation bias", "Automated output ko zaroorat se zyada easily trust kar lene ki human tendency"],
+                ["Hallucination", "Ek confident ya plausible AI output jisme fabricated ya wrong information ho"],
+                ["Redaction", "AI ko data dene se pehle person ya organization ko identify karne wale details hataana, jabke task ke liye zaroori pattern rakhna"],
               ]}
             />
           </Reveal>
@@ -1548,14 +1485,14 @@ one-person business with a limited budget.`}</PromptBox>
             <Callout label="Source &amp; License Note">
               AI Fluency Framework <Strong>Rick Dakan</Strong> (Ringling
               College) aur <Strong>Joseph Feller</Strong> (University
-              College Cork) ne banaya, aur ye Anthropic ke sath milkar tayar
+              College Cork) ne banaya, Anthropic ke sath milkar produce
               hua. Framework ka course <Strong>CC BY-NC-SA 4.0</Strong> ke
-              tehat jaari hua, jabke unka practical overview reference
-              document <Strong>CC BY-NC-ND 4.0</Strong> ke tehat hai. Ye
-              Cybrum ke notes is framework ki apni ek Roman Urdu tashreeh
-              hain, jo Agent Factory book (agentfactory.panaversity.org) ke
-              crash course par mabni hain, iski copy nahi. Asal (original)
-              parhne ke liye:{" "}
+              under release hua, aur unka practical overview reference
+              document <Strong>CC BY-NC-ND 4.0</Strong> ke under hai. Ye
+              Cybrum notes is framework ki apni ek Roman Urdu explanation
+              hain, Agent Factory book (agentfactory.panaversity.org) ke
+              crash course pe based, uski copy nahi. Original padhne ke
+              liye:{" "}
               <a
                 href="https://aifluencyframework.org/"
                 target="_blank"
@@ -1564,7 +1501,7 @@ one-person business with a limited budget.`}</PromptBox>
               >
                 aifluencyframework.org
               </a>{" "}
-              aur Claude Academy ka muft course{" "}
+              aur Claude Academy ka free course{" "}
               <a
                 href="https://academy.claude.com/courses/ai-fluency-framework-foundations"
                 target="_blank"
@@ -1573,7 +1510,7 @@ one-person business with a limited budget.`}</PromptBox>
               >
                 AI Fluency: Framework and Foundations
               </a>{" "}
-              dekhein.
+              dekho.
             </Callout>
           </Reveal>
         </section>
@@ -1586,56 +1523,56 @@ one-person business with a limited budget.`}</PromptBox>
               Self-Test
             </p>
             <h2 className="mb-3 text-2xl font-bold tracking-tight sm:text-3xl">
-              Khud Se Poochein
+              Khud Se Poocho
             </h2>
             <P>
-              Pehle khud jawab dein, phir sawal par click kar ke jawab check
-              karein. Agar aath ya zyada sahi hon, to aap agle chapter ke
-              liye tayyar hain.
+              Pehle khud answer do, phir sawal pe click kar ke answer check
+              karo. Agar 8+ correct hon, to aap agle chapter ke liye ready
+              ho.
             </P>
           </Reveal>
           <Reveal>
             <div className="mt-6 space-y-2.5">
               {[
                 {
-                  q: "AI fluency ki chaar sifaat kya hain?",
-                  a: "Effective, Efficient, Ethical, aur Safe. Ye ek pukhta salahiyat hai, prompt tricks ka majmua nahi.",
+                  q: "AI fluency ki 4 qualities kya hain?",
+                  a: "Effective, Efficient, Ethical, aur Safe. Ye ek durable skill hai, prompt tricks ka collection nahi.",
                 },
                 {
-                  q: "Automation, augmentation, aur agency mein farq kya hai?",
-                  a: "Automation mein AI khaas hidayaat se ek muta'yyin kaam karta hai (aap script writer hain). Augmentation mein aap aur AI ek doosre ke sochne mein saathi ki tarah kaam karte hain (aap co-creator hain). Agency mein AI ek maqsad ki taraf, apni hadood ke andar, khud kai qadam chunta hai, aksar aapki maujoodgi ke baghair aur kabhi kabhi doosron ke liye (aap director hain).",
+                  q: "Automation, augmentation, aur agency mein difference kya hai?",
+                  a: "Automation ek defined task specific instructions se execute karta hai (aap script writer ho). Augmentation mein aap aur AI thinking partners ki tarah collaborate karte hain (aap co-creator ho). Agency mein AI ek goal ki taraf boundaries ke andar khud kai steps choose karta hai, aksar aapke bina aur kabhi kabhi dusron ke liye (aap director ho).",
                 },
                 {
-                  q: "Delegation ke teen hisse kya hain?",
-                  a: "Problem Awareness (maqsad aur kamiyabi samajhna), Platform Awareness (sahi AI tool ka intekhab), aur Task Delegation (kaam ko jaan-boojh kar taqseem karna).",
+                  q: "Delegation ke 3 parts kya hain?",
+                  a: "Problem Awareness (goal aur success samajhna), Platform Awareness (right AI tool choose karna), aur Task Delegation (kaam jaan-boojh kar divide karna).",
                 },
                 {
-                  q: "Description ke teen hisse kya hain?",
-                  a: "Product description (kya chahiye), Process description (kis tarah ho), aur Performance description (AI kaisa suluk kare). Yaad rakhne ka tareeqa: What → How → Mere sath kis tarah pesh aana hai.",
+                  q: "Description ke 3 parts kya hain?",
+                  a: "Product description (kya chahiye), Process description (kaise ho), aur Performance description (AI kaise behave kare). Yaad rakhne ka trick: What → How → Mujhse kaise deal karo.",
                 },
                 {
-                  q: "Ek bharosemand AI jawab ko bhi taeed ki zaroorat kyun hoti hai?",
-                  a: "Kyunke AI sahi lagne wala (plausible) output banata hai, aur sahi lagna, sahi hone jaisa nahi hota. Rawaan alfaaz facts, andaazon, ya daleel ki taeed nahi karte; automation bias humein bharosemand lagne wale jawabon par zaroorat se zyada aasani se yaqeen karwa deta hai.",
+                  q: "Ek confident AI answer ko bhi verification kyun chahiye?",
+                  a: "Kyunke AI plausible output generate karta hai, aur plausible correct ke barabar nahi hota. Fluent wording facts, assumptions, ya reasoning verify nahi karti; automation bias humein confident-looking answers ko zaroorat se zyada easily trust karwa deta hai.",
                 },
                 {
-                  q: "Discernment ke teen hisse kya hain?",
-                  a: "Product discernment (kya natija achha hai?), Process discernment (kya ye tareeqa faida-mand hai?), aur Performance discernment (jab AI khud amal karta hai, kya logon ki achi khidmat ho rahi hai?).",
+                  q: "Discernment ke 3 parts kya hain?",
+                  a: "Product discernment (result achha hai?), Process discernment (ye tareeka faida de raha hai?), aur Performance discernment (AI khud act karte waqt logon ko achi tarah serve kar raha hai?).",
                 },
                 {
-                  q: "Diligence ke teen hisse kya hain?",
-                  a: "Creation diligence (tools aur data ka zimmedaraana intekhab), Transparency diligence (AI ke kirdar ke baare mein sachai batana), aur Deployment diligence (bhejne se pehle taeed aur zimmedari lena).",
+                  q: "Diligence ke 3 parts kya hain?",
+                  a: "Creation diligence (tools/data ka responsible choice), Transparency diligence (AI ke role ke baare mein honest rehna), aur Deployment diligence (ship karne se pehle verify aur vouch karna).",
                 },
                 {
-                  q: "AI-assisted kaam bhejne se pehle kaunsa sawal poochna chahiye?",
-                  a: "\"Kya main is par yaqeen ke sath apna naam laga sakta hoon?\" Agar jawab nahi hai, to kaam abhi tayyar nahi.",
+                  q: "AI-assisted kaam ship karne se pehle kaunsa sawal poochna chahiye?",
+                  a: "\"Kya main confidently is par apna naam laga sakta hoon?\" Agar answer na hai, to kaam ready nahi hai.",
                 },
                 {
-                  q: "Ek jumle mein, 4D loop kya hai?",
-                  a: "Faisla karo ke AI kya kare, kaam ko bayan karo, jo wapis aaye usay parkho, aur poore amal ki zimmedari lo, zaroorat parne par ye silsila dohrao.",
+                  q: "Ek line mein, 4D loop kya hai?",
+                  a: "Decide karo AI kya kare, kaam describe karo, jo wapis aaye usay evaluate karo, aur poore process ka zimmedar bano, zaroorat pade to repeat karo.",
                 },
                 {
-                  q: "Agent Factory mein Discernment ek engineering amal kis tarah banti hai?",
-                  a: "Ye eval suites, monitoring, sampling, aur release gates jaise tareeqon mein badal jati hai, jo ye jaanchte hain ke koi AI system qabil-e-qabool tareeqe se kaam kar raha hai ya nahi. Zaati sawal \"kya ye kaafi achha hai?\" ek nizaam-paimana (system-scale) infrastructure ban jata hai.",
+                  q: "Agent Factory mein Discernment ek engineering practice kaise banti hai?",
+                  a: "Ye eval suites, monitoring, sampling, review gates, aur dusre tareeqon mein badal jati hai jo test karte hain ke ek AI system acceptably perform kar raha hai ya nahi. Personal sawal \"kya ye kaafi achha hai?\" system-scale infrastructure ban jata hai.",
                 },
               ].map((item, i) => (
                 <details
