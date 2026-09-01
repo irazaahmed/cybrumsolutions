@@ -310,6 +310,11 @@ export default function AiFluencyChapterPage() {
         <section id="intro" className="scroll-mt-24 pt-4">
           <Reveal>
             <ChapterHeader num={chapter.num} title={chapter.title} sub={chapter.sub} />
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs text-muted">
+              Ye chapter <Strong>{chapter.examCode}</Strong> (Claude
+              Certified Associate: Foundations) ke judgment-layer objectives
+              se match karta hai
+            </p>
             <CoreIdea>
               AI fluency ka matlab chaalaak prompts yaad karna nahi, balke
               chaar salahiyaton, <Strong>4Ds</Strong>, ka majmua hai:

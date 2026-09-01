@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, GraduationCap } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, DollarSign, GraduationCap, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/ui/Reveal";
-import { NotesHeader, NotesFooter, P, Strong } from "./_components/notes-ui";
+import { NotesHeader, NotesFooter, P, Strong, Callout } from "./_components/notes-ui";
 import { chapters } from "./_lib/chapters";
 
 const pageTitle = "Anthropic Exam Prep: Agent Factory Study Notes";
@@ -121,6 +121,81 @@ export default function AnthropicExamPrepIndexPage() {
           </Reveal>
         </section>
 
+        {/* Exam facts */}
+        <section className="border-t border-border pt-12 mt-12">
+          <Reveal>
+            <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent-bright">
+              <GraduationCap size={14} />
+              Exam Ke Baare Mein
+            </p>
+            <h2 className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl">
+              Ye Kis Exam Ki Tayari Hai
+            </h2>
+            <P>
+              Anthropic ke do Foundations-level exams hain: <Strong>Claude
+              Certified Associate (CCAO-F)</Strong> aur{" "}
+              <Strong>Claude Certified Architect (CCAR-F)</Strong>.
+              Panaversity ka apna free gate bhi hai, PCAO-F phir PCAR-F, jo
+              isi blueprint par chalta hai aur FDE Internship tak rasai
+              deta hai. Anthropic ke asal exams optional hain, aur unke
+              liye registration Panaversity ke internship route se madad
+              milti hai.
+            </P>
+          </Reveal>
+          <Reveal>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-xl border border-border bg-card/60 p-4">
+                <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-accent/15 text-accent-bright">
+                  <Clock size={17} />
+                </span>
+                <p className="text-sm font-semibold text-foreground">Format</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted">
+                  120 minute, 60 sawal, pass karne ke liye 1000 mein se 720
+                  score chahiye
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-card/60 p-4">
+                <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-accent/15 text-accent-bright">
+                  <DollarSign size={17} />
+                </span>
+                <p className="text-sm font-semibold text-foreground">Cost</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted">
+                  CCAO-F $99, CCAR-F $125 (list price); Panaversity ke
+                  PCAO-F/PCAR-F students ke liye pehle do attempts free hain
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-card/60 p-4">
+                <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-accent/15 text-accent-bright">
+                  <ShieldCheck size={17} />
+                </span>
+                <p className="text-sm font-semibold text-foreground">Eligibility</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted">
+                  Anthropic ke official exam ke liye organizational account
+                  chahiye (Anthropic Partner Academy se), personal email se
+                  register nahi ho sakta
+                </p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <Callout label="Note">
+              Ye maloomat{" "}
+              <a
+                href="https://agentfactory.panaversity.org/docs/certifications"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-bright underline-offset-4 hover:underline"
+              >
+                Agent Factory book ke Certifications page
+              </a>{" "}
+              se li gayi hai (last checked: August 2026). Prices, format,
+              aur eligibility waqt ke sath badal sakti hain, book karne se
+              pehle Anthropic ke official exam guide se zaroor taeed
+              karein.
+            </Callout>
+          </Reveal>
+        </section>
+
         {/* Chapter cards */}
         <section className="border-t border-border pt-12 mt-12">
           <Reveal>
@@ -154,7 +229,12 @@ export default function AnthropicExamPrepIndexPage() {
                     {c.sub}
                   </p>
                   <div className="mt-4 flex items-center justify-between text-xs text-muted">
-                    <span>{c.readTime}</span>
+                    <span className="inline-flex items-center gap-2">
+                      <span>{c.readTime}</span>
+                      <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[0.65rem]">
+                        {c.examCode}
+                      </span>
+                    </span>
                     <span className="inline-flex items-center gap-1 font-semibold text-accent-bright">
                       Parhein
                       <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />

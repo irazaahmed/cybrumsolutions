@@ -6,6 +6,9 @@ export type ChapterMeta = {
   tag: string;
   /** Approx. reading time shown on the index card. */
   readTime: string;
+  /** Which official Anthropic exam this chapter's content maps to, per
+   *  agentfactory.panaversity.org/docs/certifications. */
+  examCode: string;
 };
 
 /** Registry of every chapter on /anthropic-exam-prep. Add a new entry here
@@ -18,5 +21,6 @@ export const chapters: ChapterMeta[] = [
     sub: "Delegation, Description, Discernment, Diligence — AI ke saath kaam karne ka insaan wala skill",
     tag: "Foundations",
     readTime: "25-30 min",
+    examCode: "CCAO-F",
   },
 ];
