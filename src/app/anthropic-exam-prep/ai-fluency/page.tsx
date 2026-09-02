@@ -40,10 +40,10 @@ import {
   PromptBox,
   PullQuote,
 } from "../_components/notes-ui";
-import { chapters } from "../_lib/chapters";
+import { chapters, getNextLiveChapter } from "../_lib/chapters";
 
 const chapter = chapters.find((c) => c.slug === "ai-fluency")!;
-const nextChapter = chapters[chapters.findIndex((c) => c.slug === "ai-fluency") + 1];
+const nextChapter = getNextLiveChapter("ai-fluency");
 
 const pageTitle = `${chapter.title} — Anthropic Exam Prep`;
 const pageDescription =

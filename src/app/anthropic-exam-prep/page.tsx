@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, DollarSign, GraduationCap, ShieldCheck } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, DollarSign, GraduationCap, Lock, ShieldCheck } from "lucide-react";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/ui/Reveal";
@@ -35,12 +35,14 @@ const jsonLd = {
   name: pageTitle,
   description: pageDescription,
   url: `${site.url}/anthropic-exam-prep`,
-  itemListElement: chapters.map((c, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    url: `${site.url}/anthropic-exam-prep/${c.slug}`,
-    name: c.title,
-  })),
+  itemListElement: chapters
+    .filter((c) => c.live)
+    .map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${site.url}/anthropic-exam-prep/${c.slug}`,
+      name: c.title,
+    })),
 };
 
 export default function AnthropicExamPrepIndexPage() {
@@ -203,51 +205,76 @@ export default function AnthropicExamPrepIndexPage() {
               <BookOpen size={14} />
               Chapters
             </p>
-            <h2 className="mb-6 text-2xl font-bold tracking-tight sm:text-3xl">
-              Ek Chapter Chunein
+            <h2 className="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
+              Poora Study Guide, 9 Chapters
             </h2>
+            <P>
+              Ye PCAO-F/CCAO-F ke official study guide ka poora order hai.
+              Jo chapters likh chuke hain wo click karke parh sakte ho, baaki
+              ka roadmap yahan pehle se pata chal jaye ga.
+            </P>
           </Reveal>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {chapters.map((c, i) => (
-              <Reveal key={c.slug} delay={i * 0.06}>
-                <Link
-                  href={`/anthropic-exam-prep/${c.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-5 transition-colors hover:border-accent/50"
-                >
-                  <div className="mb-3 flex items-center justify-between">
-                    <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-accent-bright">
-                      {c.tag}
-                    </span>
-                    <span className="text-xs font-semibold text-muted">
-                      Chapter {c.num}
-                    </span>
-                  </div>
-                  <h3 className="font-heading text-lg font-semibold text-foreground group-hover:text-accent-bright">
-                    {c.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-                    {c.sub}
-                  </p>
-                  <div className="mt-4 flex items-center justify-between text-xs text-muted">
-                    <span className="inline-flex items-center gap-2">
-                      <span>{c.readTime}</span>
-                      <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[0.65rem]">
-                        {c.examCode}
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {chapters.map((c, i) =>
+              c.live ? (
+                <Reveal key={c.slug} delay={i * 0.06}>
+                  <Link
+                    href={`/anthropic-exam-prep/${c.slug}`}
+                    className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-5 transition-colors hover:border-accent/50"
+                  >
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-accent-bright">
+                        {c.tag}
                       </span>
-                    </span>
-                    <span className="inline-flex items-center gap-1 font-semibold text-accent-bright">
-                      Parhein
-                      <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-                    </span>
+                      <span className="text-xs font-semibold text-muted">
+                        Chapter {c.num}
+                      </span>
+                    </div>
+                    <h3 className="font-heading text-lg font-semibold text-foreground group-hover:text-accent-bright">
+                      {c.title}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                      {c.sub}
+                    </p>
+                    <div className="mt-4 flex items-center justify-between text-xs text-muted">
+                      <span className="inline-flex items-center gap-2">
+                        <span>{c.readTime}</span>
+                        <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[0.65rem]">
+                          {c.examCode}
+                        </span>
+                      </span>
+                      <span className="inline-flex items-center gap-1 font-semibold text-accent-bright">
+                        Parhein
+                        <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+                      </span>
+                    </div>
+                  </Link>
+                </Reveal>
+              ) : (
+                <Reveal key={c.slug} delay={i * 0.06}>
+                  <div className="flex h-full flex-col rounded-2xl border border-dashed border-border p-5 opacity-60">
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="rounded-full border border-border px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-muted">
+                        {c.tag}
+                      </span>
+                      <span className="text-xs font-semibold text-muted">
+                        Chapter {c.num}
+                      </span>
+                    </div>
+                    <h3 className="font-heading text-lg font-semibold text-foreground">
+                      {c.title}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                      {c.sub}
+                    </p>
+                    <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-muted">
+                      <Lock size={12} />
+                      Jald aa raha hai
+                    </div>
                   </div>
-                </Link>
-              </Reveal>
-            ))}
-            <Reveal delay={chapters.length * 0.06}>
-              <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-dashed border-border p-5 text-center text-sm text-muted">
-                Agla chapter jald add hoga
-              </div>
-            </Reveal>
+                </Reveal>
+              ),
+            )}
           </div>
         </section>
       </main>
