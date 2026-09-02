@@ -40,10 +40,11 @@ import {
   PromptBox,
   PullQuote,
 } from "../_components/notes-ui";
-import { chapters, getNextLiveChapter } from "../_lib/chapters";
+import { chapters, getNextLiveChapter, getPrevLiveChapter } from "../_lib/chapters";
 
 const chapter = chapters.find((c) => c.slug === "ai-fluency")!;
 const nextChapter = getNextLiveChapter("ai-fluency");
+const prevChapter = getPrevLiveChapter("ai-fluency");
 
 const pageTitle = `${chapter.title} — Anthropic Exam Prep`;
 const pageDescription =
@@ -1596,13 +1597,23 @@ one-person business with a limited budget.`}</PromptBox>
 
         {/* Prev / Next chapter nav */}
         <nav className="mt-14 flex flex-col gap-3 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <Link
-            href="/anthropic-exam-prep"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
-          >
-            <ArrowLeft size={15} />
-            Sab Chapters
-          </Link>
+          {prevChapter ? (
+            <Link
+              href={`/anthropic-exam-prep/${prevChapter.slug}`}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
+            >
+              <ArrowLeft size={15} />
+              Pichla: {prevChapter.title}
+            </Link>
+          ) : (
+            <Link
+              href="/anthropic-exam-prep"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
+            >
+              <ArrowLeft size={15} />
+              Sab Chapters
+            </Link>
+          )}
           {nextChapter ? (
             <Link
               href={`/anthropic-exam-prep/${nextChapter.slug}`}
