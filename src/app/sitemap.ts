@@ -157,6 +157,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/anthropic-exam-prep/skills-connectors`,
       lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
     },
+    {
+      url: `${baseUrl}/anthropic-exam-prep/general-agents-web`,
+      lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
+    },
     ...postEntries,
   ];
 }
