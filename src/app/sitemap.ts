@@ -28,7 +28,7 @@ const PAGE_LAST_MODIFIED: Record<string, string> = {
   chatbotProduct: "2026-08-08T13:44:26+05:00",
   location: "2026-07-08T17:33:55+05:00",
   exam: "2026-07-05T11:23:37+05:00",
-  anthropicExamPrep: "2026-09-03T00:00:00+05:00",
+  anthropicExamPrep: "2026-09-04T00:00:00+05:00",
   skillsIndex: "2026-07-12T23:26:12+05:00",
 };
 
@@ -163,6 +163,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/anthropic-exam-prep/workflow-design-diagnosis`,
+      lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
+    },
+    {
+      url: `${baseUrl}/anthropic-exam-prep/governance-risk-responsible-use`,
       lastModified: PAGE_LAST_MODIFIED.anthropicExamPrep,
     },
     ...postEntries,
