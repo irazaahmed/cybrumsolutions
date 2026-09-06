@@ -87,7 +87,7 @@ function ModelTierDiagram() {
   const tiers = [
     { icon: Zap, t: "Fast Default", q: "Everyday questions, drafting, aur zyada tar kaam ke liye", d: "Fast aur cheap" },
     { icon: Brain, t: "Thinking Mode", q: "Multi-step reasoning, analysis, aur mushkil code ke liye", d: "Answer dene se pehle plan karta hai" },
-    { icon: Gem, t: "Heavy Flagship", q: "Genuinely hard kaam ke liye", d: "Sab se deep, sab se slow, sab se expensive" },
+    { icon: Gem, t: "Heavy Flagship", q: "Genuinely hard kaam ke liye", d: "Sabse deep, sabse slow, sabse expensive" },
   ];
   return (
     <figure className="my-7">
@@ -111,8 +111,8 @@ function ModelTierDiagram() {
         <span className="rounded-full border border-border px-2 py-0.5">Deep aur expensive</span>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Names change hote rehte hain, lekin ye 3 tiers same rehte hain,
-        model ko task ke hisab se pick karo, habit ke hisab se nahi
+        Names badalte rehte hain, lekin ye 3 tiers same rehte hain, model
+        ko task ke hisab se pick karo, habit ke hisab se nahi
       </figcaption>
     </figure>
   );
@@ -120,7 +120,7 @@ function ModelTierDiagram() {
 
 function ProjectAnatomyDiagram() {
   const parts = [
-    { icon: MessagesSquare, t: "Chats", d: "Ek jagah organized, scattered nahi" },
+    { icon: MessagesSquare, t: "Chats", d: "Ek jagah organized, bikhri hui nahi" },
     { icon: Database, t: "Knowledge", d: "Ek baar upload ki hui files, har chat mein usable" },
     { icon: FileText, t: "Instructions", d: "Automatically apply hone wali guidance" },
   ];
@@ -146,20 +146,20 @@ function ProjectAnatomyDiagram() {
         <div className="rounded-xl border border-border bg-card/60 p-3.5">
           <p className="text-xs font-bold text-accent-bright">Claude</p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            Knowledge bari hone pe retrieval se search karta hai, capacity
-            roughly 10x barh jati hai
+            Knowledge badi hone pe retrieval se search karta hai, capacity
+            roughly 10x badh jati hai
           </p>
         </div>
         <div className="rounded-xl border border-border bg-card/60 p-3.5">
           <p className="text-xs font-bold text-accent-bright">ChatGPT</p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            Project ke andar apni memory accumulate karta hai, main-chat
+            Project ke andar apni memory jama karta hai, main-chat
             memory se separate rakhi jati hai
           </p>
         </div>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Sab se chhota System of Context jo aap kabhi banaoge
+        Sabse chhota System of Context jo aap kabhi banaoge
       </figcaption>
     </figure>
   );
@@ -168,7 +168,7 @@ function ProjectAnatomyDiagram() {
 function PersistenceTriadDiagram() {
   const items = [
     { icon: Settings2, t: "Standing Instructions", q: "Stable rules ke liye", d: "Aap hamesha kaun ho, output hamesha kaisa chahiye" },
-    { icon: Brain, t: "Memory", q: "Evolving context ke liye", d: "Abhi kya true hai" },
+    { icon: Brain, t: "Memory", q: "Evolving context ke liye", d: "Abhi kya sach hai" },
     { icon: FileText, t: "Projects", q: "Scoped kaam ke liye", d: "Ek client ya ek topic apne hi room mein" },
   ];
   return (
@@ -186,8 +186,8 @@ function PersistenceTriadDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Sab se common mistake ek ko dusre ki jagah rakh dena hai, teenon ko
-        review karo, fix karo, aur jo rehna nahi chahiye wo delete karo
+        Sabse common ghalti ek ko doosre ki jagah rakh dena hai, teenon
+        ko review karo, fix karo, aur jo rehna nahi chahiye wo delete karo
       </figcaption>
     </figure>
   );
@@ -221,7 +221,7 @@ function RoutingDiagram() {
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
         Routing ek daily delegation decision hai, aur wrong route pick
-        karna dono cockpits mein sab se common daily waste hai
+        karna dono cockpits mein sabse common daily waste hai
       </figcaption>
     </figure>
   );
@@ -257,8 +257,8 @@ function ProveItLoopDiagram() {
         </div>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Pass hona confidence earn karta hai, responsibility kabhi transfer
-        nahi karta, aap phir bhi new results ko verify karte ho
+        Pass hona confidence earn karta hai, responsibility kabhi
+        transfer nahi karta, aap phir bhi new results ko verify karte ho
       </figcaption>
     </figure>
   );
@@ -323,25 +323,25 @@ export default function ClaudeChatgpt101ChapterPage() {
             <CoreIdea>
               Ye course 9 concepts sikhata hai jo Claude aur ChatGPT, dono
               workspaces mein kaam karte hain. Maqsad simple hai: interface
-              ke neeche wala <Strong>pattern</Strong> seekh lena. Buttons ki
-              jagah change hoti rehti hai, model names change hote rehte
-              hain, lekin approach dono jagah same rehta hai.
+              ke neeche wala <Strong>pattern</Strong> seekh lena. Buttons
+              ki jagah badalti rehti hai, model names badalte rehte hain,
+              lekin approach dono jagah same rehta hai.
             </CoreIdea>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Interface Confusing, Concepts Easy</SubHeading>
+            <SubHeading>Interface Confusing, Concepts Aasan</SubHeading>
             <P>
               Ye assume kiya jata hai ke aapko AI ke basic concepts pata
               hain, lekin interface mein navigate karna mushkil lagta hai.
               Model picker, plus menu, Projects, Memory, Skills, Plugins,
-              Connectors ya apps, Search, Research, aur Thinking modes, ye
-              sab pehli nazar mein bikhri hui cheezein lagti hain.
+              Connectors ya apps, Search, Research, aur Thinking modes —
+              ye sab pehli nazar mein bikhri hui cheezein lagti hain.
             </P>
             <P>
-              Actual goal ye hai ke <Strong>interface ke neeche wala
+              Asal goal ye hai ke <Strong>interface ke neeche wala
               pattern</Strong> seekha jaye. Projects kaam ko organize karte
-              hain, Memory context retain karti hai, Skills methods pack
+              hain, Memory context yaad rakhti hai, Skills methods pack
               kar deti hain, Connectors external info tak access dete
               hain, aur Research modes information gather karte hain. Ye
               course <Strong>2 cockpits sikhata hai, 1 nahi.</Strong>
@@ -354,9 +354,9 @@ export default function ClaudeChatgpt101ChapterPage() {
             <Callout label="Product Verification" tone="warn">
               Product claims 25 August 2026 ko Anthropic aur OpenAI ki
               official documentation se verify ki gayi. Buttons apni jagah
-              change hote rehte hain aur features change hote rehte hain,
-              latest info ke liye support.claude.com aur help.openai.com
-              check karo.
+              badalte rehte hain aur features badalti rehti hain, latest
+              info ke liye support.claude.com aur help.openai.com check
+              karo.
             </Callout>
           </Reveal>
 
@@ -390,16 +390,16 @@ export default function ClaudeChatgpt101ChapterPage() {
 
           <Reveal>
             <SubHeading>2 Minute Mein Dekho</SubHeading>
-            <P>Claude khol ke ye paste karo:</P>
+            <P>Claude khol kar ye paste karo:</P>
             <PromptBox>{`List every control I can see in this workspace right now, and tell me
 in one line what each one is for. Just the controls, no advice.`}</PromptBox>
             <P>Phir wahi cheez ek alag tab mein ChatGPT mein repeat karo.</P>
             <P>
-              Aapke paas 2 lists aayengi, vocabulary different hoga lekin
-              underlying kaam same hoga, jaise artifact aur writing block,
-              ya connector aur app, ya project knowledge aur project
-              files. <Strong>Controls ke names different hain. Inse hone
-              wala kaam same hai.</Strong>
+              Aapke paas 2 lists aayengi, vocabulary alag hoga lekin
+              underlying kaam same hoga — jaise artifact aur writing
+              block, ya connector aur app, ya project knowledge aur
+              project files. <Strong>Controls ke names different hain.
+              Inse hone wala kaam same hai.</Strong>
             </P>
             <Callout label="Ek Warning" tone="warn">
               Assistant apne hi interface ke baare mein hamesha reliable
@@ -425,10 +425,9 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
               instructions, aur search-research features shamil hain.
             </P>
             <Callout label="Basic Principle">
-              <Strong>Aapko 2 completely different tareeke seekhne ki
-              zaroorat nahi.</Strong> Aapko ek discipline seekhni hai, aur
-              phir dekhna hai ke har product ne apne controls kahan rakhe
-              hain.
+              <Strong>Aapko 2 completely alag tareeke seekhne ki zaroorat
+              nahi.</Strong> Aapko ek discipline seekhni hai, aur phir
+              dekhna hai ke har product ne apne controls kahan rakhe hain.
             </Callout>
             <P>Jo skills dono jagah kaam aati hain, wo ye hain:</P>
             <CheckList
@@ -443,7 +442,7 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
             />
             <P>
               Jo cheez different hai wo hai product ke names, layout, aur
-              strengths, aur ye time ke sath change hote rehte hain.
+              strengths, aur ye waqt ke sath badalti rehti hain.
             </P>
             <Callout label="Example">
               Pilots ek baar fly karna seekhte hain, phir sirf ye seekhte
@@ -452,13 +451,13 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
               hai.
             </Callout>
             <P>
-              Dono ko jaanna isliye zaroori hai kyunke{" "}
-              <Strong>Claude aur ChatGPT har task pe same performance nahi
-              dete.</Strong> Jo model ek type ke kaam mein excellent hai,
-              wo doosre type ke kaam mein weak ho sakta hai. Isay{" "}
+              Dono ko jaanna isliye zaroori hai kyunki{" "}
+              <Strong>Claude aur ChatGPT har task pe same performance
+              nahi dete.</Strong> Jo model ek type ke kaam mein excellent
+              hai, wo doosre type ke kaam mein kamzor ho sakta hai. Isay{" "}
               <Strong>platform awareness</Strong> kehte hain, yani ye pata
-              hona ke har tool kis cheez mein achha hai, ek hi interface se
-              loyal ban jane ki jagah.
+              hona ke har tool kis cheez mein achha hai, ek hi interface
+              se loyal ban jane ki jagah.
             </P>
             <P>
               Dono companies chat se aage bhi desktop apps, coding tools,
@@ -468,7 +467,7 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Sab Se Important Beginner Habit</SubHeading>
+            <SubHeading>Sabse Important Beginner Habit</SubHeading>
             <PullQuote>
               Assistant se aise baat karo jaise ek capable colleague se
               karte ho.
@@ -488,9 +487,9 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
             <SubHeading>2. Models Aur Thinking Modes</SubHeading>
             <P>
               Claude aur ChatGPT, dono aapko ye choose karne dete hain ke
-              kisi task pe kitni capability spend karni hai. Wrong starting
-              point model names hain, kyunke wo fast change hote hain.
-              Right starting point 3 tiers wala pattern hai.
+              kisi task pe kitni capability spend karni hai. Wrong
+              starting point model names hain, kyunki wo fast badalte
+              hain. Right starting point 3 tiers wala pattern hai.
             </P>
             <ModelTierDiagram />
             <RecapTable
@@ -498,54 +497,55 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
               rows={[
                 ["Fast Default", "Everyday questions, drafting, summaries, routine kaam", "Fast aur cheap, hard problems pe kam depth"],
                 ["Thinking / Reasoning", "Multi-step reasoning, analysis, math, mushkil code", "Slower, zyada careful"],
-                ["Heavy Flagship", "Sab se hard analysis aur lambe, demanding tasks", "Sab se slow aur expensive, sab se capable"],
+                ["Heavy Flagship", "Sabse hard analysis aur lambe, demanding tasks", "Sabse slow aur expensive, sabse capable"],
               ]}
             />
             <P>
-              <Strong>Claude ke model names:</Strong> Haiku (sab se fast
+              <Strong>Claude ke model names:</Strong> Haiku (sabse fast
               aur cheap), Sonnet (everyday choice), aur Opus (heavy
               flagship). Haiku aur Sonnet fast tier mein aate hain, Opus
-              flagship tier mein. Thinking ek separate switch hai, model ka
-              naam nahi.
+              flagship tier mein. Thinking ek separate switch hai, model
+              ka naam nahi.
             </P>
             <P>
               <Strong>ChatGPT ke model names:</Strong> Instant (everyday)
-              se lekar Pro (hardest kaam) tak, aur beech mein thinking ke
+              se le kar Pro (hardest kaam) tak, aur beech mein thinking ke
               levels.
             </P>
             <Callout label="Important Note">
-              Anthropic ke apne certification exams bhi Claude ke names se
-              hi sawal poochte hain.
+              Anthropic ke apne certification exams bhi Claude ke names
+              se hi sawal poochte hain.
             </Callout>
             <SubHeading>2 Simple Rules</SubHeading>
             <Ladder
               steps={[
-                { title: "Rule 1 · Fast Se Start Karo", note: "Zyada tar everyday kaam ke liye normal fast mode use karo. Chhote rewrites, summaries, ya simple explanations ke liye heavy reasoning ka wait mat karo." },
+                { title: "Rule 1 · Fast Se Shuru Karo", note: "Zyada tar everyday kaam ke liye normal fast mode use karo. Chhote rewrites, summaries, ya simple explanations ke liye heavy reasoning ka wait mat karo." },
                 { title: "Rule 2 · Hard Task Pe Escalate Karo", note: "Multi-step logic, careful comparison, mathematics, mushkil debugging, ya code jo correct hona zaroori ho, in ke liye thinking mode ya stronger model use karo." },
               ]}
             />
             <Callout label="Ek Important Baat">
-              &ldquo;AI fail ho gaya&rdquo; ka actual matlab kabhi kabhi ye
+              &ldquo;AI fail ho gaya&rdquo; ka asal matlab kabhi kabhi ye
               hota hai ke &ldquo;maine wrong level ki capability use
               ki.&rdquo;
             </Callout>
             <P>
               Wo rule jo har new model release ke baad bhi qaim rehta hai:{" "}
-              <Strong>model ko task ke hisab se pick karo, habit ke hisab
-              se nahi.</Strong> Everyday ke liye fast, hard reasoning ke
-              liye thinking, aur genuinely hard kaam ke liye flagship.
-              Pehle reasoning ka level choose karo, phir current model
-              names seekho.
+              <Strong>model ko task ke hisab se pick karo, habit ke
+              hisab se nahi.</Strong> Everyday ke liye fast, hard
+              reasoning ke liye thinking, aur genuinely hard kaam ke liye
+              flagship. Pehle reasoning ka level choose karo, phir
+              current model names seekho.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>3. Wo Context Jo Aap Attach Karte Ho</SubHeading>
             <P>
-              Ek language model sirf usi information pe kaam kar sakta hai
-              jo uske saamne ho. Isi liye attachments matter karte hain.
-              Supported file types mein PDFs, Word documents, spreadsheets,
-              CSV files, images, screenshots, aur code files shamil hain.
+              Ek language model sirf usi information pe kaam kar sakta
+              hai jo uske saamne ho. Isi liye attachments matter karte
+              hain. Supported file types mein PDFs, Word documents,
+              spreadsheets, CSV files, images, screenshots, aur code
+              files shamil hain.
             </P>
             <P>
               Jab aap koi file attach karte ho, to aap usi conversation ke
@@ -558,27 +558,27 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
             />
             <P>
               Words almost same hain. Doosra request isliye useful hai
-              kyunke assistant actually contract dekh sakta hai. Agar
-              aapko kisi dashboard, error message, chart, ya interface mein
-              help chahiye, to usay show karna, usay memory se describe
-              karne se better hai. Dono products live web search bhi kar
-              sakte hain, jab model ki apni knowledge kaafi na ho to search
-              current information le aati hai.
+              kyunki assistant actually contract dekh sakta hai. Agar
+              aapko kisi dashboard, error message, chart, ya interface
+              mein help chahiye, to usay dikhana, usay memory se describe
+              karne se behtar hai. Dono products live web search bhi kar
+              sakte hain, jab model ki apni knowledge kaafi na ho to
+              search current information le aati hai.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>Lambi Conversations Ko Handle Karna</SubHeading>
             <P>
-              Dono products current conversation ka record rakhte hain, jo
-              baad ke answers ko shape karta hai. Is record ki bhi ek
+              Dono products current conversation ka record rakhte hain,
+              jo baad ke answers ko shape karta hai. Is record ki bhi ek
               limit hoti hai, aur kisi lambe kaam mein aap us limit tak
               pahunch jaoge.
             </P>
             <P>
-              Ek example: aap ne poora din ek hi chat mein quarterly board
-              report likhne mein spend kiya. 3 signs batate hain ke chat
-              stale ho chuki hai:
+              Ek example: aap ne poora din ek hi chat mein quarterly
+              board report likhne mein spend kiya. 3 signs batate hain ke
+              chat purani ho chuki hai:
             </P>
             <CheckList
               items={[
@@ -590,26 +590,27 @@ in one line what each one is for. Just the controls, no advice.`}</PromptBox>
             <P>
               Aisa hone pe na to force karte raho, aur na hi chat abandon
               karo. Pehle ek <Strong>state summary</Strong> mangwao, yani
-              ek short record ke ab tak kya decide hua, kya still open hai,
-              aur di gayi har rule:
+              ek short record ke ab tak kya decide hua, kya still open
+              hai, aur di gayi har rule:
             </P>
             <PromptBox>{`Summarize what we have decided so far, what is still open, and every
 rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
             <P>
-              Summary parho, mistakes fix karo, phir usay files ke sath ek
-              new chat mein paste kar ke aage barho. Agar aap khud ko har
-              hafte wahi summary paste karte huye paate ho, to yehi signal
-              hai ke ab ek project ki zaroorat hai, jo Concept 4 hai.
+              Summary parho, mistakes fix karo, phir usay files ke sath
+              ek new chat mein paste kar ke aage badho. Agar aap khud ko
+              har hafte wahi summary paste karte huye paate ho, to yehi
+              signal hai ke ab ek project ki zaroorat hai, jo Concept 4
+              hai.
             </P>
             <Callout label="Ek Habit Banao">
-              Koi important sawal poochne se pehle khud se poocho:{" "}
+              Koi zaroori sawal poochne se pehle khud se poocho:{" "}
               <Strong>ek capable human colleague ko is ka theek answer
               dene se pehle kya dekhna hoga?</Strong> Phir assistant ko
               wahi material do.
             </Callout>
             <P>
-              Better context usually ek clever prompt se zyada answer
-              better banati hai.
+              Behtar context usually ek clever prompt se zyada answer
+              behtar banati hai.
             </P>
           </Reveal>
         </section>
@@ -623,13 +624,13 @@ rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
               AI ko kuch weeks use karne ke baad, sidebar messy ho jata
               hai. Ek hi client ya topic ke baare mein kai chats sidebar
               mein alag alag pari hoti hain, kaam ki files sirf ek chat
-              mein hoti hain, aur background baar baar dobara explain karna
-              padta hai.
+              mein hoti hain, aur background baar baar dobara explain
+              karna parta hai.
             </P>
             <Callout label="Definition">
               Ek <Strong>project</Strong> ek stream of work ke liye
-              workspace hai. Isay ek room ki tarah samjho jahan ek topic se
-              related har cheez ek sath rehti hai.
+              workspace hai. Isay ek room ki tarah samjho jahan ek topic
+              se related har cheez ek sath rehti hai.
             </Callout>
             <ProjectAnatomyDiagram />
             <P>Ek project 3 cheezein hold karta hai:</P>
@@ -641,35 +642,37 @@ rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
               ]}
             />
             <P>
-              Ek example, Quarterly Board Reporting Project mein ye shamil
-              ho sakta hai: pichle quarter ka board deck, current financial
-              model, reporting ka style guide, tone aur audience ke baare
-              mein instructions, aur board report se related har
-              conversation. Ab aapko wahi files dobara upload karne ya wahi
-              instructions dobara dene ki zaroorat nahi. <Strong>Yehi poori
-              baat hai: ek project ek stream of work ke liye context ko
-              persistent bana deta hai.</Strong> Book ki language mein, ek
-              project ek chhota System of Context hai.
+              Ek example, Quarterly Board Reporting Project mein ye
+              shamil ho sakta hai: pichle quarter ka board deck, current
+              financial model, reporting ka style guide, tone aur
+              audience ke baare mein instructions, aur board report se
+              related har conversation. Ab aapko wahi files dobara
+              upload karne ya wahi instructions dobara dene ki zaroorat
+              nahi. <Strong>Yehi poori baat hai: ek project ek stream of
+              work ke liye context ko persistent bana deta hai.</Strong>{" "}
+              Book ki language mein, ek project ek chhota System of
+              Context hai.
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Claude Aur ChatGPT Ka Difference</SubHeading>
+            <SubHeading>Claude Aur ChatGPT Ka Farq</SubHeading>
             <P>
               <Strong>Claude ka approach (retrieval):</Strong> jab project
-              knowledge context window se bari ho jati hai, to Claude
-              automatically project knowledge ko search karna start kar
-              deta hai, isse capacity roughly 10x barh jati hai. Ye switch
-              automatically hota hai, aur ye ek paid-plan feature hai.
+              knowledge context window se badi ho jati hai, to Claude
+              automatically project knowledge ko search karna shuru kar
+              deta hai, isse capacity roughly 10x badh jati hai. Ye
+              switch automatically hota hai, aur ye ek paid-plan feature
+              hai.
             </P>
             <P>
-              <Strong>ChatGPT ka approach (memory):</Strong> project memory
-              add karta hai, jo 2 tarah se kaam kar sakti hai:{" "}
+              <Strong>ChatGPT ka approach (memory):</Strong> project
+              memory add karta hai, jo 2 tarah se kaam kar sakti hai:{" "}
               <Strong>default memory</Strong> mein wider memory bhi
               participate kar sakti hai, jabke <Strong>project-only
-              memory</Strong> mein project ek real boundary ban jata hai,
-              aur outside memory andar nahi aati. Project-only memory hi
-              actually isolation banati hai.
+              memory</Strong> mein project ek real boundary ban jata
+              hai, aur outside memory andar nahi aati. Project-only
+              memory hi actually isolation banati hai.
             </P>
             <P>
               Yani ek project hamesha kaam ko organize karne mein help
@@ -682,8 +685,8 @@ rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
             <SubHeading>Project Kab Banao</SubHeading>
             <Callout label="Test">
               Agar aap ne 3 baar wahi background explain kiya hai ya wahi
-              file upload ki hai, to us kaam ko ek project chahiye. One-off
-              questions ko project ki zaroorat nahi hoti.
+              file upload ki hai, to us kaam ko ek project chahiye.
+              One-off questions ko project ki zaroorat nahi hoti.
             </Callout>
             <PullQuote>Projects us kaam ke liye hain jo continue rehta hai.</PullQuote>
           </Reveal>
@@ -718,22 +721,22 @@ rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
               Memory wo cheez hai jo assistant aapki conversations se
               pickup karta hai aur baad mein use kar sakta hai, jaise
               expressed preferences, recurring goals, aapke kaam karne ke
-              tareeke se related facts, ya koi bhi cheez jo aap ne remember
-              karne ko bola ho. Dono products aapko memory review, edit,
-              aur delete karne dete hain.
+              tareeke se related facts, ya koi bhi cheez jo aap ne
+              remember karne ko bola ho. Dono products aapko memory
+              review, edit, aur delete karne dete hain.
             </P>
             <Callout label="Important Note" tone="warn">
               Work account pe pehle ye check karo ke memory on bhi hai ya
-              nahi. Claude individual plans pe memory automatically on kar
-              deta hai, lekin Team aur Enterprise pe usay off rakhta hai,
-              jab tak koi owner khud usay enable na kare.
+              nahi. Claude individual plans pe memory automatically on
+              kar deta hai, lekin Team aur Enterprise pe usay off
+              rakhta hai, jab tak koi owner khud usay enable na kare.
             </Callout>
             <P>
               Dono products ek aisa mode bhi dete hain jo conversation ko
-              history aur memory se bahar rakhta hai, Claude mein incognito
-              chat, ChatGPT mein temporary chat. Lekin dono companies
-              safety aur abuse review ke liye roughly 30 din ke liye ek
-              copy phir bhi retain karti hain. Isliye inhe{" "}
+              history aur memory se bahar rakhta hai, Claude mein
+              incognito chat, ChatGPT mein temporary chat. Lekin dono
+              companies safety aur abuse review ke liye roughly 30 din ke
+              liye ek copy phir bhi retain karti hain. Isliye inhe{" "}
               <Strong>memory-free samjho, trace-free nahi.</Strong>
             </P>
           </Reveal>
@@ -746,44 +749,45 @@ rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
               context rakhte hain.
             </P>
             <Callout label="Rule Of Thumb">
-              <Strong>Stable rules ke liye instructions, evolving context
-              ke liye memory, aur scoped kaam ke liye projects.</Strong>{" "}
-              Yehi ek rule zyada tar configuration mistakes ko rok deta
-              hai.
+              <Strong>Stable rules ke liye instructions, evolving
+              context ke liye memory, aur scoped kaam ke liye
+              projects.</Strong> Yehi ek rule zyada tar configuration
+              mistakes ko rok deta hai.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>Stored Context Ek Responsibility Hai</SubHeading>
             <P>
-              2 concerns hain, convenience aur sensitivity. Stored context
-              mein sensitive ya private information bhi ho sakti hai. Ye
-              stale bhi hoti rehti hai, aur stale context silently fail
-              hoti hai, koi error message nahi aata, sirf ek aisa answer
-              aata hai jo confident lagta hai aur wrong hota hai.
+              2 concerns hain, convenience aur sensitivity. Stored
+              context mein sensitive ya private information bhi ho sakti
+              hai. Ye purani bhi hoti rehti hai, aur purani context
+              silently fail hoti hai, koi error message nahi aata, sirf
+              ek aisa answer aata hai jo confident lagta hai aur galat
+              hota hai.
             </P>
             <P>
               Example ke taur pe, agar pichle quarter ka financial model
-              abhi bhi Quarterly Board Reporting project mein para hai, to
-              is quarter ka board deck pichle quarter ke numbers ko neatly
-              format kar ke quote kar dega. Assistant ye nahi bata sakta ke
-              aap ne jo diya hai wo outdated ho chuka hai.
+              abhi bhi Quarterly Board Reporting project mein para hai,
+              to is quarter ka board deck pichle quarter ke numbers ko
+              neatly format kar ke quote kar dega. Assistant ye nahi
+              bata sakta ke aap ne jo diya hai wo purana ho chuka hai.
             </P>
             <Callout label="Zaroori Action">
               Jo kuch stored hai usay ek schedule pe review karo, monthly,
-              ya jab bhi aapka role ya koi project change ho. Har item ke
-              liye decide karo: keep karo, correct karo, ya delete karo. Ye
-              memory, standing instructions, aur har project ki files, sab
-              ke liye karo. Jab topic ki zaroorat ho to incognito ya
-              temporary chat use karo. Work account pe apni organization ki
-              policy follow karo.
+              ya jab bhi aapka role ya koi project badle. Har item ke
+              liye decide karo: keep karo, correct karo, ya delete karo.
+              Ye memory, standing instructions, aur har project ki files,
+              sab ke liye karo. Jab topic ki zaroorat ho to incognito ya
+              temporary chat use karo. Work account pe apni organization
+              ki policy follow karo.
             </Callout>
             <P>
-              Stored context isliye useful hai kyunke wo time ke sath
-              compound hoti hai. Ye ek aisi jagah bhi hai jahan care matter
-              karti hai. Ek achi tarah configured assistant weeks ke use ke
-              baad zyada useful ho jati hai. Model nahi badla, uske gird ki
-              context better ho gayi.
+              Stored context isliye useful hai kyunki wo waqt ke sath
+              compound hoti hai. Ye ek aisi jagah bhi hai jahan care
+              matter karti hai. Ek achi tarah configured assistant weeks
+              ke use ke baad zyada useful ho jati hai. Model nahi badla,
+              uske gird ki context behtar ho gayi.
             </P>
             <PullQuote>Persistence tabhi help karti hai jab right information right jagah ho.</PullQuote>
           </Reveal>
@@ -794,9 +798,9 @@ rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
           <Reveal>
             <SubHeading>6. Artifacts Aur Writing Blocks: Wo Kaam Jo Aap Le Ja Sakte Ho</SubHeading>
             <P>
-              Chat conversation ke liye achi hai, lekin finished work rakhne
-              ke liye ek weak container hai. Agar aap 2,000 words ki
-              report, ek working calculator, ek diagram, ya ek chhoti
+              Chat conversation ke liye achi hai, lekin finished work
+              rakhne ke liye ek weak container hai. Agar aap 2,000 words
+              ki report, ek working calculator, ek diagram, ya ek chhoti
               application maangte ho, to result ek separate object ki
               tarah chahiye hota hai, scroll mein bikhri ek message ki
               tarah nahi.
@@ -838,7 +842,7 @@ rule I gave you. Keep it short enough to paste into a new chat.`}</PromptBox>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Better Results Kaise Lo</SubHeading>
+            <SubHeading>Behtar Results Kaise Lo</SubHeading>
             <P>
               &ldquo;ek dashboard&rdquo; ya &ldquo;ek report&rdquo; mat
               maango. Batao ke finished cheez ko actually kya karna
@@ -850,26 +854,26 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             <P>Weak:</P>
             <PromptBox>Build a budget tracker.</PromptBox>
             <P>
-              Ye bhi batao ke ye kis ke liye hai, kyunke new employees ke
+              Ye bhi batao ke ye kis ke liye hai, kyunki new employees ke
               liye ek flowchart, experienced engineers ke liye flowchart
               jaisi cheez nahi hoti. Format bhi batao: agar answer data
-              hai, to table ya spreadsheet file mango, paragraph nahi. Data
-              se matlab hai jaise 12 vendors with prices and lead times, ek
-              delivery schedule, ya koi bhi aisi cheez jise colleague Excel
-              mein load karega. 12 vendors ka ek paragraph sort, filter, ya
-              sheet mein paste nahi ho sakta. Ek table ho sakta hai. Agar
-              aap maango, dono assistants spreadsheet file bana denge,
-              jise download kiya ja sakta hai. Phir ek waqt mein ek change
-              kar ke revise karo.
+              hai, to table ya spreadsheet file mango, paragraph nahi.
+              Data se matlab hai jaise 12 vendors with prices and lead
+              times, ek delivery schedule, ya koi bhi aisi cheez jise
+              colleague Excel mein load karega. 12 vendors ka ek
+              paragraph sort, filter, ya sheet mein paste nahi ho sakta.
+              Ek table ho sakta hai. Agar aap maango, dono assistants
+              spreadsheet file bana denge, jise download kiya ja sakta
+              hai. Phir ek waqt mein ek change kar ke revise karo.
             </P>
             <Callout label="Beginner Ke Liye Surprise">
               Yehi wo jagah hai jahan beginners ko pehli genuine surprise
-              milti hai: <Strong>aap ek useful software describe karte ho,
-              aur working software appear ho jata hai.</Strong>
+              milti hai: <Strong>aap ek useful software describe karte
+              ho, aur working software appear ho jata hai.</Strong>
             </Callout>
             <PullQuote>
               Chat conversation hai, artifacts, writing blocks, aur code
-              blocks hi actual kaam hold karte hain.
+              blocks hi asal kaam hold karte hain.
             </PullQuote>
           </Reveal>
         </section>
@@ -889,9 +893,9 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
               method hai.
             </Callout>
             <P>
-              Isme instructions, examples, supporting resources, aur kabhi
-              kabhi code shamil hota hai. Jab koi matching task aata hai,
-              assistant khud us skill ko load kar leta hai.
+              Isme instructions, examples, supporting resources, aur
+              kabhi kabhi code shamil hota hai. Jab koi matching task
+              aata hai, assistant khud us skill ko load kar leta hai.
             </P>
             <P>Aap ek skill in cheezon ke liye bana sakte ho:</P>
             <CheckList
@@ -917,14 +921,15 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
               Dono vendors ek open standard, Agent Skills (agentskills.io),
               pe kaam karte hain. Ek skill Markdown files ka ek folder
               hoti hai, jiske peeche na koi server hota hai na koi
-              runtime, aur isi wajah se ye ek jagah se doosri jagah travel
-              kar sakti hai. Kai companies ke dus-hazaar tools ab isi
-              format ko read kar sakte hain, isliye ek product ke liye
-              likhi hui skill doosre product mein bhi install ho sakti
-              hai. Ye ek workflow ko ek prompt se zyada durable cheez bana
-              deta hai, jo kisi ek vendor mein trapped na ho. Yehi is
-              course ka opening lesson bhi hai: <Strong>discipline hamesha
-              constant hai, tool variable hai.</Strong>
+              runtime, aur isi wajah se ye ek jagah se doosri jagah
+              travel kar sakti hai. Kai companies ke dus-hazaar tools ab
+              isi format ko read kar sakte hain, isliye ek product ke
+              liye likhi hui skill doosre product mein bhi install ho
+              sakti hai. Ye ek workflow ko ek prompt se zyada durable
+              cheez bana deta hai, jo kisi ek vendor mein trapped na ho.
+              Yehi is course ka opening lesson bhi hai:{" "}
+              <Strong>discipline hamesha constant hai, tool variable
+              hai.</Strong>
             </P>
           </Reveal>
 
@@ -950,8 +955,8 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             />
             <Callout label="Directory">
               Claude ab skills, connectors, aur plugins ek hi directory,
-              claude.ai/directory, mein list karta hai, jo khud kuch build
-              karne se pehle dekhne ka sab se fast tareeka hai.
+              claude.ai/directory, mein list karta hai, jo khud kuch
+              build karne se pehle dekhne ka sabse fast tareeka hai.
             </Callout>
           </Reveal>
 
@@ -975,8 +980,8 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             />
             <Callout label="Important Difference">
               <Strong>Projects knowledge store karte hain. Skills tasks
-              perform karti hain.</Strong> Ek customer-preparation skill un
-              customer files ko use kar sakti hai jo ek project mein
+              perform karti hain.</Strong> Ek customer-preparation skill
+              un customer files ko use kar sakti hai jo ek project mein
               stored hain. Project <Strong>&ldquo;kya&rdquo;</Strong>{" "}
               provide karta hai, skill <Strong>&ldquo;kaise&rdquo;</Strong>{" "}
               provide karti hai.
@@ -992,25 +997,26 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             <SubHeading>8. Connectors, Apps, Aur Sawal Ko Route Karna</SubHeading>
             <P>
               Ab tak assistant zyada tar usi information pe kaam kar rahi
-              thi jo aap ne uske saamne rakhi. Lekin aapki real information
-              zyada tar kahin aur hoti hai: email, calendar, cloud storage,
-              project-management tools, chat systems, aur company ke
-              knowledge bases. Iska solution connectors aur apps hain.
+              thi jo aap ne uske saamne rakhi. Lekin aapki real
+              information zyada tar kahin aur hoti hai: email, calendar,
+              cloud storage, project-management tools, chat systems, aur
+              company ke knowledge bases. Iska solution connectors aur
+              apps hain.
             </P>
             <P>
               Claude is ke liye <Strong>connector</Strong> word use karta
-              hai, ChatGPT <Strong>app</Strong> (pehle connector bhi kehta
-              tha). Dono names ek hi type ki cheez ke liye hain, sirf
-              product ka naam different hai. Ek connector ya app assistant
-              ko doosre system mein search, read, aur kabhi kabhi act karne
-              deta hai, jitni permission aap dein.
+              hai, ChatGPT <Strong>app</Strong> (pehle connector bhi
+              kehta tha). Dono names ek hi type ki cheez ke liye hain,
+              sirf product ka naam different hai. Ek connector ya app
+              assistant ko doosre system mein search, read, aur kabhi
+              kabhi act karne deta hai, jitni permission aap dein.
             </P>
             <CheckList
               items={[
                 "\"Wo email dhoondo jahan hum ne vendor contract discuss kiya tha.\"",
                 "\"Kal mere kaunse meetings hain?\"",
                 "\"Pichle week ke project notes ka summary do.\"",
-                "\"Mere sab se high-priority tasks kaunse hain?\"",
+                "\"Mere sabse high-priority tasks kaunse hain?\"",
               ]}
             />
             <P>
@@ -1022,12 +1028,13 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
           <Reveal>
             <SubHeading>MCP: Shared Integration Standard</SubHeading>
             <P>
-              Dono ecosystems ek standard, Model Context Protocol (MCP), ko
-              support karte hain. Isay usually &ldquo;AI tools ke liye
-              USB-C&rdquo; kaha jata hai, yani ek hi standard plug, jisse
-              ek baar banaya gaya tool kai different assistants use kar
-              sakte hain. Claude ke custom connectors MCP pe chalte hain,
-              ChatGPT ke apps bhi Apps SDK ke through MCP pe bante hain.
+              Dono ecosystems ek standard, Model Context Protocol (MCP),
+              ko support karte hain. Isay usually &ldquo;AI tools ke liye
+              USB-C&rdquo; kaha jata hai, yani ek hi standard plug,
+              jisse ek baar banaya gaya tool kai different assistants use
+              kar sakte hain. Claude ke custom connectors MCP pe chalte
+              hain, ChatGPT ke apps bhi Apps SDK ke through MCP pe bante
+              hain.
             </P>
             <Callout label="Ek Important Warning" tone="warn">
               Ye genuinely useful hai, lekin is analogy ke peeche ek baat
@@ -1040,10 +1047,10 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
           <Reveal>
             <SubHeading>Connections Permission Ke Decisions Hain</SubHeading>
             <P>
-              Kisi tool ko connect karna sirf productivity ka decision nahi,
-              ye security aur governance ka decision hai, yani ye decision
-              ke kis ko kya dekhne aur karne ki permission hai. Connect
-              karne se pehle ye poocho:
+              Kisi tool ko connect karna sirf productivity ka decision
+              nahi, ye security aur governance ka decision hai, yani ye
+              decision ke kis ko kya dekhne aur karne ki permission hai.
+              Connect karne se pehle ye poocho:
             </P>
             <CheckList
               items={[
@@ -1065,11 +1072,11 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             </P>
             <P>
               Ek connector ya app sirf wahi kar sakta hai jiske liye wo
-              bana ho. Agar aapke kaam ko assistant se koi cheez send karwani
-              hai, to pehle confirm karo ke sending us tool ke actions mein
-              shamil hai. Permissions un actions mein se choose karti hain
-              jo tool ke paas pehle se hain, wo new actions add nahi
-              karti.
+              bana ho. Agar aapke kaam ko assistant se koi cheez send
+              karwani hai, to pehle confirm karo ke sending us tool ke
+              actions mein shamil hai. Permissions un actions mein se
+              choose karti hain jo tool ke paas pehle se hain, wo new
+              actions add nahi karti.
             </P>
           </Reveal>
 
@@ -1092,7 +1099,7 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
               Pehla sawal ye poochna chahiye: <Strong>main assistant se
               kis type ka kaam maang raha hoon?</Strong> Ek fact pe jo
               search seconds mein de sakta hai, deep research waste mat
-              karo. Jab actual problem reasoning ho to search ki taraf mat
+              karo. Jab asal problem reasoning ho to search ki taraf mat
               jao. Jab kaam ko multi-source investigation chahiye ho to
               sirf normal chat use mat karo.
             </P>
@@ -1101,17 +1108,19 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
           <Reveal>
             <SubHeading>Research Mode Ek Alag Cheez Hai</SubHeading>
             <P>
-              Research mode &ldquo;better search&rdquo; nahi hai. Assistant
-              ek investigation plan karta hai, kai searches run karta hai,
-              leads follow karta hai, sources parhta hai, aur citations ke
-              sath ek structured report deta hai. Isme seconds nahi,
-              minutes lagte hain. Aap ek <Strong>investigation</Strong> ka
-              kaam de rahe hote ho, sirf ek quick question nahi.
+              Research mode &ldquo;better search&rdquo; nahi hai.
+              Assistant ek investigation plan karta hai, kai searches run
+              karta hai, leads follow karta hai, sources parhta hai, aur
+              citations ke sath ek structured report deta hai. Isme
+              seconds nahi, minutes lagte hain. Aap ek{" "}
+              <Strong>investigation</Strong> ka kaam de rahe hote ho,
+              sirf ek quick question nahi.
             </P>
-            <Callout label="Ek Important Reminder" tone="warn">
-              Report aane ke baad bhi judgment khatam nahi hoti. Important
-              claims check karo. Citations open karo. Research aapki reach
-              extend karti hai, ye aapki accountability khatam nahi karti.
+            <Callout label="Ek Zaroori Reminder" tone="warn">
+              Report aane ke baad bhi judgment khatam nahi hoti. Zaroori
+              claims check karo. Citations open karo. Research aapki
+              reach extend karti hai, ye aapki accountability khatam
+              nahi karti.
             </Callout>
             <PullQuote>Sawal bhejne se pehle usay route karo.</PullQuote>
           </Reveal>
@@ -1135,18 +1144,18 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             <SubHeading>Example: Program Director</SubHeading>
             <P>
               Ek program director har quarter attendance aur employment
-              outcomes ka analysis karta hai. Wo agle report ke liye AI se
-              help chahta hai. Usay new data pe pehle se trust nahi karna
-              chahiye. Iski jagah, wo assistant ko pichle quarter ka raw
-              data deta hai, kyunke usay pehle se pata hai ke correct
-              analysis kaisa dikhta hai. Phir wo assistant se wo kaam
-              dobara karwata hai. Ab uske paas compare karne ke liye ek
-              real cheez hai. Agar assistant koi important pattern miss
-              kare, to wo instructions better bana sakta hai. Agar data
-              mein hi koi problem nikle jo analysis ke liye zaroori hai, to
-              usay ek data problem mil gayi. Agar assistant kaam ka koi
-              part reliably nahi kar pata, to wo part human ke paas rehta
-              hai. Teenon outcomes useful hain.
+              outcomes ka analysis karta hai. Wo agle report ke liye AI
+              se help chahta hai. Usay new data pe pehle se trust nahi
+              karna chahiye. Iski jagah, wo assistant ko pichle quarter
+              ka raw data deta hai, kyunki usay pehle se pata hai ke
+              correct analysis kaisa dikhta hai. Phir wo assistant se wo
+              kaam dobara karwata hai. Ab uske paas compare karne ke liye
+              ek real cheez hai. Agar assistant koi zaroori pattern miss
+              kare, to wo instructions behtar bana sakta hai. Agar data
+              mein hi koi problem nikle jo analysis ke liye zaroori hai,
+              to usay ek data problem mil gayi. Agar assistant kaam ka
+              koi hissa reliably nahi kar pata, to wo hissa human ke paas
+              rehta hai. Teenon outcomes useful hain.
             </P>
           </Reveal>
 
@@ -1163,8 +1172,8 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             />
             <Callout label="Ek Important Baat">
               Ye last outcome bhi koi failure nahi hai. Ye seekhna ke{" "}
-              <Strong>kya delegate nahi karna</Strong>, ek hour ke time ke
-              qabil hai.
+              <Strong>kya delegate nahi karna</Strong>, ek hour ke waqt
+              ke qabil hai.
             </Callout>
           </Reveal>
 
@@ -1172,9 +1181,9 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             <SubHeading>Pass Hona Actually Kya Prove Karta Hai?</SubHeading>
             <P>
               Ye aapko <Strong>similar future kaam ke liye tested
-              confidence</Strong> deta hai. Ye prove nahi karta ke assistant
-              har agle case mein bhi correct hoga. Aur ye responsibility
-              transfer nahi karta.
+              confidence</Strong> deta hai. Ye prove nahi karta ke
+              assistant har agle case mein bhi correct hoga. Aur ye
+              responsibility transfer nahi karta.
             </P>
             <P>Ab bhi in cheezon ki zaroorat rehti hai:</P>
             <CheckList
@@ -1188,7 +1197,7 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             <Callout label="Ek Tip">
               Agar possible ho, wahi test Claude aur ChatGPT, dono mein
               chalao. Ek pehle se samjhe hue task pe 2 assistants ko
-              compare karna, platform awareness banane ka sab se fast
+              compare karna, platform awareness banane ka sabse fast
               tareeka hai.
             </Callout>
             <P>
@@ -1207,8 +1216,8 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
             <SubHeading>Chhota Recap, Prompts Se Pehle</SubHeading>
             <P>
               Ab aapke paas dono products ka map hai. Claude aur ChatGPT
-              different tools hain, lekin kaafi hisson mein same soch pe
-              bane hain.
+              alag tools hain, lekin kaafi hisson mein same soch pe bane
+              hain.
             </P>
             <CheckList
               items={[
@@ -1222,40 +1231,41 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
                 "Plugins, poore type ke kaam ke liye capabilities bundle karte hain",
                 "Claude mein connectors aur ChatGPT mein apps, external systems tak reach dete hain",
                 "MCP, dono ke neeche shared integration standard hai",
-                "Search, thinking, aur research, 3 different questions ke 3 different routes hain",
+                "Search, thinking, aur research, 3 alag questions ke 3 alag routes hain",
                 "Jani-pehchani kaam pe test karna, trust earn karne ka tareeka hai",
               ]}
             />
-            <P>Products change hote rahenge. Ye mental model current interface se kahin zyada der tak last karega.</P>
+            <P>Products badalte rahenge. Ye mental model current interface se kahin zyada der tak chalega.</P>
           </Reveal>
 
           <Reveal>
             <SubHeading>Ab Khud Try Karo: 6 Prompts</SubHeading>
             <P>
-              Cockpit ke baare mein parhna, usme baith ke fly karne jaisa
-              nahi hai. In 6 exercises mein roughly 25 minute lagte hain.
+              Cockpit ke baare mein parhna, usme baith kar fly karne
+              jaisa nahi hai. In 6 exercises mein roughly 25 minute
+              lagte hain.
             </P>
             <Ladder
               steps={[
                 {
                   title: "1. Ek Guided Tour Maango",
-                  note: "Run karne se pehle, 2 features ka guess laga lo jo assistant ke mention karne ki expectation hai. Phir Claude ya ChatGPT se poocho ke wo aaj ke workspace ka tour de, models change karne, file upload, projects, memory, aur research ke baare mein. What to notice: apni pehle wali guess se compare karo, phir jo screen pe dikh raha hai usse. Jahan assistant apne hi interface ke baare mein wrong ho, wahi sab se interesting part hai.",
+                  note: "Run karne se pehle, 2 features ka guess laga lo jo assistant ke mention karne ki expectation hai. Phir Claude ya ChatGPT se poocho ke wo aaj ke workspace ka tour de, models badalne, file upload, projects, memory, aur research ke baare mein. Dhyan do: apni pehle wali guess se compare karo, phir jo screen pe dikh raha hai usse. Jahan assistant apne hi interface ke baare mein wrong ho, wahi sabse interesting hissa hai.",
                 },
                 {
                   title: "2. Ek Task Dono Assistants Mein Run Karo",
-                  note: "Apne week ka koi chhota, real task pick karo. Run karne se pehle guess lagao ke kaunsa assistant better karega, aur kyun. Phir dono se wahi task karwao aur poocho ke unhe better karne ke liye kaunsi context chahiye thi. What to notice: outputs compare karo, phir dono ke answer compare karo ke unhe kya chahiye tha.",
+                  note: "Apne week ka koi chhota, real task pick karo. Run karne se pehle guess lagao ke kaunsa assistant behtar karega, aur kyun. Phir dono se wahi task karwao aur poocho ke unhe behtar karne ke liye kaunsi context chahiye thi. Dhyan do: outputs compare karo, phir dono ke jawab compare karo ke unhe kya chahiye tha.",
                 },
                 {
                   title: "3. Apna Pehla Project Setup Karo",
-                  note: "Kaam ka koi stream pick karo jahan aap pehle se wahi background ya files repeat kar chuke ho. Assistant se poocho ke wo aapse short interview kare, phir 2 cheezein de: project instructions, aur upload karne layak documents ki priority-ordered list. What to notice: jo sawal wo poochta hai, wahi context hai jo aap har week hath se type kar rahe the.",
+                  note: "Kaam ka koi stream pick karo jahan aap pehle se wahi background ya files repeat kar chuke ho. Assistant se poocho ke wo aapse short interview kare, phir 2 cheezein de: project instructions, aur upload karne layak documents ki priority-ordered list. Dhyan do: jo sawal wo poochta hai, wahi context hai jo aap har week hath se type kar rahe the.",
                 },
                 {
                   title: "4. Jo Remember Kiya Gaya Hai Uska Audit Karo",
-                  note: "Assistant se poocho ke wo aapke baare mein jo bhi remember karta hai, ek plain list ki tarah dikhaye. Har item ke liye khud decide karo: keep karo, correct karo, ya delete karo. Phir poocho ke settings mein memory kahan manage ki ja sakti hai. What to notice: kya kisi cheez se aapko embarrass hota, aur kya kuch outdated ho chuka hai.",
+                  note: "Assistant se poocho ke wo aapke baare mein jo bhi remember karta hai, ek plain list ki tarah dikhaye. Har item ke liye khud decide karo: keep karo, correct karo, ya delete karo. Phir poocho ke settings mein memory kahan manage ki ja sakti hai. Dhyan do: kya kisi cheez se aapko embarrass hota, aur kya kuch purana ho chuka hai.",
                 },
                 {
                   title: "5. 3 Real Sawal Route Karo",
-                  note: "Apne kaam se 3 sawal pick karo: ek jise current fact chahiye, ek jise hard reasoning chahiye, aur ek jo proper report deserve kare. Har sawal poochne se pehle route choose karo, search, thinking, ya research. What to notice: wrong routing, jaise research mode jise search hona chahiye tha, dono products mein sab se common daily waste hai.",
+                  note: "Apne kaam se 3 sawal pick karo: ek jise current fact chahiye, ek jise hard reasoning chahiye, aur ek jo proper report deserve kare. Har sawal poochne se pehle route choose karo, search, thinking, ya research. Dhyan do: wrong routing, jaise research mode jise search hona chahiye tha, dono products mein sabse common daily waste hai.",
                 },
                 {
                   title: "6. Assistant Ko Apni Old History Pe Test Karo",
@@ -1275,7 +1285,7 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
               head={["Term", "Matlab"]}
               rows={[
                 ["Model picker", "Model, ya reasoning ka level, choose karne ka control"],
-                ["Thinking mode / Extended thinking", "Answer dene se pehle model ko zyada reasoning ka time dene wala mode, slower lekin hard task pe worth it"],
+                ["Thinking mode / Extended thinking", "Answer dene se pehle model ko zyada reasoning ka waqt dene wala mode, slower lekin hard task pe worth it"],
                 ["State summary", "Ek lambi chat ne ab tak kya decide kiya, kya still open hai, aur di gayi har rule ka ek short record, jise new chat mein paste kiya ja sake"],
                 ["Project", "Ek ongoing stream of work ke liye workspace, jisme chats, knowledge, aur instructions shamil hon"],
                 ["Project knowledge", "Project level pe stored files, jinhe us project ki har conversation use kar sake"],
@@ -1302,13 +1312,14 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
               Ye crash course is book ka apna original kaam hai. Product
               claims <Strong>25 August 2026</Strong> ko Anthropic aur
               OpenAI ki public documentation se verify ki gayi. Anthropic
-              ke free <Strong>Claude 101</Strong> course aur OpenAI ke help
-              resources ne ye decide karne mein help ki ke kaunse product
-              topics cover kiye jayen, lekin ye chapter unki text,
-              structure, ya exercises reuse nahi karta. Features, names,
-              plan limits, aur pricing aksar change hoti hain, jahan ye
-              page aur live product mein disagree ho, wahan vendor ki
-              current documentation hi authority hai. Latest info ke liye{" "}
+              ke free <Strong>Claude 101</Strong> course aur OpenAI ke
+              help resources ne ye decide karne mein help ki ke kaunse
+              product topics cover kiye jayen, lekin ye chapter unki
+              text, structure, ya exercises reuse nahi karta. Features,
+              names, plan limits, aur pricing aksar badalti rehti hain,
+              jahan ye page aur live product mein disagree ho, wahan
+              vendor ki current documentation hi authority hai. Latest
+              info ke liye{" "}
               <a
                 href="https://support.claude.com"
                 target="_blank"
@@ -1342,8 +1353,8 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
               Khud Se Poocho
             </h2>
             <P>
-              Pehle khud answer do, phir sawal pe click kar ke answer check
-              karo. Peeche dekhe bina answer dene ki koshish karo.
+              Pehle khud answer do, phir sawal pe click kar ke answer
+              check karo. Peeche dekhe bina answer dene ki koshish karo.
             </P>
           </Reveal>
           <Reveal>
@@ -1351,7 +1362,7 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
               {[
                 {
                   q: "Current model names se pehle, model tier ka pattern kyun seekhna chahiye?",
-                  a: "Model names aur versions fast change hote hain. Pattern (fast, thinking, flagship) zyada der tak last karta hai aur aapko task ke hisab se choose karne deta hai. Phir current names aur har naam kaunse tier mein aata hai, ye seekho, kyunke picker aur aapke colleagues wahi names use karte hain.",
+                  a: "Model names aur versions fast badalte hain. Pattern (fast, thinking, flagship) zyada der tak chalta hai aur aapko task ke hisab se choose karne deta hai. Phir current names aur har naam kaunse tier mein aata hai, ye seekho, kyunki picker aur aapke colleagues wahi names use karte hain.",
                 },
                 {
                   q: "Thinking mode kab use karna chahiye?",
@@ -1362,7 +1373,7 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
                   a: "Stable rules ke liye instructions, evolving context ke liye memory, aur scoped kaam ke liye projects.",
                 },
                 {
-                  q: "Normal chat aur artifact ya writing block mein kya difference hai, aur jab kaam data ho to kya change hota hai?",
+                  q: "Normal chat aur artifact ya writing block mein kya farq hai, aur jab kaam data ho to kya badalta hai?",
                   a: "Normal chat conversation hai. Artifacts, writing blocks, aur code blocks ek separate work product rakhte hain jise alag se edit aur use kiya ja sakta hai. Agar wo work product data ho, to usay table ya spreadsheet file ki tarah mango taake sort aur load ho sake, paragraph ki tarah nahi.",
                 },
                 {
@@ -1371,15 +1382,15 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
                 },
                 {
                   q: "MCP kya hai, aur jab aap ek se zyada assistant use karo to ye kyun matter karta hai?",
-                  a: "MCP, yani Model Context Protocol, AI systems ko external tools aur data se connect karne ki ek open standard hai. Ye isliye matter karta hai kyunke integration ke concepts, aur aksar khud tools bhi, multiple products mein carry hote hain.",
+                  a: "MCP, yani Model Context Protocol, AI systems ko external tools aur data se connect karne ki ek open standard hai. Ye isliye matter karta hai kyunki integration ke concepts, aur aksar khud tools bhi, multiple products mein carry hote hain.",
                 },
                 {
                   q: "Aapka pehla AI test ek aisa old case kyun use kare jiska correct result aapko pehle se pata ho?",
-                  a: "Kyunke compare karne ke liye aapko ek trusted answer chahiye. Known truth ke bina, aap ye nahi bata sakte ke assistant ne kaam dobara kiya ya sirf aisa lagne wala answer diya.",
+                  a: "Kyunki compare karne ke liye aapko ek trusted answer chahiye. Known truth ke bina, aap ye nahi bata sakte ke assistant ne kaam dobara kiya ya sirf aisa lagne wala answer diya.",
                 },
                 {
                   q: "Wo test pass hona aapko kya deta hai, aur ye kabhi kya transfer nahi karta?",
-                  a: "Ye aapko similar future kaam ke liye tested confidence deta hai. Ye kabhi responsibility transfer nahi karta, aap ab bhi important outputs verify karte ho aur final result ke owner rehte ho.",
+                  a: "Ye aapko similar future kaam ke liye tested confidence deta hai. Ye kabhi responsibility transfer nahi karta, aap ab bhi zaroori outputs verify karte ho aur final result ke owner rehte ho.",
                 },
               ].map((item, i) => (
                 <details
@@ -1409,7 +1420,7 @@ by category, see a pie chart, and get a warning when I go over budget.`}</Prompt
                 AI Fluency
               </Link>{" "}
               wale chapter ki Diligence competency ke sath dobara parho.
-              Dono mil ke is course ka professional core hain.
+              Dono mil kar is course ka professional core hain.
             </Callout>
           </Reveal>
         </section>
