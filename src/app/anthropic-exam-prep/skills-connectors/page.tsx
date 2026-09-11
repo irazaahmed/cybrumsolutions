@@ -112,13 +112,13 @@ function KitchenDiagram() {
           </span>
           <p className="text-sm font-semibold text-foreground">Connector = Kitchen</p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            AI ko haath deta hai aapke real apps aur data tak pahunchne ke liye
+            AI ko haath deta hai aapke real apps aur data tak
           </p>
         </div>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Kitchen bina recipe ke improvised, recipe bina kitchen ke sirf padhi
-        ja sakti hai. Teenon mil kar reliable output banate hain
+        Kitchen bina recipe ke improvised hai, recipe bina kitchen ke
+        sirf padhi ja sakti hai. Teenon mil kar reliable output banate hain
       </figcaption>
     </figure>
   );
@@ -185,8 +185,8 @@ function DiagnosticDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Har cheez skill nahi maangti, ek-baari sawal sirf ek achhe prompt ki
-        zaroorat rakhte hain
+        Har cheez skill nahi maangti, ek-baari sawal ko sirf ek achhe
+        prompt ki zaroorat hoti hai
       </figcaption>
     </figure>
   );
@@ -218,8 +218,8 @@ function ProgressiveDisclosureDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Isi trick ko progressive disclosure kehte hain, dus skills install
-        karo koi performance issue nahi hoga
+        Isi trick ko progressive disclosure kehte hain, dus skills
+        install karo phir bhi koi performance issue nahi hoga
       </figcaption>
     </figure>
   );
@@ -235,9 +235,10 @@ function SafetyRisksDiagram() {
             Malicious Skills
           </p>
           <p className="text-sm text-muted">
-            Ek text file (aur scripts) hidden instructions rakh sakti hai jo
-            data leak kare ya suspicious servers se contact kare. Prompt
-            injection aur data exfiltration dono possible hain
+            Ek text file (aur scripts) mein hidden instructions ho sakti
+            hain jo data leak karein ya suspicious servers se contact
+            karein. Prompt injection aur data exfiltration dono possible
+            hain
           </p>
         </div>
         <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4">
@@ -246,9 +247,9 @@ function SafetyRisksDiagram() {
             Over-Broad Connector Access
           </p>
           <p className="text-sm text-muted">
-            Connector sirf wahi reach kar sakta hai jo aap kar sakte ho, lekin
-            careless write-access ek galat edit, galat jagah record, ya bina
-            undo ke deleted file bana sakta hai
+            Connector sirf wahi reach kar sakta hai jo aap kar sakte ho,
+            lekin careless write-access ek galat edit, galat jagah
+            record, ya bina undo ke delete kiya file bana sakta hai
           </p>
         </div>
       </div>
@@ -317,11 +318,12 @@ export default function SkillsConnectorsChapterPage() {
             </p>
             <CoreIdea>
               Zyada tar log AI ko ek vending machine ki tarah treat karte
-              hain: har baar fresh request type karte hain, kuch bhi retain
-              nahi hota. Ye chapter ek different model sikhata hai:{" "}
-              <Strong>Skills</Strong> se AI ko ek baar sikhao, <Strong>
-              Connectors</Strong> se usay apne apps tak access do, aur AI ek
-              chat interface se ek intelligent operating layer ban jata hai.
+              hain: har baar fresh request type karte hain, kuch bhi
+              yaad nahi rehta. Ye chapter ek alag model sikhata hai:{" "}
+              <Strong>Skills</Strong> se AI ko ek baar sikhao,{" "}
+              <Strong>Connectors</Strong> se usay apne apps tak access
+              do, aur AI ek chat interface se ek intelligent operating
+              layer ban jata hai.
             </CoreIdea>
           </Reveal>
 
@@ -362,19 +364,21 @@ export default function SkillsConnectorsChapterPage() {
               ]}
             />
             <P>
-              Ye tasks repeatable hain, ek specific tareeke se hote hain, sirf
-              input badalta hai, yehi exactly Skills solve karti hain. Doosri
-              friction copy-paste hai (Excel, emails, Drive folders, project
-              trackers se), yehi Connectors solve karte hain, AI ko seedha
-              wahan tak access de kar jahan real kaam hota hai.
+              Ye tasks repeatable hain, ek specific tareeke se hote hain,
+              sirf input badalta hai — yehi exactly Skills solve karti
+              hain. Doosri friction copy-paste hai (Excel, emails, Drive
+              folders, project trackers se), yehi Connectors solve karte
+              hain, AI ko seedha wahan tak access de kar jahan real kaam
+              hota hai.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>2. Ek Skill Actually Kya Hai</SubHeading>
             <P>
-              Fundamentally simple: ek folder jismein ek text file hai jiska
-              naam exactly <Strong>SKILL.md</Strong> hai. Is file mein:
+              Fundamentally simple: ek folder jismein ek text file hai
+              jiska naam exactly <Strong>SKILL.md</Strong> hai. Is file
+              mein:
             </P>
             <CheckList
               items={[
@@ -384,21 +388,22 @@ export default function SkillsConnectorsChapterPage() {
             />
             <P>
               Yehi minimum hai. Optional: example files, templates,
-              reference documents, aur scripts (jo AI khud likhta hai, aap
-              nahi). Key innovation <Strong>progressive disclosure</Strong>{" "}
-              hai: AI sirf short description hamesha loaded rakhta hai, poori
-              instructions sirf tab kholta hai jab request match kare. Isi
-              wajah se dus skills install karne se bhi koi performance
-              impact nahi hota.
+              reference documents, aur scripts (jo AI khud likhta hai,
+              aap nahi). Key innovation{" "}
+              <Strong>progressive disclosure</Strong> hai: AI sirf short
+              description hamesha loaded rakhta hai, poori instructions
+              sirf tab kholta hai jab request match kare. Isi wajah se
+              dus skills install karne se bhi koi performance impact
+              nahi hota.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>3. Ek Connector Actually Kya Hai</SubHeading>
             <P>
-              Safe, permission-scoped access external apps aur data tak, ek
-              open standard <Strong>MCP</Strong> (Model Context Protocol) par
-              chalta hai. 3 critical facts:
+              Safe, permission-scoped access external apps aur data tak
+              — ek open standard <Strong>MCP</Strong> (Model Context
+              Protocol) par chalta hai. 3 critical facts:
             </P>
             <CheckList
               items={[
@@ -409,9 +414,9 @@ export default function SkillsConnectorsChapterPage() {
             />
             <P>
               Ready-made connectors Google Drive, Gmail, Slack, Notion,
-              Figma, Linear, Atlassian, aur bohot sab ke liye maujood hain.
-              Kuch interactive hain, live dashboards ya design surfaces
-              conversation ke andar render karte hain.
+              Figma, Linear, Atlassian, aur bohot saron ke liye maujood
+              hain. Kuch interactive hain, live dashboards ya design
+              surfaces conversation ke andar render karte hain.
             </P>
           </Reveal>
 
@@ -427,29 +432,29 @@ export default function SkillsConnectorsChapterPage() {
               ]}
             />
             <Callout label="Key Distinction">
-              Projects hamesha context automatically load karte hain (always
-              on), jabke Skills trigger hone tak dormant rehti hain.
-              Connectors access dete hain, Skills expertise deti hain,{" "}
-              <Strong>ye partners hain, alternatives nahi.</Strong> Custom
-              Instructions global hain, Skills specific task types target
-              karti hain.
+              Projects hamesha context automatically load karte hain
+              (always on), jabke Skills trigger hone tak dormant rehti
+              hain. Connectors access dete hain, Skills expertise deti
+              hain, <Strong>ye partners hain, alternatives nahi.</Strong>{" "}
+              Custom Instructions global hain, Skills specific task types
+              target karti hain.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>5. Slash Commands Type Karoon Ya AI Khud Jaan Le?</SubHeading>
             <P>
-              Claude.ai (web aur mobile) mein, Skills khud fire hoti hain,
-              aap plain language mein apna task describe karte ho, AI aapki
-              request ko enabled skills ki short descriptions se match
-              karta hai, aur matching skill khud load kar leta hai. Koi
-              slash command ki zaroorat nahi.
+              Claude.ai (web aur mobile) mein, Skills khud fire hoti
+              hain. Aap plain language mein apna task describe karte ho,
+              AI aapki request ko enabled skills ki short descriptions
+              se match karta hai, aur matching skill khud load kar leta
+              hai. Koi slash command ki zaroorat nahi.
             </P>
             <SkillFireDiagram />
             <Callout label="Ahem Number">
-              Ye automatic behavior roughly <Strong>90% baar</Strong> hoti
-              hai, isliye skill ki description likhna sab se important
-              control mechanism ban jata hai.
+              Ye automatic behavior roughly <Strong>90% baar</Strong>{" "}
+              hoti hai, isliye skill ki description likhna sabse
+              important control mechanism ban jata hai.
             </Callout>
             <P>Override options:</P>
             <CheckList
@@ -467,11 +472,11 @@ export default function SkillsConnectorsChapterPage() {
             <PartBanner>Part 2 · Jo Pehle Se Hai Wo Use Karo</PartBanner>
             <SubHeading>6. Built-In Skills</SubHeading>
             <P>
-              Kai document-generation skills automatically kaam karti hain
-              jab ek switch on ho: <Strong>Settings → Capabilities →
-              &ldquo;Code execution and file creation&rdquo;</Strong>{" "}
-              (&ldquo;Required for skills&rdquo; label ke sath). Ye engine
-              chalati hai:
+              Kai document-generation skills automatically kaam karti
+              hain jab ek switch on ho: <Strong>Settings → Capabilities
+              → &ldquo;Code execution and file creation&rdquo;</Strong>{" "}
+              (&ldquo;Required for skills&rdquo; label ke sath). Ye
+              engine chalati hai:
             </P>
             <CheckList
               items={[
@@ -482,17 +487,18 @@ export default function SkillsConnectorsChapterPage() {
               ]}
             />
             <P>
-              Bas naturally poocho: &ldquo;[topic] introduce karne wala ek
-              slide deck tayar karo, general audience ke liye&rdquo; aur ek
-              finished deck download ke liye ready milegi.
+              Bas naturally poocho: &ldquo;[topic] introduce karne wala
+              ek slide deck tayar karo, general audience ke liye&rdquo;
+              aur ek finished deck download ke liye ready milegi.
             </P>
             <Callout label="Note">
-              Jab aap <Strong>Customize → Skills</Strong> kholte ho, sirf ek
-              skill dikhegi shuru mein: skill-creator (Anthropic ka skill
-              banane ka tool). Document skills missing nahi hain, wo engine
-              ke andar rehte hain. &ldquo;+&rdquo; menu ke &ldquo;Browse
-              skills&rdquo; option se installable skills ki directory dekho,
-              Notion/Figma/Atlassian ki partner skills samet.
+              Jab aap <Strong>Customize → Skills</Strong> kholte ho,
+              sirf ek skill dikhegi shuru mein: skill-creator (Anthropic
+              ka skill banane ka tool). Document skills missing nahi
+              hain, wo engine ke andar rehte hain. &ldquo;+&rdquo; menu
+              ke &ldquo;Browse skills&rdquo; option se installable
+              skills ki directory dekho, Notion/Figma/Atlassian ki
+              partner skills samet.
             </Callout>
           </Reveal>
 
@@ -516,36 +522,38 @@ export default function SkillsConnectorsChapterPage() {
             />
             <Callout label="Worked Example">
               Ek practice patient intake form create kar ke Google Drive
-              mein save karo, phir usay wapis parh kar SOAP-style notes mein
-              summarize karo, dono directions dikhata hai: write aur read,
-              bina manual file transfer ke.
+              mein save karo, phir usay wapis parh kar SOAP-style notes
+              mein summarize karo, dono directions dikhata hai: write
+              aur read, bina manual file transfer ke.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>8. Skills + Connectors Sath Mein</SubHeading>
             <P>
-              Pattern real data fetch karna (Connector) aur output ko aapke
-              tareeke se shape karna (Skill) combine karta hai.
+              Pattern real data fetch karna (Connector) aur output ko
+              aapke tareeke se shape karna (Skill) combine karta hai.
             </P>
             <PipelineDiagram />
             <Callout label="Monthly Client Close">
               Ek &ldquo;client-summary&rdquo; skill aur Google Drive
-              connected ke sath, accountant ka monthly ritual 2 ghante ki
-              paste-and-format se 2-minute review mein simat jata hai. Drive
-              connector ledger fetch karta hai, skill amounts ko reporting
-              currency mein format karti hai, expense head se group karti
-              hai, withholding-threshold payments flag karti hai, aur
-              4-section template automatically apply karti hai.
+              connected ke sath, accountant ka monthly ritual 2 ghante
+              ki paste-and-format se 2-minute review mein simat jata
+              hai. Drive connector ledger fetch karta hai, skill amounts
+              ko reporting currency mein format karti hai, expense head
+              se group karti hai, withholding-threshold payments flag
+              karti hai, aur 4-section template automatically apply
+              karti hai.
             </Callout>
             <Callout label="Weekly Content Batch">
-              Ek &ldquo;brand-voice&rdquo; skill rules encode karti hai (no
-              exclamation marks, question hooks, banned buzzwords, CTA
-              format). Ek Notion connector content calendar tak pahunchta
-              hai. Request &ldquo;is week ke 3 scheduled posts ke liye
-              captions draft karo, hamari voice mein&rdquo; connector se
-              calendar parhta hai, skill se on-brand captions likhta hai,
-              kaam composition se editing tak shift ho jata hai.
+              Ek &ldquo;brand-voice&rdquo; skill rules encode karti hai
+              (no exclamation marks, question hooks, banned buzzwords,
+              CTA format). Ek Notion connector content calendar tak
+              pahunchta hai. Request &ldquo;is week ke 3 scheduled posts
+              ke liye captions draft karo, hamari voice mein&rdquo;
+              connector se calendar parhta hai, skill se on-brand
+              captions likhta hai, kaam composition se editing tak
+              shift ho jata hai.
             </Callout>
           </Reveal>
 
@@ -561,10 +569,10 @@ export default function SkillsConnectorsChapterPage() {
               ]}
             />
             <Callout label="2 Ehtiyat" tone="warn">
-              Har cheez skill deserve nahi karti, ek-baari sawal bas ek achhe
-              prompt ki zaroorat rakhte hain. Aur ek unnecessary connector ek
-              khula darwaza hai, sirf wo apps connect karo jo workflow
-              actually maangta hai.
+              Har cheez skill deserve nahi karti, ek-baari sawal ko bas
+              ek achhe prompt ki zaroorat hoti hai. Aur ek unnecessary
+              connector ek khula darwaza hai, sirf wo apps connect karo
+              jo workflow actually maangta hai.
             </Callout>
           </Reveal>
         </section>
@@ -584,12 +592,13 @@ the tax-withholding reporting threshold; Output using my standard
 four-section report layout (Overview, Income, Expenses by Head,
 Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
             <P>
-              AI clarifying sawal poochta hai, phir ek complete, correctly
-              formatted skill generate karta hai. Ye <Strong>&ldquo;code you
-              never write&rdquo;</Strong> principle ki misaal hai: aap client
-              ho jo requirements specify kar raha hai, AI commissioned
-              artifact produce karta hai, ek skill jo ek baar commission
-              karo aur hamesha reuse karo.
+              AI clarifying sawal poochta hai, phir ek complete,
+              correctly formatted skill generate karta hai. Ye{" "}
+              <Strong>&ldquo;code you never write&rdquo;</Strong>{" "}
+              principle ki misaal hai: aap client ho jo requirements
+              specify kar raha hai, AI commissioned artifact produce
+              karta hai — ek skill jo ek baar commission karo aur
+              hamesha reuse karo.
             </P>
           </Reveal>
 
@@ -611,15 +620,15 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
           <Reveal>
             <SubHeading>12. Description Field Hi Poora Game Hai</SubHeading>
             <P>
-              Description decide karti hai ke aapki skill kabhi fire hogi ya
-              nahi. AI relevance decide karne ke liye aapki instructions
-              nahi parhta, sirf description parhta hai. Ek vague description
-              matlab skill jo kabhi trigger nahi hoti, ek sharp description
-              matlab exact activation.
+              Description decide karti hai ke aapki skill kabhi fire
+              hogi ya nahi. AI relevance decide karne ke liye aapki
+              instructions nahi parhta, sirf description parhta hai. Ek
+              vague description matlab skill jo kabhi trigger nahi
+              hoti, ek sharp description matlab exact activation.
             </P>
             <Callout label="Formula">
-              Kya karti hai + kab use karni hai + wo exact phrases jo aap
-              actually bolte ho
+              Kya karti hai + kab use karni hai + wo exact phrases jo
+              aap actually bolte ho
             </Callout>
             <RecapTable
               head={["Bad", "Better"]}
@@ -629,12 +638,12 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
               ]}
             />
             <Callout label="Debugging Trick">
-              AI se poocho: &ldquo;Mera [skill-name] skill kab use karoge?&rdquo;
-              Agar answer bohot narrow ya wide hai, aapko exactly wo mil gaya
-              jo description mein fix karna hai. Negative triggers overeager
-              skills ko narrow karte hain: &ldquo;Do NOT use for one-off
-              calculations or quick questions, only for full month-end
-              reports.&rdquo;
+              AI se poocho: &ldquo;Mera [skill-name] skill kab use
+              karoge?&rdquo; Agar answer bohot narrow ya wide hai,
+              aapko exactly wo mil gaya jo description mein fix karna
+              hai. Negative triggers overeager skills ko narrow karte
+              hain: &ldquo;Do NOT use for one-off calculations or quick
+              questions, only for full month-end reports.&rdquo;
             </Callout>
           </Reveal>
 
@@ -654,8 +663,8 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
               head={["Timing", "Problem Kahan Hai"]}
               rows={[
                 ["Pehli reply se hi galat", "File mein hi problem hai (description bohot vague/broad, ya instruction bohot loose)"],
-                ["Shuru mein sahi, chat barhne pe kharab", "Chat bohot lambi ho gayi, AI ne track lose kar diya, skill theek hai, naya chat start karo"],
-                ["Har run mein wahi mistake", "Step galat jagah hai, exact steps sentences mein nahi, scripts mein honi chahiye"],
+                ["Shuru mein sahi, chat badhne pe kharab", "Chat bohot lambi ho gayi, AI ne track lose kar diya, skill theek hai, naya chat shuru karo"],
+                ["Har run mein wahi ghalti", "Step galat jagah hai, exact steps sentences mein nahi, scripts mein honi chahiye"],
                 ["Pehle kaam karta tha, ab nahi", "Skill wahi hai, isliye context badla hai (threshold, template, workflow, ya data shift hua)"],
               ]}
             />
@@ -664,18 +673,18 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
           <Reveal>
             <SubHeading>14. Skill Save Aur Share Karna</SubHeading>
             <P>
-              Jab skill-creator khatam kare, ek panel dikhta hai <Strong>
-              Save skill</Strong> button ke sath. Click karo, skill{" "}
-              <Strong>Personal skills</Strong> mein (Customize → Skills) gir
-              jati hai, toggled on, ready, aur private. Koi zip ya upload
-              hassle nahi.
+              Jab skill-creator khatam kare, ek panel dikhta hai{" "}
+              <Strong>Save skill</Strong> button ke sath. Click karo,
+              skill <Strong>Personal skills</Strong> mein (Customize →
+              Skills) gir jati hai, toggled on, ready, aur private. Koi
+              zip ya upload hassle nahi.
             </P>
             <P>
-              Team ya Enterprise plans pe, specific colleagues ke sath share
-              kar sakte ho, ya apni organization ki directory mein publish
-              kar sakte ho. Shared skills view-only hoti hain aur khud
-              update ho jati hain jab aap original change karte ho, isse
-              teams standardize hoti hain.
+              Team ya Enterprise plans pe, specific colleagues ke sath
+              share kar sakte ho, ya apni organization ki directory
+              mein publish kar sakte ho. Shared skills view-only hoti
+              hain aur khud update ho jati hain jab aap original change
+              karte ho, isse teams standardize hoti hain.
             </P>
           </Reveal>
         </section>
@@ -685,19 +694,21 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
           <Reveal>
             <PartBanner>Part 4 · Same Skill, 5 Jagah</PartBanner>
             <P>
-              December 2025 mein, Anthropic ne <Strong>Agent Skills open
-              standard</Strong> publish kiya (agentskills.io). Adoption
-              fast thi, OpenAI ka Codex CLI aur Google ka Gemini CLI ab wahi{" "}
-              <Strong>SKILL.md</Strong> files parhte hain. Ek basic skill
-              tools ke across travel karti hai, chahe har tool apna install
-              path, invocation syntax, permissions, aur features us portable
-              core ke around add karta ho.
+              December 2025 mein, Anthropic ne <Strong>Agent Skills
+              open standard</Strong> publish kiya (agentskills.io).
+              Adoption fast thi, OpenAI ka Codex CLI aur Google ka
+              Gemini CLI ab wahi <Strong>SKILL.md</Strong> files parhte
+              hain. Ek basic skill tools ke across travel karti hai,
+              chahe har tool apna install path, invocation syntax,
+              permissions, aur features us portable core ke around add
+              karta ho.
             </P>
             <P>
               <Strong>Linux Foundation</Strong> ne <Strong>Agentic AI
-              Foundation</Strong> banayi, MCP (jis standard par connectors
-              chalte hain) aur related infrastructure ko khule tareeke se
-              govern karne ke liye, kisi ek vendor ke through nahi.
+              Foundation</Strong> banayi, MCP (jis standard par
+              connectors chalte hain) aur related infrastructure ko
+              khule tareeke se govern karne ke liye, kisi ek vendor ke
+              through nahi.
             </P>
             <RecapTable
               head={["Surface", "Kis Ke Liye", "Skill Install", "App Connect", "Apna Banana"]}
@@ -708,25 +719,27 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
               ]}
             />
             <Callout label="Note">
-              Har jode ka pehla tool commercial hai, doosra open-source hai.
-              Dono wahi SKILL.md parhte hain. Non-programmers ke liye:
-              Claude.ai mein start aur rehna karo (buttons, toggles, koi
-              file management nahi). Cowork agla natural step hai jab aap
-              chahte ho AI seedha desktop files pe kaam kare.
+              Har jode ka pehla tool commercial hai, doosra open-source
+              hai. Dono wahi SKILL.md parhte hain. Non-programmers ke
+              liye: Claude.ai mein shuru aur rehna karo (buttons,
+              toggles, koi file management nahi). Cowork agla natural
+              step hai jab aap chahte ho AI seedha desktop files pe
+              kaam kare.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>ChatGPT Aur Gemini Ka Kya?</SubHeading>
             <P>
-              Skills pe, picture cross-vendor hai, kyunke Agent Skills ek
-              open standard hai, OpenAI (Codex CLI) aur Google (Gemini CLI),
-              plus VS Code aur Cursor, wahi SKILL.md files parhte hain. Ek
-              skill portable hai, ek baar likho, kai tools mein chalao.
+              Skills pe, picture cross-vendor hai, kyunki Agent Skills
+              ek open standard hai. OpenAI (Codex CLI) aur Google
+              (Gemini CLI), plus VS Code aur Cursor, wahi SKILL.md
+              files parhte hain. Ek skill portable hai, ek baar likho,
+              kai tools mein chalao.
             </P>
             <P>
-              Lekin &ldquo;ek baar sikhao&rdquo; consumer chat apps ke andar,
-              har vendor ka apna, non-portable version hai:
+              Lekin &ldquo;ek baar sikhao&rdquo; consumer chat apps ke
+              andar, har vendor ka apna, non-portable version hai:
             </P>
             <RecapTable
               head={["Vendor", "Naam", "Kya Hai"]}
@@ -737,15 +750,16 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
             />
             <P>
               Connectors pe, teenon ke paas equivalents hain (ChatGPT
-              connectors/apps se, Gemini Workspace aur extensions se). MCP
-              technology increasingly shared hai, principles har jagah same
-              hain.
+              connectors/apps se, Gemini Workspace aur extensions se).
+              MCP technology increasingly shared hai, principles har
+              jagah same hain.
             </P>
             <PullQuote>
-              Skills portable hain (open standard, kai tools), GPTs aur Gems
-              vendor-specific hain (aap unhe kahin aur le nahi ja sakte).
-              Agar sirf ek tool use karte ho, GPTs ya Gems theek hain.
-              Multi-model strategy ke liye, Skills future-proof hain.
+              Skills portable hain (open standard, kai tools), GPTs aur
+              Gems vendor-specific hain (aap unhe kahin aur le nahi ja
+              sakte). Agar sirf ek tool use karte ho, GPTs ya Gems
+              theek hain. Multi-model strategy ke liye, Skills
+              future-proof hain.
             </PullQuote>
           </Reveal>
         </section>
@@ -755,16 +769,17 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
           <Reveal>
             <PartBanner>Part 5 · Safely Use Karo</PartBanner>
             <P>
-              Wahi principle jo pichli Foundations courses mein tha: model
-              ke andar kuch bhi check nahi karta ke koi action safe ya
-              correct hai, aap wo check ho.
+              Wahi principle jo pichli Foundations courses mein tha:
+              model ke andar kuch bhi check nahi karta ke koi action
+              safe ya correct hai, aap wo check ho.
             </P>
             <Callout label="Core Principle">
-              &ldquo;Ek skill un instructions ka set hai jo aap AI ko follow
-              karne de rahe ho, aur ek connector aapki real data ka darwaza
-              hai. Ek anjaan skill ko usi tarah treat karo jaise ek contract
-              jis pe sign karne wale ho, aur ek connector ko usi tarah jaise
-              ek chaabi jo aap kisi ko de rahe ho.&rdquo;
+              &ldquo;Ek skill un instructions ka set hai jo aap AI ko
+              follow karne de rahe ho, aur ek connector aapki real data
+              ka darwaza hai. Ek anjaan skill ko usi tarah treat karo
+              jaise ek contract jis pe sign karne wale ho, aur ek
+              connector ko usi tarah jaise ek chaabi jo aap kisi ko de
+              rahe ho.&rdquo;
             </Callout>
             <SafetyRisksDiagram />
           </Reveal>
@@ -775,18 +790,19 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
               items={[
                 "Trusted sources se skills install karo, built-in Anthropic skills aur official directory safe default hain",
                 "Enable karne se pehle skill parho, SKILL.md aur koi bhi bundled files kholo, AI se poocho \"ye skill parh ke batao exactly kya instruct karti hai, external servers, credentials, ya data leak se juri koi cheez flag karo\"",
-                "Connectors ko read-only se start karo, \"search and summarize\" ki permission pehle do, \"send/create/delete\" baad mein",
-                "Sab se chhoti folder ya app tak scope karo jo task ko chahiye, sab kuch connect mat karo",
+                "Connectors ko read-only se shuru karo, \"search and summarize\" ki permission pehle do, \"send/create/delete\" baad mein",
+                "Sabse chhoti folder ya app tak scope karo jo task ko chahiye, sab kuch connect mat karo",
                 "Scope ek connector ka idea hai, Skill ka nahi, connectors ke paas scope dials hote hain, skills ke paas nahi, skill parhna hi uska control hai",
                 "Edits/moves/deletes allow karne se pehle confirm karo connector recovery, version history, aur undo kaise handle karta hai",
                 "Team mein, shared skills ko organization ki directory se route karo, zips idhar udhar mat bhejo",
               ]}
             />
             <P>
-              Isse dar mat jao, built-in tools safe hain aur roz ka workflow
-              low-risk hai. Point ye hai ke jaise jaise aap built-in tools se
-              community skills install karne aur write access dene ki taraf
-              barhte ho, aapki ehtiyat bhi capability ke sath barhni chahiye.
+              Isse dar mat jao, built-in tools safe hain aur roz ka
+              workflow low-risk hai. Point ye hai ke jaise jaise aap
+              built-in tools se community skills install karne aur
+              write access dene ki taraf badhte ho, aapki ehtiyat bhi
+              capability ke sath badhni chahiye.
             </P>
           </Reveal>
         </section>
@@ -800,17 +816,18 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
                 "Chat ek baar batata hai, Skill har baar sikhati hai, Connector haath deta hai apps tak (kitchen: connectors kitchen hain, skills recipes hain)",
                 "Ek Skill ek folder hai SKILL.md text file ke sath: name, description, plain-English instructions, koi code shuru mein nahi chahiye",
                 "Ek Connector ek app tak safe, permission-scoped access hai, MCP standard par chalta hai, AI aapki permissions inherit karta hai",
-                "Claude.ai mein, skills automatic fire hoti hain jab prompt description match kare, description sab se important cheez hai jo aap likhte ho",
+                "Claude.ai mein, skills automatic fire hoti hain jab prompt description match kare, description sabse important cheez hai jo aap likhte ho",
                 "Friction se diagnose karo: kaise explain kar raha hoon → Skill, app se copy-paste kar raha hoon → Connector, dono → dono",
                 "AI ko describe kar ke skills banao (skill-creator likhta hai), phir triggering aur output test karo, iterate karo",
                 "Ek baar likhi hui skill Agent Skills open standard ki wajah se kai tools mein chalti hai, ChatGPT ke GPTs ya Gemini ke Gems (vendor-locked) ke ulat",
-                "Care capability ke sath scale karti hai: enable se pehle skills parho, trusted sources se install karo, connectors read-only se start karo",
+                "Care capability ke sath scale karti hai: enable se pehle skills parho, trusted sources se install karo, connectors read-only se shuru karo",
               ]}
             />
             <PullQuote>
-              Underneath ek recurring shift hai: AI ek box jismein aap type
-              karte ho, wo nahi rehta, ye ek layer ban jata hai jo aapke
-              standards jaanta hai aur aapke tools tak pahunchta hai.
+              Neeche ek recurring shift ho rahi hai: AI ek box jismein
+              aap type karte ho, wo nahi rehta, ye ek layer ban jata hai
+              jo aapke standards jaanta hai aur aapke tools tak
+              pahunchta hai.
             </PullQuote>
           </Reveal>
         </section>
@@ -823,8 +840,8 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
             <Ladder
               steps={[
                 { title: "1. Ek Built-In Skill Trigger Karo", note: "File creation on confirm karo, phir Claude se bolo \"isay ek slide PowerPoint mein badal do, title aur 3 bullets ke sath: [3 facts paste karo].\" Dekho PowerPoint skill khud fire hoti hai." },
-                { title: "2. Ek App Connect Karo, Read-Only", note: "Google Drive ya Gmail connect karo, chat ke liye enable karo, Claude se ek specific document dhoondh ke summarize karwao plus 3 important numbers identify karwao, notice karo koi download ya copy-paste nahi chahiye." },
-                { title: "3. Baat Kar Ke Apna Pehla Skill Banao", note: "Apna sab se repetitive re-explanation task chuno, phir: \"skill-creator use kar ke [task] ke liye ek skill banao. Ye rules follow karo: [list].\"" },
+                { title: "2. Ek App Connect Karo, Read-Only", note: "Google Drive ya Gmail connect karo, chat ke liye enable karo, Claude se ek specific document dhoondh kar summarize karwao plus 3 zaroori numbers identify karwao, notice karo koi download ya copy-paste nahi chahiye." },
+                { title: "3. Baat Kar Ke Apna Pehla Skill Banao", note: "Apna sabse repetitive re-explanation task chuno, phir: \"skill-creator use kar ke [task] ke liye ek skill banao. Ye rules follow karo: [list].\"" },
                 { title: "4. Description Ko Pressure-Test Karo", note: "Banane ke baad: \"Ye skill kab use karoge? Aur kab NAHI use karoge?\" Agar answer bohot wide ya narrow hai, description update karwao." },
                 { title: "5. Ek Skill Ka Safety Audit Karo", note: "Koi bhi skill jo aap ne nahi likhi, poocho: \"Ye skill parh ke plain language mein batao exactly kya instruct karti hai. External server, credentials, ya data leak se juri koi cheez flag karo.\"" },
                 { title: "6. Apne 3 Tasks Diagnose Karo", note: "3 recurring annoyances likho. Har ek ke liye: friction kaise-explain-karna (Skill) hai, app-se-fetch (Connector) hai, ya dono?" },
@@ -840,17 +857,17 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
             <RecapTable
               head={["Project", "Waqt", "Kya Banega"]}
               rows={[
-                ["1. Apna Pehla Real Skill", "30-45 min", "Apne sab se zyada re-explained task ko ek skill mein badlo jo aapka tareeqa jaanti ho"],
+                ["1. Apna Pehla Real Skill", "30-45 min", "Apne sabse zyada re-explained task ko ek skill mein badlo jo aapka tareeqa jaanti ho"],
                 ["2. Ek App Connect Karo, Read-Only", "20-30 min", "Google Drive ya Gmail connect karo, real sawal poocho jise andar ki cheez chahiye"],
                 ["3. Skill Aur Connector Ko Sath Wire Karo", "45-60 min", "Project 1 aur 2 combine karo: connector real data fetch karta hai, skill usay aapke tareeke se shape karti hai"],
                 ["4. Portable Banao Ya Hand-Off Karo", "30 min", "Apni skill kisi dost/colleague ke sath share karo, ya doosri surface (Cowork/Claude Code) pe load kar ke chalao"],
-                ["5. Trust Karne Se Pehle Audit Karo", "15-20 min", "Official directory se ek skill install karo (jo aapne nahi likhi), rely karne se pehle usay parh ke audit karo"],
+                ["5. Trust Karne Se Pehle Audit Karo", "15-20 min", "Official directory se ek skill install karo (jo aapne nahi likhi), rely karne se pehle usay parh kar audit karo"],
               ]}
             />
             <Callout label="Har Project Ka Success Statement">
-              &ldquo;Maine AI ko sikha diya main apna weekly kaam kaise karta
-              hoon, ek dafa, ab wo ek sentence mein har baar karta hai.&rdquo;
-              — yehi feeling har project ka goal hai.
+              &ldquo;Maine AI ko sikha diya main apna weekly kaam kaise
+              karta hoon, ek dafa, ab wo ek sentence mein har baar karta
+              hai.&rdquo; — yehi feeling har project ka goal hai.
             </Callout>
           </Reveal>
 
@@ -862,8 +879,8 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
                 ["Skill kabhi trigger nahi hoti, ya galat cheezon pe fire hoti hai", "Dono description problems hain. Poocho: \"Mera [naam] skill kab use karoge, aur kab nahi?\" Description tighten karo"],
                 ["Connector file \"nahi dhoond pata\"", "Usually permissions ya scope. Confirm karo connector is chat ke liye enabled hai aur aapka apna account file khol sakta hai"],
                 ["AI ne connected data use karne ki bajaye glance se answer diya", "Explicitly naam lo: \"Mere [app] connector se actual file fetch karo answer dene se pehle\""],
-                ["Write access ya sensitive data se nervous ho", "Read-only raho, jo zaroorat nahi wo strip karo pehle, write access sirf un tools ko do jo achha behave kar chuke hon"],
-                ["Chat lambi ho ke confused ho gayi", "Naya chat start karo, task 2 lines mein restate karo, aage barho"],
+                ["Write access ya sensitive data se nervous ho", "Read-only raho, jo zaroorat nahi wo pehle strip karo, write access sirf un tools ko do jo achha behave kar chuke hon"],
+                ["Chat lambi ho ke confused ho gayi", "Naya chat shuru karo, task 2 lines mein restate karo, aage badho"],
               ]}
             />
           </Reveal>
@@ -952,11 +969,11 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
                 },
                 {
                   q: "Skills aur Connectors ke liye safety control alag kyun hai?",
-                  a: "Connectors ke paas scope dials hote hain jo aap grant aur narrow kar sakte ho, isliye read-only se start karna unka control hai. Skills ke paas koi scope dial nahi, wo chat ki jitni access hai usi mein chalti hain, isliye enable karne se pehle skill parhna hi unka control hai.",
+                  a: "Connectors ke paas scope dials hote hain jo aap grant aur narrow kar sakte ho, isliye read-only se shuru karna unka control hai. Skills ke paas koi scope dial nahi, wo chat ki jitni access hai usi mein chalti hain, isliye enable karne se pehle skill parhna hi unka control hai.",
                 },
                 {
                   q: "2 real risks kya hain jo is chapter mein named hain?",
-                  a: "Malicious skills (hidden instructions jo data leak ya prompt injection kar sakti hain) aur over-broad connector access (careless write-access se galat edits, galat jagah records, ya bina undo ke deleted files).",
+                  a: "Malicious skills (hidden instructions jo data leak ya prompt injection kar sakti hain) aur over-broad connector access (careless write-access se galat edits, galat jagah records, ya bina undo ke delete ki hui files).",
                 },
                 {
                   q: "Kaunse problem ko Skill chahiye, kaunse ko Connector, ye kaise diagnose karte hain?",
@@ -964,10 +981,10 @@ Flags & Notes). Ask me anything you need, then build it.`}</PromptBox>
                 },
                 {
                   q: "Ek skill test karte waqt, agar wo pehli reply se hi galat ho, to problem kahan hai?",
-                  a: "Problem file mein hi hai, description bohot vague ya broad hai, ya koi instruction bohot loose hai. (Agar chat barhne pe kharab ho, to problem chat ki length hai, skill ki nahi.)",
+                  a: "Problem file mein hi hai, description bohot vague ya broad hai, ya koi instruction bohot loose hai. (Agar chat badhne pe kharab ho, to problem chat ki length hai, skill ki nahi.)",
                 },
                 {
-                  q: "Ye poora chapter ka underlying shift kya hai?",
+                  q: "Is poore chapter ka underlying shift kya hai?",
                   a: "AI ek box jismein type karte ho, wo nahi rehta, ye ek operating layer ban jata hai jo aapke standards jaanta hai (Skills se) aur aapke real tools tak pahunchta hai (Connectors se).",
                 },
               ].map((item, i) => (
