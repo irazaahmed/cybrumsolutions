@@ -100,7 +100,7 @@ function ChatVsAgentDiagram() {
           </span>
           <p className="text-sm font-semibold text-foreground">Chat Box</p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            Aapke turn ka wait karta hai. Aap type karo, wo answer de, phir
+            Aapke turn ka wait karta hai. Aap type karo, wo jawab de,
             phir wait kare. Tab band karo, kaam ruk jata hai.
           </p>
         </div>
@@ -110,15 +110,15 @@ function ChatVsAgentDiagram() {
           </span>
           <p className="text-sm font-semibold text-foreground">Agent Surface</p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            Aap assignment dete ho. Wo plan banata hai, tools use karta hai,
-            steps complete karta hai. Aap tab band kar do, kaam chalta rehta
-            hai.
+            Aap assignment dete ho. Wo plan banata hai, tools use karta
+            hai, steps complete karta hai. Aap tab band kar do, kaam
+            chalta rehta hai.
           </p>
         </div>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Test: agar main typing rok doon, kya kaam ruk jayega? Chat box mein
-        haan, Agent surface mein nahi
+        Test: agar main typing rok doon, kya kaam ruk jayega? Chat box
+        mein haan, Agent surface mein nahi
       </figcaption>
     </figure>
   );
@@ -166,8 +166,8 @@ function FileTiersDiagram() {
             <p className="text-sm font-semibold text-foreground">Tier 1 · Task Filesystem</p>
           </div>
           <p className="mt-1.5 text-xs leading-relaxed text-muted">
-            Session ka scratch space, task khatam hote hi wipe. Kabhi bhi
-            storage nahi samjho.
+            Session ka scratch space, task khatam hote hi wipe. Kabhi
+            bhi storage nahi samjho.
           </p>
         </div>
         <div className="rounded-xl border border-border bg-card/60 p-4">
@@ -178,8 +178,8 @@ function FileTiersDiagram() {
             <p className="text-sm font-semibold text-foreground">Tier 2 · Platform Storage</p>
           </div>
           <p className="mt-1.5 text-xs leading-relaxed text-muted">
-            Aapke vendor account mein permanently saved. Survive karta hai,
-            lekin vendor ki custody, vendor ke format mein.
+            Aapke vendor account mein permanently saved. Survive karta
+            hai, lekin vendor ki custody, vendor ke format mein.
           </p>
         </div>
         <div className="rounded-xl border border-accent/40 bg-accent/5 p-4">
@@ -190,9 +190,9 @@ function FileTiersDiagram() {
             <p className="text-sm font-semibold text-foreground">Tier 3 · The Exit</p>
           </div>
           <p className="mt-1.5 text-xs leading-relaxed text-muted">
-            File platform se nikal kar aapke apne control wale system mein
-            jati hai, Drive, email, repo, ya local folder. Sirf yehi tier
-            aapki custody mein hai.
+            File platform se nikal kar aapke apne control wale system
+            mein jati hai — Drive, email, repo, ya local folder. Sirf
+            yehi tier aapki custody mein hai.
           </p>
         </div>
       </div>
@@ -231,8 +231,8 @@ function ReachLadderDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Jo sabse structured tool kaam kar sake wo use karo, connector browser
-        se pehle, browser full computer use se pehle
+        Jo sabse structured tool kaam kar sake wo use karo, connector
+        browser se pehle, browser full computer use se pehle
       </figcaption>
     </figure>
   );
@@ -258,9 +258,9 @@ function GateModesDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Cowork side panel currently Auto se start hota hai, lekin ye product
-        default hai, aapki policy nahi, unfamiliar kaam pe Manual pe switch
-        karo
+        Cowork side panel currently Auto se shuru hota hai, lekin ye
+        product default hai, aapki policy nahi. Unfamiliar kaam pe
+        Manual pe switch karo
       </figcaption>
     </figure>
   );
@@ -287,8 +287,8 @@ function HeartbeatDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Ye course ki ceiling: schedules jo REPORT karte hain. Schedules jo
-        ACT karte hain, wo Loop Engineering chapter ka subject hai
+        Ye course ki ceiling: schedules jo REPORT karte hain. Schedules
+        jo ACT karte hain, wo Loop Engineering chapter ka subject hai
       </figcaption>
     </figure>
   );
@@ -346,17 +346,19 @@ export default function GeneralAgentsWebChapterPage() {
           <Reveal>
             <ChapterHeader num={chapter.num} title={chapter.title} sub={chapter.sub} />
             <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs text-muted">
-              Ye chapter <Strong>{chapter.examCode}</Strong> ke liye foundation
-              hai, do rival products (Claude Cowork aur ChatGPT Work) ke saath
+              Ye chapter <Strong>{chapter.examCode}</Strong> ke liye
+              foundation hai, do rival products (Claude Cowork aur
+              ChatGPT Work) ke sath
             </p>
             <CoreIdea>
-              Pichle 4 chapters mein aap ek chat tab mein kaam karte the: aap
-              poochte, AI jawab deta, aap phir poochte. Har turn aap se shuru
-              hota tha. Ye chapter division of labour badalta hai:{" "}
-              <Strong>chat box</Strong> aur <Strong>agent surface</Strong> ab
-              same address pe agal-bagal baithte hain, aur ek assignment ko
-              plan kar ke, tools use kar ke, aap ke tab band karne ke baad
-              bhi khatam karna, ab ek normal product feature hai.
+              Pichle 4 chapters mein aap ek chat tab mein kaam karte
+              the: aap poochte, AI jawab deta, aap phir poochte. Har
+              turn aap se shuru hota tha. Ye chapter division of labour
+              badalta hai: <Strong>chat box</Strong> aur{" "}
+              <Strong>agent surface</Strong> ab same address pe
+              agal-bagal baithte hain. Ek assignment ko plan kar ke,
+              tools use kar ke, aapke tab band karne ke baad bhi khatam
+              karna, ab ek normal product feature hai.
             </CoreIdea>
           </Reveal>
 
@@ -375,7 +377,7 @@ export default function GeneralAgentsWebChapterPage() {
                 ["Agent loop", "Wo hissa jo decide karta hai agla kadam kya hai, jab tak kaam finish, block, ya stop na ho"],
                 ["Cloud session", "Session jiska agent loop vendor ke servers pe chalta hai, aapka tab sirf ek window hai"],
                 ["Local session", "Session jiska agent loop aapki apni machine pe chalta hai"],
-                ["Desktop bridge", "Controlled path jo cloud session ko aapki machine ke selected tools (browser, local folder) tak pahunchne deta hai"],
+                ["Desktop bridge", "Controlled path jo cloud session ko aapki machine ke selected tools (browser, local folder) tak pahunchata hai"],
                 ["Connector", "Permission-scoped, structured access ek service tak (Drive, Gmail, Slack)"],
                 ["Human gate", "Control jo sahi risk boundary pe insaan ko loop mein rakhta hai"],
               ]}
@@ -389,35 +391,36 @@ export default function GeneralAgentsWebChapterPage() {
             <PartBanner>Part 1 · The Shift</PartBanner>
             <SubHeading>1. Same Address, Do Alag Cheezein</SubHeading>
             <P>
-              Claude.ai ya ChatGPT.com khol lo, chat box aur agent surface ab
-              same address pe hain. ChatGPT pe to Chat mode aur Work mode
-              screen pe sath sath dikhte hain.
+              Claude.ai ya ChatGPT.com khol lo, chat box aur agent
+              surface ab same address pe hain. ChatGPT pe to Chat mode
+              aur Work mode screen pe sath sath dikhte hain.
             </P>
             <P>
-              Chat box wahi conversation hai jo Foundations se pehchan chuke
-              ho, har turn aapka wait karti hai, schedule pe start nahi ho
-              sakti, event pe react nahi kar sakti, tab band karne ke baad
-              continue nahi hoti. Ye missing feature nahi hai, ye conversation
-              hone ka matlab hi yehi hai.
+              Chat box wahi conversation hai jo Foundations se pehchan
+              chuke ho, har turn aapka wait karti hai, schedule pe start
+              nahi ho sakti, event pe react nahi kar sakti, tab band
+              karne ke baad continue nahi hoti. Ye missing feature nahi
+              hai, ye conversation hone ka matlab hi yehi hai.
             </P>
             <P>
               Agent surface iske bagal mein baithta hai. Aap usay ek
-              assignment dete ho, message nahi. Wo plan banata hai, tools use
-              karta hai, steps complete karta hai, sirf wahan rukta hai jahan
-              decision ke liye aap chahiye ho, aur aapke dekhna band karne ke
-              baad bhi kaam karta rehta hai.
+              assignment dete ho, message nahi. Wo plan banata hai, tools
+              use karta hai, steps complete karta hai, sirf wahan rukta
+              hai jahan decision ke liye aap chahiye ho, aur aapke
+              dekhna band karne ke baad bhi kaam karta rehta hai.
             </P>
             <PullQuote>
-              Agar main typing rok doon, kya kaam ruk jayega? Chat box: haan.
-              Agent surface: nahi.
+              Agar main typing rok doon, kya kaam ruk jayega? Chat box:
+              haan. Agent surface: nahi.
             </PullQuote>
             <Callout label="Ehtiyat">
-              Aap aksar chat box se hi ek delegated run <Strong>shuru</Strong>{" "}
-              karte ho, plain words mein. &ldquo;Har Monday, ye emails
-              summarize karo.&rdquo; Words chat mein jaate hain, lekin jo aap
-              set up kar rahe ho wo ek delegated task hai, normal reply nahi.
-              Dekho kaam kya <Strong>karta</Strong> hai, sirf ye nahi ke aap
-              ne kahan type kiya.
+              Aap aksar chat box se hi ek delegated run{" "}
+              <Strong>shuru</Strong> karte ho, plain words mein. &ldquo;Har
+              Monday, ye emails summarize karo.&rdquo; Words chat mein
+              jaate hain, lekin jo aap set up kar rahe ho wo ek delegated
+              task hai, normal reply nahi. Dekho kaam kya{" "}
+              <Strong>karta</Strong> hai, sirf ye nahi ke aap ne kahan
+              type kiya.
             </Callout>
           </Reveal>
 
@@ -447,7 +450,7 @@ export default function GeneralAgentsWebChapterPage() {
             <CheckList
               items={[
                 "Tab band karna cloud run rokna nahi hai, tab sirf ek window hai",
-                "Laptop band karna bridged tool ko cloud session mein maar sakta hai, cloud session mar nahi jata",
+                "Laptop band karna bridged tool ko cloud session mein khatam kar sakta hai, cloud session khatam nahi hota",
                 "Local file bhi cloud mein process ho sakti hai, \"laptop se aayi\" ka matlab \"laptop pe rehti hai\" nahi hai",
                 "Scheduling sirf tab device-independent hai jab workflow ka har required tool bhi device-independent ho",
               ]}
@@ -457,9 +460,9 @@ export default function GeneralAgentsWebChapterPage() {
           <Reveal>
             <SubHeading>3. Do Vendors, Ek Shape</SubHeading>
             <P>
-              Yehi is chapter ka reading lens hai. Product features badalte
-              rehte hain, lekin har serious agent surface yehi 6 hisse
-              rebuild karta hai:
+              Yehi is chapter ka reading lens hai. Product features
+              badalte rehte hain, lekin har serious agent surface yehi 6
+              hisse rebuild karta hai:
             </P>
             <SixPartsDiagram />
             <RecapTable
@@ -474,13 +477,14 @@ export default function GeneralAgentsWebChapterPage() {
               ]}
             />
             <Callout label="2 Warnings" tone="warn">
-              Same shape, same trust nahi hai, connector aur browser click
-              same system reach kar sakte hain lekin unki permissions,
-              observability, aur prompt-injection exposure alag hoti hai. Aur
-              same label, same implementation nahi hai, &ldquo;memory&rdquo;,
-              &ldquo;plugin&rdquo;, &ldquo;approval&rdquo; har vendor mein
-              alag mechanism ho sakta hai. Naam se part dhoondo, phir
-              implementation inspect karo.
+              Same shape, same trust nahi hai — connector aur browser
+              click same business system reach kar sakte hain, lekin
+              unki permissions, observability, aur prompt-injection
+              exposure alag hoti hai. Aur same label, same
+              implementation nahi hai, &ldquo;memory&rdquo;,
+              &ldquo;plugin&rdquo;, &ldquo;approval&rdquo; har vendor
+              mein alag mechanism ho sakta hai. Naam se part dhoondo,
+              phir implementation inspect karo.
             </Callout>
           </Reveal>
         </section>
@@ -491,10 +495,10 @@ export default function GeneralAgentsWebChapterPage() {
             <PartBanner>Part 2 · The Surface</PartBanner>
             <SubHeading>4. Account Spine: Ek Stack Hai, Ek Blob Nahi</SubHeading>
             <P>
-              &ldquo;Account spine&rdquo; ka matlab hai aapke saved sessions
-              aur files aapke sath chalte hain. 2026 mein persistent context
-              ek layered stack hai, ek cheez jise sirf &ldquo;memory&rdquo;
-              kaha jaye wo nahi:
+              &ldquo;Account spine&rdquo; ka matlab hai aapke saved
+              sessions aur files aapke sath chalte hain. 2026 mein
+              persistent context ek layered stack hai, ek cheez jise
+              sirf &ldquo;memory&rdquo; kaha jaye wo nahi:
             </P>
             <RecapTable
               head={["Layer", "Kya Batati Hai", "Lifetime"]}
@@ -502,20 +506,21 @@ export default function GeneralAgentsWebChapterPage() {
                 ["Session history", "Is particular task mein kya hua", "Ek workstream ya task history"],
                 ["Project", "Is continuing kaam ka kya hissa hai", "Weeks, months, ya usse zyada"],
                 ["Semantic memory", "Konse facts/preferences cloud sessions ke across carry hon", "Cross-session, jab tak edit/reset/disable na ho"],
-                ["Standing instructions", "Assistant generally kaise behave kare", "Jab tak aap ya admin change na kare"],
+                ["Standing instructions", "Assistant generally kaise behave kare", "Jab tak aap ya admin badle na"],
                 ["User-owned context file", "Aap khud kya portable aur inspectable chahte ho", "Jab tak aap file maintain karo"],
               ]}
             />
             <Callout label="August Update">
-              Claude ke cloud Cowork tasks ab wahi memory use karte hain jo
-              Claude chat. Aap topic by topic memory inspect kar sakte ho aur
-              edit ya delete kar sakte ho. Local Cowork sessions is cloud
-              memory mechanism ko use nahi karte.
+              Claude ke cloud Cowork tasks ab wahi memory use karte hain
+              jo Claude chat. Aap topic by topic memory inspect kar
+              sakte ho aur edit ya delete kar sakte ho. Local Cowork
+              sessions is cloud memory mechanism ko use nahi karte.
             </Callout>
             <P>
-              Isse ek common beginner mistake fix hoti hai: <Strong>ek purani
-              session memory nahi hai</Strong>. Ek Project bhi memory nahi
-              hai. Sab persist karte hain, lekin alag reasons se.
+              Isse ek common beginner mistake fix hoti hai:{" "}
+              <Strong>ek purani session memory nahi hai</Strong>. Ek
+              Project bhi memory nahi hai. Sab persist karte hain, lekin
+              alag reasons se.
             </P>
             <CheckList
               items={[
@@ -530,17 +535,18 @@ export default function GeneralAgentsWebChapterPage() {
           <Reveal>
             <SubHeading>5. 3 File Tiers: Deliverable Actually Kahan Rehta Hai?</SubHeading>
             <P>
-              Ye is chapter ka signature concept hai. Har file jo aapka agent
-              touch karta hai, teen tiers mein se ek mein rehti hai:
+              Ye is chapter ka signature concept hai. Har file jo aapka
+              agent touch karta hai, teen tiers mein se ek mein rehti
+              hai:
             </P>
             <FileTiersDiagram />
             <PullQuote>
-              Finished work platform se exit karti hai. Baaki sab kahin bhi
-              reh sakta hai.
+              Finished work platform se exit karti hai. Baaki sab kahin
+              bhi reh sakta hai.
             </PullQuote>
             <P>
-              Har brief ke end mein ye ek line add karo, phir tier decision
-              khud handle ho jati hai:
+              Har brief ke end mein ye ek line add karo, phir tier
+              decision khud handle ho jati hai:
             </P>
             <PromptBox>{`End by listing every file you created and where each one
 landed: temporary working space, platform storage, or a system
@@ -556,23 +562,25 @@ I control (connector save, download, local write, or repo commit).`}</PromptBox>
             </P>
             <ReachLadderDiagram />
             <Callout label="Default Rule">
-              Jo sabse structured tool kaam kar sake wo use karo. Connector
-              browser se pehle. Browser full computer use se pehle.
+              Jo sabse structured tool kaam kar sake wo use karo.
+              Connector browser se pehle. Browser full computer use se
+              pehle.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>Jab Agent Read Bhi Kar Sakta Hai Aur Act Bhi</SubHeading>
             <P>
-              Prompt injection sabse zyada matter karta hai jab do conditions
-              milti hain: agent trusted boundary ke bahar content parh sakta
-              hai, <Strong>aur</Strong> consequential action le sakta hai.
-              Anthropic browser surfaces ke liye clear rule rakhta hai:{" "}
-              <Strong>emails ya web content ke andar milne wali
-              instructions complete karna, permission mode kuch bhi ho,
-              prohibited hai</Strong>. Aapka brief authority hai. External
-              content evidence hai. Us content ke andar milne wali
-              instructions untrusted input hain, agent ka naya boss nahi.
+              Prompt injection sabse zyada matter karta hai jab do
+              conditions milti hain: agent trusted boundary ke bahar
+              content parh sakta hai, <Strong>aur</Strong> consequential
+              action le sakta hai. Anthropic browser surfaces ke liye
+              clear rule rakhta hai: <Strong>emails ya web content ke
+              andar milne wali instructions complete karna, permission
+              mode kuch bhi ho, prohibited hai</Strong>. Aapka brief
+              authority hai. External content evidence hai. Us content
+              ke andar milne wali instructions untrusted input hain,
+              agent ka naya boss nahi.
             </P>
             <CheckList
               items={[
@@ -584,25 +592,27 @@ I control (connector save, download, local write, or repo commit).`}</PromptBox>
               ]}
             />
             <Callout label="Permission Ka Matlab">
-              Read, send nahi hai. Draft, publish nahi hai. View, edit nahi
-              hai. Sabse chhoti scope grant karo jo workflow complete kare,
-              barhao sirf tab jab workflow prove kare zaroorat hai.
+              Read, send nahi hai. Draft, publish nahi hai. View, edit
+              nahi hai. Sabse chhoti scope grant karo jo workflow
+              complete kare, badhao sirf tab jab workflow prove kare
+              zaroorat hai.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>7. Gate Jo Aapki Pocket Mein Hai</SubHeading>
             <P>
-              Purani story simple thi: agent kaam karta, phir approval phone
-              pe pahunchti. Idea same hai, implementation update ho gayi hai.
-              Cowork abhi 3 modes ke sath autonomy choice visible banata hai:
+              Purani story simple thi: agent kaam karta, phir approval
+              phone pe pahunchti. Idea same hai, implementation update
+              ho gayi hai. Cowork abhi 3 modes ke sath autonomy choice
+              visible banata hai:
             </P>
             <GateModesDiagram />
             <P>
               Ye mental model do behtar sawalon mein badal deta hai:{" "}
               <Strong>mujhe bina kya allowed hai?</Strong> aur{" "}
-              <Strong>action count hone se pehle usay kya rokta ya screen
-              karta hai?</Strong>
+              <Strong>action count hone se pehle usay kya rokta ya
+              screen karta hai?</Strong>
             </P>
             <SubHeading>Gate Ko Blast Radius Se Match Karo</SubHeading>
             <RecapTable
@@ -615,11 +625,12 @@ I control (connector save, download, local write, or repo commit).`}</PromptBox>
               ]}
             />
             <Callout label="Gate Test Karo">
-              Ek harmless step banao jo aapka input mange, task start karo,
-              computer se door jao, confirm karo ke request aapke dekhne
-              wali surface tak pahunchti hai. Phir deny ya approve karo aur
-              confirm karo run sahi respond karta hai. Jo escalation path
-              kabhi test nahi hui, wo sirf ek assumption hai.
+              Ek harmless step banao jo aapka input mange, task start
+              karo, computer se door jao, confirm karo ke request
+              aapke dekhne wali surface tak pahunchti hai. Phir deny ya
+              approve karo aur confirm karo run sahi respond karta hai.
+              Jo escalation path kabhi test nahi hui, wo sirf ek
+              assumption hai.
             </Callout>
           </Reveal>
         </section>
@@ -630,10 +641,10 @@ I control (connector save, download, local write, or repo commit).`}</PromptBox>
             <PartBanner>Part 3 · Working Unwatched</PartBanner>
             <SubHeading>8. Delegation Loop: Brief, Plan, Approve, Review</SubHeading>
             <P>
-              Product aapke bina kaam kar sakta hai, isliye handoff ki quality
-              pehle se zyada important ho jati hai. Agar workflow clear nahi
-              hai, longer prompt likhne ki bajaye, workflow discovery se
-              shuru karo:
+              Product aapke bina kaam kar sakta hai, isliye handoff ki
+              quality pehle se zyada important ho jati hai. Agar
+              workflow clear nahi hai, longer prompt likhne ki bajaye,
+              workflow discovery se shuru karo:
             </P>
             <PromptBox>{`Every Monday I spend an hour checking three places and still
 miss something. Interview me until you understand what I am
@@ -646,28 +657,29 @@ the workflow before doing it.`}</PromptBox>
                 "Brief: outcome, audience, sources, constraints, permissions, destination, definition of done batao",
                 "Plan: consequential kaam shuru hone se pehle agent apna plan dikhaye",
                 "Approve ya redirect: jab tak changes sasti hain, plan fix karo, gate ko stakes se match karo",
-                "Review: finished deliverable, jo actions matter kartay thay, aur har file kahan landed dekho",
+                "Review: finished deliverable, jo actions matter karte thay, aur har file kahan landed dekho",
               ]}
             />
             <Callout label="Manual Mode Ki Guarantee Nahi">
-              Current Cowork side panel mein, Manual mode khud approval ke
-              liye plan nahi banata. Agar Concept 8 wala intercept chahiye,
-              brief mein likho: &ldquo;Show me your plan first and wait for
-              my approval before taking consequential actions.&rdquo;
+              Current Cowork side panel mein, Manual mode khud approval
+              ke liye plan nahi banata. Agar Concept 8 wala intercept
+              chahiye, brief mein likho: &ldquo;Show me your plan first
+              and wait for my approval before taking consequential
+              actions.&rdquo;
             </Callout>
             <P>Plan review karte waqt 4 checks lagao:</P>
             <CheckList
               items={[
-                "Scope: sirf wahi kaam aur data touch ho raha hai jo maine bataya, ya job chupke se barh gayi?",
+                "Scope: sirf wahi kaam aur data touch ho raha hai jo maine bataya, ya job chupke se badh gayi?",
                 "Order: verify karne se pehle act to nahi kar raha?",
                 "Reach: koi connector, browser, send, publish, write, ya delete action to propose nahi ho raha jo maine intend nahi kiya?",
                 "Assumptions: audience, format, ya missing fact chupke se decide to nahi kar raha?",
               ]}
             />
             <P>
-              Agar galat plan perfectly execute ho jaye, wo phir bhi galat run
-              hai. Ek sentence se plan redirect karna, complete run ke baad
-              cleanup karne se sasta hai.
+              Agar galat plan perfectly execute ho jaye, wo phir bhi
+              galat run hai. Ek sentence se plan redirect karna,
+              complete run ke baad cleanup karne se sasta hai.
             </P>
           </Reveal>
 
@@ -694,18 +706,20 @@ the workflow before doing it.`}</PromptBox>
               ]}
             />
             <Callout label="Ran Hona, Worked Hone Jaisa Nahi Hai">
-              Scheduler bata sakta hai ke run start ya complete hui. Ye proof
-              nahi ke output correct, complete, ya sahi jagah deliver hui. Har
-              recurring workflow ko ek observable success signal do.
+              Scheduler bata sakta hai ke run shuru ya complete hui. Ye
+              proof nahi ke output correct, complete, ya sahi jagah
+              deliver hui. Har recurring workflow ko ek observable
+              success signal do.
             </Callout>
             <P>
               Beginners ke liye safest scheduled agent wo hai jo{" "}
-              <Strong>read, analyse, aur report</Strong> karta hai. Workflow
-              ko kam se kam do baar haath se chalao, sources, plan,
-              permissions, output, empty case, aur tier-3 destination inspect
-              karo, tab jaake schedule attach karo. Scheduling ek workflow ko
-              future mein photocopy karne jaisa hai, agar galti hai to
-              schedule usay dilute nahi karti, reproduce karti hai.
+              <Strong>read, analyse, aur report</Strong> karta hai.
+              Workflow ko kam se kam do baar haath se chalao, sources,
+              plan, permissions, output, empty case, aur tier-3
+              destination inspect karo, tab jaake schedule attach karo.
+              Scheduling ek workflow ko future mein photocopy karne
+              jaisa hai, agar ghalti hai to schedule usay dilute nahi
+              karti, reproduce karti hai.
             </P>
           </Reveal>
         </section>
@@ -736,33 +750,33 @@ the workflow before doing it.`}</PromptBox>
             />
             <Callout label="Regulated Data" tone="warn">
               Anthropic khud batata hai ke Cowork abhi HIPAA use ke liye
-              apni BAA ke under covered nahi hai. OpenAI bhi wahi baat kehta
-              hai, ChatGPT for Healthcare mein event-triggered Work tasks
-              BAA-covered nahi, PHI transmit/store/process nahi karne
-              chahiye. Product availability, permission nahi hai. Regulated
-              identifiers ke liye pehle organisation ka likha hua compliance
-              jawab lo. Agar task ko sirf pattern chahiye, identifiers nahi,
-              pehle unhe redact/anonymise kar ke check karo, shayad regulated
-              data route hi na kare.
+              apni BAA ke under covered nahi hai. OpenAI bhi wahi baat
+              kehta hai, ChatGPT for Healthcare mein event-triggered
+              Work tasks BAA-covered nahi, PHI transmit/store/process
+              nahi karne chahiye. Product availability, permission nahi
+              hai. Regulated identifiers ke liye pehle organisation ka
+              likha hua compliance jawab lo. Agar task ko sirf pattern
+              chahiye, identifiers nahi, pehle unhe redact/anonymise kar
+              ke check karo, shayad regulated data route hi na kare.
             </Callout>
             <P>
-              Ek bridge convenience hai, custody loophole nahi. Agar cloud
-              session Desktop ke through local file parhta hai, file aapki
-              machine se aayi, lekin uska content cloud mein process hota
-              hai. Pehla routing sawal ye hai ke agent loop aur processing
-              kahan ho rahe hain, na ke source file 5 second pehle kahan
-              baithi thi.
+              Ek bridge convenience hai, custody loophole nahi. Agar
+              cloud session Desktop ke through local file parhta hai,
+              file aapki machine se aayi, lekin uska content cloud mein
+              process hota hai. Pehla routing sawal ye hai ke agent
+              loop aur processing kahan ho rahe hain, na ke source file
+              5 second pehle kahan baithi thi.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>11. Open Path: Bina Vendor Cloud Ke</SubHeading>
             <P>
-              Is book ke har general-agents course mein ek vendor tool aur
-              ek open-source twin pair hota hai. Ye course closed hai
-              (Cowork aur ChatGPT Work), kyunke do rivals ne days ke andar
-              same shape ship ki, jo is book ki thesis ka proof hai. Lekin
-              open path exist karta hai:
+              Is book ke har general-agents course mein ek vendor tool
+              aur ek open-source twin pair hota hai. Ye course closed
+              hai (Cowork aur ChatGPT Work), kyunki do rivals ne days ke
+              andar same shape ship ki, jo is book ki thesis ka proof
+              hai. Lekin open path exist karta hai:
             </P>
             <CheckList
               items={[
@@ -771,17 +785,17 @@ the workflow before doing it.`}</PromptBox>
               ]}
             />
             <PullQuote>
-              Companies aapko ek spine bechti hain. Open path aapko wo khud
-              banwati hai.
+              Companies aapko ek spine bechti hain. Open path aapko wo
+              khud banwati hai.
             </PullQuote>
             <P>
-              Managed surface pe sab handed to you hai, working, day one se,
-              lekin unki custody mein, unke format mein, unke price aur
-              rules ke under. Open path mein har cheez aap set up, chalate,
-              aur fix karte ho, badle mein custody aur choice milti hai.
-              Regulated data ke liye custody jeet jati hai, ek solo consultant
-              jo Friday tak brief ship karna chahta hai ke liye working
-              spine jeet jati hai.
+              Managed surface pe sab handed to you hai, working, din
+              ek se, lekin unki custody mein, unke format mein, unke
+              price aur rules ke under. Open path mein har cheez aap
+              set up, chalate, aur fix karte ho, badle mein custody aur
+              choice milti hai. Regulated data ke liye custody jeet
+              jati hai, ek solo consultant jo Friday tak brief ship
+              karna chahta hai uske liye working spine jeet jati hai.
             </P>
           </Reveal>
 
@@ -789,18 +803,18 @@ the workflow before doing it.`}</PromptBox>
             <SubHeading>12. Ye Surface Kya Nahi Kar Sakta</SubHeading>
             <CheckList
               items={[
-                "Web surface weak work ko good nahi banata, memory ek galat assumption preserve kar sakti hai, browser ek galat plan tez execute kar sakta hai, scheduling ek galti har Monday repeat kar sakti hai",
+                "Web surface weak work ko achha nahi banata, memory ek galat assumption preserve kar sakti hai, browser ek galat plan tez execute kar sakta hai, scheduling ek ghalti har Monday repeat kar sakti hai",
                 "Vendor abhi bhi harness ke important hisse own karta hai, aap runtime, sandbox, model routing, ya enforcement machinery poori tarah control nahi karte",
                 "Cloud-to-desktop bridge local runtime jaisa nahi hai, ye selected access lend karta hai jab desktop side available ho",
-                "Browser agents ki ek security ceiling hai, arbitrary pages authenticated hokar parhna prompt-injection path banata hai, safety screening risk kam karti hai, khatam nahi karti",
-                "Persistent context leverage aur lock-in dono banati hai, critical instructions aur finished work portable rakho takay vendor chhodna inconvenient ho, catastrophic nahi",
+                "Browser agents ki ek security ceiling hai, arbitrary pages authenticated ho kar parhna prompt-injection path banata hai, safety screening risk kam karti hai, khatam nahi karti",
+                "Persistent context leverage aur lock-in dono banati hai, zaroori instructions aur finished work portable rakho takay vendor chhodna inconvenient ho, catastrophic nahi",
               ]}
             />
             <PullQuote>
-              Chat wahan hai jahan aap design karte ho. Agent surface wahan
-              hai jahan delegated work chalta hai. Agent loop aur uske tools
-              alag jagah reh sakte hain. Discipline yehi hai: shape, boundary,
-              aur custody har step pe jaanna.
+              Chat wahan hai jahan aap design karte ho. Agent surface
+              wahan hai jahan delegated work chalta hai. Agent loop aur
+              uske tools alag jagah reh sakte hain. Discipline yehi hai:
+              shape, boundary, aur custody har step pe jaanna.
             </PullQuote>
             <Callout label="Aage Kya">
               Repo-attached coding kaam <Strong>Agentic Coding</Strong>{" "}
@@ -808,11 +822,11 @@ the workflow before doing it.`}</PromptBox>
               use, aur trust levers <Strong>Cowork &amp; OpenWork</Strong>{" "}
               chapter ka. Explicit stopping rules aur owned state{" "}
               <Strong>Loop Engineering</Strong> ka. Rented enforcement se
-              owned enforcement tak <Strong>Harness Engineering</Strong> ka.
-              Checker ko test karna <Strong>Trusting the Checker</Strong> ka.
-              Aur proven workflow kahan permanently rehni chahiye,{" "}
-              <Strong>Leaving the Laptop</Strong> ka subject hai. Ye sab is
-              book ke aage aane wale courses hain.
+              owned enforcement tak <Strong>Harness Engineering</Strong>{" "}
+              ka. Checker ko test karna <Strong>Trusting the
+              Checker</Strong> ka. Aur proven workflow kahan permanently
+              rehni chahiye, <Strong>Leaving the Laptop</Strong> ka
+              subject hai. Ye sab is book ke aage aane wale courses hain.
             </Callout>
           </Reveal>
         </section>
@@ -823,7 +837,7 @@ the workflow before doing it.`}</PromptBox>
             <SubHeading>Poora Course, Compressed</SubHeading>
             <CheckList
               items={[
-                "Chat box har turn wait karti hai, Agent surface aap ke tab band karne ke baad bhi kaam karta rehta hai, \"agar main typing rok doon, kya kaam ruk jayega\" yehi test hai",
+                "Chat box har turn wait karti hai, Agent surface aapke tab band karne ke baad bhi kaam karta rehta hai, \"agar main typing rok doon, kya kaam ruk jayega\" yehi test hai",
                 "Do sawal poocho: agent loop kahan chal raha hai (cloud/local), aur tool kahan execute hota hai, ye dono alag ho sakte hain (desktop bridge)",
                 "Har serious agent product ko 6 hisso se padho: Heartbeat, Reach, Run-until-done Loop, State Spine, Human Gate, Body, same shape, different implementation",
                 "Persistent context ek stack hai: session history, Project, semantic memory, standing instructions, aapki apni context file, sabko \"memory\" mat samjho",
@@ -837,9 +851,9 @@ the workflow before doing it.`}</PromptBox>
             />
             <PullQuote>
               Chat wahan hai jahan aap sochte ho. Agent surface wahan hai
-              jahan delegated kaam chalta hai. Discipline ek hi rehti hai:
-              clear brief, explicit boundaries, checks, aur apna system of
-              record.
+              jahan delegated kaam chalta hai. Discipline ek hi rehti
+              hai: clear brief, explicit boundaries, checks, aur apna
+              system of record.
             </PullQuote>
           </Reveal>
         </section>
@@ -851,7 +865,7 @@ the workflow before doing it.`}</PromptBox>
             <P>Har ek 20-45 minutes leta hai, real lekin low-stakes kaam use karo.</P>
             <Ladder
               steps={[
-                { title: "1. Worker/Tool-Location Test", note: "Ek cloud task shuru karo sirf cloud-reachable source se, tab band karo, doosri surface se wapis kholo. Agar Claude Desktop hai, ek harmless task try karo jo connected local folder use kare, dekho desktop offline hone par kya change hota hai." },
+                { title: "1. Worker/Tool-Location Test", note: "Ek cloud task shuru karo sirf cloud-reachable source se, tab band karo, doosri surface se wapis kholo. Agar Claude Desktop hai, ek harmless task try karo jo connected local folder use kare, dekho desktop offline hone par kya badalta hai." },
                 { title: "2. Three-Tier Audit", note: "Ek real deliverable produce karo, batao kaunsi state layer kaam hold kar rahi hai, aur har output ki file tier kya hai. Confirm karo final deliverable Tier 3 mein hai." },
                 { title: "3. Gate Lab", note: "Ek harmless test folder use kar ke pehle Manual mode mein workflow chalao, har interruption note karo, phir agar mumkin ho Auto mode mein rerun karo. Purchases, sending, deletion ke liye Skip use mat karo." },
                 { title: "4. Pehla Cloud Schedule", note: "Sirf cloud-reachable sources se ek Monday brief banao, trigger, touch, device independence, success signal, autonomy, empty case likho, do baar haath se chalao, phir schedule karo." },
@@ -878,9 +892,9 @@ the workflow before doing it.`}</PromptBox>
               ]}
             />
             <Callout label="Ehtiyat">
-              Banking, medical, identity, privileged, ya doosri regulated
-              data pe practice mat karo sirf isliye ke tool wahan tak reach
-              kar sakta hai.
+              Banking, medical, identity, privileged, ya doosri
+              regulated data pe practice mat karo sirf isliye ke tool
+              wahan tak reach kar sakta hai.
             </Callout>
           </Reveal>
         </section>
@@ -898,7 +912,7 @@ the workflow before doing it.`}</PromptBox>
                 ["Agent loop", "Agla kadam decide karne wala hissa, jab tak finish, block, ya stop na ho"],
                 ["Cloud session", "Agent loop vendor ke servers pe chalta hai"],
                 ["Local session", "Agent loop aapki apni machine pe chalta hai"],
-                ["Desktop bridge", "Controlled path jo cloud session ko selected local tools tak pahunchati hai"],
+                ["Desktop bridge", "Controlled path jo cloud session ko selected local tools tak pahunchata hai"],
                 ["Tool execution location", "Wo jagah jahan ek particular action actually hoti hai"],
                 ["Connector", "Permission-scoped, structured access ek service tak"],
                 ["Browser agent", "Agent jo browser se pages parhta aur (jahan allowed) click/type/navigate karta hai"],
@@ -952,11 +966,11 @@ the workflow before doing it.`}</PromptBox>
               {[
                 {
                   q: "Ek colleague type kar ke bolta hai \"Every Monday at 8, summarise last week's emails and save the brief.\" Ye ordinary chat hai ya delegated agent work?",
-                  a: "Delegated agent work hai, kyunke ye doosri chat turn ke bina chal sakta hai. Instruction chat box mein shuru hui, lekin kaam baad mein start hota hai aur bina message ke continue hota hai, isliye \"stop typing\" test ye alag karta hai.",
+                  a: "Delegated agent work hai, kyunki ye doosri chat turn ke bina chal sakta hai. Instruction chat box mein shuru hui, lekin kaam baad mein start hota hai aur bina message ke continue hota hai, isliye \"stop typing\" test ye alag karta hai.",
                 },
                 {
                   q: "Ek cloud Cowork task ko ek local folder Claude Desktop ke through chahiye. Desktop app offline ho jaye to kya hota hai?",
-                  a: "Cloud loop chalta rehta hai kyunke wo vendor infrastructure pe hai, lekin bridged local tool offline ho jata hai. Agent-loop location aur tool-execution location alag decisions hain.",
+                  a: "Cloud loop chalta rehta hai kyunki wo vendor infrastructure pe hai, lekin bridged local tool offline ho jata hai. Agent-loop location aur tool-execution location alag decisions hain.",
                 },
                 {
                   q: "\"Same shape, same trust nahi hai\" ka kya matlab hai?",
@@ -984,7 +998,7 @@ the workflow before doing it.`}</PromptBox>
                 },
                 {
                   q: "Ek team enterprise compliance controls dekh kar foran PHI Cowork mein daalna chahti hai. Sahi agla kadam kya hai?",
-                  a: "Ruko aur verify karo, kyunke Cowork abhi HIPAA ke liye apni BAA ke under covered nahi hai. Enterprise observability controls automatically kisi regulated workload ko approve nahi karte, exact surface aur configuration ka likha hua jawab chahiye.",
+                  a: "Ruko aur verify karo, kyunki Cowork abhi HIPAA ke liye apni BAA ke under covered nahi hai. Enterprise observability controls automatically kisi regulated workload ko approve nahi karte, exact surface aur configuration ka likha hua jawab chahiye.",
                 },
                 {
                   q: "Managed agent surface aur open path (OpenWork/OpenCode) ke darmiyan central trade kya hai?",
