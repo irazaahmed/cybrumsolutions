@@ -99,8 +99,8 @@ function HabitVsWorkflowDiagram() {
           </span>
           <p className="text-sm font-semibold text-foreground">&ldquo;Main AI Use Karta Hoon&rdquo;</p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            Personal habit hai. Aapke mood aur waqt se badalti hai, jab aap
-            leave pe ho, ghayab ho jati hai.
+            Personal habit hai. Aapke mood aur waqt se badalti hai, jab
+            aap leave pe ho, ghayab ho jati hai.
           </p>
         </div>
         <div className="rounded-xl border border-accent/40 bg-accent/5 p-4">
@@ -125,7 +125,7 @@ function HabitVsWorkflowDiagram() {
 function ThreeCriteriaDiagram() {
   const items = [
     { icon: Undo2, t: "Reversibility", d: "Kya AI galat kare to undo ho sakta hai? Draft dobara likh sakte ho, bheja hua email nahi" },
-    { icon: Gauge, t: "Stakes", d: "Bad case mein galti ki cost kya hai? Average case nahi, worst case" },
+    { icon: Gauge, t: "Stakes", d: "Bad case mein ghalti ki cost kya hai? Average case nahi, worst case" },
     { icon: UserCheck, t: "Accountability", d: "Kya ye step khud wo decision hai jiska jawab dena hai, ya sirf ek input hai jo koi aur judge karega?" },
   ];
   return (
@@ -142,9 +142,9 @@ function ThreeCriteriaDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Score add nahi karte, 3 mein se usually ek decide karta hai, baaki
-        do agree karte hain, jahan ye disagree karein wahan sabse strict
-        jeetta hai
+        Score add nahi karte, 3 mein se usually ek decide karta hai,
+        baaki do agree karte hain, jahan ye disagree karein wahan sabse
+        strict jeetta hai
       </figcaption>
     </figure>
   );
@@ -152,7 +152,7 @@ function ThreeCriteriaDiagram() {
 
 function MappingErrorsDiagram() {
   const items = [
-    { icon: ArrowUpRight, t: "Halo Delegation", d: "Step AI ko diya kyunke pichla step acha gaya, competence real thi, lekin doosre step ki thi" },
+    { icon: ArrowUpRight, t: "Halo Delegation", d: "Step AI ko diya kyunki pichla step achha gaya, competence real thi, lekin doosre step ki thi" },
     { icon: DoorOpen, t: "Unstaffed Gate", d: "\"AI draft, human review\" tab tak collaborative hai jab tak koi actually review kare, warna ye ek automated step hai" },
     { icon: Wrench, t: "Mapping The Tool", d: "Team us feature ke around workflow banati hai jo unhe pasand hai, kaam ke around nahi" },
   ];
@@ -198,7 +198,7 @@ function FourCausesDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Timing free information hai, aap ke paas already hai, ye batati
+        Timing free information hai, aapke paas already hai, ye batati
         hai kahan pehle dekhna hai
       </figcaption>
     </figure>
@@ -225,8 +225,8 @@ function ThreeHomesDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Test: kya ye correction dobara chahiye hogi, mujhe ya kisi aur ko?
-        Agar haan, configuration mein jani chahiye
+        Test: kya ye correction dobara chahiye hogi, mujhe ya kisi aur
+        ko? Agar haan, configuration mein jani chahiye
       </figcaption>
     </figure>
   );
@@ -290,16 +290,16 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             </p>
             <CoreIdea>
               2 teams ne same AI assistant same kaam ke liye use kiya:
-              contract review. Pehli team ne kaam step-by-step map kiya, AI
-              clauses nikalta, playbook se departures flag karta, redline
-              draft karta, aur ek lawyer har change approve karta, review
-              time aadha ho gaya, quality wahi rahi. Doosri team ne AI ko
-              poore process pe laga diya, drafting acha tha isliye low-risk
-              clauses unsupervised approve karne diye, ek mahine mein ek
-              approved clause ne aisi obligation bana di jo kisi ne nahi
-              pakdi, aur team ne tool hi hata diya. Same product, same
-              process, same model. Farq sirf ye tha ke kaunse steps kisne
-              handover kiye.
+              contract review. Pehli team ne kaam step-by-step map kiya,
+              AI clauses nikalta, playbook se departures flag karta,
+              redline draft karta, aur ek lawyer har change approve
+              karta, review time aadha ho gaya, quality wahi rahi. Doosri
+              team ne AI ko poore process pe laga diya, drafting achha
+              tha isliye low-risk clauses unsupervised approve karne
+              diye, ek mahine mein ek approved clause ne aisi obligation
+              bana di jo kisi ne nahi pakdi, aur team ne tool hi hata
+              diya. Same product, same process, same model. Farq sirf ye
+              tha ke kaunse steps kisne handover kiye.
             </CoreIdea>
           </Reveal>
 
@@ -307,10 +307,10 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <PullQuote>Output verdict nahi hai.</PullQuote>
             <P>
               Ek achha result ye nahi batata ke step handover karna safe
-              tha. Ek bura result ye nahi batata ke kaam ho hi nahi sakta.
-              Jo batata hai wo neeche ki structure hai: ye kaunsa step tha,
-              galat hone pe kya cost hai, iska jawab kaun deta hai, aur
-              symptom kab shuru hua.
+              tha. Ek bura result ye nahi batata ke kaam ho hi nahi
+              sakta. Jo batata hai wo neeche ki structure hai: ye kaunsa
+              step tha, galat hone pe kya cost hai, iska jawab kaun
+              deta hai, aur symptom kab shuru hua.
             </P>
           </Reveal>
 
@@ -341,13 +341,13 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             </P>
             <HabitVsWorkflowDiagram />
             <P>
-              Isi liye is course ka unit <Strong>step</Strong> hai, session
-              nahi. Session wo cheez hai jise aap baad mein judge karte ho,
-              result achha laga ya nahi. Step wo cheez hai jiska decision
-              aap pehle se lete ho, un grounds pe jo output achha lagne se
-              nahi badalte. Opening ki 2 teams ke paas same product tha,
-              farq ye tha ke ek ne step-level decisions liye, doosri ne
-              session-level judgement.
+              Isi liye is course ka unit <Strong>step</Strong> hai,
+              session nahi. Session wo cheez hai jise aap baad mein judge
+              karte ho, result achha laga ya nahi. Step wo cheez hai
+              jiska decision aap pehle se lete ho, un grounds pe jo
+              output achha lagne se nahi badalte. Opening ki 2 teams ke
+              paas same product tha, farq ye tha ke ek ne step-level
+              decisions liye, doosri ne session-level judgement.
             </P>
           </Reveal>
 
@@ -355,10 +355,10 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <SubHeading>2. Requirements Nikaalo, Phir Attack Karo</SubHeading>
             <P>
               Real kaam kabhi clean brief se shuru nahi hota, 40-page
-              document, adhoore emails, aur meeting mein kisi ki kahi hui
-              baat se hota hai. Kuch banane se pehle, ye <Strong>
-              requirements</Strong> banni chahiye: specific, traceable,
-              testable. Ye 5 cheezein settle honi chahiye:
+              document, adhoore emails, aur meeting mein kisi ki kahi
+              hui baat se hota hai. Kuch banane se pehle, ye{" "}
+              <Strong>requirements</Strong> banni chahiye: specific,
+              traceable, testable. Ye 5 cheezein settle honi chahiye:
             </P>
             <CheckList
               items={[
@@ -371,22 +371,22 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             />
             <Callout label="Ehtiyat" tone="warn">
               &ldquo;Report month-end ke baad promptly deliver honi
-              chahiye&rdquo; ek requirement lagti hai, hai nahi. 2 din aur 2
-              hafte dono kisi ke liye &ldquo;prompt&rdquo; hain, isliye 2
-              teams 2 alag processes banate hain aur dono believe karte hain
-              ke unhe wahi bataya gaya tha. Test: agar aap ye nahi keh
-              saktay ke kaunsa evidence prove karega ke requirement poori
-              hui, wo abhi decidable nahi hai, chahe wo kitni bhi specific
-              lage.
+              chahiye&rdquo; ek requirement lagti hai, hai nahi. 2 din
+              aur 2 hafte dono kisi ke liye &ldquo;prompt&rdquo; hain,
+              isliye 2 teams 2 alag processes banate hain aur dono
+              believe karte hain ke unhe wahi bataya gaya tha. Test:
+              agar aap ye nahi keh sakte ke kaunsa evidence prove karega
+              ke requirement poori hui, wo abhi decidable nahi hai,
+              chahe wo kitni bhi specific lage.
             </Callout>
             <P>
               Summary mat maango, structure maango, aur ek{" "}
-              <Strong>source column</Strong> maango, isse koi bhi jo room
-              mein nahi tha list check kar sakta hai. Extraction sirf
-              pehla pass hai, trustworthy wala nahi, jo requirements
+              <Strong>source column</Strong> maango, isse koi bhi jo
+              room mein nahi tha list check kar sakta hai. Extraction
+              sirf pehla pass hai, trustworthy wala nahi. Jo requirements
               teams ko bid haraati hain wo shayad hi seedhe likhi hoti
-              hain, wo ek subordinate clause mein baithi hoti hain,
-              extraction ye dhoondti hai jo likha gaya tha, wo nahi jo
+              hain, wo ek subordinate clause mein baithi hoti hain.
+              Extraction ye dhoondti hai jo likha gaya tha, wo nahi jo
               matlab tha, isliye extract karne ke baad, apni hi list
               review karwao.
             </P>
@@ -398,11 +398,11 @@ export default function WorkflowDesignDiagnosisChapterPage() {
               Planning kaam mein 2 cheezein milti hain jinhe AI bilkul
               alag tarike se handle karta hai. <Strong>Synthesis</Strong>{" "}
               (considerations gather karna, options structure karna) AI
-              achi karta hai. <Strong>Calculation</Strong> alag hai, is
-              wajah se nahi ke model add nahi kar sakta, wo kar sakta hai,
-              problem ye hai ke page pe aap bata nahi sakte ke usne kiya
-              ya nahi. Ek likha hua figure aur ek calculate kiya hua figure
-              identical dikhte hain.
+              achhi karta hai. <Strong>Calculation</Strong> alag hai, is
+              wajah se nahi ke model add nahi kar sakta, wo kar sakta
+              hai, problem ye hai ke page pe aap bata nahi sakte ke usne
+              kiya ya nahi. Ek likha hua figure aur ek calculate kiya
+              hua figure identical dikhte hain.
             </P>
             <PullQuote>
               Agar ek result matter karta hai, usay compute karo. Kabhi
@@ -414,48 +414,49 @@ export default function WorkflowDesignDiagnosisChapterPage() {
               utilisation rate pe bani staffing plan sirf table mein ek
               guess hai. Wahi plan actual timesheet data ke computed
               analysis pe bani ho to har line se defend ho sakti hai,
-              kyunke har line ek calculation tak trace hoti hai jise koi
-              bhi dobara chala sakta hai.
+              kyunki har line ek calculation tak trace hoti hai jise
+              koi bhi dobara chala sakta hai.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>4. AI Ka Insight Kahan Actually Plan Badalta Hai</SubHeading>
             <P>
-              Ek operations lead ne poori capacity plan ek hi request mein
-              maangi: ticket data analyse karo, growth trend nikalo, agle
-              quarter ka headcount recommend karo. Jawab well-structured
-              tha aur 3 analysts hire karne ki recommend kar raha tha. Team
-              2 hafte pehle announce hui hiring freeze mein thi. Trend
-              analysis theek tha, recommendation usi se follow hui, plan
-              useless is liye tha kyunke ek step ko aisi input chahiye thi
-              jo dataset mein kahin nahi thi: ek meeting ka decision.
+              Ek operations lead ne poori capacity plan ek hi request
+              mein maangi: ticket data analyse karo, growth trend
+              nikalo, agle quarter ka headcount recommend karo. Jawab
+              well-structured tha aur 3 analysts hire karne ki recommend
+              kar raha tha. Team 2 hafte pehle announce hui hiring
+              freeze mein thi. Trend analysis theek tha, recommendation
+              usi se follow hui, plan useless is liye tha kyunki ek step
+              ko aisi input chahiye thi jo dataset mein kahin nahi thi:
+              ek meeting ka decision.
             </P>
             <RecapTable
               head={["Step Type", "Chalta Kaise Hai"]}
               rows={[
-                ["Synthesis steps", "Us information pe chalte hain jo aap supply kar sakte ho, achi tarah delegate hote hain"],
+                ["Synthesis steps", "Us information pe chalte hain jo aap supply kar sakte ho, achhi tarah delegate hote hain"],
                 ["Judgement steps", "Us information pe chalte hain jo supply nahi ho sakti (risk appetite, hiring freeze, CFO kis department ko bacha raha hai), human hi rehte hain"],
               ]}
             />
             <Callout label="Window Test">
               &ldquo;Kya main is step ki har zaroorat window mein daal
-              sakta hoon? Agar nahi, ye step mera hai.&rdquo; Ye test pass
-              karna step ko AI ke liye <Strong>eligible</Strong> banata
-              hai, kabhi <Strong>owned</Strong> nahi, eligible step ko bhi
-              Part 2 ke 3 criteria se guzarna parta hai.
+              sakta hoon? Agar nahi, ye step mera hai.&rdquo; Ye test
+              pass karna step ko AI ke liye <Strong>eligible</Strong>{" "}
+              banata hai, kabhi <Strong>owned</Strong> nahi, eligible
+              step ko bhi Part 2 ke 3 criteria se guzarna parta hai.
             </Callout>
             <P>
               Research bhi ek synthesis step hai, isi liye window test
-              usay bhi lagta hai, lekin ek alag tarah fail hoti hai: model
-              ka knowledge ek date pe rukta hai, us ke baad ki har cheez
-              window ke bahar hai:
+              usay bhi lagta hai, lekin ek alag tarah fail hoti hai:
+              model ka knowledge ek date pe rukta hai, us ke baad ki har
+              cheez window ke bahar hai:
             </P>
             <RecapTable
               head={["Sawal Kis Baare Mein Hai", "Jawab Kahan Se Aana Chahiye"]}
               rows={[
                 ["Ek stable concept ya method", "Model ka apna knowledge theek hai"],
-                ["Kuch bhi current, priced, ya dated", "Ek external source jise aap khol saktay ho, sirf answer nahi, link bhi maango"],
+                ["Kuch bhi current, priced, ya dated", "Ek external source jise aap khol sakte ho, sirf answer nahi, link bhi maango"],
               ]}
             />
           </Reveal>
@@ -475,10 +476,10 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             />
             <Callout label="Ehtiyat" tone="warn">
               Teesra decision doosre mein mat mix karo. &ldquo;Ye compute
-              hona chahiye&rdquo; sach hai, aur implementation column mein
-              jata hai. Ye AI ko step handover karne ki wajah nahi hai, aur
-              isay wajah banana hi wo tareeqa hai jis se ek high-stakes
-              calculation unreviewed reh jati hai.
+              hona chahiye&rdquo; sach hai, aur implementation column
+              mein jata hai. Ye AI ko step handover karne ki wajah nahi
+              hai, aur isay wajah banana hi wo tareeqa hai jis se ek
+              high-stakes calculation unreviewed reh jati hai.
             </Callout>
             <RecapTable
               head={["Step Kya Hai", "Kaun Carry Karta Hai"]}
@@ -523,18 +524,18 @@ export default function WorkflowDesignDiagnosisChapterPage() {
               ]}
             />
             <P>
-              Penalty-exposure row pe gauro se dekho, arithmetic hona step
-              ko low-stakes nahi banata, wo delegable is liye hai kyunke
-              result reversible hai aur agli row mein hi ek human ke
-              saamne aata hai. Approval gate hata do, ye step AI-appropriate
-              nahi rehta, chahe arithmetic wahi rahe.
+              Penalty-exposure row pe ghoor se dekho, arithmetic hona
+              step ko low-stakes nahi banata, wo delegable is liye hai
+              kyunki result reversible hai aur agli row mein hi ek human
+              ke saamne aata hai. Approval gate hata do, ye step
+              AI-appropriate nahi rehta, chahe arithmetic wahi rahe.
             </P>
             <P>
               Playbook row bhi same logic pe chalti hai, wo yahan
-              AI-appropriate is liye hai kyunke koi agli row mein flags
-              parhta hai. Wahi step ek workflow mein daalo jahan koi flags
-              nahi parhta, wo collaborative ho jati hai. Step nahi badla,
-              ye badla ke koi uske baad khada hai ya nahi.
+              AI-appropriate is liye hai kyunki koi agli row mein flags
+              parhta hai. Wahi step ek workflow mein daalo jahan koi
+              flags nahi parhta, wo collaborative ho jati hai. Step nahi
+              badla, ye badla ke koi uske baad khada hai ya nahi.
             </P>
           </Reveal>
 
@@ -542,10 +543,10 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <SubHeading>7. Map Galat Hone Ke 3 Tareeke</SubHeading>
             <P>
               Opening ki doosri team careless nahi thi, unhone hafton AI
-              ko achi redlines draft karte dekha, phir easy clauses
-              approve karne diye. Ye evidence ka reasonable response hai.
-              Ye ek workflow ke liye risk kamane ka sabse common tareeqa
-              bhi hai.
+              ko achhi redlines draft karte dekha, phir easy clauses
+              approve karne diye. Ye evidence ka reasonable response
+              hai. Ye ek workflow ke liye risk kamane ka sabse common
+              tareeqa bhi hai.
             </P>
             <MappingErrorsDiagram />
             <PullQuote>
@@ -562,10 +563,10 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <SubHeading>8. Map Ka Owner Kaun Hai</SubHeading>
             <P>
               Ek delegation map ek dafa likhi jati hai, phir chupke se
-              galat ho jati hai, kyunke workflow uske neeche move ho gaya.
-              Ek step add hua, ek reviewer ka role badla, quarterly volume
-              double ho gaya. 3 controls isi tarah decay karte hain, koi
-              signal diye bina:
+              galat ho jati hai, kyunki workflow uske neeche move ho
+              gaya. Ek step add hua, ek reviewer ka role badla, quarterly
+              volume double ho gaya. 3 controls isi tarah decay karte
+              hain, koi signal diye bina:
             </P>
             <RecapTable
               head={["Kya Decay Karta Hai", "Failure Ke Waqt Signal"]}
@@ -578,9 +579,9 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <P>
               Iska sirf ek countermeasure hai: <Strong>ek scheduled
               read</Strong>. Map pe 2 cheezein likhi honi chahiye: ek{" "}
-              <Strong>owner</Strong> (ek named person, team nahi), aur ek{" "}
-              <Strong>review date</Strong> (quarterly default hai). Review
-              4 sawalon mein 20 minute leta hai:
+              <Strong>owner</Strong> (ek named person, team nahi), aur
+              ek <Strong>review date</Strong> (quarterly default hai).
+              Review 4 sawalon mein 20 minute leta hai:
             </P>
             <CheckList
               items={[
@@ -599,27 +600,29 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <PartBanner>Part 3 · Build It, Aur Dekho</PartBanner>
             <SubHeading>9. Loop: Ideate, Prototype, Feedback, Refine</SubHeading>
             <P>
-              AI ek design collaborator hai, vending machine nahi. Solution
-              ek dafa maang ke nahi milta, loop chala ke milta hai, aur ise
-              ek Project ke andar chalao takay context stable rahe.
+              AI ek design collaborator hai, vending machine nahi.
+              Solution ek dafa maang ke nahi milta, loop chala ke milta
+              hai, aur ise ek Project ke andar chalao takay context
+              stable rahe.
             </P>
             <Flow
               loop
               steps={["Ideate: options banao", "Prototype: ek option concrete banao", "Feedback: jo galat hai wo saamne aaye", "Refine: usay fix karo"]}
             />
             <P>
-              Ek team ne 3 cycles mein bina code likhe ek dashboard artifact
-              banaya. Cycle 1 mein sab kaam kar gaya. Cycle 2 mein date
-              filter aur totals row maangi, filter theek tha, totals
-              galat, subtle tarike se, kyunke totals <Strong>likhe</Strong>{" "}
-              gaye the, <Strong>compute</Strong> nahi hue the. Cycle 3
-              (colour, print layout) pehli baar mein kaam kar gaya.
+              Ek team ne 3 cycles mein bina code likhe ek dashboard
+              artifact banaya. Cycle 1 mein sab kaam kar gaya. Cycle 2
+              mein date filter aur totals row maangi, filter theek tha,
+              totals galat, subtle tarike se, kyunki totals{" "}
+              <Strong>likhe</Strong> gaye the, <Strong>compute</Strong>{" "}
+              nahi hue the. Cycle 3 (colour, print layout) pehli baar
+              mein kaam kar gaya.
             </P>
             <Callout label="Farq Samjho">
-              Cycle 3 ek description problem thi, behtar describe karne se
-              solve ho gayi. Cycle 2 ek feature problem thi, kitna bhi
-              describe karo wo solve nahi hoti, kyunke jo maanga gaya tha
-              wo prose ki cheez nahi thi.
+              Cycle 3 ek description problem thi, behtar describe karne
+              se solve ho gayi. Cycle 2 ek feature problem thi, kitna
+              bhi describe karo wo solve nahi hoti, kyunki jo maanga
+              gaya tha wo prose ki cheez nahi thi.
             </Callout>
           </Reveal>
 
@@ -627,8 +630,9 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <SubHeading>10. Jab Ye Prompt-and-Iterate Se Bahar Nikal Jaye</SubHeading>
             <P>
               Wahi dashboard 6 mahine baad 3 departments har Monday khol
-              rahe hain, aur ek board pack mein numbers ja rahe hain. Ye ab
-              ek alag cheez hai, aur kisi ne decide nahi kiya ke ye ho.
+              rahe hain, aur ek board pack mein numbers ja rahe hain. Ye
+              ab ek alag cheez hai, aur kisi ne decide nahi kiya ke ye
+              ho.
             </P>
             <RecapTable
               head={["Signal", "Matlab", "Kahan Jao"]}
@@ -639,9 +643,10 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             />
             <P>
               <Strong>Dependency escalation signal hai.</Strong> Jis waqt
-              doosre log kisi cheez ko infrastructure ki tarah rely karte
-              hain, usay uptime, access control, aur ek fixed guarantee
-              chahiye hoti hai, ye prompt-and-iterate ka kaam nahi rehta.
+              doosre log kisi cheez ko infrastructure ki tarah rely
+              karte hain, usay uptime, access control, aur ek fixed
+              guarantee chahiye hoti hai, ye prompt-and-iterate ka kaam
+              nahi rehta.
             </P>
           </Reveal>
         </section>
@@ -653,8 +658,8 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <SubHeading>11. 4 Causes, Timing Se Pehchano</SubHeading>
             <P>
               Jab output disappoint kare, log 2 unproductive kaam karte
-              hain: tool ko impossible declare karte hain, ya random words
-              badalte rehte hain. Dono ek hi sawal skip karte hain:{" "}
+              hain: tool ko impossible declare karte hain, ya random
+              words badalte rehte hain. Dono ek hi sawal skip karte hain:{" "}
               <Strong>symptom sabse pehle kab dikha?</Strong>
             </P>
             <FourCausesDiagram />
@@ -672,7 +677,8 @@ export default function WorkflowDesignDiagnosisChapterPage() {
               nahi, koi warning nahi. Isi liye ye unstaffed gate ka twin
               hai, dono controls jo sahi set up huay the, sabke assume
               karte hue ke wo abhi bhi hold kar rahe hain, decay karte
-              hain. Scheduled review se milte hain, notice karne se nahi.
+              hain. Scheduled review se milte hain, notice karne se
+              nahi.
             </Callout>
           </Reveal>
 
@@ -689,9 +695,9 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             />
             <Callout label="Reversal">
               Zyada log ulta karte hain, sabse capable model pe switch
-              karte hain ya task ko impossible declare karte hain, ladder
-              ke neeche se, upar kuch check kiye bina. Dono aksar zaroori
-              nahi hotay.
+              karte hain ya task ko impossible declare karte hain,
+              ladder ke neeche se, upar kuch check kiye bina. Dono aksar
+              zaroori nahi hote.
             </Callout>
             <RecapTable
               head={["Complaint", "Diagnosis", "Fix"]}
@@ -729,9 +735,9 @@ export default function WorkflowDesignDiagnosisChapterPage() {
               ]}
             />
             <Callout label="Ehtiyat">
-              Agar lever naam nahi le sakte, critique abhi bhi ek reaction
-              hai, aur agli koshish ek revision jaisi dikhne wali guess
-              hogi.
+              Agar lever naam nahi le sakte, critique abhi bhi ek
+              reaction hai, aur agli koshish ek revision jaisi dikhne
+              wali guess hogi.
             </Callout>
           </Reveal>
 
@@ -740,19 +746,19 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <P>
               Fix dhoondna aasan hissa hai. Mehnga failure use dhoond ke
               wapis kho dena hai. Test chhota hai: <Strong>kya ye
-              correction dobara chahiye hogi, mujhe ya kisi aur ko?</Strong>{" "}
-              Agar haan, configuration mein jani chahiye.
+              correction dobara chahiye hogi, mujhe ya kisi aur
+              ko?</Strong> Agar haan, configuration mein jani chahiye.
             </P>
             <ThreeHomesDiagram />
             <Callout label="2 Log, Ek Habit Ka Farq">
-              Ek marketer notice karti hai ke har brief target segment miss
-              karti hai, aur wo 2 standing instructions likh deti hai, ab
-              sab ke liye theek. Ek analyst har mahine chat mein reminder
-              type karta hai (cancelled orders exclude karo), 2 hafte leave
-              pe jata hai, colleague report chalata hai, cancelled orders
-              wapis andar hain. Fix hamesha se maujood tha, failure ye thi
-              ke wo sirf ek jagah rakha tha jo sirf ek insaan dhoond sakta
-              tha.
+              Ek marketer notice karti hai ke har brief target segment
+              miss karti hai, aur wo 2 standing instructions likh deti
+              hai, ab sab ke liye theek. Ek analyst har mahine chat
+              mein reminder type karta hai (cancelled orders exclude
+              karo), 2 hafte leave pe jata hai, colleague report chalata
+              hai, cancelled orders wapis andar hain. Fix hamesha se
+              maujood tha, failure ye thi ke wo sirf ek jagah rakha tha
+              jo sirf ek insaan dhoond sakta tha.
             </Callout>
           </Reveal>
 
@@ -767,14 +773,14 @@ export default function WorkflowDesignDiagnosisChapterPage() {
               ]}
             />
             <P>
-              Variance wo hai jo teams miss karti hain, kyunke koi
-              individually experience nahi karta, sab ka apna output
+              Variance wo hai jo teams miss karti hain, kyunki koi
+              individually experience nahi karta, sabka apna output
               consistent hai, inconsistency sirf logon ke darmiyan hai,
               isliye ye reviewer pe dikhti hai, source pe nahi.
             </P>
             <CheckList
               items={[
-                "Consolidate: jo steps saath chal saktay hain unhe saath chalao, 3 separate prompts jo same background maangte hain, ek prompt hain",
+                "Consolidate: jo steps saath chal sakte hain unhe saath chalao, 3 separate prompts jo same background maangte hain, ek prompt hain",
                 "Promote: repeated pattern ko configuration mein le jao (Concept 14)",
               ]}
             />
@@ -783,11 +789,12 @@ export default function WorkflowDesignDiagnosisChapterPage() {
           <Reveal>
             <SubHeading>16. Wo Cheez Measure Karo Jo Actually Matter Karti Hai</SubHeading>
             <P>
-              <Strong>Pehle baseline measure karo.</Strong> Ek workflow ko
-              badalne se pehle ek dafa chalao aur 3 numbers record karo:
-              kitna waqt laga, kitne revision rounds chahiye huay, kitne
-              manual steps kiye. Baseline ke baghair aap ke paas ek
-              improvement hai jis pe yaqeen hai lekin bata nahi sakte.
+              <Strong>Pehle baseline measure karo.</Strong> Ek workflow
+              ko badalne se pehle ek dafa chalao aur 3 numbers record
+              karo: kitna waqt laga, kitne revision rounds chahiye huay,
+              kitne manual steps kiye. Baseline ke baghair aapke paas
+              ek improvement hai jis pe yaqeen hai lekin bata nahi
+              sakte.
             </P>
             <RecapTable
               head={["Workflow Agar...", "Optimize Karo Iske Liye"]}
@@ -814,8 +821,8 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             <SubHeading>17. Jab Bad Output Bahar Nikal Jaye</SubHeading>
             <P>
               Ek gate ek busy Friday pe skip ho jati hai, configuration
-              stale ho jati hai. Design karne wale ne pehle se ye 4 cheezein
-              decide karni chahiye:
+              stale ho jati hai. Design karne wale ne pehle se ye 4
+              cheezein decide karni chahiye:
             </P>
             <Ladder
               steps={[
@@ -839,8 +846,8 @@ export default function WorkflowDesignDiagnosisChapterPage() {
             />
             <Callout label="Repair">
               Har baar wahi hai: pehle batao tool kya karta hai, phir
-              human checkpoint ka naam lo. Ek extra sentence, aur farq hai
-              ek claim jo defend ho sakti hai aur ek jo nahi.
+              human checkpoint ka naam lo. Ek extra sentence, aur farq
+              hai ek claim jo defend ho sakti hai aur ek jo nahi.
             </Callout>
             <P>Same workflow, 3 audiences ko 3 tareeke se:</P>
             <RecapTable
@@ -863,9 +870,9 @@ export default function WorkflowDesignDiagnosisChapterPage() {
           <Reveal>
             <SubHeading>Poora Course, Compressed</SubHeading>
             <PullQuote>
-              Output verdict nahi hai. Step ko us se judge karo jo wo cost
-              karta hai aur jiska jawab dena hai, failure ko us se judge
-              karo jab wo shuru hui.
+              Output verdict nahi hai. Step ko us se judge karo jo wo
+              cost karta hai aur jiska jawab dena hai, failure ko us se
+              judge karo jab wo shuru hui.
             </PullQuote>
             <CheckList
               items={[
@@ -951,9 +958,10 @@ Scope check: [kaise pata chalega kitne outputs affect huay?]
 Bataya kisay: [kaun, kitne waqt mein]
 Map change: [yahan record, date ke sath]`}</PromptBox>
             <Callout label="3 Lines Jo Sabse Zyada Kaam Karti Hain">
-              Owner, next review date, aur har gate pe &ldquo;exactly kya
-              check ho raha hai&rdquo;. Inke bina map ek decision describe
-              karta hai. Inke sath, ek operation describe karta hai.
+              Owner, next review date, aur har gate pe &ldquo;exactly
+              kya check ho raha hai&rdquo;. Inke bina map ek decision
+              describe karta hai. Inke sath, ek operation describe
+              karta hai.
             </Callout>
           </Reveal>
         </section>
@@ -974,11 +982,11 @@ Map change: [yahan record, date ke sath]`}</PromptBox>
                 ["Human-retained", "Step jo poori tarah insaan ka hai (irreversible, high-stakes, ya khud decision hai)"],
                 ["Collaborative", "Step jahan AI produce karta hai aur ek named person judge karta hai"],
                 ["Over-delegation", "AI ko utna dena jitna risk profile justify nahi karta"],
-                ["Halo delegation", "Step AI ko dena kyunke pichla step acha gaya"],
+                ["Halo delegation", "Step AI ko dena kyunki pichla step achha gaya"],
                 ["The unstaffed gate", "Collaborative step jiski review ab actually nahi ho rahi"],
-                ["Under-specification", "Output pehli response se galat, kyunke prompt ne zaroori cheez di hi nahi"],
+                ["Under-specification", "Output pehli response se galat, kyunki prompt ne zaroori cheez di hi nahi"],
                 ["Context overload", "Output jo session badhne ke sath degrade ho"],
-                ["Stale configuration", "Output jo chupke se degrade hota hai kyunke ek configuration drift kar gayi"],
+                ["Stale configuration", "Output jo chupke se degrade hota hai kyunki ek configuration drift kar gayi"],
                 ["Expectation mismatch", "Task jo maangta hai jo tool kar hi nahi sakta"],
                 ["The diagnostic sequence", "Prompt, context length, feature/model, configuration, phir task fit, sasta pehle"],
                 ["Promotion", "Ek fix ko conversation se nikal kar configuration mein le jana"],
@@ -1027,10 +1035,10 @@ Map change: [yahan record, date ke sath]`}</PromptBox>
               {[
                 {
                   q: "Ek expense workflow ka step 3 total nikalta hai aur policy-limit se upar ka amount compute karta hai. Ye AI-appropriate hai ya human-retained, aur kaun carry karega?",
-                  a: "AI-appropriate hai, kyunke total reversible hai aur approval step pe check hota hai, carried by code execution hai kyunke ye arithmetic hai. Numeric hona kabhi khud AI ko step dene ki wajah nahi hai, ye sirf implementation column decide karta hai.",
+                  a: "AI-appropriate hai, kyunki total reversible hai aur approval step pe check hota hai, carried by code execution hai kyunki ye arithmetic hai. Numeric hona kabhi khud AI ko step dene ki wajah nahi hai, ye sirf implementation column decide karta hai.",
                 },
                 {
-                  q: "Ek team ne 4 mahine acha drafting dekh kar low-value responses AI ko unsupervised send karne dene ka socha. Ye kaunsi mapping error hai?",
+                  q: "Ek team ne 4 mahine achha drafting dekh kar low-value responses AI ko unsupervised send karne dene ka socha. Ye kaunsi mapping error hai?",
                   a: "Halo delegation. Sending irreversible aur external hai. Drafting quality draft ke baare mein evidence hai, is baare mein nahi ke unreviewed send safe hai.",
                 },
                 {
@@ -1055,7 +1063,7 @@ Map change: [yahan record, date ke sath]`}</PromptBox>
                 },
                 {
                   q: "\"AI drafts, manager reviews\" map pe likha hai, lekin manager ab har Friday poori queue ek batch mein approve karta hai bina individual cases khole. Is step ki asal state kya hai?",
-                  a: "Practically automated. Collaborative step jiski review ab nahi ho rahi wo automated step hai, chahe map abhi bhi collaborative likhe. Ye khamosh se hota hai kyunke map wo describe karta hai jo design kiya gaya, jo chal raha hai wo nahi.",
+                  a: "Practically automated. Collaborative step jiski review ab nahi ho rahi wo automated step hai, chahe map abhi bhi collaborative likhe. Ye khamosh se hota hai kyunki map wo describe karta hai jo design kiya gaya, jo chal raha hai wo nahi.",
                 },
                 {
                   q: "Ek bad output bahar nikal jata hai. Design karne wale ne pehle se kaunse 2 decisions liye hone chahiye the?",
