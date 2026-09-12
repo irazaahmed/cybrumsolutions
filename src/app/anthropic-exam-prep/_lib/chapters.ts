@@ -24,8 +24,18 @@ export type ChapterMeta = {
  *  `live` to true whenever a new one gets written. */
 export const chapters: ChapterMeta[] = [
   {
-    slug: "what-ai-actually-is",
+    slug: "just-delegate-it",
     num: "01",
+    title: "Just Delegate It",
+    sub: "11 concepts, 1 loop, 1 brief — AI ko sawal poochna chhodo, seedha job de do",
+    tag: "Foundations",
+    readTime: "40-50 min",
+    examCode: "CCAO-F",
+    live: true,
+  },
+  {
+    slug: "what-ai-actually-is",
+    num: "02",
     title: "What AI Actually Is",
     sub: "9 Ideas, No Math, No Code — jo machine actually kar rahi hai, uske neeche ka hood",
     tag: "Foundations",
@@ -35,7 +45,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "ai-fluency",
-    num: "02",
+    num: "03",
     title: "AI Fluency, The 4Ds",
     sub: "Delegation, Description, Discernment, Diligence — AI ke saath kaam karne ka insaan wala skill",
     tag: "Foundations",
@@ -45,7 +55,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "ai-prompting-2026",
-    num: "03",
+    num: "04",
     title: "AI Prompting in 2026",
     sub: "13 concepts, 80% of real use — right context in, wrong context out",
     tag: "Foundations",
@@ -55,7 +65,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "claude-chatgpt-101",
-    num: "04",
+    num: "05",
     title: "Claude Aur ChatGPT 101",
     sub: "9 concepts, 2 cockpits — Claude aur ChatGPT ke workspace ko bharosay se chalana",
     tag: "Foundations",
@@ -65,7 +75,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "skills-connectors",
-    num: "05",
+    num: "06",
     title: "Skills & Connectors",
     sub: "Chat box se ek operating layer tak — AI ko sikhana ek baar, aur apne apps se jorna",
     tag: "Foundations",
@@ -75,7 +85,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "general-agents-web",
-    num: "06",
+    num: "07",
     title: "General Agents on the Web",
     sub: "Chat se delegate tak — wahi 6-part harness shape jo har naye AI agent product mein milta hai",
     tag: "Foundations",
@@ -85,7 +95,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "workflow-design-diagnosis",
-    num: "07",
+    num: "08",
     title: "Workflow Design & Diagnosis",
     sub: "Kaunse steps AI ko dene chahiye, jab kaam bigadne lage to kaise diagnose karein, aur AI kya karta hai wo kaise batayein",
     tag: "Foundations",
@@ -95,7 +105,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "governance-risk-responsible-use",
-    num: "08",
+    num: "09",
     title: "Governance, Risk & Responsible Use",
     sub: "4 sawal, 3 mumkin jawab — AI ka kaam safe rakhne wala ek habit jo actually chalta hai",
     tag: "Foundations",
@@ -105,7 +115,7 @@ export const chapters: ChapterMeta[] = [
   },
   {
     slug: "code-you-never-write",
-    num: "09",
+    num: "10",
     title: "Code You Never Write",
     sub: "What is buildable without an engineer, and when to hand work to one",
     tag: "Foundations",

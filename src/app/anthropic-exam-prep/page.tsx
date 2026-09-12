@@ -206,7 +206,7 @@ export default function AnthropicExamPrepIndexPage() {
               Chapters
             </p>
             <h2 className="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-              Poora Study Guide, 9 Chapters
+              Poora Study Guide, 10 Chapters
             </h2>
             <P>
               Ye PCAO-F/CCAO-F ke official study guide ka poora order hai.
