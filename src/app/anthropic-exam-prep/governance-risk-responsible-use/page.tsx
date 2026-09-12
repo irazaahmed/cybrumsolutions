@@ -85,10 +85,10 @@ const toc: TocItem[] = [
 
 function FourQuestionsDiagram() {
   const rows = [
-    { icon: Scale, t: "The Case", a: "Fully appropriate", m: "Appropriate with human review", z: "Inappropriate" },
-    { icon: Database, t: "The Data", a: "Green", m: "Check first / control add karo", z: "Route se bahar" },
-    { icon: Plug, t: "The Capability", a: "Enable", m: "Escalate for review", z: "Decline" },
-    { icon: Users, t: "The People", a: "Decide aur document karo", m: "Disclose", z: "Sawal escalate karo" },
+    { icon: Scale, t: "The Case", a: "Fully appropriate", m: "Human review ke sath appropriate", z: "Inappropriate" },
+    { icon: Database, t: "The Data", a: "Green", m: "Pehle check karo / control lagao", z: "Route se bahar" },
+    { icon: Plug, t: "The Capability", a: "Enable", m: "Review ke liye escalate", z: "Decline" },
+    { icon: Users, t: "The People", a: "Decide karo, document karo", m: "Disclose", z: "Sawal escalate karo" },
   ];
   return (
     <figure className="my-7">
@@ -110,8 +110,8 @@ function FourQuestionsDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Middle answer (highlighted) sabse demanding hai, ye ek commitment
-        maangta hai: ek reviewer, ek control, ek route ka naam
+        Beech wala jawab (highlighted) sabse mushkil hai, ye ek commitment
+        maangta hai, ek reviewer, ek control, ya ek route ka naam
       </figcaption>
     </figure>
   );
@@ -125,14 +125,14 @@ function DefinedGateDiagram() {
           <p className="mb-2 text-sm font-semibold text-foreground">Defined Gate</p>
           <CheckList
             items={[
-              "Who: wo role jo actually responsibility rakhta hai",
-              "What: wo specific risk jo review pakadne ke liye hai",
+              "Who: wo role jiske paas actually responsibility hai",
+              "What: wo specific risk jise review pakadne ke liye hai",
               "When: output hard-to-undo hone se pehle",
             ]}
           />
         </div>
         <div className="rounded-xl border border-border bg-card/40 p-4">
-          <p className="mb-2 text-sm font-semibold text-muted">Gate Nahi Hai</p>
+          <p className="mb-2 text-sm font-semibold text-muted">Ye Gate Nahi Hai</p>
           <ul className="space-y-2 text-xs text-muted">
             <li>&ldquo;Human loop mein rahega&rdquo;</li>
             <li>&ldquo;Koi check kar lega&rdquo;</li>
@@ -142,8 +142,8 @@ function DefinedGateDiagram() {
         </div>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Agar who/what/when form mein nahi likh sakte, workflow chalne ke
-        liye ready nahi hai
+        Agar who/what/when form mein nahi likh sakte, workflow abhi
+        chalne ke liye ready nahi hai
       </figcaption>
     </figure>
   );
@@ -176,7 +176,7 @@ function DataTiersDiagram() {
         </div>
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        2 tiers ke darmiyan confused ho, to zyada sensitive wala chuno, ek
+        2 tiers ke darmiyan confuse ho to zyada sensitive wala chuno, ek
         tier zyada ehtiyat sirf ek confirmation ki cost rakhti hai
       </figcaption>
     </figure>
@@ -186,8 +186,8 @@ function DataTiersDiagram() {
 function TrustCheckDiagram() {
   const items = [
     { icon: ShieldCheck, t: "Enable", d: "Source pata hai, reach proportionate hai, task fit karta hai, actions controlled hain" },
-    { icon: AlertTriangle, t: "Escalate", d: "Kuch important establish nahi ho pa raha: source uncertain, reach broad, ya security implications role se bahar" },
-    { icon: XCircle, t: "Decline", d: "Reach clearly disproportionate, ya trust establish nahi ho sakta" },
+    { icon: AlertTriangle, t: "Escalate", d: "Koi zaroori cheez confirm nahi ho pa rahi: source uncertain, reach broad, ya security matter role se bahar" },
+    { icon: XCircle, t: "Decline", d: "Reach clearly zyada hai, ya trust confirm nahi ho sakta" },
   ];
   return (
     <figure className="my-7">
@@ -203,8 +203,8 @@ function TrustCheckDiagram() {
         ))}
       </div>
       <figcaption className="mt-3 text-center text-xs text-muted">
-        Sab kuch escalate karna utni hi badi failure hai jitni sab kuch
-        enable karna
+        Sab kuch escalate karna bhi utni hi badi galti hai jitni sab
+        kuch enable kar dena
       </figcaption>
     </figure>
   );
@@ -266,33 +266,31 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
               Risk, and Responsible Use domain ke liye foundation hai
             </p>
             <CoreIdea>
-              Ek logistics company ka AI ke sath acha saal chal raha hai.
-              Phir ek project manager, ek director ka sawal lunch se pehle
-              answer karne ki koshish mein, customer names aur account
-              numbers wali spreadsheet AI chat mein upload kar deti hai. Wo
-              koi rule todne ki koshish nahi kar rahi. Company investigate
-              hone tak AI use freeze kar deti hai, aur wo teams bhi apna
-              workflow kho dete hain jinhone kuch galat nahi kiya, kyunke ek
-              routine decision ne aisa risk bana diya jise organisation
-              ignore nahi kar sakti. Ye ek dramatic failure nahi hai, ek
-              ordinary decision hai jise kisi ne decision ki tarah frame
-              hi nahi kiya.
+              Ek logistics company mein AI ka saal achha chal raha tha. Ek
+              din project manager ko director ka ek sawal aata hai, lunch
+              se pehle jawab dena hai, isliye wo customer names aur account
+              numbers wali spreadsheet AI chat mein upload kar deti hai.
+              Wo koi rule todne ki koshish nahi kar rahi thi. Investigation
+              complete hone tak company ne AI use hi freeze kar diya, aur
+              wo teams bhi apna workflow kho baithi jinhone kuch galat
+              nahi kiya tha. Ye koi dramatic failure nahi thi, ye ek
+              ordinary decision thi jise kisi ne decision samajh kar liya
+              hi nahi.
             </CoreIdea>
           </Reveal>
 
           <Reveal>
             <SubHeading>Poora Course, 30 Seconds Mein</SubHeading>
-            <P>
-              AI se koi meaningful kaam karwane se pehle 4 sawal poocho:
-            </P>
+            <P>AI se koi meaningful kaam karwane se pehle 4 sawal poocho:</P>
             <FourQuestionsDiagram />
             <Callout label="Kab Ye Chalana Hai">
-              &ldquo;Meaningful work&rdquo; matlab wo kaam jo kisi aur ke
-              data, kisi ke paise, ya kisi insaan ke baare mein decision ko
-              touch kare. Apna email reword karna, ek public article
-              summarize karna, koi notes jin pe koi act nahi karega, in par
-              nahi chalta. Jo kaam qualify karta hai us pe chalao, baaki
-              skip karo, warna ye habit ek hafte mein chhoot jayegi.
+              &ldquo;Meaningful kaam&rdquo; se matlab wo kaam jo kisi aur
+              ke data, kisi ke paise, ya kisi insaan ke baare mein
+              decision ko touch kare. Apna email reword karna, ek public
+              article summarize karna, ya wo notes jin pe koi act nahi
+              karega, in par ye nahi chalta. Jo kaam qualify kare us pe
+              chalao, baaki skip karo, warna ye habit ek hafte mein
+              chhoot jayegi.
             </Callout>
           </Reveal>
         </section>
@@ -302,16 +300,16 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
           <Reveal>
             <PartBanner>Part 1 · The Case: Kya AI Ye Kaam Kar Sakta Hai?</PartBanner>
             <P>
-              Ye sawal pehle aata hai, kyunke agar AI ko ye kaam karna hi
-              nahi chahiye, baad ke data aur tool wale sawal matter hi
-              nahi karte. 4 screens use karo (AI Fluency Framework mein
-              inhe <Strong>Delegation criteria</Strong> kehte hain):
+              Ye sawal sabse pehle aata hai, kyunki agar AI ko ye kaam
+              karna hi nahi chahiye, to data aur tool wale sawal matter
+              hi nahi karte. 4 screens use karo (AI Fluency Framework
+              mein inhe <Strong>Delegation criteria</Strong> kehte hain):
             </P>
             <RecapTable
               head={["Screen", "Sawal"]}
               rows={[
-                ["Reversibility", "Agar output galat hai, kya nuksan hone se pehle catch aur undo kar saktay hain?"],
-                ["Consequence of error", "Agar galat hui, kya hota hai? Cost trivial hai, mehngi hai, harmful, regulated, ya irreversible?"],
+                ["Reversibility", "Agar output galat hai, kya nuksan hone se pehle usay catch aur undo kar sakte hain?"],
+                ["Consequence of error", "Agar galat hui, to kya hota hai? Cost trivial hai, mehngi hai, harmful, regulated, ya irreversible?"],
                 ["Human judgment ya empathy", "Kya task relationship, care, ya original judgment maangta hai jo insaan ko khud karni chahiye?"],
                 ["Accountability", "Iska jawab kaun deta hai, aur kya wo AI ka output meaningfully review aur own kar sakta hai?"],
               ]}
@@ -319,32 +317,33 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <RecapTable
               head={["Answer", "Matlab"]}
               rows={[
-                ["Fully appropriate", "Low consequence, reversible, normal work mein review hona aasan, koi special gate nahi chahiye"],
-                ["Appropriate with human review", "AI useful hai, lekin use hone/send/publish hone se pehle ek specific human check chahiye"],
+                ["Fully appropriate", "Consequence kam hai, reversible hai, normal work mein review hona aasan hai, koi special gate nahi chahiye"],
+                ["Human review ke sath appropriate", "AI useful hai, lekin use hone, send hone, ya publish hone se pehle ek specific human check chahiye"],
                 ["Inappropriate", "Consequence, irreversibility, ya human responsibility itni bhari hai ke review se bhi repair nahi hoti"],
               ]}
             />
             <Callout label="Deciding Factor Dhoondo">
               Poocho: agar in 4 jawabon mein se ek badal jaye, kaunsa
-              change is classification ko doosri category mein le jayega?
-              Wahi factor ye decision carry kar raha hai. &ldquo;Ye risky
-              lagta hai&rdquo; ki bajaye ab aap keh saktay ho: &ldquo;Ye
-              appropriate with review hai kyunke organisation customer ko
-              di gayi factual claim ke liye accountable hai.&rdquo;
+              change is classification ko doosri category mein le
+              jayega? Wahi factor ye decision carry kar raha hai. &ldquo;Ye
+              risky lagta hai&rdquo; ki bajaye ab aap keh sakte ho:
+              &ldquo;Ye human review ke sath appropriate hai kyunki
+              organisation customer ko di gayi baat ke liye
+              accountable hai.&rdquo;
             </Callout>
             <SubHeading>Human In The Loop Ek Gate Nahi Hai</SubHeading>
             <P>
-              &ldquo;Insaan review karega&rdquo; responsible lagta hai aur
-              aksar kuch matlab nahi rakhta:
+              &ldquo;Insaan review karega&rdquo; sunne mein responsible
+              lagta hai, lekin aksar iska matlab kuch bhi nahi hota:
             </P>
             <DefinedGateDiagram />
             <RecapTable
               head={["Use Case", "Classification", "Kyun", "Gate"]}
               rows={[
-                ["Approved policy docs se internal FAQ draft karna", "Appropriate", "Reversible, low consequence, authoritative sources maujood hain", "Normal editorial review"],
-                ["Billing complaint ka customer response draft karna", "Appropriate with review", "Company customer ke account facts ke liye accountable hai", "Support agent facts aur tone verify kare, bhejne se pehle"],
-                ["Final professional determination banana", "Inappropriate", "Professional accountability aur consequence transfer nahi ho sakti", "Human professional khud decide aur own karta hai"],
-                ["Candidate applications summarize kar ke organise karna", "Appropriate with strong review", "Applicants ke liye consequential, unfair filtering ka risk", "Hiring owner inclusion AND exclusion dono review kare"],
+                ["Approved policy docs se internal FAQ draft karna", "Appropriate", "Reversible hai, consequence kam hai, authoritative sources maujood hain", "Normal editorial review"],
+                ["Billing complaint ka customer response draft karna", "Review ke sath appropriate", "Company customer ke account facts ke liye accountable hai", "Support agent bhejne se pehle facts aur tone verify kare"],
+                ["Final professional determination banana", "Inappropriate", "Professional accountability aur consequence kisi tool ko transfer nahi ho sakti", "Human professional khud decide aur own kare"],
+                ["Candidate applications summarize kar ke organise karna", "Strong review ke sath appropriate", "Applicants ke liye consequential hai, unfair filtering ka risk hai", "Hiring owner inclusion AND exclusion dono review kare"],
               ]}
             />
           </Reveal>
@@ -356,31 +355,31 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <PartBanner>Part 2 · The Data: Kya Ye Information Andar Ja Sakti Hai?</PartBanner>
             <P>Order yaad rakho:</P>
             <Flow
-              steps={["Data classify karo", "Poocho kya task ko identifying details chahiye", "Route confirm karo", "Control chuno"]}
+              steps={["Data classify karo", "Poocho task ko identifying details chahiye ya nahi", "Route confirm karo", "Control chuno"]}
             />
             <SubHeading>3 Practical Tiers</SubHeading>
             <DataTiersDiagram />
-            <SubHeading>Sabse Zyada Useful Data Sawal</SubHeading>
+            <SubHeading>Sabse Useful Data Sawal</SubHeading>
             <PullQuote>
               Kya task ko actually identifiers chahiye, ya sirf pattern?
             </PullQuote>
             <P>
               Agar spending trends analyse kar rahe ho, shayad customer
-              names ki zaroorat nahi. Agar ek specific account reconcile
-              kar rahe ho, identifier zaroori hai.
+              names ki zaroorat hi nahi. Agar ek specific account
+              reconcile kar rahe ho, identifier zaroori hai.
             </P>
             <Callout label="Redaction Magic Nahi Hai" tone="warn">
-              2 tareeke se fail hoti hai: <Strong>Partial redaction</Strong>{" "}
+              Ye 2 tareeke se fail hoti hai: <Strong>Partial redaction</Strong>{" "}
               (obvious identifier hataya lekin itne clues chhod diye ke
               insaan phir bhi pehchana ja sake), aur{" "}
-              <Strong>Redaction jo task todti hai</Strong> (wo information
+              <Strong>Redaction jo task hi tod de</Strong> (wo information
               hata di jo task ko actually chahiye thi). &ldquo;Customer
-              17&rdquo; likhna pehla move hai, verdict nahi. Poocho: kya
-              koi abhi bhi wo list rakhta hai jo Customer 17 ko real insaan
-              se jodti hai? Agar haan, ye <Strong>pseudonymised</Strong>{" "}
-              hai, tier wahi rehti hai. Agar mapping gaya, task ko sirf
-              pattern chahiye tha, tab ye <Strong>anonymised</Strong> hai
-              aur restriction apply nahi hoti.
+              17&rdquo; likhna pehla move hai, final verdict nahi. Poocho:
+              kya koi abhi bhi wo list rakhta hai jo Customer 17 ko real
+              insaan se jodti hai? Agar haan, ye <Strong>pseudonymised</Strong>{" "}
+              hai, tier wahi rahegi. Agar mapping gaya aur task ko sirf
+              pattern chahiye tha, ye <Strong>anonymised</Strong> hai aur
+              restriction apply nahi hoti.
             </Callout>
             <SubHeading>Route Utna Hi Matter Karta Hai Jitna Tool Ka Naam</SubHeading>
             <P>
@@ -388,19 +387,19 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
               hai?&rdquo;, sawal ye hai:{" "}
               <Strong>&ldquo;kya ye specific route, is data, aur is
               purpose ke liye approved hai?&rdquo;</Strong>. Data apne
-              collect hone ki wajah ke sath aati hai, ek gym members ka
-              phone number class reminders ke liye rakhta hai, wahi
-              numbers supplements bechne ke liye use karna ek alag purpose
-              hai. Naya AI workflow chalane se pehle poocho ke jis
-              purpose ke liye data collect hua tha, kya wo is use ko
-              cover karta hai.
+              collect hone ki wajah ke sath aati hai, jaise ek gym
+              members ka phone number class reminders ke liye rakhta
+              hai, wahi numbers supplements bechne ke liye use karna ek
+              alag purpose ban jata hai. Naya AI workflow chalane se
+              pehle poocho ke jis purpose ke liye data collect hui thi,
+              kya wo is use ko cover karti hai.
             </P>
             <Callout label="Controls Narrower Sawal Answer Karte Hain">
               Temporary/incognito conversation, memory controls, sandbox,
-              Project, org-managed workspace, ye sab kisi particular risk
-              ko kam kar sakte hain, lekin ye khud se authorisation ka
-              sawal answer nahi karte. Sandbox ek execution boundary hai,
-              approval boundary nahi.
+              Project, org-managed workspace, ye sab kisi particular
+              risk ko kam kar sakte hain, lekin ye khud se authorisation
+              ka sawal answer nahi karte. Sandbox ek execution boundary
+              hai, approval boundary nahi.
             </Callout>
           </Reveal>
         </section>
@@ -410,17 +409,17 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
           <Reveal>
             <PartBanner>Part 3 · The Capability: Kya Main Ye On Kar Sakta Hoon?</PartBanner>
             <P>
-              Sawal ab sirf &ldquo;kya main model pe trust karta hoon&rdquo;
+              Sawal sirf &ldquo;kya main model pe trust karta hoon&rdquo;
               nahi hai, ye hai: <Strong>&ldquo;is session ya agent mein
               main kya authority add kar raha hoon?&rdquo;</Strong>
             </P>
             <Callout label="Sabse Zaroori Fact" tone="warn">
               <Strong>Ek Skill apni permission list nahi rakhti.</Strong>{" "}
-              Ek Connector ke scopes hote hain jo aap grant aur narrow kar
-              saktay ho. Skill ka koi dial nahi hai, wo usi access ke sath
-              chalti hai jo session ke paas already hai, iski reach har wo
-              cheez hai jo session reach kar sakta hai, sirf wo nahi jo
-              uske stated task ko chahiye.
+              Ek Connector ke scopes hote hain jo aap grant aur narrow
+              kar sakte ho. Skill ka koi dial nahi hota, wo usi access
+              ke sath chalti hai jo session ke paas already hai, iski
+              reach har wo cheez hai jo session reach kar sakta hai,
+              sirf wo nahi jo uske task ko chahiye.
             </Callout>
             <P>5 checks chalao:</P>
             <CheckList
@@ -434,19 +433,19 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             />
             <TrustCheckDiagram />
             <Callout label="Ehtiyat" tone="warn">
-              Sabse mushkil source case anonymous forum download nahi hai,
-              wo Skill hai jo aapki hi company ki doosri team ne banayi
-              hai, kyunke &ldquo;internal&rdquo; vetted lagti hai bina
-              vetted huay. Us team ne apni convenience ke liye broad reach
-              di ho sakti hai, ya ek policy ke against banayi ho jo ab
-              badal chuki hai.
+              Sabse mushkil case anonymous forum download nahi hota,
+              wo Skill hoti hai jo aapki hi company ki doosri team ne
+              banayi hai, kyunki &ldquo;internal&rdquo; hone se ye vetted
+              lagti hai bina actually vetted huay. Us team ne apni
+              convenience ke liye broad reach di ho sakti hai, ya ek
+              aisi policy ke against banayi ho jo ab badal chuki hai.
             </Callout>
           </Reveal>
 
           <Reveal>
             <SubHeading>Trusted Tool, Untrusted Content</SubHeading>
             <P>
-              Ek capability trusted publisher se aa sakti hai aur phir bhi
+              Ek capability trusted publisher se aa sakti hai, phir bhi
               wo content parh sakti hai jo kisi na-trusted ne likha ho.
               Isay <Strong>prompt injection</Strong> kehte hain.
             </P>
@@ -455,20 +454,21 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
               sawal hain.
             </PullQuote>
             <P>
-              Risk sabse zyada tab barhta hai jab ek AI workflow untrusted
-              content parhta bhi hai <Strong>aur</Strong> consequential
-              actions le sakta hai. Ordinary knowledge work ke liye
-              default: AI ko sirf wahi parhne do jo zaroori hai, read-only
-              access ko prefer karo jab kaafi ho, aur send/publish/pay/
-              delete/approve ko ek defined human gate ke peeche rakho jab
-              tak workflow ne higher autonomy earn na ki ho.
+              Risk sabse zyada tab barhta hai jab ek AI workflow
+              untrusted content parhta bhi hai <Strong>aur</Strong>{" "}
+              consequential actions le sakta hai. Ordinary knowledge
+              work ke liye default: AI ko sirf wahi parhne do jo
+              zaroori hai, read-only access ko prefer karo jab kaafi
+              ho, aur send/publish/pay/delete/approve jaisi actions ko
+              ek defined human gate ke peeche rakho, jab tak workflow
+              ne higher autonomy earn na ki ho.
             </P>
             <Callout label="Agent Builders Ke Liye">
               System level pe, &ldquo;reach&rdquo; architecture ban jati
               hai: scoped credentials, tool allow-lists, typed actions,
               confirmation policies, network restrictions, audit logs.
-              Governing principle: <Strong>least privilege</Strong>, agent
-              ko sirf utni authority do jitni job ke liye chahiye.
+              Governing principle: <Strong>least privilege</Strong>,
+              agent ko sirf utni authority do jitni job ke liye chahiye.
             </Callout>
           </Reveal>
         </section>
@@ -487,28 +487,29 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
                 "Kya disclosure zaroori hai, ya AI involvement unke liye reasonably matter karti hai?",
               ]}
             />
-            <Callout label="Jo Exclude Hua Wo Dekho" tone="warn">
+            <Callout label="Jo Exclude Hua Wo Bhi Dekho" tone="warn">
               Sabse aasan miss hone wala risk tab hota hai jab system ek
-              set narrow karta hai aur insaan sirf survivors ko inspect
-              karte hain (candidate shortlists, fraud flags, escalation ke
-              liye chuni gayi tickets). Agar AI ek group ko systematically
-              hata deta hai, koi notice nahi karta agar review sirf jo
-              bacha hai usay dekhe. Practical control: exclusions ko bhi
-              sample karo, sirf inclusions nahi.
+              set narrow kar deta hai aur insaan sirf survivors ko
+              inspect karte hain (candidate shortlists, fraud flags,
+              escalation ke liye chuni gayi tickets). Agar AI ek group
+              ko systematically hata deta hai, koi notice nahi karta
+              agar review sirf jo bacha hai usay dekhe. Practical
+              control: exclusions ko bhi sample karo, sirf inclusions
+              nahi.
             </Callout>
             <SubHeading>Disclosure: Pehle Rules, Phir Judgment</SubHeading>
             <Ladder
               steps={[
                 { title: "Pehle: Kya Disclosure Required Hai?", note: "Law, policy, contract, professional rules, client commitments check karo. Agar koi require karta hai, decision ho chuka" },
-                { title: "Doosra: Agar Koi Rule Nahi", note: "Kya AI involvement is insaan ki work ya relationship ki understanding badal degi? Consequential ya relational work zyada transparency deserve karti hai" },
+                { title: "Doosra: Agar Koi Rule Nahi", note: "Kya AI involvement is insaan ki work ya relationship ki samajh badal degi? Consequential ya relational work zyada transparency deserve karti hai" },
               ]}
             />
             <P>
               2 disclosure cases baar baar aati hain: <Strong>Authorship</Strong>{" "}
-              (jo kaam aapke naam se jata hai wo aapka hai use stand karne
-              ke liye, chahe AI ne kitna bhi draft kiya ho) aur{" "}
-              <Strong>meeting notetaker</Strong> (chaaron sawal ek sath
-              touch karti hai, sabko announce karo shuru mein, kuch
+              (jo kaam aapke naam se jata hai wo aapka hai use stand
+              karne ke liye, chahe AI ne kitna bhi draft kiya ho) aur{" "}
+              <Strong>meeting notetaker</Strong> (ye 4 sawal ek sath
+              touch karta hai, sabko shuru mein hi announce karo, kuch
               jurisdictions mein har participant ki consent chahiye).
             </P>
             <SubHeading>Sawal Escalate Karo, Verdict Nahi</SubHeading>
@@ -517,14 +518,14 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
               items={[
                 "Affected population bada hai",
                 "Potential harm significant hai",
-                "Sawal aisi area ko touch karta hai jahan aapki team ko standing hi nahi (law, contract, employment)",
+                "Sawal aisi area ko touch karta hai jahan aapki team ki standing hi nahi hai (law, contract, employment)",
               ]}
             />
             <Callout label="Weak Vs Strong Escalation">
               Weak: &ldquo;Mujhe lagta hai ye theek hai, approve kar
-              den?&rdquo; Strong: &ldquo;Ye raha workflow, ye affected hain,
-              ye control hamne add kiya, aur ye wo point hai jo framework
-              settle nahi karta.&rdquo;
+              den?&rdquo; Strong: &ldquo;Ye raha workflow, ye affected
+              hain, ye control humne add kiya, aur ye wo point hai jo
+              framework settle nahi karta.&rdquo;
             </Callout>
           </Reveal>
         </section>
@@ -535,14 +536,14 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <PartBanner>Part 5 · Sab Kuch Sath, Aur Incident</PartBanner>
             <SubHeading>Ek Ordinary Workflow, Shuru Se Aakhir Tak</SubHeading>
             <P>
-              Ayesha ek logistics company mein operations lead hai. Weekly
-              service-exception report AI se draft karwana chahti hai,
-              phir account manager bhejta hai.
+              Ayesha ek logistics company mein operations lead hai. Wo
+              weekly service-exception report AI se draft karwana
+              chahti hai, phir account manager usay bhejta hai.
             </P>
             <RecapTable
               head={["Sawal", "Answer"]}
               rows={[
-                ["The Case", "Appropriate with human review, deciding factor accountability. Gate: account manager delivery facts dispatch record se check kare, tone disputed accounts pe dekhe, bhejne se pehle"],
+                ["The Case", "Human review ke sath appropriate, deciding factor accountability. Gate: account manager bhejne se pehle delivery facts dispatch record se check kare, tone disputed accounts pe dekhe"],
                 ["The Data", "Yellow tier (customer names, shipment info), task ko identifiers chahiye (customer report), isliye specific workspace aur route confirm kiya"],
                 ["The Capability", "Dispatch system connector, source internal platform team, reach sirf reporting tables, actions mein sending shamil nahi, read-only enable, sending account manager ke paas rehti hai"],
                 ["The People", "Customers aur drivers/staff dono affected (free-text notes mein), fairness check: attribution dispatch record se match kare, disclosure contract/policy se check karo"],
@@ -550,17 +551,18 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             />
             <P>
               <Strong>The Evidence</Strong> (5th part): success measure
-              (account managers check karte hain bhejne se pehle),
-              failure threshold (koi bhi material factual error customer
-              tak pahunche), monitor (Ayesha monthly sample review karti
-              hai), residual risk (consistent wording bias sab reports
-              mein individual checks se bach sakta hai, isliye sample
-              review customers ke across bhi compare karta hai).
+              (account managers bhejne se pehle check karte hain),
+              failure threshold (koi bhi material factual error
+              customer tak nahi pahunchna chahiye), monitor (Ayesha
+              monthly sample review karti hai), residual risk
+              (consistent wording bias sab reports mein individual
+              checks se bach sakta hai, isliye sample review customers
+              ke across bhi compare karta hai).
             </P>
           </Reveal>
 
           <Reveal>
-            <SubHeading>Governance Record: Ek Page Jo Meeting Se Bach Jaye</SubHeading>
+            <SubHeading>Governance Record: Ek Page Jo Meeting Se Bacha Le</SubHeading>
             <P>
               4 sawal aapke sar mein useful hain. Likh diye jayein to
               organisationally useful ban jate hain. Ek blank field ek
@@ -573,25 +575,26 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
           <Reveal>
             <SubHeading>Jab Kuch Galat Ho Jaye</SubHeading>
             <P>
-              Governance ye promise nahi hai ke koi galti kabhi nahi hogi.
-              Ye galtiyon ko itna jaldi surface karne ki ability hai ke
-              contain ho sakein.
+              Governance ye promise nahi karti ke koi galti kabhi nahi
+              hogi. Ye ye promise karti hai ke galtiyan itni jaldi
+              surface ho jayen ke contain ho sakein.
             </P>
             <Ladder
               steps={[
                 { title: "1. Spread Roko", note: "Forward, repost, ya unnecessary new copies mat banao" },
                 { title: "2. Facts Record Karo", note: "Kya hua, kaunsa data/output/action shamil tha, kaunsa route, kab, aur kya kahin aage gaya" },
                 { title: "3. Foran Report Karo", note: "Apni organisation ke incident path se, sensitive cases mein timing legally matter karti hai" },
-                { title: "4. Facts Plainly Batao", note: "Speculation aur self-defence avoid karo" },
+                { title: "4. Facts Plainly Batao", note: "Speculation aur self-defence se bacho" },
                 { title: "5. Incident Owner Ki Instructions Follow Karo", note: "Deletion, notification, disclosure jaise sawal khud decide mat karo" },
               ]}
             />
             <Callout label="Ehtiyat" tone="warn">
-              Chupke se evidence delete mat karo aur ummeed mat karo issue
-              gayab ho jayega. Aapki visible copy delete karna organisation
-              ya vendor records delete nahi karta, aur investigation mein
-              rukawat daal sakta hai. <Strong>Near misses bhi report
-              karo</Strong>, wo batati hain process kahan confusing hai.
+              Chupke se evidence delete mat karo aur ummeed mat rakho
+              ke issue khud gayab ho jayega. Aapki visible copy delete
+              karna organisation ya vendor records delete nahi karta,
+              aur investigation mein rukawat daal sakta hai.{" "}
+              <Strong>Near misses bhi report karo</Strong>, wo batati
+              hain process kahan confusing hai.
             </Callout>
           </Reveal>
         </section>
@@ -602,24 +605,25 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <PartBanner>Part 6 · Habit Ko Zinda Rakho</PartBanner>
             <SubHeading>Governance Kyun Drift Karti Hai</SubHeading>
             <P>
-              High-stakes decisions attention paate hain kyunke sab jante
-              hain ye important hain. Routine decisions governance ke
-              liye zyada khatarnak hain kyunke har ek itna chhota lagta
-              hai ke count na ho. Ek insaan thodi aasan tool use karta hai.
-              Ek human review ek glance ban jata hai. Ek connector project
-              badalne ke baad bhi permission rakhta hai.
+              High-stakes decisions pe attention jati hai kyunki sabko
+              pata hota hai ye important hain. Routine decisions
+              governance ke liye zyada khatarnak hain, kyunki har ek
+              itna chhota lagta hai ke count hi na ho. Ek insaan thodi
+              aasan tool use karne lagta hai. Ek human review sirf ek
+              glance ban jata hai. Ek connector project badalne ke baad
+              bhi apni permission rakh leta hai.
             </P>
             <PullQuote>
-              Policy aur asal mein log jo karte hain, uske darmiyan jo
-              faasla hai, wahin risk rehta hai. Isay Diligence gap kehte
-              hain.
+              Policy jo kehti hai aur log asal mein jo karte hain, uske
+              darmiyan jo faasla hai, wahin risk rehta hai. Isay
+              Diligence gap kehte hain.
             </PullQuote>
             <SubHeading>Usage Audit Chalao</SubHeading>
             <CheckList
               items={[
                 "Kaunse AI workflows actually use ho rahe hain?",
                 "Unse actually kaunsa data guzarta hai?",
-                "Kya defined human gates actually chali?",
+                "Kya defined human gates actually chal rahe hain?",
                 "Kaunse naye tools, Skills, connectors, ya permissions add huay?",
                 "Model, feature, route, data, ya audience mein kya badla?",
               ]}
@@ -627,24 +631,26 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <Callout label="Process Audit Karo, Insaan Nahi">
               Agar audit ek chupi hui performance review ban jaye, log
               auditors ko sirf sabse saaf kaam dikhayenge. Purpose{" "}
-              <Strong>system gaps</Strong> dhoondna hai: confusing rules,
-              zaroorat se zyada friction, kamzor gates.
+              <Strong>system gaps</Strong> dhoondna hai: confusing
+              rules, zaroorat se zyada friction, kamzor gates.
             </Callout>
             <SubHeading>Friction Ka Rule</SubHeading>
             <P>
-              Agar approved path 10 steps leta hai aur unapproved path 1
-              step, log deadline ke neeche 1-step wala route dhoondh
-              lenge. Isay <Strong>shadow AI</Strong> kehte hain, work data
-              jo un tools/accounts se guzarta hai jo organisation ne kabhi
-              approve nahi kiye. Jab bar bar workarounds dikhein, poocho:{" "}
-              <Strong>&ldquo;approved way ko unsafe way se harder kya
-              bana raha hai?&rdquo;</Strong> Ye ek fix, doosri reminder
-              email se zyada risk kam kar sakta hai.
+              Agar approved path 10 steps leta hai aur unapproved path
+              sirf 1 step, log deadline ke neeche 1-step wala route
+              dhoond lenge. Isay <Strong>shadow AI</Strong> kehte hain,
+              matlab work data un tools/accounts se guzarna jinhe
+              organisation ne kabhi approve nahi kiya. Jab bar bar
+              workarounds dikhein, poocho:{" "}
+              <Strong>&ldquo;approved way ko unsafe way se harder
+              kya bana raha hai?&rdquo;</Strong> Ye ek fix, doosri
+              reminder email se zyada risk kam kar sakta hai.
             </P>
             <SubHeading>Agar Koi AI Policy Nahi Hai</SubHeading>
             <P>
-              Apni khud ki policy invent kar ke official ki tarah present
-              mat karo. Sahi owner ke liye ek interim proposal banao:
+              Apni khud ki policy invent kar ke official ki tarah
+              present mat karo. Sahi owner ke liye ek interim proposal
+              banao:
             </P>
             <CheckList
               items={[
@@ -660,17 +666,17 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
               Model ya model family, feature ya retention behaviour,
               connector/Skill/permission/action, data type, outside
               content ka source, audience, error ki consequence, law/
-              policy/contract/vendor terms, in mein se koi badle to
+              policy/contract/vendor terms, in mein se koi bhi badle to
               Governance Record dobara check karo. &ldquo;Pichle saal
-              approved tha&rdquo; review skip karne ki wajah nahi hai agar
-              jo approve hua tha wo ab wahi cheez nahi rehi.
+              approved tha&rdquo; review skip karne ki wajah nahi hai
+              agar jo approve hua tha wo ab wahi cheez nahi rahi.
             </P>
           </Reveal>
 
           <Reveal>
             <SubHeading>One-Minute Checklist</SubHeading>
             <RecapTable
-              head={["Sawal", "Quick Check", "Middle Answer Ke Liye"]}
+              head={["Sawal", "Quick Check", "Beech Wale Jawab Ke Liye"]}
               rows={[
                 ["Case", "Kya AI ye task responsibly kar sakta hai?", "Defined human gate: who/what/when"],
                 ["Data", "Kya ye information is route se ja sakti hai?", "Ek control, data minimisation, ya confirmed approved route"],
@@ -679,9 +685,9 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
               ]}
             />
             <Callout label="Aakhri Sawal">
-              &ldquo;Pichli baar jab hamne ye decide kiya theek hai, tab
-              se kya badla?&rdquo; Agar kuch nahi, aage badho. Agar kuch
-              material badla, relevant block dobara check karo.
+              &ldquo;Pichli baar jab humne ye theek decide kiya tha,
+              tab se kya badla?&rdquo; Agar kuch nahi, aage badho. Agar
+              kuch material badla, wo relevant block dobara check karo.
             </Callout>
           </Reveal>
         </section>
@@ -697,7 +703,7 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <CheckList
               items={[
                 "4 sawal: The Case (kya AI kar sakta hai), The Data (kya andar ja sakti hai), The Capability (kya on karna hai), The People (kya kisi ko unfairly affect karega)",
-                "Har sawal ke 3 jawab hain, middle wala hamesha ek commitment maangta hai: reviewer, control, ya route ka naam",
+                "Har sawal ke 3 jawab hain, beech wala hamesha ek commitment maangta hai: reviewer, control, ya route ka naam",
                 "Ek defined gate who/what/when form mein likha jata hai, \"human review karega\" ek gate nahi hai",
                 "Data ke liye: pehle classify karo, phir poocho identifiers chahiye ya sirf pattern, phir route confirm karo",
                 "Ek Skill ki apni permission list nahi hoti, wo session ki poori reach ke sath chalti hai, isliye source/reach/fit check karo",
@@ -717,9 +723,9 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <SubHeading>Ab Khud Try Karo: Apna Governance Record Banao</SubHeading>
             <P>
               Ek real workflow chuno jo aap own ya influence karte ho,
-              jahan AI already help karta hai ya jald karega. Fictional ya
-              already-approved example use karo, koi confidential material
-              is exercise ke liye paste mat karo.
+              jahan AI already help karta hai ya jald karega. Fictional
+              ya already-approved example use karo, koi confidential
+              material is exercise ke liye paste mat karo.
             </P>
             <Ladder
               steps={[
@@ -733,7 +739,8 @@ export default function GovernanceRiskResponsibleUseChapterPage() {
             <Callout label="Ehtiyat" tone="warn">
               AI assistant se apni reasoning challenge karwao, approve
               mat karwao. Ek AI assistant aapka policy owner, security
-              reviewer, compliance function, ya final authority nahi hai.
+              reviewer, compliance function, ya final authority nahi
+              hai.
             </Callout>
           </Reveal>
         </section>
@@ -777,11 +784,11 @@ THE EVIDENCE
 RE-CHECK IF: model, feature, data, audience, permission, policy,
 vendor term, or business consequence changes.`}</PromptBox>
             <Callout label="Aakhri Kadam">
-              Record us insaan ko bhejo jo workflow, policy, ya risk ka
-              owner hai: &ldquo;Ye main is workflow ko chalane ka propose
-              kar raha hoon, approval, data route, reviewer, ya control ke
-              baare mein koi assumption correct kar dein.&rdquo; Goal har
-              harmless task pe signature lena nahi hai, non-obvious
+              Ye record us insaan ko bhejo jo workflow, policy, ya risk
+              ka owner hai: &ldquo;Main is workflow ko chalane ka
+              propose kar raha hoon, approval, data route, reviewer,
+              ya control ke baare mein koi assumption correct kar dein.&rdquo;
+              Goal har harmless task pe signature lena nahi hai, non-obvious
               assumptions ko incident banne se pehle visible decisions
               banana hai.
             </Callout>
@@ -797,10 +804,10 @@ vendor term, or business consequence changes.`}</PromptBox>
               head={["Term", "Matlab"]}
               rows={[
                 ["Delegation criteria", "4 screens jo decide karte hain AI ye kaam kare ya nahi: reversibility, consequence of error, human judgment/empathy, accountability"],
-                ["Appropriate with review", "AI kaam kar sakta hai, lekin use hone se pehle ek specific human gate chalni chahiye"],
+                ["Human review ke sath appropriate", "AI kaam kar sakta hai, lekin use hone se pehle ek specific human gate chalni chahiye"],
                 ["Defined gate", "Ek review jo who, what, aur when naam leta hai"],
                 ["Deciding factor / load-bearing criterion", "Wo factor jo classification ko actually carry kar raha hai"],
-                ["Accountability", "Jawab kaun deta hai, ye kabhi tool ko transfer nahi hoti"],
+                ["Accountability", "Jawab kaun deta hai, ye kabhi kisi tool ko transfer nahi hoti"],
                 ["Diligence", "AI Fluency Framework ki competency, AI use ke liye responsibility lena, team scale pe iska matlab audit karna ke log actually kya kar rahe hain"],
                 ["Diligence gap", "Policy jo maangti hai aur log actually jo karte hain, uske darmiyan ka faasla, yahin risk rehta hai"],
                 ["Data tier", "Information handle karne ki simple classification (green/yellow/red)"],
@@ -812,7 +819,7 @@ vendor term, or business consequence changes.`}</PromptBox>
                 ["The five checks", "Source, reach, fit, outside content, actions, Skill/connector/tool trust check karne ke liye"],
                 ["Prompt injection", "Malicious ya misleading instructions jo content ke andar hon (webpage, email, document) aur AI ko steer karne ki koshish karein"],
                 ["Least privilege", "Ek insaan, service, ya agent ko sirf utni access dena jitni task ke liye chahiye"],
-                ["Shadow AI", "Work data jo un AI tools/accounts se guzarta hai jo organisation ne kabhi approve nahi kiye"],
+                ["Shadow AI", "Work data jo un AI tools/accounts se guzarta hai jo organisation ne kabhi approve nahi kiya"],
                 ["Residual risk", "Jo abhi bhi galat ho sakta hai jab planned controls apni design ke hisab se kaam karein"],
                 ["Governance Record", "Ek workflow ke Case, Data, Capability, People, evidence, owner, aur re-check triggers ka one-page summary"],
               ]}
@@ -855,15 +862,15 @@ vendor term, or business consequence changes.`}</PromptBox>
               {[
                 {
                   q: "Ek team chahti hai Claude benefits eligibility ke final, unreviewed determinations banaye. Ye classification kya hogi, aur kyun?",
-                  a: "Inappropriate. Consequence applicant ke liye irreversible hai, aur ek determination ki professional accountability kisi tool ko transfer nahi ho sakti. \"Light human review\" ek undefined gate hai, reassuring adjective ke sath.",
+                  a: "Inappropriate. Consequence applicant ke liye irreversible hai, aur ek determination ki professional accountability kisi tool ko transfer nahi ho sakti. \"Light human review\" ek undefined gate hai, sirf reassuring lafzon ke sath.",
                 },
                 {
-                  q: "Ek brief kehta hai shortlisting workflow \"appropriate with human review\" hai. 6 hafte baad kisi ne kuch review nahi kiya. Kya galat hua?",
-                  a: "Gate kabhi define hi nahi hui, koi role, koi specific check, koi point nahi tha. Label record hua lekin koi control kabhi bana hi nahi, isliye ye chupke se fully appropriate ki tarah chal raha hai.",
+                  q: "Ek brief kehta hai shortlisting workflow \"human review ke sath appropriate\" hai. 6 hafte baad kisi ne kuch review nahi kiya. Kya galat hua?",
+                  a: "Gate kabhi define hi nahi hui, koi role, koi specific check, koi point nahi tha. Label record ho gaya lekin koi control kabhi bana hi nahi, isliye ye chupke se fully appropriate ki tarah chal raha hai.",
                 },
                 {
                   q: "Client ke liye condolence note likhwana fully reversible hai, koi cost nahi, koi regulatory weight nahi. Phir bhi ye insaan ko karni chahiye, ye criteria se contradict kyun nahi karta?",
-                  a: "4 criteria interact karte hain, ek scorecard nahi hain jahan 3/4 jeet jaye. Yahan human-element criterion akela poori decision carry kar sakta hai chahe baaki 3 doosri taraf point karein.",
+                  a: "4 criteria interact karte hain, ye ek scorecard nahi hai jahan 3/4 jeet jaye. Yahan human-element criterion akela poori decision carry kar sakta hai, chahe baaki 3 doosri taraf point karein.",
                 },
                 {
                   q: "Ek analyst ke paas customer names aur account numbers wali spreadsheet hai, task spending trends dhoondna hai, policy regulated personal data restrict karti hai. Sahi action kya hai?",
@@ -875,10 +882,10 @@ vendor term, or business consequence changes.`}</PromptBox>
                 },
                 {
                   q: "Ek hiring coordinator AI se résumés screen kar ke shortlist banati hai aur usay \"qualifying candidates\" bol kar forward karti hai. Manager sirf unhi se interview karta hai. Ye kaunsi concern sabse direct raise karti hai?",
-                  a: "Bias/fairness. Screen kisi group ko systematically disadvantage kar sakta hai bina kisi human review ke exclusions ki, aur sirf jo exclude huay unhi ko pata chal sakta tha, aur unhe kabhi bataya hi nahi gaya.",
+                  a: "Bias/fairness. Screen kisi group ko systematically disadvantage kar sakta hai bina kisi human review ke exclusions ki, aur ye sirf jo exclude huay unhi ko pata chal sakta tha, aur unhe kabhi bataya hi nahi gaya.",
                 },
                 {
-                  q: "Ek quarterly review dikhata hai team members draft client deliverables personal Claude accounts mein paste kar rahe hain kyunke approved workspace login mein slow hai. Ye kya represent karta hai?",
+                  q: "Ek quarterly review dikhata hai team members draft client deliverables personal Claude accounts mein paste kar rahe hain kyunki approved workspace login mein slow hai. Ye kya represent karta hai?",
                   a: "Ek Diligence gap. Friction approved path ko unapproved se harder bana raha hai, isliye log easy route dhoond lete hain. Fix friction hatana hai, banning ya disciplinary action nahi.",
                 },
                 {
