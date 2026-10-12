@@ -23,7 +23,9 @@ This project runs **Next.js 16.2.7** + **React 19.2.4** + **Tailwind CSS v4** + 
 - **Founder/CEO:** Ahmed Raza (solo founder operating as an **orchestrator of an agentic AI workforce**)
 - **Founded:** December 2025
 - **What it does:** AI solutions — automation & AI agents, custom chatbots/assistants, web development
-- **Model:** Services only (no products yet — keep a hidden/"Coming Soon" placeholder in structure)
+- **Model:** Services **plus two products** (as of October 2026):
+  - **CS Chatbot**: paid AI chatbot for websites and WhatsApp, PKR plans, runs at `chatbot.cybrumsolutions.dev`; page `/products/chatbot`.
+  - **NicheSpark**: free Chrome extension for Google Autocomplete keyword research (A to Z, prefix, suffix, templates; CSV/JSON export; data stays in the browser). Live on the Chrome Web Store (`chromewebstore.google.com/detail/nichespark/mfkjoekmjfphffamabelfngbonnjdgep`), own site `nichespark.tech`; page `/products/nichespark`. Its own brand is emerald/ink-green (askSEO palette) — on this site it is shown in the Cybrum blue theme.
 - **Brand name story (elemental, the chosen one):** **Cybrum = "Cyber" + the suffix "-um"** (as in quantum, spectrum, forum). The suffix names a single foundational element, so Cybrum = the core building block of the intelligent digital world; for a client, the element that turns scattered tools and tasks into one intelligent system. **Company tagline (locked):** "One element. Every solution." (the element story pays off in this line; it is the single source-of-truth slogan in `site.ts`). Brand story closing line in the About section: "Cybrum Solutions: one element, every solution." NOTE: the old "Cyber + Brain / digital brain" story was rejected by Ahmed (he created Cybrum from "Cyber"); do not reintroduce it.
 
 ### Positioning (non-negotiable framing)
@@ -91,10 +93,10 @@ The site converted from a single-page scroll to a **multi-page structure** (Ahme
 6. **Work** — top 3 projects + "View all" → /work
 7. **Testimonials** — client reviews
 8. **About teaser** — founder photo + short story + "Read our story" → /about
-9. **Products** — hidden / "Coming Soon" placeholder (structure only)
+9. **Products** — CS Chatbot featured (copy + animated widget preview), with a compact NicheSpark card below it ("Also from Cybrum")
 10. **CTA band** (`id="contact"` for legacy /#contact anchors) → /contact
 
-**Dedicated routes:** `/services` + `/services/[slug]` (3 pages), `/work`, `/blog` (+ posts, langs), `/skills` (+ slugs), `/about` (full founder profile, stats, name story, values), `/contact` (gated AI Audit form + channels + Proof strip + FAQ with FAQPage schema), `/ai-automation-karachi`, `/ai-agency-pakistan`. All in sitemap with per-page metadata + breadcrumb JSON-LD.
+**Dedicated routes:** `/services` + `/services/[slug]` (3 pages), `/products/chatbot`, `/products/nichespark`, `/work`, `/blog` (+ posts, langs), `/skills` (+ slugs), `/about` (full founder profile, stats, name story, values), `/contact` (gated AI Audit form + channels + Proof strip + FAQ with FAQPage schema), `/ai-automation-karachi`, `/ai-agency-pakistan`. All in sitemap with per-page metadata + breadcrumb JSON-LD. Page titles must NOT include "Cybrum Solutions": the root layout template already appends " · Cybrum Solutions" (OpenGraph/Twitter titles are not templated).
 
 ### Approved hero copy (starting point)
 - Headline: *"AI agents and automation that do the work, not just the demo."*

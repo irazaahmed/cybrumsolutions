@@ -7,6 +7,10 @@ import { Reveal } from "@/components/ui/Reveal";
 /** The product runs on its own subdomain; the homepage teaser links out to it. */
 const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
+/** NicheSpark, the second product: a free Chrome extension on the Chrome Web Store. */
+const NICHESPARK_STORE =
+  "https://chromewebstore.google.com/detail/nichespark/mfkjoekmjfphffamabelfngbonnjdgep";
+
 const highlights = [
   "Answers only from your content, with sources",
   "Website and WhatsApp — two equal channels, your choice",
@@ -20,6 +24,7 @@ const highlights = [
  * Products section: features CS Chatbot, the first packaged product.
  * A mini widget-style chat preview animates on the right; copy and CTAs on
  * the left link to the dedicated /products/chatbot page and the live app.
+ * Below it, a compact card introduces NicheSpark (/products/nichespark).
  */
 export function Products() {
   return (
@@ -131,6 +136,40 @@ export function Products() {
           </div>
         </Reveal>
       </div>
+      {/* Second product: NicheSpark */}
+      <Reveal className="mx-auto mt-16 max-w-5xl">
+        <div className="glass flex flex-col gap-6 rounded-2xl p-6 sm:p-8 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-bright">
+              Also from Cybrum · Free Chrome extension
+            </span>
+            <h3 className="mt-3 font-heading text-2xl font-semibold tracking-tight">NicheSpark</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+              Keyword research from real Google Autocomplete suggestions: A to Z, prefix and
+              suffix methods, saved and deduplicated automatically, with CSV export. No
+              account, and your data stays in your browser.
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
+            <a
+              href={NICHESPARK_STORE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-sheen inline-flex h-11 items-center justify-center gap-2 rounded-full bg-accent px-5 text-sm font-medium text-white transition-all duration-300 hover:bg-accent-bright hover:shadow-[0_0_36px_-6px_var(--color-accent)]"
+            >
+              Add to Chrome
+              <ExternalLink size={14} />
+            </a>
+            <Link
+              href="/products/nichespark"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border bg-surface/60 px-5 text-sm font-medium text-foreground transition-colors hover:border-accent"
+            >
+              Learn more <span className="sr-only">about NicheSpark</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </Reveal>
     </Section>
   );
 }

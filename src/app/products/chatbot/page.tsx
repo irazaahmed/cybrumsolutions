@@ -16,7 +16,8 @@ const baseUrl = site.url;
 const APP_URL = "https://chatbot.cybrumsolutions.dev";
 
 export const metadata: Metadata = {
-  title: "CS Chatbot: AI Chatbot for Your Website and WhatsApp | Cybrum Solutions",
+  // The root layout's title template appends " · Cybrum Solutions".
+  title: "CS Chatbot: AI Chatbot for Your Website and WhatsApp",
   description:
     "CS Chatbot is an AI chatbot for your website and your own WhatsApp number — two equal channels — that answers only from your own content, cites its sources, and captures leads in English, Urdu, or Roman Urdu. PKR pricing, live in minutes. Try it free on your own site first.",
   keywords: [
